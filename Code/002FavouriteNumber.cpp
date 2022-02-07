@@ -9,12 +9,12 @@
   No really!!, 24 is my favorite number!
 */
 
-#include <iostream>
+#include <iostream> // inputs and outputs (cin, cout)
 
 int main(){
   int favorite_number; // variable declaration
   std::cout << "Enter your favorite number between 1 to 100: ";
   std::cin >> favorite_number;
-  std::cout << "Amazing!! " <<favorite_number<<" is my favorite number too" << std::endl; 
+  std::cout << "Amazing!! That's my favorite number too!" << std::endl << "No really!!, " << favorite_number << " is my favorite number!" << std::endl;
   return 0;
 }
