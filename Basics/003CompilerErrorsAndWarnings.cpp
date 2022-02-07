@@ -1,6 +1,7 @@
 // Syntax Error
 // Semantic Error
 // Compiler Warnings: The compiler has recognized an issue with your code, the only warning is because the compiler is still able to generate correct machine code. OBS!! Do not ignore- try to correct it
+// Linker Errors
 
 #include <iostream>
 
