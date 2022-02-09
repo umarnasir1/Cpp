@@ -1,5 +1,5 @@
 /*
-  3. Qualified using namespace variant.
+  3. Qualified using namespace variant. (best practice)
 
   Create a C++ program that asks the user for their favourite number between 1and 100.
   Then read this number from the console
