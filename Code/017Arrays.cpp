@@ -78,5 +78,7 @@ int main(){
 
   cout << "The first high temprature is now : " <<hi_temps[0] << endl;
 
+  cout << hi_temps[5] << endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is one of the advantages of vectors. There will be warning but no error. 
+
   return 0;
 }
