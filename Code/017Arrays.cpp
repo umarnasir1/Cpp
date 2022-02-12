@@ -10,7 +10,7 @@ using std::endl;
 
 int main(){
 
-  // Array declaration & initialization
+  // Array Declaration & Initialization
 
   int test_scores [5] {100, 95, 99, 87, 88};
 
@@ -22,6 +22,10 @@ int main(){
   int test_scores1 [5] {}; // initilize all to zero
 
   int another_arry [] {1,2,3,4,5}; // size automatically calculated by compiler based on the # of elements in the initializer list.
+
+  // Illegal declaration
+  // int numbers [0]; // is not legal since it declares an array with no size
+  // double 5numbers[5]; is not legal since the array name is not a legal identifier (identifiers cannot start with a digit)
 
   //test_scores[0]; also called array subscripting.
 
