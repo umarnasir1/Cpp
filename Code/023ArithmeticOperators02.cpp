@@ -1,5 +1,5 @@
 /*
-  Assignment Statement 02
+  Arithmetic Operators 02
 */
 
 #include <iostream>
@@ -35,7 +35,7 @@ int main(){
   //-- Take the modulus 3 (%) of number and assign it back to number
   number = number % 3;
 
-  cout << "Value of number: " << number << endl; 
+  cout << "Value of number: " << number << endl;
 
   // Method 2:
   //The following is also a valid solution
