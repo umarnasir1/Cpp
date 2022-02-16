@@ -21,6 +21,8 @@ int main(){
   cout << num1 << " >= " << num2 << " : " << (num1 >= num2) << endl;
   cout << num1 << " < " << num2 << " : " << (num1 < num2) << endl;
   cout << num1 << " <= " << num2 << " : " << (num1 <= num2) << endl;
+  cout << num1 << " <=> " << num2 << " : " << (num1 <= num2) << endl; // -std=c++2a in C++ Compiler Options
+  // <=> three-way comparision C++20 - This operator compares two expressions and evaluates to zero if they're equal, less than zero if the left-hand side is greater than the right-hand side and greater than zero if the right-hand side is greater than the left-hand side
 
   // Example 2
   const int lower {10};
