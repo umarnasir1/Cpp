@@ -26,5 +26,9 @@ int main(){
   a %= 3; // a = a % 3;
   cout << "a %= 3: " << a << endl;
 
+  int amount {100};
+  amount += amount * 2;
+  cout << amount << endl;
+
   return 0;
 }
