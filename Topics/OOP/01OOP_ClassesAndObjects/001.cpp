@@ -71,16 +71,41 @@ int main(){
   Player *enemy = new Player(); // creating pointer to object - Here, a pointer to a player object - ememy is declared and that object is dynamically created on the heap using new.
   delete enemy; // When I'm finished using enemy object, its storage has to be freed up using delete.
 
-  // E.g
+  // *******************************************************************************
+  // E.g 2
   class Account {
     // attributes
-    std::string name;
-    double balance;
+    std::string name; // name of account
+    double balance; // account balance
 
     // methods
-    bool withdraw (double amount);
-    bool deposit (double amount);   
+    bool withdraw (double amount); // expects the amount amount to withdraw and returns a boolean indicating success.
+    bool deposit (double amount); // expects amount to deposit and returns a Boolean indicating success.
   };
+
+  // Creating Objects - instances of account class
+  Account frank_account;
+  Account jim_account;
+
+  // Marys account is a pointer to an  account object that has been allocated dynamically on the heap and then freed up when we are done with it.
+  Account *mary_account = new Account();
+  delete mary_account;
+
+  // Once we have objects, we can use them like any other variable in C++
+  Account accounts [] {frank_account, jim_account}; // creating array of account object and initilize it to Frannks account and Jims account.
+
+  std::vector <Account> accounts1 {frank_account}; // creating a standard vector of account objects and initialize it to Frank's account
+  accounts1.push_back(jim_account); // pushing back Jims account.
+
+
+
+  We're using our own user-defined types, and we're using them intuitively
+  like we've used other c++ types.
+
+
+  In the next video, we'll see the syntax for accessing the attributes
+and methods and objects.
+
 
 
   return 0;
