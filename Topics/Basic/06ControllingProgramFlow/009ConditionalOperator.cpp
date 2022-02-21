@@ -5,7 +5,6 @@
     conditional expression is evaluated first to a boolean expression
       if cond_expr is true then the value of expr1 is returned
       if cond_expr is false then the value of expr2 is returned
-
 */
 
 #include <iostream>
