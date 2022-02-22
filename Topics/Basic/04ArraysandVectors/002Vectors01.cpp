@@ -20,7 +20,7 @@ using std::endl;
 int main(){
 
   // Declaring Vectors
-  std::vector <char> vowels; // create emply vector with no elements.
+  std::vector <char> vowels; // create emply vector with no elements - vectors are automatically initilized.
 
   // another way of vector declaration
   std::vector <char> vowels1 (5); // 5 elements, all initialized to 0
@@ -98,7 +98,7 @@ int main(){
 
   // 2D Vector - Vector of vectors
   // reviewer-rows ; movie reviews -cols
-  std::vector <std::vector<int>> movie_ratings{
+  std::vector <std::vector<int>> movie_ratings{  // vector <vector<int>> 
     {1, 2, 3, 4},
     {1, 2, 4, 4},
     {1, 3, 4, 5}
