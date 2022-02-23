@@ -1,9 +1,13 @@
 /*
   136. What are classes and objects?
   137. Declaring a Class and Creating Objects
+
+  We're using our own user-defined types (classes), and we're using them intuitively like we've used other c++ types (int, double).
 */
 
 #include <iostream>
+#include <string>
+#include <vector>
 
 using std::cout;
 using std::cin;
@@ -96,16 +100,5 @@ int main(){
 
   std::vector <Account> accounts1 {frank_account}; // creating a standard vector of account objects and initialize it to Frank's account
   accounts1.push_back(jim_account); // pushing back Jims account.
-
-
-
-  We're using our own user-defined types, and we're using them intuitively
-  like we've used other c++ types.
-
-
-  In the next video, we'll see the syntax for accessing the attributes
-and methods and objects.
-
-
 
   return 0;
