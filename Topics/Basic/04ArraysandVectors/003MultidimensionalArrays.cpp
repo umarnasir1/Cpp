@@ -6,6 +6,13 @@
 
   Either We could declaring three arrays of four integers each or use Multi-dimensional array.
   Multi-Dimentional array - similar to layout of a spread sheet.
+
+  With 2D vector, we can allow each vector within the vector 2D to be of different size. E.g., 
+  vector <vector <int>> vector_2d {
+    {1, 2, 3},
+    {10, 20, 30, 40},
+    {100, 200, 300, 400, 500}
+  };
 */
 
 #include <iostream>
@@ -31,7 +38,7 @@ int main(){
   // Accessing array elements in multi-dimensional arrays
   cout << "Enter rating for Reviewer 0; Movie 0: ";
   cin >> movie_rating [0][0];
-  cout << "====================================" << endl; 
+  cout << "====================================" << endl;
   cout << "Revier 0 reviewd movie 0 as as : " << movie_rating [0][0] << endl;
   cout << "Revier 0 reviewd movie 1 as as : " << movie_rating [0][1] << endl;
   cout << "Revier 0 reviewd movie 2 as as : " << movie_rating [0][2] << endl;
