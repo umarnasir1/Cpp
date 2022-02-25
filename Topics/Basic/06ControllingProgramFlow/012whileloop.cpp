@@ -4,6 +4,7 @@
   while (expression) // if more than one statement then block {}
     statement;
 
+  if block {} is not added and more than one statments then only first statement will be considered part of loop
 */
 
 #include <iostream>
@@ -129,6 +130,14 @@ int main (){
   }
 
   cout << "Number of elements : " << count << endl;
+
+  // ---- Eg. 10
+  // while loop with using {}
+  // this will be infite loop and the decement will be considered outside the loop and the loop will get stick in infinite loop. 
+  int num = 10;
+  while (num >= 1)
+     cout << num << " ";
+     num--;
 
   return 0;
 }
