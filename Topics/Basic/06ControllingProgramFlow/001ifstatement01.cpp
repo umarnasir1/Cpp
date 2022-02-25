@@ -1,8 +1,22 @@
 /*
   if statement
-  
+
   if (control expr) //must evaluate to a boolean value; if the value of expr is true, the statement is executed otherwise skipped
     statement1;
+
+  if (control expr){ // if more than one statement then block; if {} not used and more than one statemenets then only first statement would be considered as part of if and the other will not.  (eg. 3)
+    statement 1;
+    statement 2;
+  }
+  -------------
+  The ; at the end of the if statement means that there is an empty statement in the body of the if. E.g.,
+  if (condition) ;
+  is the same as
+  if (condition)
+      ;
+  Which means that if the condition is true, do nothing.
+  This is shown in eg. 2
+  -----
 
   // Block statement - if more than one statement - block statement (A block statement is a sequence of statements inside a block which is made up of opening and closing curly brackets.). E.g.,
   if (num > 10) {
@@ -28,6 +42,8 @@ using std::endl;
 int main(){
 
   int num {};
+
+  // Eg. 01
   // setting boundries
   const int min {10};
   const int max {100};
@@ -65,6 +81,37 @@ int main(){
     cout << "\n================== if statement 4 ==================" << endl;
     cout << num << " is right on the boundry " << endl;
   }
+
+  // Eg. 02 - if (condition);
+  /*
+  Enter a temperature: 70
+  It's cold!
+  It's hot!
+  as   if (temperature < 50); so cout will execute and then next if condition will execute. more explanition up.
+  */
+  int temperature;
+  cout << "Enter a temperature: ";
+  cin >> temperature;
+  if (temperature < 50);
+     cout << "It's cold!" << endl;
+  if (temperature > 50)
+     cout << "It's hot!" << endl;
+  else
+     cout << "Maybe it's raining?";
+
+  // Eg. 03 - if more than one statement then always use {} block otherwise we will see unexpected results. Just first statement will be considered part of if and other two will print if the condition is not meet
+  /*
+  Enter your favorite number: 20
+  That's amazing!
+  Great minds think alike!
+  */
+  int favorite;
+  cout << "Enter your favorite number: ";
+  cin >> favorite;
+  if (favorite == 13)
+     cout << "That my favorite number too!" << endl;
+     cout << "That's amazing!" << endl;
+     cout << "Great minds think alike!" << endl;
 
   return 0;
 }
