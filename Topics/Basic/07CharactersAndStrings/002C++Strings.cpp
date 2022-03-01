@@ -59,6 +59,7 @@ int main(){
   cout << s12 << " > " << s11 << " : " << (s12 > s11) << endl;   //true
   cout << s14 << " < " << s15 << " : " << (s14 < s15) << endl;   //False  - A comes before a in ASCII
   cout << s11 << " == " << "Apple" << " : " << (s11 == "Apple") << endl; //true - "Apple" is a C-style sting literal and C-style literal is convereted to an object and then we do object to object comparision.
+  // ASCII table ye
 
 
   // Assigning values - using assignment operator =
@@ -192,7 +193,6 @@ int main(){
   else
     cout << "Sorry, " << word << " not found" << endl;
 
-
   // clear() method
   // clear() - removing entire string of characters
   cout << "\nclear" << "\n-----------------------------------------" << endl;
@@ -211,7 +211,24 @@ int main(){
 
   formatted_full_name.insert(6, " "); //inset space at index 6
 
-  cout << "Formatted string :" << formatted_full_name << endl; 
+  cout << "Formatted string :" << formatted_full_name << endl;
+
+  // swap ()
+  cout << "\nswap()" << "\n-----------------------------------------" << endl;
+
+  // program that will be used in a digital library to format and sort journal entries based on the authors last name. Each entry has room to store only the last name of the author.
+
+  string journal_entry_1 {"Isaac Newton"};
+  string journal_entry_2 {"Leibniz"};
+
+  // removing the first name of Isaac Newton along with white space.
+  journal_entry_1.erase(0,6); // Newton
+
+  // Alphabetically sorting
+  if (journal_entry_2 < journal_entry_1) // 1 - as L is smaller than N in ASCII table lexically.
+    journal_entry_2.swap(journal_entry_1); // it will swap strings such that journal_entry_1 will be Leibniz and journal_entry_2 will become Newton.
+
+  cout << journal_entry_1 << "\n" << journal_entry_2 << endl;
 
   return 0;
 }
