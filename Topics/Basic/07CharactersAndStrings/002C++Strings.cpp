@@ -21,7 +21,7 @@ int main(){
   string s2 {"Bjarne"};    // Bjarne - c-style literal will be converted into C++ stirng.
   string s3 {s2};          // Bjarne - a copy of s2 will be created but in different area of memory.
   string s4 {"Bjarne", 3}; // Bja - using first three characters
-  string s5 {s3, 0, 2};    // Bj - first integer is starting index, and second integer is length, i.e., 0 to 1
+  string s5 {s3, 0, 2};    // Bj - when initializing from another string, the first integer represents starting index, and second integer is length of the substring, i.e., 0 to 1
   string s6 (3, 'X');      // XXX - initialize string to a specific number of a specific character. This used a constructor syntax ().
 
   // cout << s1 << endl; //automatically initialize to zero (no garbage) like vectors in modern C++ with length 0
@@ -199,6 +199,19 @@ int main(){
   cout << "Value of str1 is :" << str1 << endl;
   str1.clear(); // empties string str1
   cout << "Updated value of str1 is : " << str1 << endl;
+
+  // insert()
+  cout << "\ninsert" << "\n-----------------------------------------" << endl;
+  string unformatted_full_name {"BjarneStroustrup"};
+
+  string first_name {unformatted_full_name, 0, 6}; // Bjarne
+  string last_name = unformatted_full_name.substr(6, 10); // Stroustrup
+
+  string formatted_full_name = first_name + last_name; // BjarneStroustrup
+
+  formatted_full_name.insert(6, " "); //inset space at index 6
+
+  cout << "Formatted string :" << formatted_full_name << endl; 
 
   return 0;
 }
