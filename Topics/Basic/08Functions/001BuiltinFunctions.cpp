@@ -4,7 +4,6 @@
   Calling a function;
   function_name (argument);
   function_name (argument1, argument2, ...);
-
 */
 
 #include <iostream>
@@ -45,7 +44,33 @@ int main (){
   cin >> power;
   cout << num << " raised to the " << power << " power is: " << pow(num, power) << endl;
 
-  // E.g 2 - Random numbers
+
+  // E.g 2
+  // In this excercise, a program is created that will be used as a POS (point of sales) system in a restaurant. The 5 guests will be splitting the bill evenly. The POS will used in three different locatioins, each with different guidelines for pricing bills.
+  // At location 1, individual_bill_1 always rounds down to the nearest dollar.
+  // At location 2, individual_bill_2 always rounds to the nearest dollar.
+  // At location 3, individual_bill_3 always rounds up to the nearest cent.
+
+  double bill_total {102.78};
+  int number_of_guests {5};
+
+  double individual_bill {bill_total/number_of_guests};  // 20,556
+
+  double individual_bill_1 {floor(individual_bill)};
+  double individual_bill_2 {round(individual_bill)};
+  double individual_bill_3 {ceil(individual_bill*100)/100}; // rouding to nearest cent thats why * 100 and later divide the result by 100. (explanition below)
+
+  /*
+  individual: 20.556
+  individual * 100: 2055.6 // cents
+  ceil(individual * 100): 2056 // cents
+  ceil(individual * 100)/100: 20.56 //$
+  */
+
+  cout << "The individual bill at location 1 will be $" << individual_bill_1 << "\n" << "The individual bill at location 2 will be $" << individual_bill_2 << "\n" << "The individual bill at location 3 will be $" << individual_bill_3 << endl;
+
+
+  // E.g 3 - Random numbers
   int random_number{};
   size_t count {10}; // number of random numbers to generate
   int min {1}; // lower bound (inclusive) 1-6 as we are modelling dice
