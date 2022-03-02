@@ -85,9 +85,9 @@ int main (){
   // if we dont seed the random number generator and comment srand(time(nullptr)); then we will get same numbers each time we run the program so we get random numbers but with same sequence as with previous run so seeding is very important .
 
   for (size_t i {1}; i <= count; ++i){
-    random_number = rand() % max + min; // generate a random number [min, max] -
+    random_number = rand() % (max - min + 1) + min; // generate a random number [min, max]
     // rand () will generate random numbers between 0 - RAND_MAX
-    // rand() % max will scale the result down and return 0,1,2,3,4,5 and adding min (i.e, 1) will make range 1 -6
+    // rand() % (max - min + 1) will scale the result down and return [0 - (max-min)] i.e, 0,1,2,3,4,5 and adding min (i.e, 1) will make range [1 -6]; the (max-min+1), the +1 is to couter for 0 as range will be [0 - max-1]
     cout << random_number << endl;
   }
 
