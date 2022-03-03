@@ -44,6 +44,8 @@ using std::endl;
 // Function Prototype
 void say_hello ();
 
+void say_hello1 (std::string name);
+
 double calc_area_circle (double radius);
 double calc_volume_cylinder (double radius, double height);
 void area_circle();
@@ -53,9 +55,15 @@ const double pi {3.14159};
 
 int main (){
 
+  // function call
   say_hello(); // Ok - since it matches the prototype
 //  say_hello(100); // Compiler Error - as we have entered paramenter but in prototype there is no parameter
 //   cout << say_hello(); // Error - no return value - as function call is within output statement and the function prototype says that the function doesnt return anything
+
+  say_hello1("Bjarne");
+
+  std::string my_dog {"Buster"};
+  say_hello1(my_dog); // passing a variable as argument
 
   area_circle();
   volume_cylinder();
@@ -66,6 +74,10 @@ int main (){
 // Function Definition
 void say_hello (){
   cout << "Hello" << endl;
+}
+
+void say_hello1 (std::string name){
+  cout << "Hello " << name << endl;
 }
 
 double calc_area_circle (double radius){
