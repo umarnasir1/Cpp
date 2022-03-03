@@ -55,7 +55,7 @@ double calc_area_circle (double radius){
 
 double calc_volume_cylinder (double radius, double height){
 //    return pi * radius * radius * height;
-  return calc_area_circle(radius) * height; // reusing the calc_area_circle function
+  return calc_area_circle(radius) * height; // reusing the calc_area_circle function - the function should be defined before it is used or it should be prototyped.
 }
 
 void area_circle(){
