@@ -17,10 +17,14 @@
 
   There is will be problem if we gave default arguments to both display(int) and display(double) as now compiler cant figure out which one to use and will give compiler error
 
+  Eg. 3 Calculating Area
+  a program that computes the area of two shapes, a square and a rectangle.
 */
+
 #include<iostream>
 #include<string>
 #include<vector>
+#include<cmath>
 
 using std::cout;
 using std::endl;
@@ -38,13 +42,16 @@ void display (string s, string t);
 void display (vector <int> v);
 void display (vector <string> v); // expects vector of string object
 
+int find_area(int side_length);
+double find_area(double length, double width);
+
 int main(){
 
   cout << "------------ Eg. 01 ------------------------------" << endl;
   cout << add_numbers (10, 20) << endl; // integer
   cout << add_numbers (10.0, 20.0) << endl; // double
 
-  cout << "------------ Eg. 02 ------------------------------" << endl;
+  cout << "\n------------ Eg. 02 ------------------------------" << endl;
   display(100); // 100
   display('A'); // character is always promoted to int (As there is no overloaded fucntion that expects a character), so it will display (int num) fucntion and it should print 65 which is ASCII code for 'A'.
   display(123.5); //  double
@@ -62,6 +69,13 @@ int main(){
 
   vector <string> three_stooges {"Larry", "Moe", "Curly"};
   display(three_stooges);
+
+  cout << "\n------------ Eg. 03 ------------------------------" << endl;
+  int square_area {find_area(2)};
+  double rectangle_area {find_area(4.5, 2.3)};
+
+  cout << "Area of square: " << square_area << endl;
+  cout << "Area of rectangle : " << rectangle_area << endl;
 
   return 0;
 }
@@ -103,4 +117,12 @@ void display (vector <string> v){
   for (auto s: v)
     cout << s + " ";
   cout << endl;
+}
+
+int find_area (int side_length) {
+  return pow(side_length, 2); // return side_length * side_length;
+}
+
+double find_area (double length, double width){
+  return length*width;
 }
