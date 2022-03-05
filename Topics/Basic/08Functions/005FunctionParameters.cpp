@@ -75,7 +75,7 @@ void pass_by_value3(vector <string> v){
   v.clear(); // delete all vector elements
 }
 
-void print_vector(vector <string> v){
+void print_vector(vector <string> v){ // for integer vector, it would be same void print(vector <int> v)
   for (auto s: v)
     cout << s << " ";
   cout << endl;
