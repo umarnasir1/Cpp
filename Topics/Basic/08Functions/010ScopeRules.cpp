@@ -11,6 +11,7 @@ using std::endl;
 void local_example (int x);
 void global_example ();
 void static_local_example();
+void func(int x, int y, int z);
 
 int num {300}; // Global Variable - declared outside any class or function
 
@@ -38,6 +39,12 @@ int main (){
   static_local_example();
   static_local_example();
 
+  // Eg. 02
+  cout <<"\nExample 02 .........." << endl;
+  int a {10}, b {20}, c {30};
+  func(a, b, c);  // 10 20 30 as the func(a,b,c) is not returning any thing
+  cout << a << " " << b << " " << c << endl;
+
   return 0;
 }
 
@@ -63,4 +70,10 @@ void static_local_example(){
   cout << "\nLocal static num is: " << num << " in static_local_example - start"<< endl;
   num += 1000;
   cout << "Local static num is: " << num << " in static_local_example - end" << endl;
+}
+
+void func(int x, int y, int z){
+  x = y + z;
+  y = 10;
+  x = 20;
 }
