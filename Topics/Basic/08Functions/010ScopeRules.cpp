@@ -12,6 +12,7 @@ void local_example (int x);
 void global_example ();
 void static_local_example();
 void func(int x, int y, int z);
+void func1(int &x, int &y, int &z);
 
 int num {300}; // Global Variable - declared outside any class or function
 
@@ -44,7 +45,10 @@ int main (){
   int a {10}, b {20}, c {30};
   func(a, b, c);  // 10 20 30 as the func(a,b,c) is not returning any thing
   cout << a << " " << b << " " << c << endl;
-
+  // Eg. 03
+  cout <<"\nExample 03 .........." << endl;
+  func1(a, b, c); // 20 10 30 as address was passed in func1() thats why values are updated 
+  cout << a << " " << b << " " << c << endl;
   return 0;
 }
 
@@ -73,6 +77,12 @@ void static_local_example(){
 }
 
 void func(int x, int y, int z){
+  x = y + z;
+  y = 10;
+  x = 20;
+}
+
+void func1(int &x, int &y, int &z){
   x = y + z;
   y = 10;
   x = 20;
