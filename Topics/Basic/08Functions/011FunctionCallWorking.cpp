@@ -32,36 +32,36 @@ void func2(int &x, int y, int z) {
     x+= y + z;
 }
 
-/*       Memory for a program:
-        -------------------------
-        |                       |
-        |         HEAP          |
-        |      Free Storage     |
-        |                       |
-        |                       |
-        |                       |
-        -------------------------
-        |  Stack                |
-        | (function call stack) |
-        | func2()               |
-        | z= 20                 |
-        | y= 10                 |
-        | x= 30                 |
-        |    ----------         |
-        | func1()               |
-        | result = 30           |
-        | b = 20                |
-        | a = 10                |
-        -------------------------
-        |                       |
-        |  Static Variables/    |
-        |  Global variables     |
-        -------------------------
-        |  Code Area            |
-        | z = 0                 |
-        | y = 20                |
-        | x = 10                |
-        ------------------------
+/*             Memory for a program:
+              -------------------------
+              |                       |
+              |         HEAP          |
+              |      Free Storage     |
+              |                       |
+              |                       |
+              |                       |
+              -------------------------
+              |  Stack                |
+              | (function call stack) |
+              | func2()               |
+              | z= 20                 |
+functions()   | y= 10                 |
+              | x= 30                 |
+              |    ----------         |
+              | func1()               |
+              | result = 30           |
+              | b = 20                |
+              | a = 10                |
+              -------------------------
+              |                       |
+              |  Static Variables/    |
+              |  Global variables     |
+              -------------------------
+              |  Code Area            |
+              | z = 0                 |
+main()         | y = 20                |
+              | x = 10                |
+              ------------------------
 
         code
         main() stops what it's doing and it allocates space for x, y, z. Also, an activation record is pushed for func1().
