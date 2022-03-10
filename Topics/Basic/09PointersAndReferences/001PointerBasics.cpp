@@ -114,6 +114,43 @@ int main (){
   cout << "Value of score is: " << score << endl;
   cout << "Address of score is: " << &score << endl;
   cout << "Value of score_ptr is: " << score_ptr << endl;
+  cout << "Value of *temp_ptr is: " << *temp_ptr << endl; // Access the data we are pointing to
+
+  // Eg. 4 - Dereferencing a Pointer - Access the data we are pointing to
+  int score1 {100};
+  int *score_ptr1 {&score1}; // Declaring a score pointer to be a pointer to an integer and initialize it to the address of score. Now score_ptr points to score. Now score_ptr1 points to score
+
+  cout << *score_ptr1 << endl; //100 - As score_ptr1 points to score,
+
+  *score_ptr1 = 200; // Dereferencing the pointer again The left-hand side of an assignment statement is an address or a location that's where we want to store things. Assigning 200 to score_ptr1
+
+  cout << *score_ptr1 << endl; // 200
+  cout << score1 << endl; // 200
+
+  // string - modified what that pointer is pointing to.
+  string name {"Bjarne"};
+  string *string_ptr1 {&name};
+
+  cout << *string_ptr1 << endl;
+
+  name = "Straustrup"; // changing name  - not through pointer.. through variable
+
+  cout << *string_ptr1 << endl; // dereferencing the pointer again
+
+
+  // another eg. of pointer and what it is poitning to
+  cout << "---------------------------" << endl;
+  vector <string> stooges {"Larry", "Moe", "Curly"};
+  vector <string> *vector_ptr {nullptr};
+
+  vector_ptr = &stooges;
+
+  cout << "First stooge: " << (*vector_ptr).at(0) << endl; // Larry
+
+  cout << "Stooges: ";
+  for (auto stooge: *vector_ptr)
+    cout << stooge << " ";
+  cout << endl;
 
   return 0;
 }
