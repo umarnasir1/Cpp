@@ -14,7 +14,7 @@ using std::vector;
 // Function Definition
 void double_data (int *int_ptr); // expects a pointer to an integer as a parameter
 void swap (int *a, int *b);
-void display (vector <string> *v);
+void display (const vector <string> *const v);
 void display (int* array, int sentinel); // function overloading
 
 int main(){
@@ -137,6 +137,6 @@ void display (const vector<string> *const v){ // passing pointer to vector - exp
 
 void display (int *array, int sentinel){
   while (*array != sentinel) // *array - what i am pointing to
-    cout << *array++ << " "; // dereference array, display array, increment array to the next element 
+    cout << *array++ << " "; // dereference array, display array, increment array to the next element
   cout << endl;
 }
