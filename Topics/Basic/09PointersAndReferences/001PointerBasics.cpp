@@ -5,6 +5,8 @@
   variable_type *pointer_name; // Declaration
   Read from right to left
 
+  int **ptr; // ptr stores addresses of pointers to integers.
+  
   variable_type *pointer_name {nullptr};  // {} {nullptr} same, we are initializing pointer to 0 i.e., to point nowhere i.e., address zero
   variable_type *pointer_name {}; // Initializing - important to initilize at the time of declaration otherwise it will contain garbage data (dummy address in this case).
   un-initialize pointer can point anywhere - So if we use it we could be accessing memory that we have no business messing around with.
