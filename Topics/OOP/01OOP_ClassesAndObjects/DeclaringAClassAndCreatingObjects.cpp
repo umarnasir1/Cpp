@@ -1,12 +1,14 @@
 /*
-  136. What are classes and objects?
-  137. Declaring a Class and Creating Objects
+  Classes & Objects
 
   We're using our own user-defined types (classes), and we're using them intuitively like we've used other c++ types (int, double).
 
-  
-*/
+  // Declaring a class in C++
+  class Class_Name{         // Best practice to capitalize class names for our user-defined classes.
+  // declaration(s);        // define the structure and behavior of class
+  };
 
+*/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,7 +19,7 @@ using std::endl;
 using std::boolalpha;
 
 int main(){
-  /*
+  /* ANALOGY -OBJECTS
   We know that ints and doubles are primitive types in c++. They're not classes, but this analogy will help make a point
 
   Two integers, high_score and low_score are defined. This tells us what the valid values are for those variables (int), and it also tells us the operations we can perform on those variables, for example, addition, subtraction, multiplication and so forth. Notice that low score and high score are instances of integer. They each have a value, and they each have an identity.
@@ -45,19 +47,9 @@ int main(){
   std::string name;
 
 
-  //
+  // Class - Player
 
-  // Declaring a class in C++
-
-  // Syntax
-  // class - reserved key word
-  // Best practice to capitalize class names for our user-defined classes.
-
-  class Class_name {
-    // declaration(s); // define the structure and behavior of class
-  };
-
-  // Eg.  a class name to player as we might have in a game application.
+  // Eg1.  a class name to player as we might have in a game application.
   class Player {
     // attributes or instance variables
     std::string name; // class has a string named name
@@ -65,12 +57,13 @@ int main(){
     int xp; //
 
     // methods
-    // Since c++ supports encapsulation, that means we can also provide methods or functions in the class body that are specific to the player class. In this case, we have two methods: (1) talk which expects a standard string and (2) is dead which returns a Boolean.
+    // Since c++ supports encapsulation, that means we can also provide methods or functions in the class body that are specific to the player class. In this case, we have two methods:
+    // (1) talk which expects a standard string and (2) is dead which returns a Boolean.
     void talk (std::string text_to_say);
-      bool is_dead();
+    bool is_dead();
   };
 
-  // Creating Objects - instances of class
+  // Creating Objects - instances of class - same way we create primitive types.
   Player frank;
   Player hero;
 
