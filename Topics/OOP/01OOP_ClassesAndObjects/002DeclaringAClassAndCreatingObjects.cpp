@@ -1,5 +1,8 @@
 /*
   Declaring a Class and Creating Objects
+  Accessing Class memebers
+    . Operator
+    -> Operator
 
   Where do we create the class?
   If a class is created right inside main(), then its scope will be inside of main(), which means that only main will have access to that class.
@@ -57,8 +60,26 @@ int main(){
   delete enemy; // when done delete enemy.
 
   /////////////////////
-  Account frank_account;
+  Account bjarne_account;
   Account jim_account;
+
+  /////////
+  // Accessing Class memebers
+  // dot operator
+  bjarne_account.balance; // accessing the balance attribute
+  bjarne_account.deposit(1000.00); // deposit 1000 into Frank account - accessing deposit method.
+
+  // if pointer to an object; two alternatives
+  Account *bjarne_account = new Account(); // bjarne_account is not an account object, it is a pointer to an account object, which has been dynamically allocated on the heap.
+
+  // Alt1: Dereference the pointer then use the dot operator. () are used as the dot operator has higher precedence then the pointer de-reference operator.
+  (*bjarne_account).balance;
+  (*bjarne_account).deposit(1000.00);
+
+  // Alt2: Use the member of pointer operator (->)
+  bjarne_account->balance;
+  bjarne_account->deposit(1000.00);
+
 
   return 0;
 }
