@@ -1,5 +1,5 @@
 /*
-  Classes & Objects
+  Declaring a Class and Creating Objects
 
   We're using our own user-defined types (classes), and we're using them intuitively like we've used other c++ types (int, double).
 
@@ -8,15 +8,40 @@
   // declaration(s);        // define the structure and behavior of class
   };
 
+  Where do we create the class?
+  If a class is created right inside main(), then its scope will be inside of main(), which means that only main will have access to that class.
+  If we would like the entire application to have access of the class, we would declare the class above main().
+  OBS!! Better way: Use separate files to declare classes.
 */
 #include <iostream>
 #include <string>
 #include <vector>
 
-using std::cout;
-using std::cin;
-using std::endl;
-using std::boolalpha;
+// Class - Player
+// Eg1.  a class name to player as we might have in a game application.
+class Player {
+  // attributes or instance variables
+  std::string name; // class has a string named name
+  int health; // players health
+  int xp; //
+
+  // methods
+  // Since c++ supports encapsulation, that means we can also provide methods or functions in the class body that are specific to the player class. In this case, we have two methods:
+  // (1) talk which expects a standard string and (2) is dead which returns a Boolean.
+  void talk (std::string text_to_say);
+  bool is_dead();
+};
+
+// E.g 2
+class Account {
+  // attributes
+  std::string name; // name of account
+  double balance; // account balance
+
+  // methods
+  bool withdraw (double amount); // expects the amount amount to withdraw and returns a boolean indicating success.
+  bool deposit (double amount); // expects amount to deposit and returns a Boolean indicating success.
+};
 
 int main(){
   /* ANALOGY -OBJECTS
@@ -46,22 +71,7 @@ int main(){
   std::vector <int> scores;
   std::string name;
 
-
-  // Class - Player
-
-  // Eg1.  a class name to player as we might have in a game application.
-  class Player {
-    // attributes or instance variables
-    std::string name; // class has a string named name
-    int health; // players health
-    int xp; //
-
-    // methods
-    // Since c++ supports encapsulation, that means we can also provide methods or functions in the class body that are specific to the player class. In this case, we have two methods:
-    // (1) talk which expects a standard string and (2) is dead which returns a Boolean.
-    void talk (std::string text_to_say);
-    bool is_dead();
-  };
+  ///////////////////////////////////
 
   // Creating Objects - instances of class - same way we create primitive types.
   Player frank;
@@ -70,18 +80,7 @@ int main(){
   Player *enemy = new Player(); // creating pointer to object - Here, a pointer to a player object - ememy is declared and that object is dynamically created on the heap using new.
   delete enemy; // When I'm finished using enemy object, its storage has to be freed up using delete.
 
-  // *******************************************************************************
-  // E.g 2
-  class Account {
-    // attributes
-    std::string name; // name of account
-    double balance; // account balance
-
-    // methods
-    bool withdraw (double amount); // expects the amount amount to withdraw and returns a boolean indicating success.
-    bool deposit (double amount); // expects amount to deposit and returns a Boolean indicating success.
-  };
-
+  // Account Class *******************************************************************************
   // Creating Objects - instances of account class
   Account frank_account;
   Account jim_account;
