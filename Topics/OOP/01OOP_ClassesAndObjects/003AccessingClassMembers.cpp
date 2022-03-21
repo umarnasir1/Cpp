@@ -79,5 +79,20 @@ int main(){
   bjarne_account.deposit(1000.0); // deposit 1000 into Bjarnes account - accessing deposit method.
   bjarne_account.withdraw(500.0); // withdraw 500.
 
+  // if pointer to an object; two alternatives
+  Account *stroustrup_account = new Account; // stroustrup_account is not an account object, it is a pointer to an account object, which has been dynamically allocated on the heap.
+  //
+  // Alt1: Dereference the pointer then use the dot operator. () are used as the dot operator has higher precedence then the pointer de-reference operator.
+  (*stroustrup_account).balance = 20000.0;
+  (*stroustrup_account).deposit(1000.0);
+  (*stroustrup_account).withdraw(200.0);
+
+  // Alt2: Use the member of pointer operator (->)
+  stroustrup_account->name = "Stroustrup's account";
+  stroustrup_account->deposit(2000.0);
+  stroustrup_account->withdraw(500.0);
+
+  delete stroustrup_account;
+
   return 0;
 }
