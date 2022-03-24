@@ -11,7 +11,7 @@ using std::string;
 using std::cout;
 using std::endl;
 
-// Inside the class declaration
+// Eg. 01 Inside the class declaration
 //    These public methods set_balance & get_balance are necessary to access the balance since the balance is private.
 class Account{
 private:
@@ -20,6 +20,20 @@ private:
 public:
   void set_balance(double bal){ balance = bal;}  // sets the balance to the value passed in by the user.
   double get_balance(){ return balance;} // returns a copy of the account balance
+};
+
+// Eg. 02 Inside the class declaration
+class Dog {
+private:
+    string name;
+    int age;
+public:
+    string get_name() {return name; }
+    void set_name(string n) {name = n; }
+    int get_age() {return age; }
+    void set_age(int a) { age = a;}
+    int get_human_years(){return age * 7;}
+    std::string speak(){return "Woof";}
 };
 
 // Outside Class declaration
