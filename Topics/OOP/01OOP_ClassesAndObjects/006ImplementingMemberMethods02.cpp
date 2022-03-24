@@ -1,8 +1,8 @@
 /*
   Implementing Member Methods
     Separating Specification from Implementation - main.cpp
-     
-  main.cpp -- the main program driver which includes “Account.h”
+
+  006ImplementingMemberMethods02.cpp -- the main program driver which includes “Account.h”
   Account.cpp -- the Account implementation which also includes “Account.h”
   Account.h -- the Account specification
 */
