@@ -9,6 +9,10 @@ private:
   std::string name;
   int health;
   int xp;
+  //can also initialize here
+  // std::string name {"Name xxx"};
+  // int health {123};
+  // int xp {20};
 public:
   //Overloaded Constructors
   Player(); // no arg construction - base initialization so there are no garbage values.
