@@ -4,7 +4,7 @@
 #include<iostream>
 #include<string>
 
-class Player(){
+class Player{
 private:
   std::string name;
   int health;
@@ -43,7 +43,7 @@ int main(){
 
   Player frank{"Frank", 1000, 4}; // Frank,1000,4 - frank object will be intialized by layer(std::string name_val, int health_val, int xp_val)
 
-  Player *enemy = new Player("Enemy",1000,0) // Enemy,1000,0 - enemy object will be created on the heap and will be intialized by layer(std::string name_val, int health_val, int xp_val)
+  Player *enemy = new Player("Enemy",1000,0); // Enemy,1000,0 - enemy object will be created on the heap and will be intialized by layer(std::string name_val, int health_val, int xp_val)
   delete enemy;
 
   return 0;
