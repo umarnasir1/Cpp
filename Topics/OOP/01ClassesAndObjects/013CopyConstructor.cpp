@@ -13,6 +13,8 @@
     if we pas by value, then we have to make a copy of it. That's the whole point of the copy constructor. We would defeat the purpose and end up with never ending recursive calls.
     And as a constant because the semantics of copying means that we're copying the source, we're not modifying it. So the const prevents any modification to the source object.
 
+  Can use both Initialization List and Delegating Constructor.
+
   Type::Type (const Type &source);
 
   Implementing the Copy constructor
@@ -58,40 +60,36 @@ Player::Player(std::string name_val, int health_val, int xp_val)
 //------ Implementing the Player class Copy constructor
 // Notice that we're initializing the newly created object attributes in the initializer list based on the source object's attributes.
 Player::Player (const Player &source)
-  : name{source.name},
-    health{source.health},
-    xp{source.xp} {
-      // any code we write in the constructor body will be executed immediately after the new object is initialized.
-      cout << "Copy Constructor - made copy of: " << source.name << endl;
+  //: name{source.name}, health{source.health}, xp{source.xp} { // Initializer list ot initialize source object
+  : Player {source.name, source.health, source.xp} {// Delegating constructor- delegate the construction of this object to my constructor so the control will transfer to constructor (line 54)
+    // any code we write in the constructor body will be executed immediately after the new object is initialized.
+    cout << "Copy Constructor - made copy of: " << source.name << endl;
 }
 
 // function display_player displays the values
 // One of the used cases where the copy constructor is called
 void display_player(Player p){ // expects player object by value
-  // p is a COPY of whatever object that is passed in  (using the copy constructor)
+  // p is a COPY of whatever object (empty in this case) that is passed in  (using the copy constructor) - on the stack
   cout << "Name: " << p.get_name() << endl;
   cout << "Health: " << p.get_health() << endl;
   cout << "XP: " << p.get_xp() << endl;
-  // Destructor for p will be called (as p is going out of scope)
+  // Destructor for p will be called (as p is going out of scope as p is local to this function)
 }
 
 int main(){
   Player empty;
-  display_player(empty); // a copy of that object will be made 
+  display_player(empty); // Pass object to function/method by - value;  When we call this function and pass in empty, the function parameter p will be created and it will be created as a copy of empty, using the copy constructor.
   Player frank {"Frank"};
   Player hero {"Hero",100};
   Player villain {"Villain",100,55};
 
+  Player empty1{"XXXXX", 100, 50};
+  Player my_new_object {empty1}; // initializing by empty1 object i.e., creating a copy of empty1 object. Copy constructor will be called again.
+
   return 0;
 }
 
-// // Pass object to function/method by - value
-// Player hero {"Hero", 100, 20};
-//
-//
-//
-// display_player(hero); // When we call this function and pass in hero, the function parameter p will be created and it will be created as a copy of hero, using the copy constructor.
-//
+
 // // Return Object by value
 // Player enemy;
 //
