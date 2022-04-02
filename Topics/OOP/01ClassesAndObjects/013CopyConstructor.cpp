@@ -38,13 +38,13 @@ private:
   int xp;
 public:
   // getters
-  std::string get_name(){return name};
+  std::string get_name(){return name;}
   int get_health(){return health;}
   int get_xp(){return xp;}
   // Constructor
   Player(std::string name_val="None", int health_val=0, int xp_val=0);
   // Copy Constructor - Prototype
-  Player::Player(const Player &source); // single object in the parameter list
+  Player(const Player &source); // single object in the parameter list
   // Destructor
   ~Player(){ cout<<"Destructor called for: " << name << endl; }
 };
@@ -55,49 +55,6 @@ Player::Player(std::string name_val, int health_val, int xp_val)
     cout << "Three-args constructor for " + name << endl;
 }
 
-// Copy Constructor 
-
-int main(){
-  Player empty;
-  Player frank {"Frank"};
-  Player hero {"Hero",100};
-  Player villain {"Villain",100,55};
-
-  return 0;
-}
-
-// Pass object to function/method by - value
-Player hero {"Hero", 100, 20};
-
-void display_player(Player p){ // expects player object by value
-  // p is a COPY of hero in this example (using the copy constructor)
-  // use p
-  // Destructor for p will be called (as p is going out of scope)
-}
-
-display_player(hero); // When we call this function and pass in hero, the function parameter p will be created and it will be created as a copy of hero, using the copy constructor.
-
-// Return Object by value
-Player enemy;
-
-Player create_super_enemy(){ // creates and returns a player object
-  // The Player object and enemy is created in the function and then returned from this function. Since we're returning an enemy by value. A copy of the enemy object is made by the copy constructor.
-  Player an_enemy{"Super Enemy", 1000, 1000};
-  return an_enemy; // A COPY of an_enemy is returned
-}
-
-enemy = create_super_enemy();
-
-// Construct one object based on another (existing)
-// We want to create another object called another hero based on hero.
-Player hero {"Hero", 100, 100};
-
-Player another_hero {hero}; // A copy of hero is made using copy constructor
-
-//----  Declaring Copy constructor
-
-Account::Account(const Account &source);
-
 //------ Implementing the Player class Copy constructor
 // Notice that we're initializing the newly created object attributes in the initializer list based on the source object's attributes.
 Player::Player (const Player &source)
@@ -105,10 +62,61 @@ Player::Player (const Player &source)
     health{source.health},
     xp{source.xp} {
       // any code we write in the constructor body will be executed immediately after the new object is initialized.
+      cout << "Copy Constructor - made copy of: " << source.name << endl;
 }
 
-// Implementing the copy constructor for Account class
-Account::Account (const Account &source)
-  : name{source.name},
-    balance {source.balance} {
+// function display_player displays the values
+// One of the used cases where the copy constructor is called
+void display_player(Player p){ // expects player object by value
+  // p is a COPY of whatever object that is passed in  (using the copy constructor)
+  cout << "Name: " << p.get_name() << endl;
+  cout << "Health: " << p.get_health() << endl;
+  cout << "XP: " << p.get_xp() << endl;
+  // Destructor for p will be called (as p is going out of scope)
 }
+
+int main(){
+  Player empty;
+  display_player(empty); // a copy of that object will be made 
+  Player frank {"Frank"};
+  Player hero {"Hero",100};
+  Player villain {"Villain",100,55};
+
+  return 0;
+}
+
+// // Pass object to function/method by - value
+// Player hero {"Hero", 100, 20};
+//
+//
+//
+// display_player(hero); // When we call this function and pass in hero, the function parameter p will be created and it will be created as a copy of hero, using the copy constructor.
+//
+// // Return Object by value
+// Player enemy;
+//
+// Player create_super_enemy(){ // creates and returns a player object
+//   // The Player object and enemy is created in the function and then returned from this function. Since we're returning an enemy by value. A copy of the enemy object is made by the copy constructor.
+//   Player an_enemy{"Super Enemy", 1000, 1000};
+//   return an_enemy; // A COPY of an_enemy is returned
+// }
+//
+// enemy = create_super_enemy();
+//
+// // Construct one object based on another (existing)
+// // We want to create another object called another hero based on hero.
+// Player hero {"Hero", 100, 100};
+//
+// Player another_hero {hero}; // A copy of hero is made using copy constructor
+//
+// //----  Declaring Copy constructor
+//
+// Account::Account(const Account &source);
+//
+//
+//
+// // Implementing the copy constructor for Account class
+// Account::Account (const Account &source)
+//   : name{source.name},
+//     balance {source.balance} {
+// }
