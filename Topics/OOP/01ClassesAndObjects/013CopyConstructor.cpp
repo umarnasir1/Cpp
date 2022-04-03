@@ -76,6 +76,13 @@ void display_player(Player p){ // expects player object by value
   // Destructor for p will be called (as p is going out of scope as p is local to this function)
 }
 
+// Return Object by value
+Player create_super_enemy(){ // creates and returns a player object
+  // The Player object and enemy is created in the function and then returned from this function. Since we're returning an enemy by value. A copy of the enemy object is made by the copy constructor.
+  Player an_enemy{"Super Enemy", 1000, 1000};
+  return an_enemy; // A COPY of an_enemy is returned
+}
+
 int main(){
   Player empty;
   display_player(empty); // Pass object to function/method by - value;  When we call this function and pass in empty, the function parameter p will be created and it will be created as a copy of empty, using the copy constructor.
@@ -83,35 +90,21 @@ int main(){
   Player hero {"Hero",100};
   Player villain {"Villain",100,55};
 
+  // Return Object by value
+  Player enemy;
+  enemy = create_super_enemy();
+
+  // Construct one object based on another (existing)
+  // We want to create another object called empty1 based on empty1.
   Player empty1{"XXXXX", 100, 50};
   Player my_new_object {empty1}; // initializing by empty1 object i.e., creating a copy of empty1 object. Copy constructor will be called again.
 
   return 0;
 }
-
-
-// // Return Object by value
-// Player enemy;
-//
-// Player create_super_enemy(){ // creates and returns a player object
-//   // The Player object and enemy is created in the function and then returned from this function. Since we're returning an enemy by value. A copy of the enemy object is made by the copy constructor.
-//   Player an_enemy{"Super Enemy", 1000, 1000};
-//   return an_enemy; // A COPY of an_enemy is returned
-// }
-//
-// enemy = create_super_enemy();
-//
-// // Construct one object based on another (existing)
-// // We want to create another object called another hero based on hero.
-// Player hero {"Hero", 100, 100};
-//
-// Player another_hero {hero}; // A copy of hero is made using copy constructor
 //
 // //----  Declaring Copy constructor
 //
 // Account::Account(const Account &source);
-//
-//
 //
 // // Implementing the copy constructor for Account class
 // Account::Account (const Account &source)
