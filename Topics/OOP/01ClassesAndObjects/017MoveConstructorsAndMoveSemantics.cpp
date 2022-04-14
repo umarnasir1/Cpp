@@ -1,6 +1,8 @@
 /*
   Move Constructor & Move Semantics
 
+  Move Semantics are all about R-value references (reference to temporary objects). R-value reference s are used by move constructor and move assignment operator to efficiently move an object rather than copy it.
+
   Move Constructor Syntax - R-value reference
   Type::Type(Type &&source);
   Move::Move(Move &&source);
@@ -32,18 +34,18 @@ Move::Move(int d){
 
 // Copy Constructor - Deep Copy
 Move::Move(const Move &source)
-  :Move{*source.data}{ // delicating to the constructor
+  :Move{*source.data}{ // delicating to the constructor using initializer list
     cout << "Copy constructor - deep copy for: " << *data << endl;
 }
 
 // Move::Move(const Move &source){
 //   data = new int; // allocate storage
-//   *data = *source.data; // copy
+//   *data = *source.data; // copy the data 
 // }
 
 // Move Constructor
 Move::Move(Move &&source) noexcept // 'Steal' the data and then null out the source pointer
-  : data{source.data} { // copying the data - not copying what its pointing to
+  :data{source.data} { // copies the address of the resource from source object to the current object.- Initializer list
     source.data = nullptr; // nulling out the pointer
     cout << "Move constructor - moving resource: " << *data << endl;
 }
@@ -72,25 +74,25 @@ int main(){
   //
   // // l-value reference parameters
   // // L-value references in the context of function parameters.
-  // void func(int &num); // func expects an L-value reference as denoted by &; A
+  // void func(int &num); // function prototype-func expects an L-value reference as denoted by &;
   //
-  // func(x); // okay since x is an L-value and num will be the reference to an L-value.;  A - x is an l-value
-  // // func(200); // Error as 200 is R-value (error: cannot bind non-cast l value reference of type 'int&' to an rvalue of type 'int')
+  // func(x); // okay since x is an L-value and num will be the reference to an L-value.;
+  // // func(200); // Error as 200 is R-value
   //
   // // R-value reference parameters
   // // R-value references in the context of function parameters.
-  // void func(int &&num); // exects an R-value reference as its denoted by &&; B
+  // void func(int &&num); // fucntion prototype- exects an R-value reference as its denoted by &&;
   //
-  // func(200); // ok since 200 is an r-value and as num is a reference to r-valueM B-200
+  // func(200); // ok since 200 is an r-value and as num is a reference to r-value
   // // func(x); // Error since x is l-value
   //
   // // L-value and R-value reference parameters
-  // // we can overload these functions and have both of them in our code at the same time since they have unique signatures.  Compiler will call the correct function depending on whether the parameter is an L-value or and R-value.
-  // void func(int &num); // A
-  // void func(int &&num); // B
+  // // we can overload these functions and have both of them in our code at the same time since they have unique signatures. Compiler will call the correct function depending on whether the parameter is an L-value or and R-value.
+  // void func(int &num);
+  // void func(int &&num);
   //
-  // func(x); // calls A - x is an l -value
-  // func(200); // calls B-200 is an r-value
+  // func(x); // l -value
+  // func(200); // r-value
 
   std::vector<Move> vec; // vector of Move objects
 
@@ -98,13 +100,7 @@ int main(){
   // Inefficient Copying: Constructor will be called to copy the temps
   // pushing back move objects
   // vec.push_back(Move{10}); // Move{10} creating temporary unnamed Move objects as there is no varliable name (R-value)
-  // vec.push_back(Move{20}); // Move{20} creating temporary unnamed Move objects as there is no varliable name (R-value)
-  // vec.push_back(Move{30});
-  // vec.push_back(Move{40});
-  // vec.push_back(Move{50});
-  // vec.push_back(Move{60});
-  // vec.push_back(Move{70});
-  // vec.push_back(Move{80});
+  // vec.push_back(Move{20});
   // All using temporary objects so they are copied using copy constructors (copy of temp) so the vector can push them back. Thats the cause of inefficiancy:
 
   // Constructor as we need to construct the object - temporary object - R-value
@@ -138,7 +134,6 @@ int main(){
 
   return 0;
 }
-
 
 // Copy Constructor - Output: 61 lines
 // Constructor for: 10
