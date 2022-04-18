@@ -28,11 +28,11 @@ public:
 };
 
 Player::Player()
-  :Player {"None", 0, 0}{ // delegating to Player (three ags constructor) i
+  :Player {"None", 0, 0}{ // delegating to Player (three ags constructor)
 }
 
-Player::Player(std::string name_val) // delegating to Player (three ags constructor) i
-  :Player {name_val, 0, 0}{ // check this
+Player::Player(std::string name_val) // delegating to Player (three ags constructor)
+  :Player {name_val, 0, 0}{
 }
 
 Player::Player(std::string name_val, int health_val, int xp_val)
