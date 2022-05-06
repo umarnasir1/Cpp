@@ -8,9 +8,9 @@ using std::cin;
 using std::endl;
 
 int main(){
-  
+
   cout << "Enter the width of the room: ";
-  int room_width {0};
+  int room_width {0}; // equals to int room_width {};
   cin >> room_width;
 
   cout << "Enter the length of the room: ";
