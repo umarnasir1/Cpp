@@ -23,7 +23,7 @@ struct Tours{
 
 int main(){
 
-  Tours tour{
+  Tours tours{
     "Tour Ticket Prices from Miami", {
       {
         "Colombia", {
@@ -53,6 +53,11 @@ int main(){
       } // Country - Argentina
     }// Tours - Country
   }; //Tours
+
+  // Accessing Struct elements
+  std::cout << tours.name << std::endl;
+  // std::cout << tours.countries.at(0) << std::endl; // Error
+  // std::cout << tours.countries.name.at(0) << std::endl; // Error
 
   return 0;
 }
