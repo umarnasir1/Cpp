@@ -1,13 +1,6 @@
 /*
-  struct structureName{
-    member1;
-    member2;
-    member3;
-    ..
-    memberN;
-  };
-
-  structureName instance; 
+  1. Assigning structure elements individually
+  2. Modifying vector elements
 */
 
 #include<iostream>
@@ -22,13 +15,13 @@ struct Students{
 int main(){
    Students course1; // instance of struct- Students;  variable course1 have 2 data points
 
-  // Assigning individually
+  // 1. Assigning individually
   // course1.name = "Tom";
   // course1.gpa = 4.0;
   // std::cout << course1.name << std::endl;
   // std::cout << course1.gpa << std::endl;
 
-  // Creating a vector
+  // 2. Creating a vector
   std::vector <Students> first_period;
 
   first_period.push_back(course1); // pushback with default values
