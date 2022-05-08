@@ -17,7 +17,7 @@ struct Country{
 };
 
 struct Tours{
-  std::string name;
+  std::string title;
   std::vector<Country> countries;
 };
 
@@ -55,9 +55,15 @@ int main(){
   }; //Tours
 
   // Accessing Struct elements
-  std::cout << tours.name << std::endl;
-  // std::cout << tours.countries.at(0) << std::endl; // Error
-  // std::cout << tours.countries.name.at(0) << std::endl; // Error
+  std::cout << tours.title << std::endl;
+  std::cout << tours.countries.at(0).name << std::endl; // Colombia
+  std::cout << tours.countries.at(1).name << std::endl; // Brazil
+  std::cout << tours.countries.at(0).cities.at(0).name << std::endl; // Bogota
+  std::cout << tours.countries.at(0).cities.at(0).population << std::endl; // 8778000
+  std::cout << tours.countries.at(0).cities.at(0).cost << std::endl; // 400.98
+  std::cout << tours.countries.at(3).cities.at(0).name << std::endl; // Buenos Aires
+
+  std::cout << std::endl;
 
   return 0;
 }
