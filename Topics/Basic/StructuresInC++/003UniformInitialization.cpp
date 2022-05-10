@@ -27,7 +27,7 @@ int main(){
     "Tour Ticket Prices from Miami", {
       {
         "Colombia", {
-          {"bogota", 8778000, 400.98}, // city
+          {"Bogota", 8778000, 400.98}, // city
           { "Cali", 2401000, 424.12 },
           { "Medellin", 2464000, 350.98 },
           { "Cartagena", 972000, 345.34 }
@@ -62,6 +62,20 @@ int main(){
   std::cout << tours.countries.at(0).cities.at(0).population << std::endl; // 8778000
   std::cout << tours.countries.at(0).cities.at(0).cost << std::endl; // 400.98
   std::cout << tours.countries.at(3).cities.at(0).name << std::endl; // Buenos Aires
+
+  // Displaying all countries
+  for (auto country: tours.countries)
+    std::cout << country.name << " "; // Colombia Brazil Chile Argentina
+
+  std::cout << std::endl;
+
+  // Displaying all cities in a country
+  for (auto country: tours.countries){
+    std::cout << country.name << " : ";
+    for (auto city: country.cities)
+      std::cout << city.name << " ";
+    std::cout << std::endl;
+  }
 
   std::cout << std::endl;
 
