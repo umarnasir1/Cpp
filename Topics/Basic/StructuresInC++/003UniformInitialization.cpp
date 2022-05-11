@@ -1,5 +1,6 @@
 /*
   Uniform Initialization - initializer list to initialize structure (Modern C++)
+  Accessing Structures using vectors within the structures. 
 */
 #include<iostream>
 #include<string>
