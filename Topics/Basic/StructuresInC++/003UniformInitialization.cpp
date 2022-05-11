@@ -69,6 +69,10 @@ int main(){
 
   std::cout << std::endl;
 
+  std::cout << tours.countries.size() << std::endl; // 4 - # of countries.
+  std::cout << tours.countries.at(1).cities.size() << std::endl; // 3 - #of cities in Brazil
+
+
   // Displaying all cities in a country
   for (auto country: tours.countries){
     std::cout << country.name << " : ";
@@ -76,6 +80,14 @@ int main(){
       std::cout << city.name << " ";
     std::cout << std::endl;
   }
+
+  // Displaying all countries with city names.
+  for (Country country: tours.countries)
+    for (size_t i{0}; i<country.cities.size(); ++i)
+      std::cout << country.name << " - " << country.cities.at(i).name << std::endl;
+
+
+
 
   std::cout << std::endl;
 
