@@ -2,7 +2,9 @@
   Challenge 1
   Formatting Output:
     Aim: To format a table of tours to different cities in South America, including prices and population.
-
+      A country is only listed once for however many cities it may have.
+      We need to ensure the same space (20) is allocated in the first column if a country is not listed.
+      
     The (three) structures work together to create a Tours structure that will contain information about Tours to South America.
     The Tours include Countries, Cities within those countries along with population and cost data for each city tour.
 */
