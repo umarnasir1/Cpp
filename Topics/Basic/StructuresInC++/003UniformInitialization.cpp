@@ -1,6 +1,6 @@
 /*
   Uniform Initialization - initializer list to initialize structure (Modern C++)
-  Accessing Structures using vectors within the structures. 
+  Accessing Structures using vectors within the structures.
 */
 #include<iostream>
 #include<string>
@@ -86,9 +86,6 @@ int main(){
   for (Country country: tours.countries)
     for (size_t i{0}; i<country.cities.size(); ++i)
       std::cout << country.name << " - " << country.cities.at(i).name << std::endl;
-
-
-
 
   std::cout << std::endl;
 
