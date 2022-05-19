@@ -1,10 +1,12 @@
 /*
   Reading from a Text File
+
     Opening a file for reading with fstream
     Opening a file for reading with ifstream
     Opening a file for reading with open
-      havent provided any file name to associate with it.
-      Very common use case since many times we dont know the file name, and we have to get it from the user or from some other source at run time. Once we have the file name, we can use it and use open method on the stream object to open the file.
+
+    to be sure if the file is opened succesfully
+
 
   Create the stream and connect it to a file.
   Read from the file - we have to be sure that the file is opened successfully -   May be it was not found or there was some sort of permission issue. Few ways to check that
@@ -27,14 +29,8 @@
         to read all the lines in a file - reading text file one line at a time
       one character at a time (get)
 
-
-
-
-
     Closing file
       Always close any open files to flush out any unwritten data.
-
-
 */
 #include<iostream>
 #include<string>
@@ -49,7 +45,7 @@ int main(){
   // Open for reading in binary model
   std::fstream in_file {"../myfile.txt", std::ios::in | std::ios::binary}; // | sets both input and the binary modes to true.
 
-  // ------
+  // -----------------------------------------------
   // Opening a file for reading with ifstream
   std::ifstream in_file {"../myfile.txt", std::ios::in}; // creating ifstream object
   std::ifstream in_file {"../myfile.txt"};
@@ -57,7 +53,7 @@ int main(){
   // Opening for reading in binary mode
   std::ifstream in_file {"../myfile.txt", std::ios::binary};  // open file in binary mode
 
-  // ----
+  // -------------------------------------------------
   // Opening a file for reading with open
   std::ifstream in_file; // creating in_file as an ifstream.
   std::string filename;
@@ -67,6 +63,7 @@ int main(){
 
   // -------
   // to be sure if the file is opened succesfully - is open
+  // -------
   if (in_file.is_open()){
     // read from it
   }
