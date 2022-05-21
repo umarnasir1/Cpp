@@ -1,15 +1,16 @@
 /*
   Reading from a Text File
 
-    Opening a file for reading with fstream
-    Opening a file for reading with ifstream
+    Opening a file for reading with fstream (input and output both)
+    Opening a file for reading with ifstream (only for input)
     Opening a file for reading with open
 
-    -----------------------
+    --------------------------------------------------
     we have to be sure that the file is opened successfully -   May be it was not found or there was some sort of permission issue. Few ways to check that
         is_open()
         test the stream object
-    ----------------
+
+    -------------------------------------------------
     Reading from file
       using >>
         We can use extraction operator for formatted read (from text file)
@@ -20,8 +21,13 @@
       one character at a time (get)
         reading file in a unformatted manner (i.e., one character at a time).
 
+    ------------------------------------------------
     Closing file
       Always close any open files to flush out any unwritten data.
+
+    -------------------------------------
+    Example of Reading a file with open()
+    
 */
 #include<iostream>
 #include<string>
@@ -29,7 +35,7 @@
 
 int main(){
 
-  // Opening a file for reading with (fstream)
+  // Opening a file for reading with (fstream) (input and output both)
 
   std::fstream in_file { "../myfile.txt", std::ios::in}; // creating stream object in_file of type fstream; initializing object; using fstream class
 
@@ -37,18 +43,19 @@ int main(){
   std::fstream in_file {"../myfile.txt", std::ios::in | std::ios::binary}; // | sets both input and the binary modes to true.
 
   // -----------------------------------------------
-  // Opening a file for reading with ifstream
+  // Opening a file for reading with ifstream (only for input)
   std::ifstream in_file {"../myfile.txt", std::ios::in}; // creating ifstream object
-  std::ifstream in_file {"../myfile.txt"};
+  std::ifstream in_file {"../myfile.txt"}; // std::ios::in is optional when using ifstream as its already the default. Same effect as the previous statement.
 
   // Opening for reading in binary mode
   std::ifstream in_file {"../myfile.txt", std::ios::binary};  // open file in binary mode
 
   // -------------------------------------------------
-  // Opening a file for reading with open
-  std::ifstream in_file; // creating in_file as an ifstream.
+  // Opening a file for reading with open - example below
+  // Example of Reading a file with open() below
+  std::ifstream in_file; // creating in_file as an ifstream; no file name to associate with it yet.
   std::string filename;
-  std::cin >> filename; // get the file name
+  std::cin >> filename; // get the file name (full path)
 
   in_file.open(filename); // or in_file.open(filename, std::ios::binary); - using open method on the stream object to open the file.
 
@@ -155,6 +162,27 @@ int main(){
 
   // ----------------------------------------------
   // closing a file
+  in_file.close();
+
+  // ------------------------------------------------------
+  // Example of open ()
+  std::ifstream in_file;
+  std::string filename;
+  std::cin >> filename; //  /Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt
+
+  in_file.open(filename);
+
+  // readline with getline
+  if(!in_file){ // check if file is open
+    std::cerr << "File Opening Error." << std::endl;
+    return 1; // exit the program
+  }
+
+  std::string line{};
+  while(getline(in_file,line))
+    std::cout << line << std::endl;
+
+  // closing the file
   in_file.close();
 
   return 0;
