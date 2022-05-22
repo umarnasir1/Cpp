@@ -27,7 +27,7 @@
 
     -------------------------------------
     Example of Reading a file with open()
-    
+
 */
 #include<iostream>
 #include<string>
@@ -100,6 +100,12 @@ int main(){
   in_file >> total >> name; // read 255.67 and store in total; then read Larry and store it in name.
   // We can have these three separate read statements on a single line OR  chain them together
 
+  std::cout << num << std::endl
+            << total << std::endl
+            << name << std::endl;
+
+  in_file.close();// closing the file
+
   // ---------------------------------------
   // Reading from files using getline
   // ----------------------------------------
@@ -109,6 +115,9 @@ int main(){
   std::string line {};
   std::getline(in_file, line); // An entire line of text up to the new line will be read from the file and stored in the string name line.
 
+  std::cout << line << std::endl;
+
+  in_file.close(); // closing the file
 
   //-------------------------------------------------
   // Reading text file one line at a time
@@ -146,7 +155,7 @@ int main(){
   in_file.close(); // close the file
 
   // --------------------------------
-  // Reading text file one character at a time (get)
+  // Reading text file one character at a time (get) - unformatted 
   std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt", std::ios::in};// open file - declare in_file as a fsteam object but this time reading file in a unformatted manner (i.e., one character at a time).
   char c;
 
