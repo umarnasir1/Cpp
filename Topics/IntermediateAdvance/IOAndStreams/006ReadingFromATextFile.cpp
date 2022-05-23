@@ -231,7 +231,8 @@ int main(){
 
   // --------------------------------
   // Reading text file one character at a time (get) - unformatted
-  std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt", std::ios::in};// open file - declare in_file as a fsteam object but this time reading file in a unformatted manner (i.e., one character at a time).
+  // ------------------------------
+  std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/poem.txt", std::ios::in};// open file - declare in_file as a fsteam object but this time reading file in a unformatted manner (i.e., one character at a time).
   char c;
 
   if (!in_file){ // check if file is open
@@ -241,6 +242,8 @@ int main(){
 
   while (in_file.get(c)) // read a character - we are reading a single character into the variable c with the get method.
     std::cout << c; // display the character
+
+  std::cout << std::endl;
 
   in_file.close(); // close the file
 
