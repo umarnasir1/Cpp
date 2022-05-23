@@ -36,7 +36,10 @@
 int main(){
 
   // Opening a file for reading with (fstream) (input and output both)
+  std::ifstream in_file;
+  in_file.open("/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt");
 
+  // another way of opening a file - initialization
   std::fstream in_file { "../myfile.txt", std::ios::in}; // creating stream object in_file of type fstream; initializing object; using fstream class
 
   // Open for reading in binary model
@@ -82,21 +85,44 @@ int main(){
     // should the program terminate ?
   }
 
+  // Eg. of file not opened
+  std::ifstream in_file;
+  in_file.open("/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/file.txt"); // we will get error as file dont exit
+
+  // to check if file is open
+  if (!in_file){
+    std::cerr << "Problem opening file " << std::endl;
+    return 1;  // std::exit(1) - calls function exit that closes up certain things and destroys static variables
+   }
+   std::cout << "File is good to go" << std::endl;
+
   // ------------------------------------
   // Reading from files using (>>)
   // -------------------------------------
   // we want to read int, double and string  and a text file into our program.
   // Text file contents:
+  // txt file 1
   // 100
   // 255.67
   // Larry
-  std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt", std::ios::in};
+  // txt file 2
+  // 100 255.67 Larry
+  // file 2 will still work as we are using extraction operator and extraction operator stops when it sees white space.
   int num {};
   double total {};
   std::string name {};
 
+  // Opening a file
+  std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt", std::ios::in};
+
+  //Testing if if file is opened.
+  if (!in_file){
+    std::cerr << "Problem opening file " << std::endl;
+    return 1;  // std::exit(1) - calls function exit that closes up certain things and destroys static variables
+   }
+
   // Reading from in_file using extraction operator
-  in_file >> num; // read 100 and store in num
+  in_file >> num; // read 100 and store in num; we are reading from inline
   in_file >> total >> name; // read 255.67 and store in total; then read Larry and store it in name.
   // We can have these three separate read statements on a single line OR  chain them together
 
@@ -105,6 +131,8 @@ int main(){
             << name << std::endl;
 
   in_file.close();// closing the file
+
+  //Eg 2 continously read three data items.
 
   // ---------------------------------------
   // Reading from files using getline
@@ -155,7 +183,7 @@ int main(){
   in_file.close(); // close the file
 
   // --------------------------------
-  // Reading text file one character at a time (get) - unformatted 
+  // Reading text file one character at a time (get) - unformatted
   std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt", std::ios::in};// open file - declare in_file as a fsteam object but this time reading file in a unformatted manner (i.e., one character at a time).
   char c;
 
