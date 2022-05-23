@@ -167,6 +167,8 @@ int main(){
 
   in_file.close();// closing the file
 
+  // Eg. with function in 007.cpp
+
   // ---------------------------------------
   // Reading from files using getline - one line at a time
   // ----------------------------------------
@@ -253,6 +255,7 @@ int main(){
 
   // ------------------------------------------------------
   // Example of open ()
+  // ------------------------------------------------------
   std::ifstream in_file;
   std::string filename;
   std::cin >> filename; //  /Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt
