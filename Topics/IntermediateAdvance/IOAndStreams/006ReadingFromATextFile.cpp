@@ -30,6 +30,7 @@
 
 */
 #include<iostream>
+#include<iomanip> // formatting data
 #include<string>
 #include<fsteam>
 
@@ -132,10 +133,42 @@ int main(){
 
   in_file.close();// closing the file
 
-  //Eg 2 continously read three data items.
+  // E.g. coundinously read data (inside loop). Contents of file:
+  //Frank 100 123.456
+  //Larry 200 234.567
+  //Moe 300 346.678
+  //Curly 400 456.789
+
+  int num {};
+  double total {};
+  std::string name {};
+
+  // Opening a file
+  std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt", std::ios::in};
+
+  //Testing if if file is opened.
+  if (!in_file){
+    std::cerr << "Problem opening file " << std::endl;
+    return 1;  // std::exit(1) - calls function exit that closes up certain things and destroys static variables
+   }
+
+  // while(!in_file.eof()){
+  //   in_file >> name >> num >> total; // reading first set of values
+  //   std::cout << std::setw(10) << std::left << name
+  //             << std::setw(10) << num
+  //             << std::setw(10) << total << std::endl;
+  // }
+
+  while(in_file >> name >> num >> total){ // this statement will fail if illegal data; so if able to read all the iteams while loop will execute.
+    std::cout << std::setw(10) << std::left << name
+              << std::setw(10) << num
+              << std::setw(10) << total << std::endl;
+  }
+
+  in_file.close();// closing the file
 
   // ---------------------------------------
-  // Reading from files using getline
+  // Reading from files using getline - one line at a time
   // ----------------------------------------
   // Text file contents:
   // This is a line
@@ -147,9 +180,6 @@ int main(){
 
   in_file.close(); // closing the file
 
-  //-------------------------------------------------
-  // Reading text file one line at a time
-  //-------------------------------------------------
   //  1. This program will read a text file from some file on disk and will display its contents to the console.
   std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/name.txt", std::ios::in};// open file - declare in_file as fstream & connect it to name.txt
   std::string line {}; // declare line as an string object - That's where we'll store each line that we read from the text file.
@@ -181,6 +211,23 @@ int main(){
     cout << line << std::endl; // display the line
 
   in_file.close(); // close the file
+
+  // Eg. Read one of Shakespeare's poems line by line and display it out to the console.
+  std::string line {};
+
+  // Opening a file
+  std::fstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/poem.txt", std::ios::in};
+
+  //Testing if if file is opened.
+  if (!in_file){
+    std::cerr << "Problem opening file " << std::endl;
+    return 1;  // std::exit(1) - calls function exit that closes up certain things and destroys static variables
+   }
+
+  while(std::getline(in_file, line)) // (reading from, reading to (a line)) - loop will execute if a line is successful
+    std::cout << line << std::endl;
+
+  in_file.close();// closing the file
 
   // --------------------------------
   // Reading text file one character at a time (get) - unformatted
