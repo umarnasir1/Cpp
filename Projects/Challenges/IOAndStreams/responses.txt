@@ -9,3 +9,7 @@ Curly
 BBAAE
 Michael
 BBCDE
+Markus
+BDADA
+Mark
+BADEC
