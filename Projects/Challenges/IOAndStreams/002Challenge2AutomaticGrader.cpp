@@ -43,19 +43,22 @@
 
 
   Markus
-  BDADE
+  BDADA
   Mark
   BADEC
 */
 #include<iostream>
 #include<fstream>
 #include<iomanip>
+#include<string>
+#include<vector>
+//#include<numeric>
 
-//int check_score(std::string responses);
+int check_score(std::string key, std::string student_response); // function prototype
 
 int main (){
 
-  std::ifstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/responses.txt"};
+  std::ifstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Projects/Challenges/IOAndStreams/responses.txt"};
 
   if(!in_file){
     std::cerr << "Error Opening File" << std::endl;
@@ -74,15 +77,23 @@ int main (){
   std::cout << std::setfill(' '); // reset setfill to blank space
 
   //KEY
-  std::string key {}, name {}, score{};
+  std::string key {}, name {}, student_response {};
+  int individual_score {}, num_of_students {};
+  // std::vector<double> total_score;
+  double total_score {};
   std::getline(in_file, key); // curser aage chala gya hai
   // std::cout << key << std::endl;
 
   // if you're expecting that every input is two lines of text, just read two lines at a time
-  while(std::getline(in_file, name) && std::getline(in_file, score))
+  while(std::getline(in_file, name) && std::getline(in_file, student_response)){
+    individual_score = check_score(key, student_response);
     std::cout << std::setw(15) << std::left << name
-              << std::setw(15) << std::right << "Score"
+              << std::setw(15) << std::right << individual_score
               << std::endl;
+    num_of_students ++;
+    total_score += individual_score;
+    // total_score.push_back(individual_score);
+  }
 
   std::cout << std::setw(30)
             << std::setfill('-')
@@ -90,10 +101,10 @@ int main (){
             << std::endl; // display total_width dashes
 
   std::cout << std::setfill(' '); // reset setfill to blank space
-  // std::cout << std::setprecision(1) << std::fixed; // for displaying the cost with 2 decimal digits.
+  std::cout << std::setprecision(1) << std::fixed; // for displaying the cost with 2 decimal digits.
 
   std::cout << std::setw(15) << std::left << "Average Score"
-            << std::setw(15) << std::right << "Score";
+            << std::setw(15) << std::right << total_score/num_of_students// accumulate(total_score.begin(), total_score.end(),0)/total_score.size()
             << std::endl;
 
   std::cout << std::endl;
@@ -102,9 +113,13 @@ int main (){
   return 0;
 }
 
-// int check_score(){
-//
-//   // first is the key
-//
-//   return score;
-// }
+int check_score(std::string key, std::string student_response){
+
+  int individual_score {};
+
+  for (int i {}; i < key.length(); ++i)
+    if ((key.at(i) == student_response.at(i)) == true)
+      individual_score += 1;
+
+  return individual_score;
+}
