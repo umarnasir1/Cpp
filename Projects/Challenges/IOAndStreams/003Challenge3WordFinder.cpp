@@ -32,36 +32,52 @@
 #include<fstream>
 #include<string>
 
-// int word_count (std::ifstream file_name);
+// function prototype
+bool find_substring(const std::string &word_to_find, const std::string &target);
 
 int main(){
 
-  std::string word {}, total_words {};
-  int total_words_count {};
-
-  std::cout << "Enter the substring to search for: ";
-  std::cin >> word;
+  std::string word_to_find {}, word_read {};
+  int word_read_count {}, match_count {}; // counters
 
   std::ifstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Projects/Challenges/IOAndStreams/romeoandjuliet.txt"};
 
-  // TODO 1 - Try to make a word_count()
-  while (in_file >> total_words)
-    total_words_count ++;
+  if(!in_file){
+    std::cerr << "Error Opening File" << std::endl;
+    return 1; // Exit from main()
+  }
 
-  std::cout << total_words_count << " words were searched... " << std::endl;
+  std::cout << "Enter the substring to search for: ";
+  std::cin >> word_to_find;
 
-  // TODO 2 - searching function
+  while (in_file >> word_read) { // read a word from in_file; stop at white space
+      ++word_read_count;
+      if (find_substring(word_to_find, word_read)) { // checking if the word that we want to search is a substring of the word read from in_file
+         ++match_count; // incrementing match count
+         std::cout << word_read << " "; // displaying all the strings that contain the word we are searching for.
+      }
+  }
 
+  std::cout << std::endl;
+  std::cout << word_read_count << " words were searched... " << std::endl;
+  std::cout << "The substring " << word_to_find << " was found " << match_count << " times"<< std::endl;
 
   in_file.close(); // Close file
 
   return 0;
 }
 
-// function definitions
-// int word_count (std::ifstream file_name){
-//
-//   std::cout << "Test";
-//   return 1;
-//
-// }
+// function definition
+// return true if the string word_to_find is in the target string
+// pass by reference
+//  alies for actual variable, i.e., no cpy is made
+//  passing location of actual parameter: refereing to the acutual parameter in the function body.
+// passed by reference so that code is efficient (by not making copies)
+// const - so code is safe and value of variables is not changed.
+bool find_substring(const std::string &word_to_find, const std::string &target) {
+    std::size_t found = target.find(word_to_find); //find() will return the index; we want to know if substring exists in the target or not.
+    if (found == std::string::npos) // npos - no position; so if it returns npos that means that it was not in the word.
+        return false;
+    else
+        return true;
+}
