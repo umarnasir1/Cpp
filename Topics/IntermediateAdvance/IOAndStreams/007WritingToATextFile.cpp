@@ -17,6 +17,7 @@
       We can use the insertion operator for formatted write
       Same way we used it with cout
     Copying a text file one line at a time
+      getline -formatted
     Copying a text file one character at a time (get/put) - unformatted
       get() - read character using get
       put() - write character using put
@@ -95,10 +96,25 @@ int main (){
            << total << "\n"
            << name << std::endl; // endl flushes out any unwritten buffers
 
+
+   // Eg. What ever user enters, write it to the file
+   std::ofstream out_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/samplewrite.txt", std::ios::app}; // if not exist the file will be creathed otherwise truncate, inorder to avoid from truncate, we will use append
+   if(!out_file){
+     std::cerr << "Error creating file" << std::endl;
+     return 1;
+   }
+   std::string line;
+   std::cout << "Enter something to write to the file: ";
+   std::getline(std::cin, line); // using getline as we want to read more than just one word
+   // write
+   out_file << line << std::endl;
+
+   out_file.close();
+
   // ----------------------------------------
   // Copying a text file one line at a time
   // existing file is myfile.txt, and we want to copy it to another file named copy.txt.
-  std::ifstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/samplewrite.txt"}; // open file
+  std::ifstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/poem.txt"}; // open file
   std::ofstream out_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/copy.txt"}; // if the output file does not exist, it will be created. If it does exist, it will be truncated.
 
   if (!in_file){ // check if file is open
@@ -116,13 +132,15 @@ int main (){
   while (std::getline (in_file, line)) // read input file one line at a time into string variable line
     out_file << line << std::endl; // write a line
 
+  std::cout << "File coppied" << std::endl;
+
   // closing files
   in_file.close();
   out_file.close();
   // ----------------------------------------
 
   // Copying a text file one character at a time (get/put) - UnFormatted
-  std::ifstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/samplewrite.txt"}; // open file
+  std::ifstream in_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/poem.txt"}; // open file
   std::ofstream out_file {"/Volumes/Umar/Kurser/C++/Cpp/Topics/IntermediateAdvance/IOAndStreams/copy.txt"};
 
   if (!in_file){ // check if file is open
@@ -136,10 +154,10 @@ int main (){
   }
 
   char c;
-
   while (in_file.get(c)) // read a character - get ()
     out_file.put(c); // write the character - put()
 
+  std::cout << "File Copied" << std::endl;
   // close the files
   in_file.close();
   out_file.close();
