@@ -1,5 +1,4 @@
 /*
-  How we could use some of STLs functionality.
   STL Algorithm:
     sort() - sorting in ascending order.
     reverse() - sorting in descending order.
