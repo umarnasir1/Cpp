@@ -4,6 +4,8 @@
 
     Idea of Generic Programming: A function (for e.g.,) with any data type.
 
+    Generic functions using preprocessor Macros.
+
     NOT recommended
       Be very careful when you use macros in practice, especially macros that use arguments.
       Example1
@@ -30,7 +32,7 @@ double area = PI * r * r; // PI is being used in the calclulation
 // use constants, as they are typed and are known to the compiler.
 
 // max function
-// function to determine the max of 2 integers. for floats, double, char, long there will be little modifiction in max fucntion. The function is same, just the type is changed so many versions of max depending on type.
+// function to determine the max of 2 integers. for floats, double, char, long there will be little modifiction in max fucntion. The function is same, just the type (of parameters) is changed so many versions of max depending on type.
 // Generic Programming - use max with any data types
 //  Using MACROS with parameters
 
