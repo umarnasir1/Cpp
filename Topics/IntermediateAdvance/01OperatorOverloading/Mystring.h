@@ -1,6 +1,10 @@
 /*
   What is Operator Overloading - Mystring.h
 
+  Mystring.h - class specification
+  Mystring.cpp - class definition
+  main.cpp
+
   c-style string used so we can play around with
     raw pointers a little bit more,
     understand the copy constructor,
@@ -26,7 +30,3 @@ public:
 };
 
 #endif // _MYSTRING_H_
-
-// When is a copy constructor get called ?
-// (1)copy an existing object and construct a new object from it.
-// (2)gets called if you pass an object by value to a function
