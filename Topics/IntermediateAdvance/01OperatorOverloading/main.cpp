@@ -1,13 +1,21 @@
 /*
-  What is Operator Overloading - main.cpp
+  Mystring.h - class specification
+  Mystring.cpp - class definition
+  main.cpp
 
-  Implementation of Mystring class.
+  What is Operator Overloading
+  Implementation of Mystring class. (we will extend it later)
     We already have a std::string class but we are doing it ourselves so we can learn how to implement these things.
 
   In this section, we're going to create our own version of a string class named my string and, we want to be able to overload some operators to concatenate mystrings compare them, assign them and so forth.
 
-  // We're going to add overloaded operators to this basic class called mystring.
+  We're going to add overloaded operators to this basic class called mystring.
 
+  // ---- Using overloaded operators ------------------
+  // Let's see what our calculation would look like if we overloaded the addition, multiplication and division operators.
+
+  // Suppose we have a Number class that models any number. Our user-defined number class now looks and feels and behaves like the built in c++ types.
+  Number result = (a+b)*(c/d); // Behind the scenes, we're still calling methods or functions.
 */
 #include <iostream>
 #include "Mystring.h"
@@ -15,38 +23,13 @@
 int main(){
 
   Mystring empty; // empty Mystring object - no-args constructor
-  Mystring larry("Larry"); // overloaded constructor used to initialize to string Larry
+  Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry
   Mystring stooge {larry}; // copy constructor as we are initializing using larry object
 
   // displaying objects
   empty.display();
   larry.display();
   stooge.display();
-
-  // // --- Code if we are not overloading operators -------------------
-  // // (1) Using functions
-  // // (2) Using member methods
-  //
-  // // Using functions:
-  // // Suppose we've implemented our own class 'Number', which can model any kind of number: an integer, a double, a complex number, an irrational number, etc.
-  // // If we want to be able to manipulate 'Number' objects (e.g., result object of class Number) so that we can add them, subtract them, multiply them and so forth, we could implement non-member functions or member functions to achieve what we want. So if we wanted to add a and b, then multiply that result by the quotient of c divided by d.
-  // Number result = multiply (add(a,b), divide(c,d));
-  //
-  // // Using member methods: (we need objects and method names)
-  // Number result = (a.add(b)).multiply(c.divide(d));
-  //
-  // // Both the statements are very unreadale and difficult to write due to functions.
-  // // We're adding dividing and multiplying and we've been using these operators to do that since we were little kids in school why can't we use them now.
-  // // Ans: C++ doesnt know what to do with our user-defined types.
-  // // In most cases, it makes no sense to add or multiply or subtract your objects. For example, what does it mean to subtract two player objects in a game or multiply two account objects?
-  //
-  // // In many cases, it doesn't make sense to overload certain operators for your classes. In those cases don't do it. Only do it if it makes sense.
-  //
-  // // ---- Using overloaded operators ------------------
-  // // Let's see what our calculation would look like if we overloaded the addition, multiplication and division operators.
-  //
-  // // Suppose we have a Number class that models any number. Our user-defined number class now looks and feels and behaves like the built in c++ types.
-  // Number result = (a+b)*(c/d); // Behind the scenes, we're still calling methods or functions.
 
   return 0;
 }
