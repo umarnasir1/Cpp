@@ -6,8 +6,8 @@
 
     Your program should display a menu options to the user as follows:
 
-    P - Print numbers
-    A - Add a number
+    P - Print numbers (Print elements of the list)
+    A - Add a number to the list that is asked to the user
     M - Display mean of the numbers
     S - Display the smallest number
     L - Display the largest number
