@@ -65,7 +65,7 @@ int main (){
     cout << "\nEnter your selection: ";
     cin >> selection;
 
-    switch (selection) {  // can also work with if - else if - else if - else if -else
+    switch (selection) {  // can also work with if - else if - else if - else if -else (check video)
       case '1':
         cout << "Operations for Task 1" << endl;
         break;
