@@ -43,14 +43,7 @@ If the list is empty you should display, "Unable to determine the largest number
 
 If the user enters 'Q' or 'q' then you should display 'Goodbye" and the program should terminate.
 
-Before you begin. Write out the steps you need to take and decide in what order they should be done.
-Think about what loops you should use as well as what you will use for your selection logic.
-
-This exercise can be challenging! It may likely take a few attempts before you complete it -- that's OK!
-
-Finally, be sure to test your program as you go and at the end.
-
-Hint: Use a vector!
+Hint: Use a vector (as we want this to grow dynamically)
 
 Additional functionality if you wish to extend this program.
 
@@ -63,11 +56,102 @@ Good luck!
 
 */
 #include <iostream>
+#include <vector>
+#include <iomanip>
+#include <numeric>
 
-using namespace std;
+int main(){
 
-int main() {
+  char choice {};
+  std::vector<int> list{};
+  int num{}, smallest_p {}, smallest_num, largest_p {}, largest_num {};
+  double mean {};
 
-    cout << "Hello world" << endl;
-    return 0;
+  std::cout << std::fixed << std::setprecision(2);
+
+  do {
+    // Menu
+    std::cout << "\nP - Print numbers\n"
+              << "A - Add a number\n"
+              << "M - Display mean of the numbers\n"
+              << "S - Display the smallest number\n"
+              << "L - Display the largest number\n"
+              << "Q - Quit\n" << std::endl;
+
+    std::cout << "Enter your choice: ";
+    std::cin >> choice;
+
+    switch (choice){
+      case 'p':
+      case 'P':
+        if (list.size() != 0){
+          std::cout <<"[ ";
+          for (auto list_elements: list) // range based for loop
+            std::cout << list_elements << " ";
+          std::cout << "]" << std::endl;
+        }
+        else
+          std::cout << "[] - the list is empty" << std::endl;
+        break;
+      case 'a':
+      case 'A':
+        std::cout << "Enter an integer to add to the list: ";
+        std::cin >> num;
+        list.push_back(num);
+        std::cout << num << " added" << std::endl;
+        break;
+      case 'm':
+      case 'M':
+        if (list.size() != 0){
+          int sum {};
+          for (int element: list)
+            sum += element;
+          mean = sum /double(list.size()); // accumulate(list.begin(), list.end(), 0)/double(size(list)); - STL
+          std::cout << "The mean is : " << mean << std::endl;
+        }
+        else
+          std::cout << "Unable to calculate the mean - no data" << std::endl;
+        break;
+      case 's':
+      case 'S':
+        if (list.size() != 0){
+          for (int i{}; i < list.size()-1; i++){
+            if (list.at(i) < list.at(i+1))
+              smallest_p = list.at(i);
+            else
+              smallest_p = list.at(i+1);
+            if (smallest_num > smallest_p)
+               smallest_num = smallest_p;
+          } // for
+          std::cout << "The smallest number is " << smallest_num << std::endl;
+        }
+        else
+          std::cout << "Unable to determine the smallest number - list is empty" << std::endl;
+        break;
+      case 'l':
+      case 'L':
+        if (list.size() != 0){
+          for (int i{}; i < list.size()-1; i++){
+            if (list.at(i) > list.at(i+1))
+              largest_p = list.at(i);
+            else
+              largest_p = list.at(i+1);
+            if (largest_num < largest_p)
+              largest_num = largest_p;
+          }// for
+          std::cout << "The largest number is " << largest_num << std::endl;
+        }
+        else
+          std::cout << "Unable to determine the largest number - list is empty";
+        break;
+      case 'q':
+      case 'Q':
+        std::cout << "Goodbye" << std::endl;
+        break;
+      default:
+       std::cout << "Unknown selection, please try again." << std::endl;
+    }
+  } while(choice != 'Q' && choice != 'q');
+
+  return 0;
 }
