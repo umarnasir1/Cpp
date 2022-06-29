@@ -4,6 +4,29 @@
   There are other ways as well to declare and initialize strings, e.g, constructor and assignment syntax but initializer syntax is recommended {}.
 
   C++ strings are always initialized.
+
+  Contents:
+    Declaring
+    Initiazing strings.
+    Comparision ( ==, !=, >, >=, <, <=)
+    Assigning values - using assignment operator =
+    Manipulating C++ String
+    Concatination
+    Compound Concatination
+    String Methods
+      length()
+      substr()
+      erase()
+      input with C++ strings
+        >>
+        getline()
+          getline with delimiter
+      find()- returns the index of substring in a std::string.
+        find word in a string
+      clear()
+      insert()
+      swap()
+      erase()
 */
 #include<iostream>
 #include<string>
@@ -221,6 +244,7 @@ int main(){
   string journal_entry_1 {"Isaac Newton"};
   string journal_entry_2 {"Leibniz"};
 
+  // erase()
   // removing the first name of Isaac Newton along with white space.
   journal_entry_1.erase(0,6); // Newton
 
