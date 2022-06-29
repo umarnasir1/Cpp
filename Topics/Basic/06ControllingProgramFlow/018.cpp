@@ -64,8 +64,6 @@ int main(){
 
   char choice {};
   std::vector<int> list{};
-  int num{}, smallest_p {}, smallest_num, largest_p {}, largest_num {};
-  double mean {};
 
   std::cout << std::fixed << std::setprecision(2);
 
@@ -95,34 +93,34 @@ int main(){
         break;
       case 'a':
       case 'A':
+      { // if variables are declared then blocks are required in switch case
+        int num{};
         std::cout << "Enter an integer to add to the list: ";
         std::cin >> num;
         list.push_back(num);
         std::cout << num << " added" << std::endl;
         break;
+      }
       case 'm':
       case 'M':
         if (list.size() != 0){
           int sum {};
           for (int element: list)
             sum += element;
-          mean = sum /double(list.size()); // accumulate(list.begin(), list.end(), 0)/double(size(list)); - STL
-          std::cout << "The mean is : " << mean << std::endl;
+          // mean = sum /double(list.size()); // accumulate(list.begin(), list.end(), 0)/double(size(list)); - STL
+          std::cout << "The mean is : " << static_cast<double>(sum) /double(list.size()) << std::endl; // static cast
         }
         else
           std::cout << "Unable to calculate the mean - no data" << std::endl;
         break;
       case 's':
       case 'S':
+        // Assume first element is smallest, then iterate through the vector and if we find any other smaller element we will replace that as smallest
         if (list.size() != 0){
-          for (int i{}; i < list.size()-1; i++){
-            if (list.at(i) < list.at(i+1))
-              smallest_p = list.at(i);
-            else
-              smallest_p = list.at(i+1);
-            if (smallest_num > smallest_p)
-               smallest_num = smallest_p;
-          } // for
+          int smallest_num = list.at(0);
+          for (auto num: list)
+            if (num < smallest_num)
+              smallest_num = num;
           std::cout << "The smallest number is " << smallest_num << std::endl;
         }
         else
@@ -131,14 +129,10 @@ int main(){
       case 'l':
       case 'L':
         if (list.size() != 0){
-          for (int i{}; i < list.size()-1; i++){
-            if (list.at(i) > list.at(i+1))
-              largest_p = list.at(i);
-            else
-              largest_p = list.at(i+1);
-            if (largest_num < largest_p)
-              largest_num = largest_p;
-          }// for
+          int largest_num = list.at(0);
+          for (auto num: list)
+            if (num > largest_num)
+              largest_num = num;
           std::cout << "The largest number is " << largest_num << std::endl;
         }
         else
