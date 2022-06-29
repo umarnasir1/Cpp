@@ -1,5 +1,4 @@
-// Section 9 - controlling Program Flow
-// Challenge
+// controlling Program Flow Challenge
 /*
     This challenge is about using a collection (list) of integers and allowing the user
     to select options from a menu to perform operations on the list.
