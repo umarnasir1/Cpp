@@ -22,7 +22,7 @@
         getline()
           getline with delimiter
       find()- returns the index of substring in a std::string.
-        find word in a string
+        find word in a string returns position of string or str::nopos (no position)
       clear()
       insert()
       swap()
