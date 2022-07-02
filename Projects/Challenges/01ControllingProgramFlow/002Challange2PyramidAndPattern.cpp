@@ -1,7 +1,7 @@
 // Example 1:
 // Program to print half pyramid using *
 
-// #include<iostream>
+// #include <iostream>
 //
 // int main(){
 //
@@ -21,7 +21,7 @@
 
 // Example 2:
 // Program to print pyramid using numbers
-// #include<iostream>
+// #include <iostream>
 //
 // int main(){
 //
@@ -41,19 +41,39 @@
 
 // Example 3:
 // Program to print half pyramid using alphabets
-#include<iostream>
+// #include <iostream>
+//
+// int main(){
+//
+//   char alphabet = 'A', user_input;
+//
+//   std::cout << "Enter the uppercase character to be printed in the last row: ";
+//   std::cin >> user_input;
+//
+//   for (int i{1}; i <= (user_input-'A'+1); i++){ // rows - https://en.cppreference.com/w/cpp/language/ascii, iterations -user_input-'A'+1
+//     for (int j{1}; j <= i; j++) // cols
+//       std::cout << alphabet << " ";
+//     ++alphabet;
+//     std::cout << std::endl;
+//   }
+//
+//   return 0;
+// }
 
-int main(){
+// Example 4:
+// Example 4: Inverted half pyramid using *
+#include <iostream>
 
-  char alphabet = 'A', user_input;
+int main (){
 
-  std::cout << "Enter the uppercase character to be printed in the last row: ";
-  std::cin >> user_input;
+  int rows {};
 
-  for (int i{1}; i <= (user_input-'A'+1); i++){ // rows - https://en.cppreference.com/w/cpp/language/ascii, iterations -user_input-'A'+1
-    for (int j{1}; j <= i; j++) // cols
-      std::cout << alphabet << " ";
-    ++alphabet;
+  std::cout << "Enter the number of rows: ";
+  std::cin >> rows;
+
+  for (int i{rows}; i >= 1; i--){
+    for (int j{1}; j <= i; j++)
+      std::cout << "* ";
     std::cout << std::endl;
   }
 
