@@ -61,21 +61,40 @@
 // }
 
 // Example 4:
-// Example 4: Inverted half pyramid using *
-#include <iostream>
+// Inverted half pyramid using *
+// #include <iostream>
+//
+// int main (){
+//
+//   int rows {};
+//
+//   std::cout << "Enter the number of rows: ";
+//   std::cin >> rows;
+//
+//   for (int i{rows}; i >= 1; i--){
+//     for (int j{1}; j <= i; j++)
+//       std::cout << "* ";
+//     std::cout << std::endl;
+//   }
+//
+//   return 0;
+// }
+
+// Example 5:
+// Inverted half pyramid using numbers
+# include <iostream>
 
 int main (){
 
-  int rows {};
+  int rows;
 
-  std::cout << "Enter the number of rows: ";
+  std::cout << "Enter number of rows: ";
   std::cin >> rows;
 
-  for (int i{rows}; i >= 1; i--){
-    for (int j{1}; j <= i; j++)
-      std::cout << "* ";
+  for (int i{5}; i>=1; --i){
+    for (int j{1}; j<=i; ++j)
+      std::cout << j << " ";
     std::cout << std::endl;
   }
-
   return 0;
 }
