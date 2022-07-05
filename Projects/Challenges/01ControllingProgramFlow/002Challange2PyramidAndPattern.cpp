@@ -6,7 +6,6 @@
 // int main(){
 //
 //   int rows {};
-//
 //   std::cout << "Enter number of rows: ";
 //   std::cin >> rows;
 //
@@ -15,7 +14,6 @@
 //       std::cout << "* ";
 //     std::cout << std::endl;
 //   }
-//
 //   return 0;
 // }
 
@@ -82,19 +80,70 @@
 
 // Example 5:
 // Inverted half pyramid using numbers
-# include <iostream>
+// # include <iostream>
+//
+// int main (){
+//
+//   int rows;
+//
+//   std::cout << "Enter number of rows: ";
+//   std::cin >> rows;
+//
+//   for (int i{5}; i>=1; --i){
+//     for (int j{1}; j<=i; ++j)
+//       std::cout << j << " ";
+//     std::cout << std::endl;
+//   }
+//   return 0;
+// }
+
+// Exemple 6:
+// Program to print full pyramid using *
+#include <iostream>
 
 int main (){
 
-  int rows;
+  int rows{};
 
-  std::cout << "Enter number of rows: ";
+  std::cout << "Enter the number of rows: ";
   std::cin >> rows;
 
-  for (int i{5}; i>=1; --i){
-    for (int j{1}; j<=i; ++j)
-      std::cout << j << " ";
+  for(int i{1}; i <= rows; ++i){ // loop for spaces
+    for (int space{1}; space <= rows-i; ++space) // loop for space
+      std::cout << "  ";
+
+    for (int j{1}; j<= ((i*2)-1); ++j) // loop for *
+       std::cout <<  "* ";
+
     std::cout << std::endl;
   }
   return 0;
 }
+
+// Althernative Method
+// #include <iostream>
+// using namespace std;
+//
+// int main()
+// {
+//     int space, rows;
+//
+//     cout <<"Enter number of rows: ";
+//     cin >> rows;
+//
+//     for(int i = 1, k = 0; i <= rows; ++i, k = 0)
+//     {
+//         for(space = 1; space <= rows-i; ++space)
+//         {
+//             cout <<"  ";
+//         }
+//
+//         while(k != 2*i-1)
+//         {
+//             cout << "* ";
+//             ++k;
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
