@@ -99,26 +99,26 @@
 
 // Exemple 6:
 // Program to print full pyramid using *
-#include <iostream>
-
-int main (){
-
-  int rows{};
-
-  std::cout << "Enter the number of rows: ";
-  std::cin >> rows;
-
-  for(int i{1}; i <= rows; ++i){ // loop for spaces
-    for (int space{1}; space <= rows-i; ++space) // loop for space
-      std::cout << "  ";
-
-    for (int j{1}; j<= ((i*2)-1); ++j) // loop for *
-       std::cout <<  "* ";
-
-    std::cout << std::endl;
-  }
-  return 0;
-}
+// #include <iostream>
+//
+// int main (){
+//
+//   int rows{};
+//
+//   std::cout << "Enter the number of rows: ";
+//   std::cin >> rows;
+//
+//   for(int i{1}; i <= rows; ++i){ // loop for spaces
+//     for (int space{1}; space <= rows-i; ++space) // loop for space
+//       std::cout << "  ";
+//
+//     for (int j{1}; j<= ((i*2)-1); ++j) // loop for *
+//        std::cout <<  "* ";
+//
+//     std::cout << std::endl;
+//   }
+//   return 0;
+// }
 
 // Althernative Method
 // #include <iostream>
@@ -147,3 +147,40 @@ int main (){
 //     }
 //     return 0;
 // }
+
+// Example 7:
+// Program to print pyramid using numbers
+#include <iostream>
+
+int main (){
+  int rows {}, count {}, count1 {}, k {};
+  // count - count for first half of pyramid (increasing)
+  // count1 - count for second halft of pyramid (decreasing)
+  // k - while loop
+
+  std::cout << "Enter the number of rows: ";
+  std::cin >> rows;
+
+  for (int i{1}; i <= rows; ++i){
+    for (int space{1}; space <= rows-i; ++space){ // loop for space
+      std::cout << "  ";
+      ++count;
+    }
+
+    while(k != i*2-1){// to print numbers in rows (in paramid) 1,3,5,7,9 ....
+      if(count <= rows-1){ // left half of parymid (increasing order of numbers)
+        // rows-1 in condition becase count will be 0 to 4 for the first half and space 0 to 4.
+        std::cout << i+k << " ";
+        ++count;
+      }
+      else { // right half of paramid - decreasing order of numbers
+        ++count1;
+        std::cout << i+k-2*count1 << " ";
+      }
+      ++k;
+    }
+    count1 = count = k = 0;
+    std::cout << std::endl;
+  }
+  return 0;
+}
