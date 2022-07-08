@@ -155,7 +155,7 @@
 int main (){
   int rows {}, count {}, count1 {}, k {};
   // count - count for first half of pyramid (increasing)
-  // count1 - count for second halft of pyramid (decreasing)
+  // count1 - count for second halft of pyramid (reverse)
   // k - while loop
 
   std::cout << "Enter the number of rows: ";
@@ -169,11 +169,11 @@ int main (){
 
     while(k != i*2-1){// to print numbers in rows (in paramid) 1,3,5,7,9 ....
       if(count <= rows-1){ // left half of parymid (increasing order of numbers)
-        // rows-1 in condition becase count will be 0 to 4 for the first half and space 0 to 4.
+        // rows-1 in condition because count will be 0 to 4 for the first half and space 0 to 4.
         std::cout << i+k << " ";
         ++count;
       }
-      else { // right half of paramid - decreasing order of numbers
+      else { // right half of paramid - reverse order of numbers
         ++count1;
         std::cout << i+k-2*count1 << " ";
       }
