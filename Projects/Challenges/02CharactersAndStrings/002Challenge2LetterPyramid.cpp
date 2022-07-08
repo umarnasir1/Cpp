@@ -81,16 +81,37 @@
 */
 
 #include <iostream>
-#include <string>
 
 int main (){
-
   std::string user_input;
+  int count {}, count1 {}, k {};
+  // count - count for first half of pyramid (increasing)
+  // count1 - count for second halft of pyramid (reverse)
+  // k - while loop
 
   std::cout << "Enter a string: ";
-  std::cin >> user_input;
+  std::cin >> user_input; // getline(std::cin, user_input)
 
-  
+  for (int i{1}; i <= user_input.length(); ++i){
+    for (size_t space{1}; space <= user_input.length()-i; ++space){ // loop for space
+      std::cout << "  ";
+      ++count;
+    }
 
+    while(k != i*2-1){// to print numbers in rows (in paramid) 1,3,5,7,9 ....
+      if(count <= user_input.length()-1){ // left half of parymid (increasing order)
+        // user_input.length()-1 in condition because count will be 0 to 4 for the first half and space 0 to 4 incase of length() = 5
+        std::cout << user_input[k] << " ";
+        ++count;
+      }
+      else { // right half of paramid - reverse order
+        ++count1;
+        std::cout << user_input[k-2*count1] << " ";
+      }
+      ++k;
+    }
+    count1 = count = k = 0;
+    std::cout << std::endl;
+  }
   return 0;
 }
