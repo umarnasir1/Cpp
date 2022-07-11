@@ -62,12 +62,12 @@ void param_test (int formal){ // formal is a copy of actual
 }
 
 void pass_by_value1 (int num){
-  num = 1000; // local copy
+  num = 1000; // local copy - and here the formal parameter will be changed.
   return;
 }
 
 void pass_by_value2 (string s){
-  s = "Changed";
+  s = "Changed"; // this will not change the name but will change the copy 
   return;
 }
 
