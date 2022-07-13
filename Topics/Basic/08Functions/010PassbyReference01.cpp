@@ -26,7 +26,7 @@ int main(){
   cout << "------------ Eg. 01 ------------------------------" << endl;
   int number {1000};
   scale_number (number);
-  cout << number << endl;
+  cout << number << endl; // 100
 
   cout << "\n------------ Eg. 02 ------------------------------" << endl;
   int x{10}, y{20};
@@ -37,7 +37,7 @@ int main(){
   cout << "\n------------ Eg. 03 ------------------------------" << endl;
   vector <int> data {1,2,3,4,5};
   print(data); // 1,2,3,4,5  - pass by value
-  print1(data); // 1, 2, 3, 4, 5 - pass by reference - The output of this program is exactly the same as before, but we avoid the storage and copy overhead of pass by value.
+  print1(data); // 1, 2, 3, 4, 5 - pass by reference - The output of this program is exactly the same as before, but we avoid the storage (as in pass by value a copy is made and in order to make a copy we need to allocate storage and copy values over) and copy overhead of pass by value.
 
   cout << "\n------------ Eg . 04 ------------------------------" << endl;
   int num {10}, another_num {20};
@@ -90,7 +90,7 @@ void print(vector <int> v){
 // the code of pass by reference would be same other than & sign.
 // In order to avoid modification of vector, we can add constant.
 void print1(const vector <int> &v){
-//  v.at(0) = 200; // Error
+//  v.at(0) = 200; // Error as this will change the value of vector
   for (auto num: v) // formal parameter v will be copy of actual parameter data
     cout << num << endl;
     return;
@@ -116,5 +116,5 @@ void print_vector (const vector <string> &v){ // displays vector element by elem
   for (auto s: v)
     cout << s << " ";
   cout << endl;
-  return; 
+  return;
 }
