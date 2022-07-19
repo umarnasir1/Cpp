@@ -3,6 +3,7 @@
 */
 
 #include <iostream>
+#include <string>
 
 using std::cout;
 using std::cin;
@@ -23,6 +24,8 @@ int main(){
 
   int another_arry [] {1,2,3,4,5}; // size automatically calculated by compiler based on the # of elements in the initializer list.
 
+  std::string accounts []{frank_account, jim_account};
+  
   // Illegal declaration
   // int numbers [0]; // is not legal since it declares an array with no size
   // double 5numbers[5]; is not legal since the array name is not a legal identifier (identifiers cannot start with a digit)
@@ -78,7 +81,7 @@ int main(){
 
   cout << "The first high temprature is now : " <<hi_temps[0] << endl;
 
-  cout << hi_temps[5] << endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is one of the advantages of vectors. There will be warning but no error. 
+  cout << hi_temps[5] << endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is one of the advantages of vectors. There will be warning but no error.
 
   return 0;
 }
