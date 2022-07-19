@@ -56,8 +56,7 @@ Recursive case:
 unsigned long long fibonacci (unsigned long long n){
   if (n <= 1)
     return n; // base case
-  else
-    return fibonacci(n-1) + fibonacci(n-2); // recursion case
+  return fibonacci(n-1) + fibonacci(n-2); // recursive case
 }
 
 /*       Memory for a program for factorial (3)
