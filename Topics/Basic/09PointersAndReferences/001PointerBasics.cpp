@@ -6,7 +6,7 @@
   Read from right to left
 
   int **ptr; // ptr stores addresses of pointers to integers.
-  
+
   variable_type *pointer_name {nullptr};  // {} {nullptr} same, we are initializing pointer to 0 i.e., to point nowhere i.e., address zero
   variable_type *pointer_name {}; // Initializing - important to initilize at the time of declaration otherwise it will contain garbage data (dummy address in this case).
   un-initialize pointer can point anywhere - So if we use it we could be accessing memory that we have no business messing around with.
@@ -38,14 +38,14 @@ int main (){
   //cout << "Value of p is: " << p << endl; // 0
 
   cout << "Value of num is: " << num << endl; // 10 - displaying contents of num
-  cout << "Address of num is: " << &num << endl; //0x7ffee8f0d7f4 - location in memory of variable num  - displaying address of num.
+  cout << "Address of num is: " << &num << endl; //0x7ff7bf730724 - location in memory of variable num  - displaying address of num.
   cout << "sizeof of num is: " << sizeof num << endl; // 4 (bytes) - how much storage is allocated by num / how much storage we need to store int
 
   p = &num;   // store address of num in pointer variable
 
-  cout << "Address stored in ip variable: " << p << endl; // print the address stored in p pointer variable
-  cout << "Value of *ip variable: " << *p << endl; // access the value at the address available in pointer
-  cout << "Address of p is: " << &p << endl; // 0x7ffee5f487e8 - address of variable p
+  cout << "Address stored in ip variable: " << p << endl; // 0x7ff7bf730724 - print the address stored in p pointer variable
+  cout << "Value of *ip variable: " << *p << endl; // 10 - access the value at the address available in pointer
+  cout << "Address of p is: " << &p << endl; // 0x7ff7bf730718 - address of variable p
   cout << "sizeof of p is: " << sizeof p << endl; // 8 bytes - addresses can be stored in 8 bytes
 
   // Eg. 02- size of
@@ -98,7 +98,7 @@ int main (){
   // -- Typed pointer -The compiler will make sure that the address stored in a pointer variable is of the correct type
   int score {10};
   double high_temp {100.7};
-  double low_temp {37.2}; // Pointers are variables so they can be changed
+  double low_temp {37.2};
 
   int *score_ptr {nullptr}; // score_ptr is pointer to integer   0x000000
 
@@ -113,10 +113,10 @@ int main (){
   temp_ptr = &high_temp; // points to high_temp
   temp_ptr = &low_temp;  // now points to low_temp
 
-  cout << "Value of score is: " << score << endl;
-  cout << "Address of score is: " << &score << endl;
-  cout << "Value of score_ptr is: " << score_ptr << endl;
-  cout << "Value of *temp_ptr is: " << *temp_ptr << endl; // Access the data we are pointing to
+  cout << "Value of score is: " << score << endl; // 10
+  cout << "Address of score is: " << &score << endl; // 0x7ff7bf7306ec
+  cout << "Value of score_ptr is: " << score_ptr << endl; // 0x7ff7bf7306ec
+  cout << "Value of *temp_ptr is: " << *temp_ptr << endl; // 37.2 - Access the data we are pointing to
 
   // Eg. 4 - Dereferencing a Pointer - Access the data we are pointing to
   int score1 {100};
@@ -133,11 +133,11 @@ int main (){
   string name {"Bjarne"};
   string *string_ptr1 {&name};
 
-  cout << *string_ptr1 << endl;
+  cout << *string_ptr1 << endl; // Bjarne
 
   name = "Straustrup"; // changing name  - not through pointer.. through variable
 
-  cout << *string_ptr1 << endl; // dereferencing the pointer again
+  cout << *string_ptr1 << endl; // Straustrup - dereferencing the pointer again
 
 
   // another eg. of pointer and what it is poitning to
@@ -148,10 +148,12 @@ int main (){
   vector_ptr = &stooges;
 
   cout << "First stooge: " << (*vector_ptr).at(0) << endl; // Larry
+  cout << "Second stooge: " << (*vector_ptr).at(1) << endl; // Moe
+  cout << "Third stooge: " << (*vector_ptr).at(2) << endl; // Curly
 
   cout << "Stooges: ";
   for (auto stooge: *vector_ptr)
-    cout << stooge << " ";
+    cout << stooge << " "; // Larry Moe Curly
   cout << endl;
 
   return 0;
