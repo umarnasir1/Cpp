@@ -5,11 +5,17 @@
   variable_type *pointer_name; // Declaration
   Read from right to left
 
-  int **ptr; // ptr stores addresses of pointers to integers.
+  int *ptr; // ptr stores addresses of pointers to integers.
 
   variable_type *pointer_name {nullptr};  // {} {nullptr} same, we are initializing pointer to 0 i.e., to point nowhere i.e., address zero
   variable_type *pointer_name {}; // Initializing - important to initilize at the time of declaration otherwise it will contain garbage data (dummy address in this case).
   un-initialize pointer can point anywhere - So if we use it we could be accessing memory that we have no business messing around with.
+
+  Eg.02 size of pointer
+    difference between pointer and what it is pointing to.
+
+  * - dereferencing operator
+
 */
 #include <iostream>
 #include <string>
@@ -43,7 +49,7 @@ int main (){
 
   p = &num;   // store address of num in pointer variable
 
-  cout << "Address stored in ip variable: " << p << endl; // 0x7ff7bf730724 - print the address stored in p pointer variable
+  cout << "Address stored in p variable: " << p << endl; // 0x7ff7bf730724 - print the address stored in p pointer variable
   cout << "Value of *ip variable: " << *p << endl; // 10 - access the value at the address available in pointer
   cout << "Address of p is: " << &p << endl; // 0x7ff7bf730718 - address of variable p
   cout << "sizeof of p is: " << sizeof p << endl; // 8 bytes - addresses can be stored in 8 bytes
@@ -103,7 +109,7 @@ int main (){
   int *score_ptr {nullptr}; // score_ptr is pointer to integer   0x000000
 
   score_ptr = &score; // Ok - assigning address of score to score_ptr - Ok since score_ptr holds addresses of integers and scores an integer.
-  // score_ptr is pointing to integer as its pointing to integer.
+  // score_ptr is pointing to integer.
 
   //score_ptr = &high_temp; // assigning address of high_temp to score_ptr - compiler error as score_ptr hold address of int but we are asking it to store the address of a double. Both addresses are 8 bytes long, so the issue isn't the size won't fit, the issue is that there's a type conflict.
   double *temp_ptr; // not initialized .. pointing anywhere
@@ -120,11 +126,13 @@ int main (){
 
   // Eg. 4 - Dereferencing a Pointer - Access the data we are pointing to
   int score1 {100};
-  int *score_ptr1 {&score1}; // Declaring a score pointer to be a pointer to an integer and initialize it to the address of score. Now score_ptr points to score. Now score_ptr1 points to score
+  int *score_ptr1 {&score1}; // Declaring a score pointer to be a pointer to an integer and initialize it to the address of score. Now score_ptr1 points to score1
 
-  cout << *score_ptr1 << endl; //100 - As score_ptr1 points to score,
+  cout << *score_ptr1 << endl; //100 - As score_ptr1 points to score1 (we are using dereference operator)
 
-  *score_ptr1 = 200; // Dereferencing the pointer again The left-hand side of an assignment statement is an address or a location that's where we want to store things. Assigning 200 to score_ptr1
+  // When we dereference a pointer on the left hand side of an assignment statement, this results in an l value
+  // left hand side of an assignment statement is address or location
+  *score_ptr1 = 200; // Dereferencing the pointer again. The left-hand side of an assignment statement is an address or a location that's where we want to store things. Assigning 200 to score_ptr1. We just change the value of score indirectly via the pointer.
 
   cout << *score_ptr1 << endl; // 200
   cout << score1 << endl; // 200
@@ -135,7 +143,7 @@ int main (){
 
   cout << *string_ptr1 << endl; // Bjarne
 
-  name = "Straustrup"; // changing name  - not through pointer.. through variable
+  name = "Straustrup"; // changing name  - not through pointer.. through variable - not modifying the pointer, but modifiing the area the pointer is pointing to.
 
   cout << *string_ptr1 << endl; // Straustrup - dereferencing the pointer again
 
@@ -147,12 +155,13 @@ int main (){
 
   vector_ptr = &stooges;
 
-  cout << "First stooge: " << (*vector_ptr).at(0) << endl; // Larry
+  cout << "First stooge: " << (*vector_ptr).at(0) << endl; // Larry - dereferencing prointer and then at(). further we use () as . have higher presidence then ()
   cout << "Second stooge: " << (*vector_ptr).at(1) << endl; // Moe
   cout << "Third stooge: " << (*vector_ptr).at(2) << endl; // Curly
 
+  // Printing all the stooges through vector pointer
   cout << "Stooges: ";
-  for (auto stooge: *vector_ptr)
+  for (auto stooge: *vector_ptr) // Range based for loop ; *vector_ptr -we are getting stooges
     cout << stooge << " "; // Larry Moe Curly
   cout << endl;
 
