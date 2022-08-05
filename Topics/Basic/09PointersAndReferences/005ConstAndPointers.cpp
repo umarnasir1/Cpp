@@ -1,5 +1,8 @@
 /*
   Const and Pointers
+    Pointers to constant
+    Constant Pointers
+    Constant pointers to constants
 */
 #include<iostream>
 
@@ -13,7 +16,7 @@ int main(){
   score_ptr = &low_score; // OK - we can assign another address to the pointer and have it point somewhere else.
 
   // Constant Pointers
-  int *const score_ptr1 {&high_score}; // score_ptr1 is  a const pointer to integer.
+  int *const score_ptr1 {&high_score}; // score_ptr1 is a const pointer to integer.
 
   *score_ptr1 = 86; // OK
   //score_ptr1 = &low_score; // Error
