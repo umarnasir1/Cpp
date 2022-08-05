@@ -4,11 +4,6 @@
 #include<iostream>
 #include<string>
 
-using std::string;
-using std::cout;
-using std::endl;
-using std::boolalpha;
-
 int main (){
 
   int scores [] {100, 95, 89, 68, -1}; // -1 used as sentinal value/terminator... so whenever we see -1, we can terminate the loop.
@@ -33,15 +28,15 @@ int main (){
 
   // Comparing two pointers
   std::cout << "\n---------------------------------" << std::endl;
-  string s1 {"Bjarne"};
-  string s2 {"Bjarne"};
-  string s3 {"Stroustrup"};
+  std::string s1 {"Bjarne"};
+  std::string s2 {"Bjarne"};
+  std::string s3 {"Stroustrup"};
 
-  string *p1 {&s1};
-  string *p2 {&s2};
-  string *p3 {&s1};
+  std::string *p1 {&s1};
+  std::string *p2 {&s2};
+  std::string *p3 {&s1};
 
-  std::cout << boolalpha; // so we can print True and False
+  std::cout << std::boolalpha; // so we can print True and False
   std::cout << p1 << " == " << p2 << ": " << (p1 == p2) << std::endl; // false - not pointing to same address.
   std::cout << p1 << " == " << p3 << ": " << (p1 == p3) << std::endl; // true - as same memory location
 
