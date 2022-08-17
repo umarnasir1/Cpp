@@ -136,7 +136,7 @@ void display (const vector<string> *const v){ // passing pointer to vector - exp
 }
 
 void display (int *array, int sentinel){
-  while (*array != sentinel) // *array - dereferenccing what i am pointing to - stop when sentinel value occurs 
-    cout << *array++ << " "; // dereference array, display array, increment array to the next element
+  while (*array != sentinel) // *array - dereferenccing -what i am pointing to - stop when sentinel value occurs
+    cout << *array++ << " "; // dereference array, display array, increment array to the next element; we are updating what pointer is pointing to so we cant have const constant pointer
   cout << endl;
 }
