@@ -23,16 +23,16 @@ int main(){
   // Eg1
   cout << "\nEg. 01-----------------------------------" << endl;
   int value {10};
-  int *int_ptr {nullptr}; // int_ptr also parameter to the function. There are two different variables and two different scopes.
+  int *int_ptr {nullptr}; // int_ptr also parameter to the function. There are two different variables and two different scopes. int_ptr is just created to pass pointer to the function.
 
   // Two ways to pass same information in a function-
   cout << "Value before double_data: " << value << endl; // 10
-  double_data(&value);
+  double_data(&value); // passing address
   cout << "Value after double_data: " << value << endl; // 20
 
-  cout << "----------------------------------------" << endl;
+  cout << "----------------------------------------" << endl; // another way; passing pointer
   int_ptr = &value;
-  double_data(int_ptr);
+  double_data(int_ptr); // passing pointer
   cout << "Value: " << value << endl;
 
   /*
@@ -51,7 +51,7 @@ int main(){
                               | (function call stack) |
                               |                       |
                               |                       |
-        double_data(1000)     |int_ptr - 1000 (memory)|local variable int_ptr
+        double_data(1000)     |int_ptr:  1000 (memory)|local variable int_ptr
                               -------------------------
                               |                       |
                               |  Static Variables/    |
@@ -125,10 +125,10 @@ void swap (int *a, int *b){ // swap has three local variables a,b and temp- a,b 
   return;
 }
 
-// As this is a display function, we dont want the funciton to modify the contents of vector, therefore, declaring v pointing to constant vector of strings (line 130). In order to avoid pointer to modify (line 131), declaring pointer as const
+// As this is a display function, we dont want the funciton to modify the contents of vector, therefore, declaring v pointing to constant vector of strings (line 129). In order to avoid pointer to modify (line 133), declaring pointer as const
 void display (const vector<string> *const v){ // passing pointer to vector - expects the address of vector of strings - displays string
-  //(*v).at(0) = "Bjarne"; // Modifying vector's first element
-  //v = nullptr;
+  //(*v).at(0) = "Bjarne"; // Modifying vector's first element - const vector<string> - const will prevent this change
+  //v = nullptr; // Modifying vector's first element - *const v will prevent this change
   for (auto str: *v) // *v dereferencing a vector - in order to get to what the pointer is pointing to
     cout << str << " ";
   cout << endl;
@@ -136,7 +136,7 @@ void display (const vector<string> *const v){ // passing pointer to vector - exp
 }
 
 void display (int *array, int sentinel){
-  while (*array != sentinel) // *array - what i am pointing to
+  while (*array != sentinel) // *array - dereferenccing what i am pointing to - stop when sentinel value occurs 
     cout << *array++ << " "; // dereference array, display array, increment array to the next element
   cout << endl;
 }
