@@ -1,7 +1,7 @@
 /*
   Returning a Pointer from a Function
 
-  type *funciton ();
+  type *funciton_name ();
 
   What not to do when returning pointer from a function - Never return a pointer to a local variable!!
 
@@ -30,7 +30,7 @@ using std::endl;
 
 // Function Declaration
 int *largest_int (int *int_ptr1, int *int_ptr2);
-int *create_array (size_t size, int init_value = 0);
+int *create_array (size_t size, int init_value = 0); // returning dynamically allocated memory 
 void display (const int *const array, size_t size);
 
 int main(){
@@ -39,7 +39,7 @@ int main(){
   int a {100}, b {200};
 
   int *largest_ptr {nullptr};
-  largest_ptr = largest_int (&a, &b); // The function expects pointers to integers. he function returns a pointer, which is assigned to largest_ptr (a pointer to integer)
+  largest_ptr = largest_int (&a, &b); // The function expects pointers to integers. the function returns a pointer, which is assigned to largest_ptr (a pointer to integer)
   cout << "Out of " << a << " and " << b << ", the largest numebr is: " << *largest_ptr << endl; // 200 - deferencing pointer to print the value
 
   cout << "\nEg. 02 ------------------------------------------" << endl;
