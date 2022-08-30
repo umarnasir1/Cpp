@@ -1,6 +1,8 @@
 /*
   What is Operator Overloading - Mystring.h
 
+  We are going to add overloaded operators to this basic class.
+
   Mystring.h - class specification
   Mystring.cpp - class definition
   main.cpp
@@ -20,10 +22,10 @@ class Mystring { // models a string and will implement it behind the scenes usin
 private:
   char *str; // pointer to a char[] that holds a C-style string
 public:
-  Mystring(); // no-args constructor
-  Mystring (const char *s); // constructor that expects a c-style string (char) - Overloaded constructor
+  Mystring(); // No-args constructor
+  Mystring (const char *s); // Constructor that expects a c-style string (char) - Overloaded constructor
   Mystring (const Mystring &source); // copy constructor
-  ~Mystring(); // destructor
+  ~Mystring(); // Destructor
   void display() const; // displays the contents string (string and its length)
   int get_length() const; // getter - returns current length of the string
   const char *get_str() const; // getter - returns pointer to the string
