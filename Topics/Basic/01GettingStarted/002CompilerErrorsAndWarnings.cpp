@@ -7,7 +7,7 @@
 int main() { // Syntax Error 1: if { missing
   std::cout << "Hellow World!!" << std::endl; // Syntax Error 2:  is " missing or if enld instead of endl
   // Semantic Error 1: std::cout << ("Hellow World!!" /125) << std::endl;
-  return "Joe"; // Semantic Error 2: as we wrote above that the program will return an int but it is returning string - compiler will give an error as it will try to figure out how to convert that Joe to integer.
+  // return "Joe"; // Semantic Error 2: as we wrote above that the program will return an int but it is returning string - compiler will give an error as it will try to figure out how to convert that Joe to integer.
   // Syntax Error 3: if ; missing after return 0
 }
 
