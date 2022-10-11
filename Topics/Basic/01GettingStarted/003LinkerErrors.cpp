@@ -7,12 +7,12 @@
 // In below code, the error is x is defined externally, in main(), we want to print the value of x. x is not initialized or there is no value of x due to which the linker is giving error (where do I (Linker) get that value to print because that what you (programmer) have asked me (Linker) to do right now)
 // so there is linker error as linker cannot find the value of x
 
-#include <iostream>
+// #include <iostream>
 
-extern int x;
+// extern int x;
 
-int main(){
-  std::cout << "Hello World!!" << std::endl;
-  std::cout << x;
-  return 0;
-}
+// int main(){
+//   std::cout << "Hello World!!" << std::endl;
+//   std::cout << x;
+//   return 0;
+// }
