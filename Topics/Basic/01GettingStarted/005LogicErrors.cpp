@@ -10,6 +10,6 @@ Logic Errors are mistakes (careless mistakes, or sometimes the mistakes are if t
 As the program is now, it means that if you are 18, you cannot vote
 */
 
-if (age > 18) {
-  std::cout << "Yes, you can vote!";
-}
+// if (age > 18) {
+//   std::cout << "Yes, you can vote!";
+// }
