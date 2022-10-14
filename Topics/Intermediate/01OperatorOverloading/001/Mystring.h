@@ -1,17 +1,21 @@
 /*
   What is Operator Overloading - Mystring.h
 
-  We are going to add overloaded operators to this basic class.
-
   Mystring.h - class specification
   Mystring.cpp - class definition
   main.cpp
 
-  c-style string used so we can play around with
+  Mystring models a string and will implement it behind the scenes using a raw 
+  C-style pointer. 
+  We are going to add overloaded operators to this basic class.
+
+  Although we have a standard string class, butc-style string used so we can play around 
+  with:
     raw pointers a little bit more,
     understand the copy constructor,
     understand the move constructor,
     understand the assignment operators.
+      think about copy and move assignment when we overload the assignment operator.
 */
 #ifndef _MYSTRING_H_
 #define _MYSTRING_H_
