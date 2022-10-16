@@ -32,7 +32,7 @@ public:
   ~Mystring(); // Destructor
   void display() const; // displays the contents string (string and its length)
   int get_length() const; // getter - returns current length of the string
-  const char *get_str() const; // getter - returns pointer to the string
+  const char *get_str() const; // getter - returns pointer to the string (as a const)
 };
 
 #endif // _MYSTRING_H_

@@ -15,14 +15,14 @@
 Mystring::Mystring() // Mystring a;
   :str{nullptr}{ 
   // setting a single character with the null terminator in it rather than a null pointer.
-  str = new char[1]; // creating empty string - allocate space for one character on the HEAP. (OBS! object is created on STACK) - assign that address of that space (for one character) to str so str is pointing to heap as str is a pointer (to empty string/null ptr).
+  str = new char[1]; // creating empty string - allocate space for one character on the HEAP. (OBS! object is created on STACK) - assign that address of that created space (for one character) to str so str is pointing to heap as str is a pointer (to empty string/null ptr).
   *str = '\0'; // Then, de-referencing the pointer and putting terminator '\0'
 }
 
 // Overloaded Constructor - expects a c-style string
 Mystring::Mystring(const char *s) // Mystring a{"Hello"}
   :str{nullptr}{
-    if (s==nullptr){ // checking if someone sent a null pointer here, i.e., Mystring a{"Hello"};
+    if (s==nullptr){ // checking if someone sent a null pointer here (instead of passing "Hello"), i.e., Mystring a{"Hello"};
       str = new char[1]; // creating empty string
       *str = '\0';
     }
@@ -32,16 +32,16 @@ Mystring::Mystring(const char *s) // Mystring a{"Hello"}
     }
 }
 
-// Copy Constructor
-Mystring::Mystring(const Mystring &source) // Mystring stooge {larry}; this (as & address) refers to object that is being created; source is larry in this e.g.,
-  :str{nullptr}{ // new object created ... no name yet (so this); we want to copy what ever is in larry object in this eg in str
-    str = new char[std::strlen(source.str)+1]; // allocate space on HEAP - length of source object str (source.str which will be 'Hello' in this e.g.,); +1 for null character
-    std::strcpy(str, source.str); // copy source.str to str. copying 'larry' on heap and str is poining to the heap (as str is pointer)
+// Copy Constructor - deep copy
+Mystring::Mystring(const Mystring &source) // Mystring a {"Hello"}; Mystring b{b}; this -> refers to object that is being created; source is a object in this e.g.,
+  :str{nullptr}{ // new object created ... no name yet (so this pointer is pointing to the new object); we want to copy 'Hello' in this eg in str
+    str = new char[std::strlen(source.str)+1]; // allocate space on HEAP - length of source object's str (source.str which will be 'Hello' in this e.g., ); +1 for null character
+    std::strcpy(str, source.str); // copy source.str to str. copying 'hello' on heap and str is poining to the heap (as str is pointer)
 }
 
 // Destructor
 Mystring::~Mystring(){
-  delete[] str; // de-allocating the memory
+  delete [] str; // de-allocating the memory
 }
 
 // Display method - displays the string (cstyle string) & length separated by a :
