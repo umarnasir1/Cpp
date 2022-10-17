@@ -26,7 +26,7 @@
 int main(){
   // objects
   Mystring empty; // empty Mystring object - no-args constructor
-  Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry
+  Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal)
   Mystring stooge {larry}; // copy constructor as we are initializing using larry object
 
   // displaying objects
