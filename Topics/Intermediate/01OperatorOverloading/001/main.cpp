@@ -26,7 +26,7 @@
 int main(){
   // objects
   Mystring empty; // empty Mystring object - no-args constructor
-  Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal)
+  Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal. C++ compiler will treat it as a const char * and what is being passed to the constructor is the address of the first character in the null-terminated string literal.)
   Mystring stooge {larry}; // copy constructor as we are initializing using larry object
 
   // displaying objects
