@@ -21,7 +21,7 @@ Mystring::Mystring() // Mystring a;
 
 // Overloaded Constructor - expects a c-style string
 Mystring::Mystring(const char *s) // Mystring a{"Hello"}
-  :str{nullptr}{
+  :str{nullptr}{ // setting strs primary value
     if (s==nullptr){ // checking if someone sent a null pointer here (instead of passing "Hello"), i.e., Mystring a{"Hello"};
       str = new char[1]; // creating empty string
       *str = '\0';
