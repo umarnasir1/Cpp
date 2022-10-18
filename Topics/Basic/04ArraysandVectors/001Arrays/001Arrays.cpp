@@ -94,8 +94,7 @@ int main(){
   std::cout << *array << std::endl; // a
 
   // address of character array
-  std::cout << &array[0] << std::endl; // abc
-  std::cout << &array << std::endl;// 0x7ff7ba6f0988 address of character array? not sure
+  std::cout << &array << std::endl;// 0x7ff7ba6f0988 - address of the 4-character array, which is the same address as the first character of the array.
 
   int intarray[3] {1,2,3};
   std::cout << intarray << std::endl; // 0x7ff7ba6f0994- address of first element
