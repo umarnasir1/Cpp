@@ -30,7 +30,17 @@ public:
   Mystring (const char *s); // Constructor that expects a c-style string (char) - Overloaded constructor
   Mystring (const Mystring &source); // copy constructor
   ~Mystring(); // Destructor
+  
+  // prototype for overloaded assignment operator 
+  Mystring &operator= (const Mystring &rhs);  // Copy assignment 
+  // Mystring & : The function returns Mystring object by reference. 
+  // operator= : name of the method 
+  //  tells compiler that we are overloading = operator
+  // expects : constant MyString RHS object (lhs is this pointer)
+  // LHS (current object) = RHS (what we are assigning)
+
   void display() const; // displays the contents string (string and its length)
+  
   int get_length() const; // getter - returns current length of the string
   const char *get_str() const; // getter - returns pointer to the string (as a const)
 };
