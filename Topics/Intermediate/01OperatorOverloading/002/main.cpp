@@ -48,15 +48,17 @@ int main(){
           //      allocate space for strlen(a)+1 on heap
           //      copy a on that space on heap (str of b will be pointing to it)
           // After deep copy, a and b are two different areas in memory. 
-          
+
   b = "This is a test"; // b.operator=("This is a test"); in backend
                         // Assignment (b already exists)
                         // a little different than previous case as we dont have
                         //  an operator = that expects a character pointer/
                         //  C-style string. So, 
                         //  we need to construct a temporary object using the 
-                        //  overloaded constructor  and then assign the temporary
-                        //  object to b. (temporary object will then be destroyed)
+                        //  overloaded constructor and then assign the temporary
+                        //  object to b. (temporary object will then be destroyed
+                        //  along with constructors for other objects (a and b in this
+                        //  case.) order of destructor: temporary object, b, a)
 
   // Mystring empty; // empty Mystring object - no-args constructor
   // Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal. C++ compiler will treat it as a const char * and what is being passed to the constructor is the address of the first character in the null-terminated string literal.)
