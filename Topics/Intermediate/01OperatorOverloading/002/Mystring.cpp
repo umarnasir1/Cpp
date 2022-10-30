@@ -44,11 +44,73 @@ Mystring::~Mystring(){
   delete [] str; // de-allocating the memory
 }
 
+// Overloading the copy assignment operator (deep copy)
+//
+// In this case, we only have a single raw pointer.
+// If our class has multiple raw pointers, then don't forget to deep copy each
+// of them.
+
+// the object on lhs of assignment statement is refered as this pointer
+// rhs: the object passed into the method 
+
+// s2 = s1; s2.operator=(s1) // calls in backend.  
+// Since we're assigning the right-hand side object to the left-hand 
+// side object, we must make a deep copy of the right-hand side object's 
+// attributes and copy them over to the left-hand side object.
+
+// Copy assignment
+// what does this mean semantically? 
+// the lhs object (this object) will be overwritten. so 
+// 1. We need to de-allocate anything it refers to on the heap.
+// 2. We have to allocate space in the LHS object for the RHS object data. 
+// 3. Copy the data over to the LHS from RHS. 
+Mystring &Mystring::operator=(const Mystring &rhs){
+    std::cout << "Copy assignment" << std::endl;
+    // overloading the copy assignment operator - steps for deep copy
+    if (this == &rhs) // checking for self assignment p1=p1; 
+    // we can check for self assignment by checking the address of the LHS
+    // object which is in the pointer this and comparing it to the address of 
+    // the right hand object. 
+    // this is pointer to current object and pointer holds address.
+    // If they're the same, then we really don't want to do anything and we 
+    //  just return de-reference this, which is the LHS object.
+        return *this; // return current object 
+        // if we dont de-reference, then it will be a pointer and as per 
+        // function definition, it is expecting address 
+    
+    // Step 1: De-allocating storage 
+    // if we dont have self assignment, then we need to de-allocate storage for
+    // this string as 
+    // this object is the one that is being copied into, so it may be pointing 
+    // to something (that str attribute may be pointing to a string (on Heap))
+    // Actually, it is pointing to a string (even if it is just an empty string.
+    // We need to de-allocate the storage. 
+    // Otherwise when we copy the new data over,
+    // we'll orphan this memory and end up with a memory leak.
+    delete [] str; // OR delete[] this->str; 
+    // Step 2: Allocate storage for deep copy on the HEAP
+    // Now the LHS object is ready to be assigned from the data from 
+    // the RHS object, but we haven't yet allocated storage on the heap 
+    // for the deep copy. So, we need to allocate enough storage on the heap,
+    // i.e., the size of the string in the RHS object + 1 (string terminator)
+    str = new char [std::strlen(rhs.str) + 1]; // rhs.str as there is str in lhs(this) also
+    // Step 3: Perform the copy 
+    // We can perform the copy by copying over one character at a time
+    // until we see the null character.
+    // As we are using C-style string, we will use std::strcpy, which copies
+    // from RHS object to LHS object.
+    std::strcpy(str, rhs.str); // std::strcpy(this->str, rhs.str);
+
+    // return LHS object to allow chain assignment
+    return *this;  // s1 = s2 = s3; 
+}
+
 // Display method - displays the string (cstyle string) & length separated by a :
 void Mystring::display() const {
   std::cout << str << " : " << get_length() << std::endl;
 }
 
+// getters
 // length getter - returns the length of the string
 int Mystring::get_length() const { return std::strlen(str); } // length of the string is beging determining every time dynamically  as we are asking what the string length is.
 
