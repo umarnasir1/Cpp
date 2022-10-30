@@ -47,7 +47,8 @@ int main(){
           //      De-allocate what str in b is poining to 
           //      allocate space for strlen(a)+1 on heap
           //      copy a on that space on heap (str of b will be pointing to it)
-  
+          // After deep copy, a and b are two different areas in memory. 
+          
   b = "This is a test"; // b.operator=("This is a test"); in backend
                         // Assignment (b already exists)
                         // a little different than previous case as we dont have
