@@ -100,6 +100,7 @@ Mystring &Mystring::operator=(const Mystring &rhs){
     // As we are using C-style string, we will use std::strcpy, which copies
     // from RHS object to LHS object.
     std::strcpy(str, rhs.str); // std::strcpy(this->str, rhs.str);
+    // we can see from the addresses of rhs and lhs that they are two unique addresses in memory. 
 
     // return LHS object to allow chain assignment
     return *this;  // s1 = s2 = s3; 
