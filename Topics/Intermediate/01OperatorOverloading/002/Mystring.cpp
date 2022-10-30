@@ -80,7 +80,7 @@ Mystring &Mystring::operator=(const Mystring &rhs){
     
     // Step 1: De-allocating storage 
     // if we dont have self assignment, then we need to de-allocate storage for
-    // this string as 
+    // this string (LHSs object string on the heap) as 
     // this object is the one that is being copied into, so it may be pointing 
     // to something (that str attribute may be pointing to a string (on Heap))
     // Actually, it is pointing to a string (even if it is just an empty string.
