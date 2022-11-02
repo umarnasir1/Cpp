@@ -1,5 +1,5 @@
 /*
-  What is Operator Overloading - Mystring.cpp
+  Mystring.cpp
 
   Mystring.h - class specification
   Mystring.cpp - class definition
