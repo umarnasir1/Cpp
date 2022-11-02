@@ -1,5 +1,5 @@
 /*
-  What is Operator Overloading - Mystring.h
+  Mystring.h
 
   Mystring.h - class specification
   Mystring.cpp - class definition
@@ -7,7 +7,9 @@
 
   Mystring models a string and will implement it behind the scenes using a raw 
   C-style pointer. 
-  We are going to add overloaded operators to this basic class.
+
+  Extending Mystring class.
+    Overloading the Assignment Operator (copy)
 
   Although we have a standard string class, butc-style string used so we can play around 
   with:
