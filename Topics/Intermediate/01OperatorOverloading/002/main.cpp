@@ -3,16 +3,10 @@
   Mystring.cpp - class definition
   main.cpp
 
-  What is Operator Overloading
-  Implementation of Mystring class. (we will extend it later)
-    We already have a std::string class but we are doing it ourselves so we can learn 
-    how to implement these things.
+  TODO: check test cases and their numbers later
 
-  In this section, we're going to create our own version of a string class named 
-  Mysting and, we want to be able to overload some operators to concatenate mystrings 
-  compare them, assign them and so forth.
-
-  We're going to add overloaded operators to this basic class called mystring.
+  Extending Mystring class.
+    Overloading the Assignment Operator (copy)
 
   // ---- Using overloaded operators ------------------
   // Let's see what our calculation would look like if we overloaded the addition, multiplication and division operators.
@@ -25,15 +19,18 @@
 
 */
 #include <iostream>
+#include <vector>
 #include "Mystring.h"
 
 int main(){
-  // objects
+  // Test Cases 
+  // #01 
   Mystring a {"Hello"}; // overloaded constructor 
     // a object will have a str attribute, which is a pointer. 
     // Hello will be allocated on the heap. 
     // str attribute will be poining to it. 
 
+  // #02
   Mystring b; // no-args constructor 
     // b object will have a str attribute, which is a pointer. 
     // null character \0 or empty string will be allocated on the heap
@@ -49,6 +46,7 @@ int main(){
           //      copy a on that space on heap (str of b will be pointing to it)
           // After deep copy, a and b are two different areas in memory. 
 
+  // #03
   b = "This is a test"; // b.operator=("This is a test"); in backend
                         // Assignment (b already exists)
                         // a little different than previous case as we dont have
@@ -59,15 +57,43 @@ int main(){
                         //  object to b. (temporary object will then be destroyed
                         //  along with constructors for other objects (a and b in this
                         //  case.) order of destructor: temporary object, b, a)
+  
+  // #04
+  Mystring empty; // empty Mystring object - no-args constructor
+  Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal. C++ compiler will treat it as a const char * and what is being passed to the constructor is the address of the first character in the null-terminated string literal.)
+  Mystring stooge {larry}; // copy constructor as we are initializing using larry object
+  Mystring stooges; // no-args constructor 
 
-  // Mystring empty; // empty Mystring object - no-args constructor
-  // Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal. C++ compiler will treat it as a const char * and what is being passed to the constructor is the address of the first character in the null-terminated string literal.)
-  // Mystring stooge {larry}; // copy constructor as we are initializing using larry object
+  empty = stooge; // copy assignment operator
 
-  // // displaying objects
-  // empty.display();
-  // larry.display();
-  // stooge.display();
+  empty.display(); // Larry : 5
+  larry.display(); // Larry : 5
+  stooge.display(); // Larry : 5
+  empty.display(); // Larry : 5 
+
+  stooges = "Larry, Moe, and Curly"; 
+  stooges.display(); // Larry, Moe, and Curly: 21 
+
+  std::vector <Mystring> stooges_vec; 
+  stooges_vec.push_back("Larry"); 
+  stooges_vec.push_back("Moe"); 
+  stooges_vec.push_back("Curly"); 
+
+  std::cout << "=== Loop 1 ==============================="  << std::endl;
+  for (const Mystring &s: stooges_vec)
+    s.display(); // Larry
+                 // Moe
+                 // Curly  
+  
+  std::cout << "=== Loop 2 ==============================="  << std::endl;
+  for (Mystring &s: stooges_vec)
+    s = "Changed"; // copy assignment 
+  
+  std::cout << "=== Loop 3 ==============================="  << std::endl;
+  for (const Mystring &s: stooges_vec)
+    s.display(); // Changed
+                 // Changed 
+                 // Changed
 
   return 0;
 }
