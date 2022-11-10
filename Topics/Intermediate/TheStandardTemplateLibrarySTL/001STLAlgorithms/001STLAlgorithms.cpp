@@ -3,6 +3,10 @@
     sort() - sorting in ascending order.
     reverse() - sorting in descending order.
     accumulate () - sum of the elements in the vector
+
+    TODO:
+      Test with providing subset of vector.
+        sort the first half of a vector, we could modify the iterator to produce just the first half of the elements.
 */
 #include <iostream>
 #include <vector>
@@ -14,7 +18,7 @@ int main (){
   std::vector<int> v {1,5,3};
 
   // sort a vector
-  std::sort(v.begin(), v.end()); 
+  std::sort(v.begin(), v.end()); // the entire vector
 
   for (auto elem: v) // displaying a vector using range based for loop - behind the scenes, range based loop is an iterator.
     std::cout << elem << std::endl;
