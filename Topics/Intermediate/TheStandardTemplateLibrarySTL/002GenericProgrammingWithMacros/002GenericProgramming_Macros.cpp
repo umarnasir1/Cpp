@@ -9,9 +9,11 @@
     Generic functions using preprocessor Macros.
     
     Example1: A program without generic programming 
+      A function to determine the max of 2 integers 
     Example2: An e.g. with Generic programming 
+      A function to determine the max of 2 integers 
+      Square of a number. 
       Be very careful when you use macros in practice, especially macros that use arguments.
-   
 */
 
 #include<iostream>
