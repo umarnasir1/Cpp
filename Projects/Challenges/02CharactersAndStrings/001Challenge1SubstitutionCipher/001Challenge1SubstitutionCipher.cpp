@@ -29,7 +29,6 @@ Reuse existing functionality in libraries and in the std::string class!
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 int main() {
 
@@ -39,7 +38,7 @@ int main() {
   std::string key {"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
 
   std::cout << "Enter your secret message: ";
-  std::getline(std::cin,secret_message);
+  std::getline(std::cin,secret_message); // get a line from cin and strore in secret_message.
 
   std::cout << "\nEncrypting message..." << std::endl;
 
@@ -50,6 +49,15 @@ int main() {
       encrypted_message += key.at(alphabet.find(letter)); //key[alphabet.find(letter)]; // finding the position of character in secret message in the key
     else
       encrypted_message += letter;
+
+  // Alternate solution 
+  // for (auto letter: secret_message){
+  //   size_t position = alphabet.find(letter); 
+  //   if (position != std::string::npos)  //std::string::npos - if character not in string
+  //     encrypted_message += {key.at(position)};
+  //   else
+  //     encrypted_message += letter; 
+  // }
 
   std::cout << "\nEncrypted message: " << encrypted_message << std::endl;
 
