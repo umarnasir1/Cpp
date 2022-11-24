@@ -1,5 +1,4 @@
-// Section 11
-// Challenge 
+// Functions -Challenge 
 /*
      Recall the challenge from Section 9 below.
     Your challenge for section 11 is to modularize your solution to the Section 9
@@ -94,6 +93,13 @@ Good luck!
 #include <iostream>
 #include <vector>
 
+// Function Prototype
+void print_numbers (std::vector<int> v);
+void add_numbers (std::vector<int> &v, int n);
+void arithematic_mean (std::vector<int> &v);
+void smallest_number (std::vector<int> &v);
+void largest_number (std::vector<int> &v);
+
 int main() {
 
     std::vector<int> numbers {};
@@ -110,51 +116,19 @@ int main() {
         std::cout << "\nEnter your choice: ";
         std::cin >> selection;
 
-        
         if (selection == 'P' || selection == 'p') {
-            if (numbers.size() == 0)
-                std::cout << "[] - the list is empty" << std::endl;
-            else {
-                std::cout << "[ ";
-                for (auto num: numbers)
-                    std::cout << num << " ";
-                std::cout << "]" << std::endl;
-            }
+            print_numbers(numbers);
         } else if (selection == 'A' || selection == 'a') {
             int num_to_add {};
             std::cout << "Enter an integer to add to the list: ";
             std::cin >> num_to_add;
-            numbers.push_back(num_to_add);
-            std::cout << num_to_add << " added" << std::endl;
+            add_numbers (numbers, num_to_add);
         } else if (selection == 'M' || selection == 'm') {
-            if (numbers.size() == 0)
-                std::cout << "Unable to calculate mean - no data" << std::endl;
-            else {
-                int total {};
-                for (auto num: numbers)
-                    total += num;
-                std::cout << "The mean is : " << static_cast<double>(total)/numbers.size() << std::endl;
-            }
+            arithematic_mean (numbers);
         } else if (selection == 'S' || selection == 's') {
-            if (numbers.size() == 0) 
-                std::cout << "Unable to determine the smallest - list is empty" << std::endl;
-            else {
-                int smallest = numbers.at(0);
-                for (auto num: numbers)
-                    if (num < smallest)
-                        smallest = num;
-                std::cout << "The smallest number is: " << smallest << std::endl;
-            }
+            smallest_number(numbers);
         } else if (selection == 'L' || selection == 'l') {
-            if (numbers.size() == 0)
-                std::cout << "Unable to determine largest - list is empty"<< std::endl;   
-            else {
-                int largest = numbers.at(0);
-                for (auto num: numbers)
-                    if (num > largest)
-                        largest = num;
-                std::cout << "The largest number is: " << largest << std::endl;
-            }
+            largest_number(numbers);
         } else if (selection == 'Q' || selection == 'q') {
             std::cout << "Goodbye" << std::endl;
         } else {
@@ -166,3 +140,56 @@ int main() {
     return 0;
 }
 
+// Function Definition
+void print_numbers (std::vector<int> v){
+    if (v.size() == 0)
+        std::cout << "[] - the list is empty" << std::endl;
+    else {
+        std::cout << "[ ";
+        for (auto num: v)
+            std::cout << num << " ";
+        std::cout << "]" << std::endl; 
+    }
+    return; 
+}
+
+void add_numbers (std::vector<int> &v, int a){
+    v.push_back(a);
+    std::cout << a << " added" << std::endl;
+    return; 
+}
+
+void arithematic_mean (std::vector<int> &v){
+    if (v.size() == 0)
+        std::cout << "Unable to calculate mean - no data" << std::endl;
+    else {
+        int total {};
+        for (auto num: v)
+            total += num;
+        std::cout << "The mean is : " << static_cast<double>(total)/v.size() << std::endl;
+    }
+}
+
+void smallest_number (std::vector<int> &v){
+    if (v.size() == 0) 
+        std::cout << "Unable to determine the smallest - list is empty" << std::endl;
+    else {
+        int smallest = v.at(0);
+        for (auto num: v)
+            if (num < smallest)
+                smallest = num;
+        std::cout << "The smallest number is: " << smallest << std::endl;
+    }
+}
+
+void largest_number (std::vector<int> &v){
+    if (v.size() == 0)
+        std::cout << "Unable to determine largest - list is empty"<< std::endl;   
+    else {
+        int largest = v.at(0);
+        for (auto num: v)
+            if (num > largest)
+                largest = num;
+        std::cout << "The largest number is: " << largest << std::endl;
+    }    
+}
