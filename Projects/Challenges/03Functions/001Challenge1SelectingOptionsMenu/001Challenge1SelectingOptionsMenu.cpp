@@ -94,20 +94,24 @@ Good luck!
 #include <vector>
 #include <cctype> // for to upper
 
-// Function Prototype
+// Function Prototypes
+// for displaying menu and getting user selection 
 void display_menu ();
 char get_selection(); 
+// Menu Handling function prototypes 
+void handle_display(const std::vector<int> &v); 
+void handle_add (std::vector<int> &v);
+void handle_mean (const std::vector<int> &v);
+void handle_smallest(const std::vector<int> &v);
 
-void handle_display(std::vector<int> &v); 
+void handle_quit(); 
+void handle_unknown(); 
 
 
+void add_numbers (std::vector<int> &v);
+double calculate_mean (const std::vector<int> &v);
+void smallest_number (const std::vector<int> &v);
 
-void display_numbers (std::vector<int> v);
-
-
-void add_numbers (std::vector<int> &v, int n);
-void calculate_mean (std::vector<int> &v);
-void smallest_number (std::vector<int> &v);
 void largest_number (std::vector<int> &v);
 
 int main() {
@@ -121,22 +125,20 @@ int main() {
         selection = get_selection(); 
 
         if (selection == 'P') {
-            display_list(numbers);
+            handle_display(numbers);
         } else if (selection == 'A') {
-            int num_to_add {};
-            std::cout << "Enter an integer to add to the list: ";
-            std::cin >> num_to_add;
-            add_numbers (numbers, num_to_add);
+            handle_add (numbers);
         } else if (selection == 'M') {
-            calculate_mean (numbers);
+            handle_mean (numbers);
         } else if (selection == 'S') {
+            handle_smallest(numbers); 
             smallest_number(numbers);
         } else if (selection == 'L') {
             largest_number(numbers);
         } else if (selection == 'Q') {
-            std::cout << "Goodbye" << std::endl;
+            handle_quit(); 
         } else {
-            std::cout << "Unknown selection, please try again" << std::endl;
+            handle_unknown(); 
         }
     } while (selection != 'Q');
 
@@ -190,13 +192,48 @@ char get_selection(){
 void handle_display (const std::vector<int> &v){ // const as we dont want to change the vector; & (no copy)
     if (v.size() == 0)
         std::cout << "[] - the list is empty" << std::endl;
-    else {
+    else 
         display_numbers(v); // making another fucntion for displaying the numbers
-    }
     return; 
 }
 
-// 
+void handle_add (std::vector<int> &v){ // no const as we will change the list, i.e., add a value in the list. 
+    int num_to_add {};
+    std::cout << "Enter an integer to add to the list: ";
+    std::cin >> num_to_add;
+    v.push_back(num_to_add);
+    std::cout << num_to_add << " added" << std::endl;
+    return; 
+}
+
+void handle_mean (const std::vector<int> &v){ // const as we dont want this function to modify the vector
+    if (v.size() == 0) // checking if list is empty
+        std::cout << "Unable to calculate mean - no data" << std::endl;
+    else 
+        std::cout << "The mean is : " << calculate_mean(v) << std::endl;   
+    return; 
+}
+
+void handle_smallest(const std::vector<int> &v){
+    if (v.size() == 0) 
+        std::cout << "Unable to determine the smallest - list is empty" << std::endl;
+    else {
+        std::cout << "The smallest number is: " << smallest_number(v) << std::endl;
+    }
+}
+
+void handle_quit(){
+    std::cout << "Goodbye" << std::endl;
+    return; 
+}
+
+void handle_unknown(){
+    std::cout << "Unknown selection, please try again" << std::endl;
+    return; 
+
+}
+
+//
 void display_numbers (const std::vector<int> &v){
     std::cout << "[ ";
     for (auto num: v)
@@ -204,22 +241,11 @@ void display_numbers (const std::vector<int> &v){
     std::cout << "]" << std::endl; 
     return; 
 }
-
-void add_numbers (std::vector<int> &v, int a){
-    v.push_back(a);
-    std::cout << a << " added" << std::endl;
-    return; 
-}
-
-void calculate_mean (std::vector<int> &v){
-    if (v.size() == 0)
-        std::cout << "Unable to calculate mean - no data" << std::endl;
-    else {
-        int total {};
-        for (auto num: v)
-            total += num;
-        std::cout << "The mean is : " << static_cast<double>(total)/v.size() << std::endl;
-    }
+double calculate_mean (const std::vector<int> &v){
+    int total {};
+    for (auto num: v)
+        total += num;
+    return static_cast<double>(total)/v.size(); // casting into double
 }
 
 void smallest_number (std::vector<int> &v){
