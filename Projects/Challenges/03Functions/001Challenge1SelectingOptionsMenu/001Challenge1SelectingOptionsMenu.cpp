@@ -92,64 +92,116 @@ Good luck!
 */
 #include <iostream>
 #include <vector>
+#include <cctype> // for to upper
 
 // Function Prototype
-void print_numbers (std::vector<int> v);
+void display_menu ();
+char get_selection(); 
+
+void handle_display(std::vector<int> &v); 
+
+
+
+void display_numbers (std::vector<int> v);
+
+
 void add_numbers (std::vector<int> &v, int n);
-void arithematic_mean (std::vector<int> &v);
+void calculate_mean (std::vector<int> &v);
 void smallest_number (std::vector<int> &v);
 void largest_number (std::vector<int> &v);
 
 int main() {
 
-    std::vector<int> numbers {};
+    std::vector<int> numbers;
     char selection {};
     
     do {
         // Display menu
-        std::cout << "\nP - Print numbers" << std::endl;
-        std::cout << "A - Add a number" << std::endl;
-        std::cout << "M - Display mean of the numbers" << std::endl;
-        std::cout << "S - Display the smallest number" << std::endl;
-        std::cout << "L - Display the largest number"<< std::endl;
-        std::cout << "Q - Quit" << std::endl;
-        std::cout << "\nEnter your choice: ";
-        std::cin >> selection;
+        display_menu(); 
+        selection = get_selection(); 
 
-        if (selection == 'P' || selection == 'p') {
-            print_numbers(numbers);
-        } else if (selection == 'A' || selection == 'a') {
+        if (selection == 'P') {
+            display_list(numbers);
+        } else if (selection == 'A') {
             int num_to_add {};
             std::cout << "Enter an integer to add to the list: ";
             std::cin >> num_to_add;
             add_numbers (numbers, num_to_add);
-        } else if (selection == 'M' || selection == 'm') {
-            arithematic_mean (numbers);
-        } else if (selection == 'S' || selection == 's') {
+        } else if (selection == 'M') {
+            calculate_mean (numbers);
+        } else if (selection == 'S') {
             smallest_number(numbers);
-        } else if (selection == 'L' || selection == 'l') {
+        } else if (selection == 'L') {
             largest_number(numbers);
-        } else if (selection == 'Q' || selection == 'q') {
+        } else if (selection == 'Q') {
             std::cout << "Goodbye" << std::endl;
         } else {
             std::cout << "Unknown selection, please try again" << std::endl;
         }
-    } while (selection != 'q' && selection != 'Q');
+    } while (selection != 'Q');
+
+    // // if option of both lower and upper case characters 
+    // do {
+    //     // Display menu
+    //     display_menu(); 
+    //     selection = get_selection(); 
+
+    //     if (selection == 'P' || selection == 'p') {
+    //         print_numbers(numbers);
+    //     } else if (selection == 'A' || selection == 'a') {
+    //         int num_to_add {};
+    //         std::cout << "Enter an integer to add to the list: ";
+    //         std::cin >> num_to_add;
+    //         add_numbers (numbers, num_to_add);
+    //     } else if (selection == 'M' || selection == 'm') {
+    //         arithematic_mean (numbers);
+    //     } else if (selection == 'S' || selection == 's') {
+    //         smallest_number(numbers);
+    //     } else if (selection == 'L' || selection == 'l') {
+    //         largest_number(numbers);
+    //     } else if (selection == 'Q' || selection == 'q') {
+    //         std::cout << "Goodbye" << std::endl;
+    //     } else {
+    //         std::cout << "Unknown selection, please try again" << std::endl;
+    //     }
+    // } while (selection != 'q' && selection != 'Q');
 
     std::cout << std::endl;
     return 0;
 }
 
 // Function Definition
-void print_numbers (std::vector<int> v){
+void display_menu (){
+    std::cout << "\nP - Print numbers" << std::endl;
+    std::cout << "A - Add a number" << std::endl;
+    std::cout << "M - Display mean of the numbers" << std::endl;
+    std::cout << "S - Display the smallest number" << std::endl;
+    std::cout << "L - Display the largest number"<< std::endl;
+    std::cout << "Q - Quit" << std::endl;
+    std::cout << "\nEnter your choice: ";
+}
+
+char get_selection(){
+    char c {}; // local to get_selection()
+    std::cin >> c;
+    return toupper(c);  
+}
+
+void handle_display (const std::vector<int> &v){ // const as we dont want to change the vector; & (no copy)
     if (v.size() == 0)
         std::cout << "[] - the list is empty" << std::endl;
     else {
-        std::cout << "[ ";
-        for (auto num: v)
-            std::cout << num << " ";
-        std::cout << "]" << std::endl; 
+        display_numbers(v); // making another fucntion for displaying the numbers
     }
+    return; 
+}
+
+// 
+void display_numbers (const std::vector<int> &v){
+    std::cout << "[ ";
+    for (auto num: v)
+        std::cout << num << " ";
+    std::cout << "]" << std::endl; 
     return; 
 }
 
@@ -159,7 +211,7 @@ void add_numbers (std::vector<int> &v, int a){
     return; 
 }
 
-void arithematic_mean (std::vector<int> &v){
+void calculate_mean (std::vector<int> &v){
     if (v.size() == 0)
         std::cout << "Unable to calculate mean - no data" << std::endl;
     else {
