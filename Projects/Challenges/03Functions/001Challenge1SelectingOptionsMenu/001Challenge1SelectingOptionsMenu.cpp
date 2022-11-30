@@ -96,23 +96,25 @@ Good luck!
 
 // Function Prototypes
 // for displaying menu and getting user selection 
-void display_menu ();
+void display_menu();
 char get_selection(); 
+
 // Menu Handling function prototypes 
 void handle_display(const std::vector<int> &v); 
-void handle_add (std::vector<int> &v);
-void handle_mean (const std::vector<int> &v);
+void handle_add(std::vector<int> &v);
+void handle_mean(const std::vector<int> &v);
 void handle_smallest(const std::vector<int> &v);
-
+void handle_largest(const std::vector<int> &v);
+void handle_find(const std::vector<int> &v);
 void handle_quit(); 
 void handle_unknown(); 
 
-
-void add_numbers (std::vector<int> &v);
-double calculate_mean (const std::vector<int> &v);
-void smallest_number (const std::vector<int> &v);
-
-void largest_number (std::vector<int> &v);
+// Prototypes of functions working with the vector
+void display_numbers(const std::vector<int> &v);
+double calculate_mean(const std::vector<int> &v);
+int smallest_number(const std::vector<int> &v);
+int largest_number(const std::vector<int> &v);
+bool find(const std::vector<int> &v, int target); // bool as it will return true or false; target- the number we are
 
 int main() {
 
@@ -127,14 +129,15 @@ int main() {
         if (selection == 'P') {
             handle_display(numbers);
         } else if (selection == 'A') {
-            handle_add (numbers);
+            handle_add(numbers);
         } else if (selection == 'M') {
-            handle_mean (numbers);
+            handle_mean(numbers);
         } else if (selection == 'S') {
             handle_smallest(numbers); 
-            smallest_number(numbers);
         } else if (selection == 'L') {
-            largest_number(numbers);
+            handle_largest(numbers);
+        } else if (selection == 'F'){
+
         } else if (selection == 'Q') {
             handle_quit(); 
         } else {
@@ -178,7 +181,8 @@ void display_menu (){
     std::cout << "A - Add a number" << std::endl;
     std::cout << "M - Display mean of the numbers" << std::endl;
     std::cout << "S - Display the smallest number" << std::endl;
-    std::cout << "L - Display the largest number"<< std::endl;
+    std::cout << "L - Display the largest number" << std::endl;
+    std::cout << "F - Find a number" << std::endl; 
     std::cout << "Q - Quit" << std::endl;
     std::cout << "\nEnter your choice: ";
 }
@@ -222,6 +226,17 @@ void handle_smallest(const std::vector<int> &v){
     }
 }
 
+void handle_largest (const std::vector<int> &v){
+    if (v.size() == 0)
+        std::cout << "Unable to determine largest - list is empty"<< std::endl;   
+    else 
+        std::cout << "The largest number is: " << largest_number(v) << std::endl;
+}
+
+void handle_find(const std::vector<int> &v){
+
+}
+
 void handle_quit(){
     std::cout << "Goodbye" << std::endl;
     return; 
@@ -230,7 +245,6 @@ void handle_quit(){
 void handle_unknown(){
     std::cout << "Unknown selection, please try again" << std::endl;
     return; 
-
 }
 
 //
@@ -248,26 +262,18 @@ double calculate_mean (const std::vector<int> &v){
     return static_cast<double>(total)/v.size(); // casting into double
 }
 
-void smallest_number (std::vector<int> &v){
-    if (v.size() == 0) 
-        std::cout << "Unable to determine the smallest - list is empty" << std::endl;
-    else {
-        int smallest = v.at(0);
-        for (auto num: v)
-            if (num < smallest)
-                smallest = num;
-        std::cout << "The smallest number is: " << smallest << std::endl;
-    }
+int smallest_number (const std::vector<int> &v){
+    int smallest = v.at(0);
+    for (auto num: v)
+        if (num < smallest)
+            smallest = num;
+    return smallest; 
 }
 
-void largest_number (std::vector<int> &v){
-    if (v.size() == 0)
-        std::cout << "Unable to determine largest - list is empty"<< std::endl;   
-    else {
-        int largest = v.at(0);
-        for (auto num: v)
-            if (num > largest)
-                largest = num;
-        std::cout << "The largest number is: " << largest << std::endl;
-    }    
+int largest_number (const std::vector<int> &v){
+    int largest = v.at(0);
+    for (auto num: v)
+        if (num > largest)
+            largest = num;
+    return largest; 
 }
