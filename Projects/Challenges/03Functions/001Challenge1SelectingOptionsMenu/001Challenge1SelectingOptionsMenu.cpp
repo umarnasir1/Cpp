@@ -88,7 +88,6 @@ Additional functionality if you wish to extend this program.
 - come up with your own ideas!
 
 Good luck!
-
 */
 #include <iostream>
 #include <vector>
@@ -137,7 +136,7 @@ int main() {
         } else if (selection == 'L') {
             handle_largest(numbers);
         } else if (selection == 'F'){
-
+            handle_find(numbers);
         } else if (selection == 'Q') {
             handle_quit(); 
         } else {
@@ -171,11 +170,49 @@ int main() {
     //     }
     // } while (selection != 'q' && selection != 'Q');
 
+    // switch case solution 
+    // do {
+    //     display_menu();
+    //     selection = get_selection();
+    //     switch (selection) {
+    //         case 'P': 
+    //             handle_display(numbers); 
+    //             break;
+    //         case 'A': 
+    //             handle_add(numbers);
+    //             break;
+    //         case 'M':
+    //             handle_mean(numbers);
+    //             break;
+    //         case 'S':
+    //             handle_smallest(numbers);
+    //             break;
+    //         case 'L':
+    //             handle_largest(numbers);
+    //             break;
+    //         case 'F':
+    //             handle_find(numbers);
+    //             break;
+    //         case 'Q':
+    //             handle_quit();
+    //             break;
+    //         default:
+    //             handle_unknown();
+    //     }
+    // } while (selection != 'Q');
+
+
     std::cout << std::endl;
     return 0;
 }
 
-// Function Definition
+/****************************************************************
+Function Definition
+****************************************************************/
+
+
+
+// This function displays the menu to the console.
 void display_menu (){
     std::cout << "\nP - Print numbers" << std::endl;
     std::cout << "A - Add a number" << std::endl;
@@ -187,13 +224,15 @@ void display_menu (){
     std::cout << "\nEnter your choice: ";
 }
 
+// This function simply reads a character selection from std::cin and returns it as upper case.
 char get_selection(){
     char c {}; // local to get_selection()
     std::cin >> c;
     return toupper(c);  
 }
 
-void handle_display (const std::vector<int> &v){ // const as we dont want to change the vector; & (no copy)
+// This function is called when the user selects the display list option from the main menu.
+void handle_display (const std::vector<int> &v){ // const as we dont want the function to change the vector; & (no copy)
     if (v.size() == 0)
         std::cout << "[] - the list is empty" << std::endl;
     else 
@@ -201,6 +240,7 @@ void handle_display (const std::vector<int> &v){ // const as we dont want to cha
     return; 
 }
 
+// This function is called when the user selects add a number to the list from the main menu
 void handle_add (std::vector<int> &v){ // no const as we will change the list, i.e., add a value in the list. 
     int num_to_add {};
     std::cout << "Enter an integer to add to the list: ";
@@ -210,6 +250,7 @@ void handle_add (std::vector<int> &v){ // no const as we will change the list, i
     return; 
 }
 
+// This function is called when the user selects calculate the mean from the main menu
 void handle_mean (const std::vector<int> &v){ // const as we dont want this function to modify the vector
     if (v.size() == 0) // checking if list is empty
         std::cout << "Unable to calculate mean - no data" << std::endl;
@@ -218,51 +259,72 @@ void handle_mean (const std::vector<int> &v){ // const as we dont want this func
     return; 
 }
 
-void handle_smallest(const std::vector<int> &v){
+// This function is called when the user selects the smallest  option from the main menu
+void handle_smallest(const std::vector<int> &v){ // the parameter is a const reference parameter this function should NOT modify the list of numbers
     if (v.size() == 0) 
         std::cout << "Unable to determine the smallest - list is empty" << std::endl;
-    else {
+    else 
         std::cout << "The smallest number is: " << smallest_number(v) << std::endl;
-    }
+    return; 
 }
 
-void handle_largest (const std::vector<int> &v){
+// This function is called when the user selects the largest  option from the main menu
+void handle_largest (const std::vector<int> &v){ // the parameter is a const reference parameter this function should NOT modify the list of numbers
     if (v.size() == 0)
         std::cout << "Unable to determine largest - list is empty"<< std::endl;   
     else 
         std::cout << "The largest number is: " << largest_number(v) << std::endl;
+    return; 
 }
 
-void handle_find(const std::vector<int> &v){
-
+// This function is called when the user selects the find option from the main menu
+void handle_find(const std::vector<int> &v){ // the parameter is a const reference parameter this function should NOT modify the list of numbers
+    if (v.size() == 0)
+        std::cout << "The list is empty" << std::endl; 
+    else {
+        int target {}; 
+        std::cout << "Enter the number to find: "; 
+        std::cin >> target;  
+        if (find(v, target))
+            std::cout << target << " was found." << std::endl;
+        else 
+            std::cout << target << " wasn't found." << std::endl;
+    }
+    return; 
 }
 
+// This function is called when the user selects the quit  option from the main menu
 void handle_quit(){
     std::cout << "Goodbye" << std::endl;
     return; 
 }
 
+// This function is called whenever the user enters a selection and we don't know how to handle it, i.e., 
+// It is not one of the valid options in the main menu
 void handle_unknown(){
     std::cout << "Unknown selection, please try again" << std::endl;
     return; 
 }
 
-//
-void display_numbers (const std::vector<int> &v){
+// This function expects a list of integers as a vector and displays all the integers in the list in square brackets
+void display_numbers (const std::vector<int> &v){ // the parameter is a const reference parameter this function should NOT modify the list of numbers
     std::cout << "[ ";
     for (auto num: v)
         std::cout << num << " ";
     std::cout << "]" << std::endl; 
     return; 
 }
-double calculate_mean (const std::vector<int> &v){
+
+// This function expects a list of integers as a vector and returns the calculated mean
+double calculate_mean (const std::vector<int> &v){ // the parameter is a const reference parameter this function should NOT modify the list of numbers
     int total {};
     for (auto num: v)
         total += num;
     return static_cast<double>(total)/v.size(); // casting into double
 }
 
-int smallest_number (const std::vector<int> &v){
+// This function expects a list of integers as a vector and returns the smallest integer in the list
+int smallest_number (const std::vector<int> &v){ // the parameter is a const reference parameter this function should NOT modify the list of numbers
     int smallest = v.at(0);
     for (auto num: v)
         if (num < smallest)
@@ -270,10 +332,19 @@ int smallest_number (const std::vector<int> &v){
     return smallest; 
 }
 
-int largest_number (const std::vector<int> &v){
+// This function expects a list of integers as a vector and returns the largest integer in the list
+int largest_number (const std::vector<int> &v){ // the parameter is a const reference parameter; this function should NOT modify the list of numbers
     int largest = v.at(0);
     for (auto num: v)
         if (num > largest)
             largest = num;
     return largest; 
+}
+
+// This function searches the list of integers as a vector for the given integer target
+bool find (const std::vector<int> &v, int target){ // the parameter is a const reference parameter; this function should NOT modify the list of numbers
+    for (auto num: v)
+        if (num == target) // target found
+            return 1; // return true
+    return 0; // return false - target not found
 }
