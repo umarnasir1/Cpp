@@ -37,7 +37,10 @@
   
 #include <iostream>
 
-using namespace std;
+// Function Prototypes 
+void print(int array[], size_t array_size);
+// int *apply_all(int arrayofinteger1 [], size_t size1, int arrayofinteger2[], size_t size2); 
+
 
 int main() {
     const size_t array1_size {5};
@@ -46,20 +49,34 @@ int main() {
     int array1[] {1,2,3,4,5};
     int array2[] {10,20,30};
     
-    cout << "Array 1: " ;
+    std::cout << "Array 1: ";
     print(array1,array1_size);
     
-    cout << "Array 2: " ;
+    std::cout << "Array 2: ";
     print(array2,array2_size);
     
-    int *results = apply_all(array1, array1_size, array2, array2_size);
-    constexpr size_t results_size {array1_size * array2_size};
+    // int *results = apply_all(array1, array1_size, array2, array2_size);
+    // constexpr size_t results_size {array1_size * array2_size};
 
-    cout << "Result: " ;
-    print(results, results_size);
+    std::cout << "Result: ";
+    //print(results, results_size);
     
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }
 
+// Function Definition
+void print(int array[], size_t array_size){
+  std::cout << "[ "; 
+  for (int i{}; i < array_size; i++) 
+    std::cout << array[i] << " "; 
+  std::cout << "]" << std::endl; 
+  return; 
+}
+
+// dynamically (on heap) allocate array1size x array2size  
+// each element of array 2 x each of array 1
+// int *apply_all(int arrayofinteger1[], size_t size1, int  arrayofinteger2[], size_t size2){
+//   return arrayofinteger1[0]; // return address of first element (so returing a pointer)
+// } 
