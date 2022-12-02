@@ -39,7 +39,7 @@
 
 // Function Prototypes 
 void print(int array[], size_t array_size);
-// int *apply_all(int arrayofinteger1 [], size_t size1, int arrayofinteger2[], size_t size2); 
+int *apply_all(int arrayofinteger1 [], size_t size1, int arrayofinteger2[], size_t size2); 
 
 
 int main() {
@@ -50,17 +50,18 @@ int main() {
     int array2[] {10,20,30};
     
     std::cout << "Array 1: ";
-    print(array1,array1_size);
+    print(array1,array1_size); // array1- address of first integer (in C++)
     
     std::cout << "Array 2: ";
     print(array2,array2_size);
-    
-    // int *results = apply_all(array1, array1_size, array2, array2_size);
-    // constexpr size_t results_size {array1_size * array2_size};
+
+    int *results = apply_all(array1, array1_size, array2, array2_size);
+    constexpr size_t results_size {array1_size * array2_size};
 
     std::cout << "Result: ";
-    //print(results, results_size);
-    
+    print(results, results_size);
+
+    delete [] results; // delete storage on the HEAP
     std::cout << std::endl;
 
     return 0;
@@ -69,14 +70,23 @@ int main() {
 // Function Definition
 void print(int array[], size_t array_size){
   std::cout << "[ "; 
-  for (int i{}; i < array_size; i++) 
+  for (size_t i{}; i < array_size; ++i) 
     std::cout << array[i] << " "; 
   std::cout << "]" << std::endl; 
   return; 
 }
 
-// dynamically (on heap) allocate array1size x array2size  
-// each element of array 2 x each of array 1
-// int *apply_all(int arrayofinteger1[], size_t size1, int  arrayofinteger2[], size_t size2){
-//   return arrayofinteger1[0]; // return address of first element (so returing a pointer)
-// } 
+int *apply_all(int arrayofinteger1[], size_t size1, int  arrayofinteger2[], size_t size2){
+  // dynamic memory allocation 
+  int *array_ptr {nullptr}; 
+  array_ptr = new int[size1 * size2];
+
+  size_t index {}; 
+  for (size_t i{}; i < size2; ++i)
+    for (size_t j{}; j < size1; ++j){
+      array_ptr[index] = *(arrayofinteger2 + i) * *(arrayofinteger1 + j); // pointer offset notation
+      index++;
+    }
+  
+  return array_ptr; // return address of first element (so returing a pointer)
+} 
