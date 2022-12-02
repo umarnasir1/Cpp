@@ -37,7 +37,7 @@
   
 #include <iostream>
 
-// Function Prototypes 
+// Function Prototypes
 void print(int array[], size_t array_size);
 int *apply_all(int arrayofinteger1 [], size_t size1, int arrayofinteger2[], size_t size2); 
 
