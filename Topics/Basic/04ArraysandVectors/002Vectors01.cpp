@@ -23,7 +23,9 @@ int main(){
   std::vector <char> vowels; // create emply vector with no elements - vectors are automatically initilized.
 
   // another way of vector declaration
-  std::vector <char> vowels1 (5); // 5 elements, all initialized to 0
+  std::vector <char> vowels1 (5); // creates a vector of 5 elements, all initialized to 0.
+  
+  std::vector <int> vec {10}; // creates a vector of integers that holds a single element with value of 10. 
 
   // vector initilization
   std::vector <char> vowels2 {'a', 'e', 'i', 'o', 'u'}; // declare and initilize
