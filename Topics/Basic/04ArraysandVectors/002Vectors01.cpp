@@ -25,9 +25,8 @@ int main(){
   // another way of vector declaration
   std::vector <char> vowels1 (5); // creates a vector of 5 elements, all initialized to 0.
   
-  std::vector <int> vec {10}; // creates a vector of integers that holds a single element with value of 10. 
-
   // vector initilization
+  std::vector <int> vec {10}; // creates a vector of integers that holds a single element with value of 10. 
   std::vector <char> vowels2 {'a', 'e', 'i', 'o', 'u'}; // declare and initilize
   std::vector <int> test_scores {100, 98, 89, 85, 93};
   std::vector <double> hi_tempratures (365, 80.0); // 365 elements, all initialized to 80.0
