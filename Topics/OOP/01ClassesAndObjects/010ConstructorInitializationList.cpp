@@ -22,7 +22,7 @@ public:
 //   xp = 0;
 // }
 
-// Constructor INitialization List
+// Constructor Initialization List
 Player::Player()
   : name{"None"}, health{0}, xp{0} {
 }
