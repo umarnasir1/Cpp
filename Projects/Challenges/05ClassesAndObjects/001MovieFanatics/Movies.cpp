@@ -60,4 +60,5 @@ bool Movies::increment_watched(std::string name) {
     *********************************************************************/
 void Movies::display() const {
    // You implement this method
+   // loop through that collection and display each movie object. 
 }
