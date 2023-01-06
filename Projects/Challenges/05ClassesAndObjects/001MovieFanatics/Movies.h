@@ -9,6 +9,7 @@
 
 #ifndef _MOVIES_H_
 #define _MOVIES_H_
+
 #include <vector>
 #include <string>
 #include "Movie.h"
@@ -18,7 +19,7 @@ class Movies
 private:
     std::vector<Movie> movies;
 public:
-    Movies();             // Constructor
+    Movies();           // Constructor
     ~Movies();          // Destructor
     
     /*************************************************************************
@@ -32,7 +33,7 @@ public:
     and add that movie object to the movies vector and return true
     *********************************************************************/
     bool add_movie(std::string name, std::string rating, int watched);
-    
+    //TODO
     /*************************************************************************
     increment_watched expects the name of the move to increment the
     watched count
@@ -45,6 +46,7 @@ public:
     provided exists to increment
     *********************************************************************/
     bool increment_watched(std::string name);
+    //TODO
     
     /*************************************************************************
     display
