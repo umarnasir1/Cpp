@@ -16,7 +16,7 @@
 class Movie
 {
 private:
-    std::string name;   // the name of the movie
+    std::string name;     // the name of the movie
     std::string rating;   // the movie rating G,PG, PG-13, R
     int watched;          // the number of times you've watched the movie
 public:
@@ -24,14 +24,15 @@ public:
     Movie(std::string name, std::string rating, int watched);
     
     // Copy constructor 
-    Movie(const Movie &source); 
+    Movie(const Movie &source); // empty
     
     // Destructor
     ~Movie();
     
     // Basic getters and setters for private attributes
     // implement these inline and watch your const-correctness
-    
+    // as we dont want to modify anything so making const methods. 
+
     void set_name(std::string name) {this->name = name; }
     std::string get_name() const { return name; }
     
