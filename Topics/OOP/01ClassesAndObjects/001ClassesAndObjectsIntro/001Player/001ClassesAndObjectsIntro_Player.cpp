@@ -21,9 +21,9 @@
 // Eg1.  a class name to player as we might have in a game application.
 class Player {
   // attributes or instance variables
-  std::string name; // class has a string named name
-  int health; // players health
-  int xp; //
+  std::string name {"Player"}; // class has a string named name - we can initialize values in class declaration from C++11 onwards, but we can initialize the values of attributes using constructors/initializer lists.
+  int health {100}; // players health
+  int xp {3}; //experience
 
   // methods
   // Since c++ supports encapsulation, that means we can also provide methods or functions in the class body that are specific to the player class. In this case, we have two methods:
@@ -46,11 +46,10 @@ int main(){
 
   // The following lines create a scores object that's an instance of a vector of integers
   // and a name object that's an instance of string.
-  // */
+
   // std::vector <int> scores;
   // std::string name;
-
-  // ///////////////////////////////////
+  */
 
   // Creating Objects - instances of class - same way we create primitive types.
   Player frank;
@@ -58,6 +57,12 @@ int main(){
 
   Player *enemy = new Player(); // creating pointer to object - Here, a pointer to a player object - ememy is declared and that object is dynamically created on the heap using new.
   delete enemy; // When I'm finished using enemy object, its storage has to be freed up using delete.
+
+  // Once we have objects, we can use them like any other variable in C++
+  Player players[] {frank, hero}; 
+
+  std::vector <Player> player_vec {frank}; // collection of player object. 
+  player_vec.push_back(hero); // pushing back hero
 
   return 0;
   }
