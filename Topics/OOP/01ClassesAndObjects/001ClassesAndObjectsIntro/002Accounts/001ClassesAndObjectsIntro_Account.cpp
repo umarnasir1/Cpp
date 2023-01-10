@@ -20,8 +20,8 @@
 // Class - Accocunt
 class Account {
   // attributes
-  std::string name; // name of account
-  double balance; // account balance
+  std::string name {"Account"}; // name of account - we can initialize values in class declaration from C++11 onwards, but we can initialize the values of attributes using constructors/initializer lists. 
+  double balance {0.0}; // account balance
 
   // methods
   bool withdraw (double amount); // expects the amount amount to withdraw and returns a boolean indicating success.
