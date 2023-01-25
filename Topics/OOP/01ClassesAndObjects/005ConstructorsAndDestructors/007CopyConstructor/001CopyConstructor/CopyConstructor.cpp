@@ -42,11 +42,11 @@ public:
   int get_health(){return health;}
   int get_xp(){return xp;}
   // Constructor
-  Player(std::string name_val="None", int health_val=0, int xp_val=0);
+  Player(std::string name_val="None", int health_val=0, int xp_val=0); // Default Constructor
   // Copy Constructor - Prototype
   Player(const Player &source); // single object in the parameter list
   // Destructor
-  ~Player(){ std::cout<<"Destructor called for: " << name << std::endl; }
+  ~Player(){ std::cout<<"Destructor called for: " + name << std::endl; }
 };
 
 // Constructor
@@ -55,24 +55,24 @@ Player::Player(std::string name_val, int health_val, int xp_val)
     std::cout << "Three-args constructor for " + name << std::endl;
 }
 
-// //------ Implementing the Player class Copy constructor
-// // Notice that we're initializing the newly created object attributes in the initializer list based on the source object's attributes.
-// Player::Player (const Player &source)
-//   //: name{source.name}, health{source.health}, xp{source.xp} { // Initializer list ot initialize source object
-//   : Player {source.name, source.health, source.xp} {// Delegating constructor- delegate the construction of this object to my constructor so the control will transfer to constructor (line 54)
-//     // any code we write in the constructor body will be executed immediately after the new object is initialized.
-//     std::cout << "Copy Constructor - made copy of: " << source.name << std::endl;
-// }
+//------ Implementing the Player class Copy constructor
+// Notice that we're initializing the newly created object attributes in the initializer list based on the source object's attributes.
+Player::Player (const Player &source)
+  : name{source.name}, health{source.health}, xp{source.xp} { // Initializer list ot initialize source object
+  //: Player {source.name, source.health, source.xp} {// Delegating constructor- delegate the construction of this object to my constructor so the control will transfer to constructor (line 54)
+    // any code we write in the constructor body will be executed immediately after the new object is initialized.
+    std::cout << "Copy Constructor - made copy of: " << source.name << std::endl;
+}
 
-// // function display_player displays the values
-// // One of the used cases where the copy constructor is called
-// void display_player(Player p){ // expects player object by value
-//   // p is a COPY of whatever object (empty in this case) that is passed in  (using the copy constructor) - on the stack
-//   std::cout << "Name: " << p.get_name() << std::endl;
-//   std::cout << "Health: " << p.get_health() << std::endl;
-//   std::cout << "XP: " << p.get_xp() << std::endl;
-//   // Destructor for p will be called (as p is going out of scope as p is local to this function)
-// }
+// function display_player displays the values
+// One of the used cases where the copy constructor is called
+void display_player(Player p){ // expects player object by value
+  // p is a COPY of whatever object (empty in this case) that is passed in  (using the copy constructor) - on the stack
+  std::cout << "Name: " << p.get_name() << std::endl;
+  std::cout << "Health: " << p.get_health() << std::endl;
+  std::cout << "XP: " << p.get_xp() << std::endl;
+  // Destructor for p will be called (as p is going out of scope as p is local to this function)
+}
 
 // // Return Object by value
 // Player create_super_enemy(){ // creates and returns a player object
@@ -83,7 +83,7 @@ Player::Player(std::string name_val, int health_val, int xp_val)
 
 int main(){
   Player empty;
-  // display_player(empty); // Pass object to function/method by - value;  When we call this function and pass in empty, the function parameter p will be created and it will be created as a copy of empty, using the copy constructor.
+  display_player(empty); // Pass object to function/method by - value;  When we call this function and pass in empty, the function parameter p will be created and it will be created as a copy of empty, using the copy constructor.
   Player frank {"Frank"};
   Player hero {"Hero",100};
   Player villain {"Villain",100,55};
@@ -99,13 +99,3 @@ int main(){
 
   return 0;
 }
-//
-// //----  Declaring Copy constructor
-//
-// Account::Account(const Account &source);
-//
-// // Implementing the copy constructor for Account class
-// Account::Account (const Account &source)
-//   : name{source.name},
-//     balance {source.balance} {
-// }
