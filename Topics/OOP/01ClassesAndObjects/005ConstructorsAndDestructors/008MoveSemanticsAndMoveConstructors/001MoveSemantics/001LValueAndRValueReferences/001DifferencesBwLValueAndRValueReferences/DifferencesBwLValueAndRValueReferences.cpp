@@ -8,13 +8,13 @@ int main(){
     int x {100}; // x is a l-value as it is addressable and its got a name
     int &l_ref = x; // l-value reference since x is an l-value ; l_ref is reference to x
 
-    std::cout << x << std::endl; 
-    std::cout << l_ref << std::endl; 
+    std::cout << x << std::endl; // 100
+    std::cout << l_ref << std::endl; // 100 
 
     l_ref = 10; // change x to 10
 
-    std::cout << x << std::endl; 
-    std::cout << l_ref << std::endl; 
+    std::cout << x << std::endl; // 10 as x and l_ref are aliases
+    std::cout << l_ref << std::endl; // 10 
     
     // r-value
     int &&r_ref = 200; // r-value reference since 200 is an R-value ; declared by using && operator
