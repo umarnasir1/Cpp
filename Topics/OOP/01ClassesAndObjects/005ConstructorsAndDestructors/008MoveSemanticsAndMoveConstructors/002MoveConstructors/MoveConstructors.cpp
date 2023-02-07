@@ -51,9 +51,9 @@ Move::Move(Move &&source) noexcept // 'Steal' the data and then null out the sou
 // Destructor
 Move::~Move(){
   if (data != nullptr)
-    std::cout << "Destructor freeing data for: " << *data << std::endl; // destroying objects that we moved if data poining to value.
+    std::cout << "Destructor freeing data for: " << *data << std::endl; // destroying objects
   else
-    std::cout << "Destructor freeing data for nullptr" << std::endl; // destroying nullptr - in case of Move constructor.
+    std::cout << "Destructor freeing data for nullptr" << std::endl; // destroying nullptr; destroying the object that we just moved (and set its data pointer to null).
   delete data;
 }
 
@@ -65,17 +65,16 @@ int main(){
   // vec.push_back(Move{10}); // Move{10} creating temporary unnamed Move objects as there is no varliable name (R-value)
   // vec.push_back(Move{20});
   
-  // When Move Constructor Code commented
+  // When Move Constructor Code is commented
   // Compiler is going to use the COPY CONSTRUCTOR to make copies of temporary Move objects so the vector can push them back. 
   // Thats the cause of inefficiancy (as many constructors, destructors, copy constructors are being called). Copy constructor 
   // is doing several deep copies which is quite in efficient. 
 
   // Constructor as we need to construct the object - temporary object - R-value
   // so copied  using copy constructor
-  // 1. Constructor call; output
-  // 2. copied - deligating
-  // 3. Copy constructor - deep copy as we created it temporarily and needs to be copied into the vector. (as delicating constructor used so constructor will be called again)
-  // 4. Destructor
+  // 1. Constructor call; construct an object 
+  // 2. Copy constructor - deep copy as we created it temporarily and needs to be copied into the vector. (as delicating constructor used so constructor will be called again)
+  // 3. Destructor - destoying the copy we made/ object
 
   // 15 deep copies- much more than we expect. we have only 8 push_backs.
   // The vector is growing behind the scenes. As the vector grows, the objects need to be copied to a new storage. Vector is a contiguous storage, so it is making copies behind the scenes as well. A lot of times there is a log of copying going on behind the scenes that we are not aware of.
@@ -135,9 +134,10 @@ int main(){
 // Destructor freeing data for: 20
 // Destructor freeing data for: 10
 
-// --------------
-
-
+// Reason for soo many deep copies/ Moves:
+// The vector is actually growing behind the scenes.
+// And when the vector grows, those objects need to be copied to the new storage (as the vector is using contiguous storage. So it's making copies of the objects behind the scenes as well.).
+// // --------------
 
 // Copy Constructor - Output: 61 lines
 // Constructor for: 10
