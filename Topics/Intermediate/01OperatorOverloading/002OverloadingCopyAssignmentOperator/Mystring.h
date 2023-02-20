@@ -40,6 +40,7 @@ public:
   //  tells compiler that we are overloading = operator
   // expects : constant MyString RHS object (lhs is this pointer)
   // LHS (current object) = RHS (what we are assigning)
+  // OBS! not construction, its assignment as LHS already exists. 
 
   void display() const; // displays the contents string (string and its length)
   
