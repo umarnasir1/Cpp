@@ -19,7 +19,7 @@ Mystring::Mystring() // Mystring a;
   *str = '\0'; // Then, de-referencing the pointer and putting terminator '\0'
 }
 
-// Overloaded Constructor - expects a c-style string
+// Overloaded Constructor - expects a c-style string; creating object
 Mystring::Mystring(const char *s) // Mystring a{"Hello"}
   :str{nullptr}{ // setting strs primary value
     if (s==nullptr){ // checking if someone sent a null pointer here (instead of passing "Hello"), i.e., Mystring a{"Hello"};
@@ -39,11 +39,41 @@ Mystring::Mystring(const Mystring &source) // Mystring a {"Hello"}; Mystring b{b
     std::strcpy(str, source.str); // copy source.str to str. copying 'hello' on heap and str is poining to the heap (as str is pointer)
 }
 
+// Move constructor
+Mystring::Mystring(Mystring &&source)
+  :str{source.str}{ // stealing the pointer - stealing the source objects pointer and moving it to str.
+    source.str = nullptr; // nulling out the value of source object pointer. 
+    std::cout << "Move constructor used" << std::endl; 
+  }
+
 // Destructor
 Mystring::~Mystring(){
   delete [] str; // de-allocating the memory
 }
 
+// Copy assignment 
+Mystring &Mystring::operator=(const Mystring &rhs){
+  std::cout << "Using copy assignment" << std::endl; 
+
+  if (this == &rhs) 
+    return *this; 
+  delete [] str; // delete current object
+  str = new char[std::strlen(rhs.str)+1]; // allocating space for rhs object in lhs
+  std::strcpy(str, rhs.str); // copying rhs to lhs
+  return *this; 
+}
+
+//Move assignment
+Mystring &Mystring::operator=(Mystring &&rhs){
+  std::cout << "Using move assignment" << std::endl; 
+
+  if (this == &rhs)// checking for self assignment.
+    return *this; 
+  delete [] str; // delete current object
+  str = rhs.str; // steal the object 
+  rhs.str = nullptr; // nullify the rhs pointer. 
+  return *this; 
+}
 
 // Display method - displays the string (cstyle string) & length separated by a :
 void Mystring::display() const {
