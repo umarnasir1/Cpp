@@ -48,6 +48,10 @@ Mystring::Mystring(Mystring &&source)
 
 // Destructor
 Mystring::~Mystring(){
+  if (str == nullptr)
+    std::cout << "Calling destructor for Mystring: nullptr" << std::endl; 
+  else 
+    std::cout << "Calling destructor for Mystring: " << str << std::endl; 
   delete [] str; // de-allocating the memory
 }
 
@@ -64,15 +68,19 @@ Mystring &Mystring::operator=(const Mystring &rhs){
 }
 
 //Move assignment
+// Steps 
+// 1. Deallocate current storage
+// 2. Steal the pointer
+// 3. null out the rhs object
 Mystring &Mystring::operator=(Mystring &&rhs){
   std::cout << "Using move assignment" << std::endl; 
 
   if (this == &rhs)// checking for self assignment.
-    return *this; 
-  delete [] str; // delete current object
-  str = rhs.str; // steal the object 
-  rhs.str = nullptr; // nullify the rhs pointer. 
-  return *this; 
+    return *this; // return current object 
+  delete [] str; // dellocate current storage since we are overwriting it and we dont want a memory leak
+  str = rhs.str; // steal the pointer from rhs object and assign it to this-> str / copy of a pointer variable. (NO deep copy here)
+  rhs.str = nullptr; // null out the rhs object  
+  return *this; // returning LHS Object (current object)
 }
 
 // Display method - displays the string (cstyle string) & length separated by a :
@@ -85,21 +93,3 @@ int Mystring::get_length() const { return std::strlen(str); } // length of the s
 
 // string getter - returns pointer as const
 const char *Mystring::get_str() const { return str; }
-
-
-// Steps 
-// 1. Deallocate current storage
-// 2. Steal the pointer
-// 3. null out the rhs object 
-
-// Mystring &Mystring::operator= (Mystring &&rhs){
-//   if (this == &rhs) // self assignment 
-//     return *this; // return current object 
-  
-//   delete [] str; // dellocate current storage since we are overwriting it and we dont want a memory leak
-//   str = rhs.str; // steal the pointer from rhs object and assign it to this-> str / copy of a pointer variable. (NO deep copy here) 
-
-//   rhs.str = nullptr; // null out the rhs object 
-
-//   return *this; // returning LHS Object (current object)
-// } 
