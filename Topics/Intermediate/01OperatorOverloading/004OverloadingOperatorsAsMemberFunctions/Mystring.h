@@ -1,5 +1,5 @@
 /*
-  What is Operator Overloading - Mystring.h
+  Mystring.h
 
   Mystring.h - class specification
   Mystring.cpp - class definition
@@ -34,6 +34,10 @@ public:
 
   Mystring &operator=(const Mystring &rhs); // Copy assignmnet 
   Mystring &operator=(Mystring &&rhs); // Move assignment
+
+  Mystring operator-() const; // make lower case
+  Mystring operator+(const Mystring &rhs) const; // concatenate
+  bool operator== (const Mystring &rhs) const; // comparision
 
   void display() const; // displays the contents string (string and its length)
   int get_length() const; // getter - returns current length of the string
