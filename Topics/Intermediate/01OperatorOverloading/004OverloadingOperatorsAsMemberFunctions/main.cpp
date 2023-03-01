@@ -1,22 +1,13 @@
 /*
   Implimenting three overloaded operators as member methods 
 
-  overloading the unary minus to make a string lower case. 
-  Unary operator overloading using member methods. 
-  Overloading uninary operators as member methods. 
-  Overloading the unary minus(-) operator work with Mystring class.
-  We want to make the string lower case whenever unary minus operator is used. 
-    its upto developer to overload unary minus(-) in such a way that is convers the string into lower case 
-    a good otpion can be to use methods name lowercase or tolower but this depends on context of the application and the design of application. 
-  Mystring operator- make lower case
-
   Overload three operators as member methods 
-  equality operator == 
-    to compare two objects 
-  - operator
-    lower case 
-  + operator 
-    concatinate
+    equality operator == 
+      to compare two objects 
+    - operator
+      lower case 
+    + operator 
+      concatinate
 
   Mystring.h - class specification
   Mystring.cpp - class definition
