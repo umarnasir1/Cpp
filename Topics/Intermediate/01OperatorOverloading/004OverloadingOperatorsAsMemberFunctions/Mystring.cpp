@@ -1,12 +1,19 @@
 /*
-  What is Operator Overloading - Mystring.cpp
+   Mystring.cpp
+   Adding code for overloading the unary minus to make a string lower case. 
 
   Mystring.h - class specification
   Mystring.cpp - class definition
   main.cpp
+
+  Implimentation of unary negation operator (for lower case)
+  Implimentation of binary equality operator (for comparision)
+  Implimentation of binary addition operator (for concatenation)
 */
+
 #include <cstring> // C-style strings
 #include <iostream> // output
+#include <cctype> // for function islower()
 #include "Mystring.h" // including as we are implimenting that class methods.
 
 // No-args constructor
@@ -81,6 +88,44 @@ Mystring &Mystring::operator=(Mystring &&rhs){
   str = rhs.str; // steal the pointer from rhs object and assign it to this-> str / copy of a pointer variable. (NO deep copy here)
   rhs.str = nullptr; // null out the rhs object  
   return *this; // returning LHS Object (current object)
+}
+
+// Overloading the unary minus to make a string lower case
+// Steps
+// need to make copy of whatever is in the current object 
+// make that lower case 
+// create a new object from it. 
+Mystring Mystring:: operator-() const { // const as we dont want to modify the current object; we want to create a new object based on it. 
+  char *buff = new char[std::strlen(str)+1]; // allocating space (array of characters) for an area in memory on the heap where we want to store the lowercase copy of the current object string.
+  std::strcpy(buff, str); // copy the string to buff
+  for (size_t i=0; i<std::strlen(buff); i++) // loop through the characters in the copy 
+    buff[i] = std::tolower(buff[i]); // convert each character to its lowercase equivalent 
+  Mystring temp {buff}; // constructing temporary Mystring object using lowercase string as initializer
+  delete [] buff; // deleting the buffer/de-allocating the created space to avoid memory leak
+  return temp; // returning a new object that will be the lowercase copy of the existing object. 
+}
+
+// Implimentation of equality operator
+// Comparing the strings if they are the same (We dont want to compare the pointers. Instead, we want to compare strings that the pointers point to )
+bool Mystring::operator== (const Mystring &rhs) const{ // if (s1 = s2) -  s1 and s2 are Mystring objects so comparing two objects
+  return (std::strcmp(str,rhs.str)==0);
+
+  // alternate
+  // if (std::strcmp(str, rhs.str) == 0) // compares c-style strings and returns 0 if strings are equal
+  //   return true; 
+  // else
+  //   return false; 
+}
+
+// Implimentation of addition operator (concatenation)
+Mystring Mystring::operator+ (const Mystring &rhs) const { // const as we dont want to modify the current object;
+  size_t buff_size = std::strlen(str) + std::strlen(rhs.str) + 1; // allocating memory for character buffer for both of the strings +1 for string terminator
+  char *buff = new char[buff_size]; // allocate (array of characters) on the heap 
+  std::strcpy(buff, str); // copy over the lhs string 
+  std::strcat(buff, rhs.str); // concatinate the rhs string 
+  Mystring temp {buff}; // create new object that will contain the concatinated string using buffer as the initializer. 
+  delete [] buff; // de-allocate the local buffer area so we dont leak memory 
+  return temp; // return newly created object by value. 
 }
 
 // Display method - displays the string (cstyle string) & length separated by a :
