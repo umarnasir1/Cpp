@@ -7,7 +7,6 @@
 
   Mystring models a string and will implement it behind the scenes using a raw 
   C-style pointer. 
-  We are going to add overloaded operators to this basic class.
 
   Although we have a standard string class, but C-style string used so we can play around 
   with:
@@ -16,6 +15,11 @@
     understand the move constructor,
     understand the assignment operators.
       think about copy and move assignment when we overload the assignment operator.
+
+  Adding prototypes for overloading three operators as member methods 
+    - Unary negation operator
+    + Binary 
+    == Binary equality operator
 */ 
 #ifndef _MYSTRING_H_
 #define _MYSTRING_H_
