@@ -1,5 +1,22 @@
 /*
-  Overloading move constructor and move assignment operator 
+  Implimenting three overloaded operators as member methods 
+
+  overloading the unary minus to make a string lower case. 
+  Unary operator overloading using member methods. 
+  Overloading uninary operators as member methods. 
+  Overloading the unary minus(-) operator work with Mystring class.
+  We want to make the string lower case whenever unary minus operator is used. 
+    its upto developer to overload unary minus(-) in such a way that is convers the string into lower case 
+    a good otpion can be to use methods name lowercase or tolower but this depends on context of the application and the design of application. 
+  Mystring operator- make lower case
+
+  Overload three operators as member methods 
+  equality operator == 
+    to compare two objects 
+  - operator
+    lower case 
+  + operator 
+    concatinate
 
   Mystring.h - class specification
   Mystring.cpp - class definition
@@ -12,48 +29,39 @@
 
 int main(){
 
-  Mystring a{"Hello"}; //Overloaded constructor
-  a = Mystring{"Hejsan"}; // Overloaded constructor (construct a temporary object-rhs) then move assignment, destructor for destroying temporary object. Mystring {"Hejsan"} is temporary object (as it have no name) - R value; this is assignment not initialization as a already exists. 
-  a = "Tja"; // Overloaded constructor then move assignment as right hand side value is R-value and then destructor for destroying temporary object, destructor for a
+  Mystring larry{"Larry"}; 
+  Mystring moe{"Moe"}; 
 
-  // objects
-  Mystring empty; // empty Mystring object - no-args constructor
-  Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal. C++ compiler will treat it as a const char * and what is being passed to the constructor is the address of the first character in the null-terminated string literal.)
-  Mystring stooge {larry}; // copy constructor as we are initializing using larry object
-  Mystring stooges; // no-args constructor 
+  Mystring stooge {larry}; 
+  larry.display(); //Larry
+  moe.display(); //Moe
 
-  empty = stooge; // copy assignment operator 
-                  // stooge is an L-value 
+  // == 
+  std::cout << std::boolalpha << std::endl; 
+  std::cout << (larry == moe) << std::endl; 
+  std::cout << (larry == stooge) << std::endl; 
+
+  // -
+  Mystring larry1 {"LARRY"}; 
+  Mystring larry2 {-larry1}; //larry1.operator-() 
+
+  larry1.display(); // LARRY 
+  larry2.display(); // larry
+
+  // + 
+  Mystring stooges {" is one of the three stooges"}; 
+
+  Mystring result {larry + stooges}; // larry.operator+ (stooges)
+  result = moe + " is also a stooge"; // moe.operator+ (" is also a stooge") - We can use c-style string on the rhs. This is because we have a mystring constructor that can construct mystring objects from a c-style string (is also a stooge in this case).
   
-  empty = "Funny"; // overloaded constructor (construct temporary object), move assignment operator, destuctor for destroying temporary object 
-                   // "Funny" is an R-value 
+  // limitation: The object on the left-hand side must be an object of the class (that we are using)
+  // result = "Moe" + stooges; // "Moe".operator+ (stooges) // Compiler Error - since the lhs operand is not a Mystring object.
 
-  // displaying objects
-  empty.display();
-  larry.display();
-  stooge.display();
-  empty.display(); 
-
-  stooges = "Larry, Moe, and Curly"; // overloaded constructor (construct temporary object), move assignment operator, destuctor for destroying temporary object 
-                                     // "Larry, Moe, and Curly" is an R-value 
-  stooges.display(); 
-
-  std::vector <Mystring> stooges_vec; 
-  stooges_vec.push_back("Larry"); // Overloaded constructor to create 'Larry'; Move constructor to move; destructor to destroy Larry
-  stooges_vec.push_back("Moe"); // Overloaded constructor to create 'Moe'; Move constructor to move; destructor to destroy Moe
-  stooges_vec.push_back("Curly"); // Overloaded constructor to create 'Curly'; Move constructor to move; destructor to destroy Curly
-
-  std::cout << "=== Loop 1 =============================" << std::endl; 
-  for (const Mystring &s: stooges_vec)
-    s.display(); 
-  
-  std::cout << "=== Loop 2 =============================" << std::endl; 
-  for (Mystring &s: stooges_vec)
-    s = "Changed"; // move assignment 
-  
-  std::cout << "=== Loop 3 =============================" << std::endl; 
-  for (const Mystring &s: stooges_vec)
-    s.display();
+  Mystring two_stooges {moe + " " + "Larry"};
+  two_stooges.display(); // Moe Larry      
+                                                  
+  Mystring three_stooges {moe + " " + larry + " " +  "Curly"};
+  three_stooges.display(); //  Moe Larry Curly
 
   return 0;
 }
