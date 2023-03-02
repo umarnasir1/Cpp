@@ -14,7 +14,7 @@ bool Money::operator== (const Money &rhs) const{
 }
 
 bool Money::operator!= (const Money &rhs) const{
-    return !(rhs == *this); // using == operator in this method. Is it because you declared == operator overloading before
+    return !(rhs == *this); // using == operator defined in line 12 in this method. Is it because you declared == operator overloading before
 }
 
 /*
