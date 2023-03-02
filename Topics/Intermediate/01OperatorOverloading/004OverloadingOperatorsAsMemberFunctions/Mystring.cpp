@@ -108,7 +108,7 @@ Mystring Mystring:: operator-() const { // const as we dont want to modify the c
 // Implimentation of equality operator
 // Comparing the strings if they are the same (We dont want to compare the pointers. Instead, we want to compare strings that the pointers point to )
 bool Mystring::operator== (const Mystring &rhs) const{ // if (s1 = s2) -  s1 and s2 are Mystring objects so comparing two objects
-  return (std::strcmp(str,rhs.str)==0);
+  return (std::strcmp(str,rhs.str)==0); // strcmp returns Zero if lhs and rhs compare equal.
 
   // alternate
   // if (std::strcmp(str, rhs.str) == 0) // compares c-style strings and returns 0 if strings are equal
