@@ -120,7 +120,7 @@ bool Mystring::operator== (const Mystring &rhs) const{ // if (s1 = s2) -  s1 and
 // Implimentation of addition operator (concatenation)
 Mystring Mystring::operator+ (const Mystring &rhs) const { // const as we dont want to modify the current object;
   size_t buff_size = std::strlen(str) + std::strlen(rhs.str) + 1; // allocating memory for character buffer for both of the strings +1 for string terminator
-  char *buff = new char[buff_size]; // allocate (array of characters) on the heap 
+  char *buff = new char[buff_size]; // allocate (array of characters) on the heap; char *buff as its c-style string
   std::strcpy(buff, str); // copy over the lhs string 
   std::strcat(buff, rhs.str); // concatinate the rhs string 
   Mystring temp {buff}; // create new object that will contain the concatinated string using buffer as the initializer. 
