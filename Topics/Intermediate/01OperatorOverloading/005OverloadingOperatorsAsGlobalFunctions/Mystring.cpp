@@ -1,6 +1,15 @@
 /*
-  Overloading operators as non-member (global) methods
   Mystring.cpp
+  Overloading operators as non-member (global) methods
+
+  Often declared as friend functions in the class declaration (we will directly access the private attribute str in that case).
+  if declared as a friend of Mystring can access private str attribute 
+  Otherwise we must use getter methods. 
+  
+
+  operator- (unary negation operator)
+  operator== (binary equality operator)
+
 
   Mystring.h - class specification
   Mystring.cpp - class definition
@@ -82,6 +91,25 @@ Mystring &Mystring::operator=(Mystring &&rhs){
   str = rhs.str; // steal the pointer from rhs object and assign it to this-> str / copy of a pointer variable. (NO deep copy here)
   rhs.str = nullptr; // null out the rhs object  
   return *this; // returning LHS Object (current object)
+}
+
+// overloading unary - to make string lowercase
+Mystring operator- (const Mystring &obj){
+  char *buff = new char[std::strlen(obj.str)+1]; // allocate storage on the HEAP; char as its c-style string
+  std::strcpy(buff, obj.str); // copy object string data
+  for (size_t i{0}; i<std::strlen(buff); i++) // loop through and make the copied string all lowercase.
+    buff[i] = std::tolower(buff[i]); 
+  Mystring temp {buff}; // creating new object using the lowercase string as the initializer
+  delete [] buff; // de-allocate the temporary storage
+  return temp; // returing created object
+}
+
+// overloading binary == equality operator 
+bool operator== (const Mystring &lhs, const Mystring &rhs){
+  if (std::strcmp(lhs.str, rhs.str) == 0)
+    return true; 
+  else
+    return false; 
 }
 
 // Display method - displays the string (cstyle string) & length separated by a :
