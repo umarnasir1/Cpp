@@ -29,7 +29,7 @@ int main(){
 
   // == 
   std::cout << std::boolalpha << std::endl; 
-  std::cout << (larry == moe) << std::endl; 
+  std::cout << (larry == moe) << std::endl; // larry.operator== (moe)
   std::cout << (larry == stooge) << std::endl; 
 
   // -
