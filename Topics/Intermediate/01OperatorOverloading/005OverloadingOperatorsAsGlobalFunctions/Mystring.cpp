@@ -2,13 +2,14 @@
   Mystring.cpp
   Overloading operators as non-member (global) methods
 
-  Often declared as friend functions in the class declaration (we will directly access the private attribute str in that case).
-  if declared as a friend of Mystring can access private str attribute 
-  Otherwise we must use getter methods. 
+  Often declared as friend functions in the class declaration 
+    We will directly access the private attribute str in that case, i.e., if declared as a friend of Mystring).
+    Otherwise we must use getter methods. 
   
 
-  operator- (unary negation operator)
-  operator== (binary equality operator)
+  operator- (unary negation operator) for lower case
+  operator== (binary equality operator) for comparision
+  operator+ (binary + operator) for concatination of two objects
 
 
   Mystring.h - class specification
@@ -93,25 +94,6 @@ Mystring &Mystring::operator=(Mystring &&rhs){
   return *this; // returning LHS Object (current object)
 }
 
-// overloading unary - to make string lowercase
-Mystring operator- (const Mystring &obj){
-  char *buff = new char[std::strlen(obj.str)+1]; // allocate storage on the HEAP; char as its c-style string
-  std::strcpy(buff, obj.str); // copy object string data
-  for (size_t i{0}; i<std::strlen(buff); i++) // loop through and make the copied string all lowercase.
-    buff[i] = std::tolower(buff[i]); 
-  Mystring temp {buff}; // creating new object using the lowercase string as the initializer
-  delete [] buff; // de-allocate the temporary storage
-  return temp; // returing created object
-}
-
-// overloading binary == equality operator 
-bool operator== (const Mystring &lhs, const Mystring &rhs){
-  if (std::strcmp(lhs.str, rhs.str) == 0)
-    return true; 
-  else
-    return false; 
-}
-
 // Display method - displays the string (cstyle string) & length separated by a :
 void Mystring::display() const {
   std::cout << str << " : " << get_length() << std::endl;
@@ -122,3 +104,35 @@ int Mystring::get_length() const { return std::strlen(str); } // length of the s
 
 // string getter - returns pointer as const
 const char *Mystring::get_str() const { return str; }
+
+// regular functions - not member functions 
+// overloading binary == equality operator 
+bool operator==(const Mystring &lhs, const Mystring &rhs){
+  return (std::strcmp(lhs.str, rhs.str) == 0); 
+  // if (std::strcmp(lhs.str, rhs.str) == 0) // comparing both strings 
+  //   return true; 
+  // else
+  //   return false; 
+}
+
+// overloading unary - to make string lowercase
+Mystring operator-(const Mystring &obj){
+  char *buff = new char[std::strlen(obj.str)+1]; // allocate storage (array of characters) on the HEAP; char as its c-style string
+  std::strcpy(buff, obj.str); // copy object string data - copies one character a time till it reaches null terminator. 
+  for (size_t i{0}; i<std::strlen(buff); i++) // loop through and make the copied string all lowercase.
+    buff[i] = std::tolower(buff[i]); 
+  Mystring temp {buff}; // creating new object using the lowercase string as the initializer
+  delete [] buff; // de-allocate the temporary storage
+  return temp; // returing created object
+}
+
+// overloading binary + operator for concatenation of two Mystirng objects. 
+Mystring operator+(const Mystring &lhs, const Mystring &rhs) { // returns Mystring object by value; expects two Mystring objects (rhs and lhs - both constants references as we dont want to modify them) 
+  size_t buff_size = std::strlen(lhs.str) + std::strlen(rhs.str) +1; 
+  char *buff = new char[buff_size]; // c-style string allocation on heap
+  std::strcpy(buff, lhs.str); 
+  std::strcat(buff, rhs.str); 
+  Mystring temp {buff}; // creating new object using the concated string as the initializer
+  delete [] buff; // de-allocating the temporary storage
+  return temp; 
+}
