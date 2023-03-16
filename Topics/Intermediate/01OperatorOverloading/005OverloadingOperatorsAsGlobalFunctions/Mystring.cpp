@@ -1,19 +1,11 @@
 /*
-  Mystring.cpp
   Overloading operators as non-member (global) methods
-
-  Often declared as friend functions in the class declaration 
-    We will directly access the private attribute str in that case, i.e., if declared as a friend of Mystring).
-    Otherwise we must use getter methods. 
   
-
-  operator- (unary negation operator) for lower case
-  operator== (binary equality operator) for comparision
-  operator+ (binary + operator) for concatination of two objects
-
-
   Mystring.h - class specification
   Mystring.cpp - class definition
+    operator- (unary negation operator) for lower case
+    operator== (binary equality operator) for comparision
+    operator+ (binary + operator) for concatination of two objects
   main.cpp
 */
 #include <cstring> // C-style strings
