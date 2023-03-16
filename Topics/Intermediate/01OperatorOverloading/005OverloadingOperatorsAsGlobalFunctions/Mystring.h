@@ -1,8 +1,10 @@
 /*
   Overloading operators as non-member (global) methods
-  Mystring.h
 
   Mystring.h - class specification
+    Often non-member methods are declared as friend functions in the class declaration (class has to grant friendship) 
+    We will directly access the private attribute str in that case, i.e., if declared as a friend of Mystring).
+    Otherwise we must use getter methods (Alternate option). 
   Mystring.cpp - class definition
   main.cpp
 
@@ -24,6 +26,10 @@
 //---- Mystrng class
 // declaration
 class Mystring { // models a string and will implement it behind the scenes using a raw c-style pointer.
+  // function prototypes - class will grant friendship
+  friend bool operator==(const Mystring &lhs, const Mystring &rhs); 
+  friend Mystring operator-(const Mystring &obj); 
+  friend Mystring operator+(const Mystring &lhs, const Mystring &rhs);
 private:
   char *str; // pointer to a char[] that holds a C-style string
 public:
