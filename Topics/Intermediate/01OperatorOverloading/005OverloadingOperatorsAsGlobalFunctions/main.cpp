@@ -1,12 +1,13 @@
 /*
   Overloading operators as non-member (global) methods
 
-  Overloading unary - operator to make string lower case
-
   Mystring.h - class specification
   Mystring.cpp - class definition
   main.cpp
-
+    Test cases for Overloading binary operators as non-member functions
+      Equal operator == for comparision 
+      + operator for concatination
+    Test cases for Overloading unary - operator to make string lower case
   */
 #include <iostream>
 #include <vector>
@@ -14,58 +15,40 @@
 
 int main(){
 
-  Mystring larry1 {"LARRY"}; 
-  Mystring larry2; 
+  // operator -
+  Mystring larry {"Larry"}; 
+  larry.display(); // Larry 
 
-  larry1.display(); // LARRY 
+  larry = -larry; // operator-(larry)
+  larry.display(); // larry 
 
-  larry2 = -larry1; // operator-(larry1)
+  // operator ==
+  std::cout << std::boolalpha << std::endl;
+  Mystring moe{"Moe"};  
+  Mystring stooge = larry; 
 
-  larry1.display(); // LARRY 
-  larr2.display(); // larry 
+  std::cout << (larry==moe) << std::endl; // false
+  std::cout << (larry==stooge) << std::endl; // true
 
-  // Mystring a{"Hello"}; //Overloaded constructor
-  // a = Mystring{"Hejsan"}; // Overloaded constructor (construct a temporary object-rhs) then move assignment, destructor for destroying temporary object. Mystring {"Hejsan"} is temporary object (as it have no name) - R value; this is assignment not initialization as a already exists. 
-  // a = "Tja"; // Overloaded constructor then move assignment as right hand side value is R-value and then destructor for destroying temporary object, destructor for a
+  // operator + 
+  Mystring stooges { " is one of the three stooges"}; 
 
-  // // objects
-  // Mystring empty; // empty Mystring object - no-args constructor
-  // Mystring larry {"Larry"}; // overloaded constructor used to initialize to string Larry (C-Style string literal. C++ compiler will treat it as a const char * and what is being passed to the constructor is the address of the first character in the null-terminated string literal.)
-  // Mystring stooge {larry}; // copy constructor as we are initializing using larry object
-  // Mystring stooges; // no-args constructor 
+  Mystring result = larry + stooges;  // operator+(larry, stooges); 
+  result.display(); // larry is one of the three stooges
 
-  // empty = stooge; // copy assignment operator 
-  //                 // stooge is an L-value 
+  result = moe + " is also a stooge"; // operator+(moe, " is also a stooge"); 
+  result.display(); // Moe is also a stooge 
+
+  result = "Moe" +  stooges; // OK with non-member functions. Either one of both arguments can be of Mystring type.
+  result.display(); // Moe is one of the three stooges
+
+  Mystring two_stooges = moe + " " + "Larry";     
+  two_stooges.display(); // Moe Larry
   
-  // empty = "Funny"; // overloaded constructor (construct temporary object), move assignment operator, destuctor for destroying temporary object 
-  //                  // "Funny" is an R-value 
+  Mystring three_stooges = moe + " " + larry + " " +  "Curly";
+  three_stooges.display(); // Moe larry Curly  
 
-  // // displaying objects
-  // empty.display();
-  // larry.display();
-  // stooge.display();
-  // empty.display(); 
-
-  // stooges = "Larry, Moe, and Curly"; // overloaded constructor (construct temporary object), move assignment operator, destuctor for destroying temporary object 
-  //                                    // "Larry, Moe, and Curly" is an R-value 
-  // stooges.display(); 
-
-  // std::vector <Mystring> stooges_vec; 
-  // stooges_vec.push_back("Larry"); // Overloaded constructor to create 'Larry'; Move constructor to move; destructor to destroy Larry
-  // stooges_vec.push_back("Moe"); // Overloaded constructor to create 'Moe'; Move constructor to move; destructor to destroy Moe
-  // stooges_vec.push_back("Curly"); // Overloaded constructor to create 'Curly'; Move constructor to move; destructor to destroy Curly
-
-  // std::cout << "=== Loop 1 =============================" << std::endl; 
-  // for (const Mystring &s: stooges_vec)
-  //   s.display(); 
-  
-  // std::cout << "=== Loop 2 =============================" << std::endl; 
-  // for (Mystring &s: stooges_vec)
-  //   s = "Changed"; // move assignment 
-  
-  // std::cout << "=== Loop 3 =============================" << std::endl; 
-  // for (const Mystring &s: stooges_vec)
-  //   s.display();
+  // result = "Moe" + "Larry"; // wont work in case of two string literals.  
 
   return 0;
 }
