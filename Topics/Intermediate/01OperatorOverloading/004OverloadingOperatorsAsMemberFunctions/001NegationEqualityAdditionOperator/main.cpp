@@ -44,7 +44,8 @@ int main(){
 
   Mystring result {larry + stooges}; // larry.operator+ (stooges)
   result = moe + " is also a stooge"; // moe.operator+ (" is also a stooge") - We can use c-style string on the rhs. This is because we have a mystring constructor that can construct mystring objects from a c-style string (is also a stooge in this case).
-  
+  // we can use c-style strings in the rhs.This is because we have a mystring constructor that can construct mystring objects from a c-style string. 
+
   // limitation: The object on the left-hand side must be an object of the class (that we are using)
   // result = "Moe" + stooges; // "Moe".operator+ (stooges) // Compiler Error - since the lhs operand is not a Mystring object.
 
