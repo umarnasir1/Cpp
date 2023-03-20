@@ -24,9 +24,11 @@
 // declaration
 class Mystring { // models a string and will implement it behind the scenes using a raw c-style pointer.
   // function prototypes - class will grant friendship
-  friend bool operator==(const Mystring &lhs, const Mystring &rhs); 
-  friend Mystring operator-(const Mystring &obj); 
-  friend Mystring operator+(const Mystring &lhs, const Mystring &rhs);
+  // friend bool operator==(const Mystring &lhs, const Mystring &rhs); 
+  // friend Mystring operator-(const Mystring &obj); 
+  // friend Mystring operator+(const Mystring &lhs, const Mystring &rhs);
+  friend std::ostream &operator<<(std::ostream &os, const Mystring &rhs); 
+  friend std::istream &operator>>(std::istream &in, Mystring &rhs); 
 private:
   char *str; // pointer to a char[] that holds a C-style string
 public:
