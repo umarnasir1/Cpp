@@ -94,34 +94,90 @@ int Mystring::get_length() const { return std::strlen(str); } // length of the s
 // string getter - returns pointer as const
 const char *Mystring::get_str() const { return str; }
 
-// regular functions - not member functions 
-// overloading binary == equality operator 
-bool operator==(const Mystring &lhs, const Mystring &rhs){
-  return (std::strcmp(lhs.str, rhs.str) == 0); 
-  // if (std::strcmp(lhs.str, rhs.str) == 0) // comparing both strings 
-  //   return true; 
-  // else
-  //   return false; 
+// Overloading stream insertion operator (<<)
+std::ostream &operator<<(std::ostream &os, const Mystring &rhs){
+    os << rhs.str; // if friend function (we will havve access to all private data members.) -  inserting data in output stream
+    // os << obj.get_str(); // if not friend function - using getters to access private members
+    return os; // returning output stream reference.
 }
 
-// overloading unary - to make string lowercase
-Mystring operator-(const Mystring &obj){
-  char *buff = new char[std::strlen(obj.str)+1]; // allocate storage (array of characters) on the HEAP; char as its c-style string
-  std::strcpy(buff, obj.str); // copy object string data - copies one character a time till it reaches null terminator. 
-  for (size_t i{0}; i<std::strlen(buff); i++) // loop through and make the copied string all lowercase.
-    buff[i] = std::tolower(buff[i]); 
-  Mystring temp {buff}; // creating new object using the lowercase string as the initializer
-  delete [] buff; // de-allocate the temporary storage
-  return temp; // returing created object
+// Overloading stream extraction operator (>>)
+// depending on the data we want to read, we can get the data from the input stream and either store 
+// it locally or store it directly in the object.
+std::istream &operator>>(std::istream &in, Mystring &rhs){
+    char *buff = new char[1000]; // allocating array of characters dynamically on the HEAP to store string from the input stream
+    in >> buff; // getting/extracting whatever is in the input stream and store it in buffer.
+    rhs = Mystring{buff}; 
+    // assigning a temporary Mystring object, which is initialized with our buff variable, assign it back to the object that was passed in. If we have copy or move assignment - in case of both, it will use move assignment. 
+    delete [] buff; // deleting temporary storage
+    return in; // return a reference to the istream so we can  keep inserting (chain assign)
 }
 
-// overloading binary + operator for concatenation of two Mystirng objects. 
-Mystring operator+(const Mystring &lhs, const Mystring &rhs) { // returns Mystring object by value; expects two Mystring objects (rhs and lhs - both constants references as we dont want to modify them) 
-  size_t buff_size = std::strlen(lhs.str) + std::strlen(rhs.str) +1; 
-  char *buff = new char[buff_size]; // c-style string allocation on heap
-  std::strcpy(buff, lhs.str); 
-  std::strcat(buff, rhs.str); 
-  Mystring temp {buff}; // creating new object using the concated string as the initializer
-  delete [] buff; // de-allocating the temporary storage
-  return temp; 
-}
+// Example .......
+// For Example, We create a test object;
+//  Mystring test;
+// Then we ask the user for a name:
+//  std::cout << "Enter a name: ";
+// Now with our overloaded extraction operator >> we can now do this:
+// std::cin >> test; // test is a Mystring rhs.
+// Lets say the user enters: "Testing" and Presses Enter.
+// Once this line executes and our user presses Enter, control gets shifted to the overloaded extraction operator>>() function.
+// We enter the function:
+// We have:
+//  in = "";
+//  rhs.str = "";
+// Now we execute:
+//  char *buff = new char[1000];
+// Now we have :
+//  in = "";
+//  rhs.str = "";
+//  *buff = uninitialized pointer of 1000 characters;
+// Then we execute this line:
+//  in >> buff; 
+// Now our extraction operator>> gets the input from earlier "Testing" and places it into buff which now gives us:
+//  in = "Testing";
+//  rhs.str = "";
+//  *buff = "Testing";
+// Then we assign a temporary Mystring rhs initialized with the value of buff to our passed in test obj:
+//  rhs = Mystring{buff};
+// Now since we are done with buff and its dynamically allocated we must delete it using:
+//  delete [] buff; 
+// Now we have:
+//  in = "Testing";
+//  rhs.str = "Testing";
+// And finally we return our std::istream object(in) by reference if any more >> extractions are to take place. If we have chained any extractions.
+//  return in;
+
+// End - Example
+
+// // regular functions - not member functions 
+// // overloading binary == equality operator 
+// bool operator==(const Mystring &lhs, const Mystring &rhs){
+//   return (std::strcmp(lhs.str, rhs.str) == 0); 
+//   // if (std::strcmp(lhs.str, rhs.str) == 0) // comparing both strings 
+//   //   return true; 
+//   // else
+//   //   return false; 
+// }
+
+// // overloading unary - to make string lowercase
+// Mystring operator-(const Mystring &obj){
+//   char *buff = new char[std::strlen(obj.str)+1]; // allocate storage (array of characters) on the HEAP; char as its c-style string
+//   std::strcpy(buff, obj.str); // copy object string data - copies one character a time till it reaches null terminator. 
+//   for (size_t i{0}; i<std::strlen(buff); i++) // loop through and make the copied string all lowercase.
+//     buff[i] = std::tolower(buff[i]); 
+//   Mystring temp {buff}; // creating new object using the lowercase string as the initializer
+//   delete [] buff; // de-allocate the temporary storage
+//   return temp; // returing created object
+// }
+
+// // overloading binary + operator for concatenation of two Mystirng objects. 
+// Mystring operator+(const Mystring &lhs, const Mystring &rhs) { // returns Mystring object by value; expects two Mystring objects (rhs and lhs - both constants references as we dont want to modify them) 
+//   size_t buff_size = std::strlen(lhs.str) + std::strlen(rhs.str) +1; 
+//   char *buff = new char[buff_size]; // c-style string allocation on heap
+//   std::strcpy(buff, lhs.str); 
+//   std::strcat(buff, rhs.str); 
+//   Mystring temp {buff}; // creating new object using the concated string as the initializer
+//   delete [] buff; // de-allocating the temporary storage
+//   return temp; 
+// }
