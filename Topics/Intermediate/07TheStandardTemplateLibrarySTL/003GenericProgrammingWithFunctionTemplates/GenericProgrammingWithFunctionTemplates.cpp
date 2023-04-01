@@ -1,14 +1,18 @@
 /*
   Generic Programming with Function Templates
-    Function templates with single parameter 
-    Function templates with two parameters
+    Primitive Types
+      Function templates with single parameter 
+      Function templates with two parameters
+    Own Types (Structure, Classes) (operator overloading)
+      Function templates with single parameter 
+      Function templates with two parameters
+    Swap Template Function 
+    
 
     Generic Programming - use max with any data types
     Aim: How we can use C++ Templates to accomplish writing generic functions.
 
-    Primitive Types
-    Own Types (Structure, Classes) (operator overloading)
-    Swap Template Function 
+
 
 //----------------
  max function as a template function 
@@ -95,11 +99,21 @@ struct Person{
   bool operator< (const Person &rhs) const { // first const- dont want to modify the argument; last const as we dont want to modify anything
     return this -> age < rhs.age; // return age < rhs.age; 
   }
-  // overloaded operator << as member methods
-  std::ostream &operator<<(std::ostream &os, const Mystring &obj){
-
-  }
 };
+
+// overloaded operator << as non-member function
+std::ostream &operator<<(std::ostream &os, const Person &p){ // std::ostream &os not const as we want to change it
+  os << p.name; // putting data on the stream
+  return os; 
+}
+
+// Template function my_swap - swap two integers or any data type
+template <typename T>
+void my_swap (T &a, T &b){
+  T temp {a};
+  a = b; 
+  b = temp;
+}
 
 int main (){
   // ---------------------------------------
@@ -118,7 +132,6 @@ int main (){
   // similar syntax as vectors and smart pointers, unique pointer, shared pointers.
   // as these are implimented as template classes. 
   std::cout << min<int>(2,3) << std::endl; // 2
-  
   
   // Often, the compiler can deduce the type and the template prarameter is not 
   // needed. The compiler is smart enough and create the integer version of
@@ -171,17 +184,41 @@ int main (){
   // -----------
   // operator overloading with function template with two arguments
   // if we run func(p1,p2); without operator overloading << we will get errorError - no overloaded << operator for type: Person. 
-  func(p1,p2); // will deduce the types from the function arguments; or func<Person,Person>; 
+  func(p1,p2); // will deduce the types from the function arguments; or func<Person,Person>;
 
-  // // Assuming player class
-  // Player p1{"Hero", 100, 20};
-  // Player p2{"Enemy", 99, 3};
+  // Testcases for my_swap function
 
-  // // using max with player objects 
-  // // The compiler will generate the max function that expects and compares
-  // // player objects.
-  // std::cout << max<Player> (p1,p2); 
-  // // This will not compile unless Player class overloads > operator
+  // -----------
+  // int
+  // -----------
+  int x{100}, y{200};
+  std::cout << "Before Swap:\n" << x << " , " << y << std::endl; // we can modify func() and use it to display too 
+  my_swap(x,y);
+  std::cout << "After Swap\n" << x << " , " << y << std::endl; 
+
+  // -----------
+  // char
+  // -----------
+  char char1 {'A'}, char2 {'B'};
+  std::cout << "Before Swap:\n" << char1 << " , " << char2 << std::endl; 
+  my_swap(char1,char2);
+  std::cout << "After Swap\n" << char1 << " , " << char2 << std::endl; 
+
+  // -----------
+  // string
+  // -----------
+  std::string str1 {"Bjarne"}, str2 {"C++ is fun"};
+  std::cout << "Before Swap:\n" << str1 << " , " << str2 << std::endl; 
+  my_swap(str1,str2);
+  func(str1,str2);
+  std::cout << "After Swap\n" << str1 << " , " << str2 << std::endl; 
+
+  // -----------
+  // object - in this case, will swap p1 and p2 but will only display name as this is how we have overloaded <<
+  // -----------
+  std::cout << "Before Swap:\n" << p1 << " , " << p2 << std::endl; // << already overloaded for func()
+  my_swap(p1,p2);
+  std::cout << "After Swap\n" << p1 << " , " << p2 << std::endl; 
 
   return 0; 
 }
