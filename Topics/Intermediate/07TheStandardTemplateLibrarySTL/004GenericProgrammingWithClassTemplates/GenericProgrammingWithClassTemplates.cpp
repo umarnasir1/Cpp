@@ -4,9 +4,6 @@
   How to make a class generic
     Class to hold two(2) items: std::string (name) and a value (an integer, double, or string)
     Multiple template parameters
-
-  Implementation of template-based array class.
-
 */
 #include<iostream>
 #include<string>
