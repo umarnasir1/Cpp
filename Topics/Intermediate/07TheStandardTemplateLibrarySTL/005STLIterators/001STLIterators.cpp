@@ -1,29 +1,29 @@
 /*
     Introduction to STL Iterators 
 
-    Example using a vector: so we can see how to initialize iterators
-
-    A container has a beginning and an end. The STL defines the beginning as the first element in the 
-    container and the stl defines the end as 1 after the last element in the container.
-        vec.begin() - will return an iterator object that is poining 
-        
-        first element 
-        vec.end() - location after last element
-
-
+    How can we use operators to work with iterators.
+        Using iterator to iterate over the vector and display the contents 
+        of the vector.
 
 */
 #include<iostream>
 #include<vector>
 
 int main(){
-    std::vector<int> vec {1,2,3}; 
+    std::vector<int> vec {1,2,3}; // declaring and initializing vector
 
-    std::vector<int>::reverse_iterator it = vec.rbegin(); 
+    // iterator 1,2,3
+    //declaring and initializing iterator to first element of vec
+    std::vector<int>::iterator it = vec.begin(); 
+    // or
+    // auto it = vec.begin(); // compiler will deduce the type of the iterator to vector of integers based on the result returned by vec.begin(); 
 
-    while (it != vec.rend()){
-       std::cout<< *it << " ";
+    while (it != vec.end()){ // iterate through the vector
+       std::cout<< *it << " "; // display the element the iterator is pointing to by dereferencing the iterator
        ++it;
     }
+
+    // std::set<char> suits{'C','H','S','D'};
+
     return 0; 
 }
