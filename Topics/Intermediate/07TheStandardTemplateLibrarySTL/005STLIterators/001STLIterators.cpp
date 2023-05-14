@@ -4,6 +4,9 @@
     How can we use operators to work with iterators.
         Using iterator to iterate over the vector and display the contents 
         of the vector.
+        (1) iterator
+        (2) reverse iterator
+        (3) iterate set of characters using iterator 
     
     OBS!! why not just use a range-based for loop or a counter controlled for loop?
     We absolutely could and we often do. We'll see in a bit that a range based for 
@@ -15,11 +18,13 @@
 */
 #include<iostream>
 #include<vector>
+#include<set> // for ordered set
+#include<unordered_set> 
 
 int main(){
     std::vector<int> vec {1,2,3}; // declaring and initializing vector
 
-    // iterator 1,2,3
+    // 1. iterator 1,2,3
     //declaring and initializing iterator to first element of vec
     std::vector<int>::iterator it = vec.begin(); 
     // or
@@ -37,15 +42,30 @@ int main(){
 
     std::cout<< std::endl;
 
-    // reverse iterator 3,2,1
-    std::vector<int>::reverse_iterator it_r = vec.rbegin(); 
+    // ------------------------------------------------------------
+    // 2. reverse iterator 3,2,1
+    std::vector<int>::reverse_iterator it_r = vec.rbegin(); // Since it's a reverse iterator, it will be pointing to the last element in the list, not the first.
 
     while(it_r != vec.rend()){
         std::cout<< *it_r << " "; 
         ++it_r; 
     }
 
-    // std::set<char> suits{'C','H','S','D'};
+    std::cout << std::endl; 
+
+    // ------------------------------------------------------------
+    // 3. iterate over a set of characters using iterator 
+    
+    // std::set<char> suits {'U', 'M', 'A', 'R'};
+    std::unordered_set<char> suits {'U','M','A','R'}; // set of characters
+
+    // iterator
+    auto it_c = suits.begin(); // compiler will deduce its type based on the result of suits.begin()
+
+    while (it_c != suits.end()){
+        std::cout << *it_c << " "; // displaying the character - A M R U as std::set is ordered by default with unordered: R M A U
+        ++it_c; 
+    }
 
     return 0; 
 }
