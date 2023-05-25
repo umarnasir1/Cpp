@@ -7,7 +7,7 @@
         (1) iterate over a vector (to display elements)
         (2) iterator (to display values; to change elements to 0)
         (3) const iterator
-        (4) reverse iterator
+        (4) reverse iterator (containers: vector, list, map)
 
         (4) iterate set of characters using iterator 
         (5)
@@ -41,10 +41,10 @@ void test1(){
     std::vector<int> nums1 {1,2,3,4,5};
 
     // creating iterator
-    auto it = nums1.begin(); // it will point to 1 (its not a real pointer, this is an object); 
+    auto it = nums1.begin(); // it will point to 1 (its not a real pointer, this is an object, we are saying pointing so we can understand it as the syntax and the way it feels is very pointer like - iterators feel just like pointers); 
     // compiler will deduce the type of the iterator;
     
-    std::cout << *it << std::endl; // de-reference the iterator to display value
+    std::cout << *it << std::endl; // 1; de-reference the iterator to display value
 
     it++; // moving the iterator by incrementing it; iterator it will be pointing to 2; 
     std::cout<< *it << std::endl;
@@ -55,7 +55,7 @@ void test1(){
     it -= 2; // point to 2
     std::cout<< *it << std::endl;
 
-    it = nums1.end() - 1; // iterator poingint to one element back from end; iterator will point to 5
+    it = nums1.end() - 1; // iterator pointing to one element back from end; iterator will point to 5
     std::cout<< *it << std::endl; 
 }
 
@@ -120,10 +120,10 @@ void test4(){
     std::cout<< "\n=============================================================" << std::endl;
     std::vector<int> nums1 {1,2,3,4,5};
     // std::vector<int>::reverse_iterator it1 = nums1.rbegin(); // Since it's a reverse iterator, it will be pointing to the last element in the list, not the first.
-    auto it1 = nums1.rbegin(); // reverse iterator over vector of ints starts at 5
+    auto it1 = nums1.rbegin(); // reverse iterator over vector of ints starts at 5 ( r.end 1 2 3 4 5); r.begin is 5 as its reverse iterator
     while (it1 !=  nums1.rend())
         std::cout << *it1 << " "; 
-        it1++; 
+        it1++; // as we are using reverse iterator, so incrementing here means decrementing here.
     
 
     // const reverse iterator over a list
@@ -160,11 +160,11 @@ void test5(){
 }
 
 int main(){
-    test1(); 
-    test2(); 
-    test3();
+    // test1(); 
+    // test2(); 
+    // test3();
     test4(); 
-    test5(); 
+    // test5(); 
 
     // ------------------------------------------------------------
     // // 3. iterate over a set of characters using iterator 
