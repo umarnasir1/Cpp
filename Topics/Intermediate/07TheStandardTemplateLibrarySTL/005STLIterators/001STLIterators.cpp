@@ -8,9 +8,8 @@
         (2) iterator (to display values; to change elements to 0)
         (3) const iterator
         (4) reverse iterator (containers: vector, list, map)
-
-        (4) iterate set of characters using iterator 
-        (5)
+        (5) iterate over a subset of a container
+        (6) iterate over a set of characters using iterator  (ordered and unordered)
     
     OBS!! why not just use a range-based for loop or a counter controlled for loop?
     We absolutely could and we often do. We'll see in a bit that a range based for 
@@ -121,27 +120,30 @@ void test4(){
     std::vector<int> nums1 {1,2,3,4,5};
     // std::vector<int>::reverse_iterator it1 = nums1.rbegin(); // Since it's a reverse iterator, it will be pointing to the last element in the list, not the first.
     auto it1 = nums1.rbegin(); // reverse iterator over vector of ints starts at 5 ( r.end 1 2 3 4 5); r.begin is 5 as its reverse iterator
-    while (it1 !=  nums1.rend())
+    while (it1 !=  nums1.rend()){
         std::cout << *it1 << " "; 
         it1++; // as we are using reverse iterator, so incrementing here means decrementing here.
+    }
+    std::cout << std::endl; 
     
 
     // const reverse iterator over a list
-    std::list<std::string> name {"Larry", "Moe", "Curly"}; 
-    auto it2 = name.crbegin(); // iterator over list of strings point to Curly
-    std::cout<< *it2 << std::endl; 
-    it2++; // point to Moe
-    std::cout << *it2 << std::endl; 
+    std::list<std::string> names {"Larry", "Moe", "Curly"}; // a list of strings; Larry <=> Moe <=> Curly 
+    auto it2 = names.crbegin(); // iterator over list of strings point to Curly as it is constant reverse iterator
+    std::cout<< *it2 << std::endl; // Curly
+    it2++; // point to Moe; incrementing means moving revese in reverse iterator
+    std::cout << *it2 << std::endl; // Moe
+    std::cout << std::endl;
 
     // iterator over a map
-    std::map<std::string, std::string> favorites {
-        {"Frank", "C++"},
+    std::map<std::string, std::string> favorites { // favorites is a map of string, string pairs
+        {"Frank", "C++"}, // key, value: creating association between two strings 
         {"Bill", "Java"},
         {"James", "Haskell"}
     };
-    auto it3 = favorites.begin(); //iterator over map of string, string pairs
+    auto it3 = favorites.begin(); //iterator over map of string, string pairs; it goes to the first item in that map.
     while (it3 != favorites.end()){
-        std::cout<< it3->first << " : " << it3->second << std::endl;
+        std::cout<< it3->first << " : " << it3->second << std::endl; // arrow operator as iterators are implimented as "pointer like"
         it3++;
     }
 }
@@ -150,35 +152,43 @@ void test5(){
     // iterate over a subset of a container
     std::cout<< "\n=============================================================" << std::endl;
     std::vector<int> nums1 {1,2,3,4,5,6,7,8,9,10};
-    auto start = nums1.begin() + 2; 
-    auto finish = nums1.end() - 3; 
+    // iterators: start and finish
+    auto start = nums1.begin() + 2; // 3
+    auto finish = nums1.end() - 3;  // 8 
 
     while (start != finish){
-        std::cout << *start << std::endl;
+        std::cout << *start << std::endl; // 3 4 5 6 7
         start++;
     }
+}
+
+void test6(){
+    // iterate over a set of characters using iterator 
+    // ordered A M R U as std::set is ordered by default (alphabetic order)
+    // unordered R M A U  
+
+    std::cout << "\n------------------------------------------------------------" << std::endl; 
+
+    // std::set<char> suits {'U', 'M', 'A', 'R'};
+    std::unordered_set<char> suits {'U','M','A','R'}; // set of characters
+
+    // iterator
+    auto it_c = suits.begin(); // compiler will deduce its type based on the result of suits.begin()
+
+    while (it_c != suits.end()){
+        std::cout << *it_c << " "; // displaying the character
+        ++it_c; // it_c++ same
+    }
+     
 }
 
 int main(){
     // test1(); 
     // test2(); 
     // test3();
-    test4(); 
-    // test5(); 
+    // test4(); 
+    // test5();
+    test6(); 
 
-    // ------------------------------------------------------------
-    // // 3. iterate over a set of characters using iterator 
-    
-    // // std::set<char> suits {'U', 'M', 'A', 'R'};
-    // std::unordered_set<char> suits {'U','M','A','R'}; // set of characters
-
-    // // iterator
-    // auto it_c = suits.begin(); // compiler will deduce its type based on the result of suits.begin()
-
-    // while (it_c != suits.end()){
-    //     std::cout << *it_c << " "; // displaying the character - A M R U as std::set is ordered by default with unordered: R M A U
-    //     ++it_c; 
-    // }
-     
     return 0; 
 }
