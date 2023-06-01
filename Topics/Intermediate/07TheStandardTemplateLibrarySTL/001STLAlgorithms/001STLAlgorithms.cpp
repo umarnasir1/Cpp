@@ -14,6 +14,9 @@
           overloaded equality operator.
           Also, we can define what equality means. We might want all player attributes to match or only the name or only the xp.
           We have all the power to decide.
+    for_each
+      using a lambda expression
+      square each element in vector
     min (), max () - check later
     sort() - sorting in ascending order.
     reverse() - sorting in descending order.
@@ -61,8 +64,15 @@ public:
   //}
 
   // operator << 
-
 };
+
+struct Square_Functor { // this can also be a class that has single public method
+  void operator() (int x){ // function call operator is being overloaded, i.e., (). It expects a single item that's the same type as the elements in the container we're processing.
+    std::cout << x * x << " "; // executes the code for each integer passed into it
+  }
+};
+
+void square (int x);
 
 int main (){
 
@@ -135,6 +145,8 @@ int main (){
   
   // ---------------------------------------
   // find with user defined types
+  // ---------------------------------------
+
   //  operator== must be provided by class
 
   Player m1 {"Javed", 100, 12};
@@ -152,7 +164,40 @@ int main (){
   // if (loc5 != mtr.end()) // found it!
   //   std::cout << *loc5 << std::endl; // operator<< called
 
+  // ------------------------------------------------------------------------------
+  // for_each
+  // ------------------------------------------------------------------------------
+  std::vector<int> vec {1,2,3,4,5,6,7,8,9,10};
+  
+  // for_each - using a functor 
+  std::cout << "\nfor_each - using a functor \n";
+  Square_Functor square; // square is Function object of Square_Functor (structure)
+  std::for_each(vec.begin(), vec.end(), square); // iterate over entire vector vec
 
+  /*
+  We're going to iterate through each element in the vector.
+  And in each iteration, the overloaded function call operator function for the square object will be called,
+  and the current container element is passed to it.
+  e.g., we call square, and each container element will display
+  OBS! the original container elements are not modified
+  */
+  
+  // for_each - using a function pointer
+  std::cout << "\nfor_each - using a functor pointer\n";
+  std::for_each(vec.begin(), vec.end(), square); // square is a function here
+  
+  /*
+    What's being passed into the for each function is a pointer to the square function, which is really 
+    the address of the function square itself.
+    So at each iteration of the for each loop, the square function will be called and the current container 
+    element passed into it.
+    OBS! Notice that we only use the function name as the parameter, we don't place parentheses after it 
+    since that would call the function, that's not what we want.
+  */
+
+  // for_each - using a lambda expression
+  std::cout << "\nfor_each - using a lambda expression\n";
+  std::for_each(vec.begin(), vec.end(), [](int x) {std::cout << x * x << " "; }); // lambda - 1 4 9 16 25 36 49 64 81 100 
 
   // // ------------------------------------------------------------------------------
   // // max
@@ -182,4 +227,8 @@ int main (){
 
   std::cout << std::endl; 
   return 0;
+}
+
+void square (int x){
+  std::cout << x * x << " ";
 }
