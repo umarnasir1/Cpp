@@ -34,6 +34,7 @@
 #include <list> 
 #include <map>
 #include <set>
+#include <cctype> //touper()
 
 class Player{
 private:
@@ -66,13 +67,29 @@ public:
   // operator << 
 };
 
+class Person{
+  std::string name; 
+  int age; 
+public:
+  Person() = default; // default consturctor that compiler will generate
+  Person(std::string name, int age) // overloaded constructor 
+    : name{name}, age{age} {}
+  //operators - way to compare ojects of user defined types 
+  bool operator <(const Person &rhs) const { // one person is < another person if their age is < the other persons age
+    return this->age < rhs.age; 
+  }
+  bool operator==(const Person &rhs) const{ // compare two persons; their name and age should be the same then they are same person
+    return (this->name == rhs.name && this->age==rhs.age);
+  }
+};
+
 struct Square_Functor { // this can also be a class that has single public method
   void operator() (int x){ // function call operator is being overloaded, i.e., (). It expects a single item that's the same type as the elements in the container we're processing.
     std::cout << x * x << " "; // executes the code for each integer passed into it
   }
 };
 
-void square (int x);
+void square1 (int x);
 
 int main (){
 
@@ -184,12 +201,12 @@ int main (){
   
   // for_each - using a function pointer
   std::cout << "\nfor_each - using a functor pointer\n";
-  std::for_each(vec.begin(), vec.end(), square); // square is a function here
+  std::for_each(vec.begin(), vec.end(), square1); // square1 is a function here
   
   /*
-    What's being passed into the for each function is a pointer to the square function, which is really 
+    What's being passed into the for_each function is a pointer to the square1 function, which is really 
     the address of the function square itself.
-    So at each iteration of the for each loop, the square function will be called and the current container 
+    So at each iteration of the for_each loop, the square function will be called and the current container 
     element passed into it.
     OBS! Notice that we only use the function name as the parameter, we don't place parentheses after it 
     since that would call the function, that's not what we want.
@@ -229,6 +246,6 @@ int main (){
   return 0;
 }
 
-void square (int x){
+void square1 (int x){
   std::cout << x * x << " ";
 }
