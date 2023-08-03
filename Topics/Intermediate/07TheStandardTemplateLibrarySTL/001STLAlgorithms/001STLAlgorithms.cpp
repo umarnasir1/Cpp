@@ -4,10 +4,12 @@
     copy ()
       back_inserter
     find ()
-      locate the first occurrence of an element in a container or end().
+      locate the first occurrence of an element in a container
+        it returns an iterator pointing to the located element or 
+        if the function doesnot find the element, it returns iterator pointing to end () of the containder. 
       vector, list, map, set
       TODO: 
-        (1) find with user-defined tpes
+        (1) find with user-defined types
           find needs to be able to compare two elements in order to see if they're the same. (it uses 
           equality operator to compare). For primitive types (e.g., ints), the compiler knows how to 
           compare primitive types. but for user-defined objects in containers, we must provide the 
@@ -74,7 +76,7 @@ public:
   Person() = default; // default consturctor that compiler will generate
   Person(std::string name, int age) // overloaded constructor 
     : name{name}, age{age} {}
-  //operators - way to compare ojects of user defined types 
+  //overloaded operators - way to compare ojects of user defined types 
   bool operator <(const Person &rhs) const { // one person is < another person if their age is < the other persons age
     return this->age < rhs.age; 
   }
@@ -249,3 +251,6 @@ int main (){
 void square1 (int x){
   std::cout << x * x << " ";
 }
+
+// find and element in a container
+void find_test
