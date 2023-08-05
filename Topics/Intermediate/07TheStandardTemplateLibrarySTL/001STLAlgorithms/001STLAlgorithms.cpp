@@ -14,7 +14,7 @@
           equality operator to compare). For primitive types (e.g., ints), the compiler knows how to 
           compare primitive types. but for user-defined objects in containers, we must provide the 
           overloaded equality operator.
-          Also, we can define what equality means. We might want all player attributes to match or only the name or only the xp.
+          Also, we can define what equality means. We might want all player attributes to match or only the  name or only the xp.
           We have all the power to decide.
     for_each
       using a lambda expression
