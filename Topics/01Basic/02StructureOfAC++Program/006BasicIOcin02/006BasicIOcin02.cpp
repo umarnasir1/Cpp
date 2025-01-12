@@ -19,23 +19,19 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main() {
 
   int num1;
   double num2;
 
-  cout << "Enter an integer: ";
-  cin >> num1;
+  std::cout << "Enter an integer: ";
+  std::cin >> num1;
 
-  cout << "Enter a double: ";
-  cin >> num2;
+  std::cout << "Enter a double: ";
+  std::cin >> num2;
 
-  cout << "The integer is: " << num1 << endl;
-  cout << "And the double is " << num2 << endl;
+  std::cout << "The integer is: " << num1 << std::endl;
+  std::cout << "And the double is " << num2 << std::endl;
 
   return 0;
 }

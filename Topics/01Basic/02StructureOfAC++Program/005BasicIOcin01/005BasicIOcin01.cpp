@@ -30,10 +30,6 @@
 */
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
   int num1;
@@ -43,11 +39,11 @@ int main(){
 //  cin >> num1;
 //  cout << " You entered " << num1 << endl;
 
-  cout << "Enter first integer: ";
-  cin >> num1;
-  cout << "Enter second integer: ";
-  cin >> num2;
-  cout << "You entered " << num1 << " and "<< num2 << endl;
+  std::cout << "Enter first integer: ";
+  std::cin >> num1;
+  std::cout << "Enter second integer: ";
+  std::cin >> num2;
+  std::cout << "You entered " << num1 << " and "<< num2 << std::endl;
 
   return 0;
 }
