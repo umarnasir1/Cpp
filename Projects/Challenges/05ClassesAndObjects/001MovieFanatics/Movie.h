@@ -1,5 +1,4 @@
 /******************************************************************
- * Section 13 Challenge
  * Movie.h
  * 
  * Models a Movie with the following atttributes

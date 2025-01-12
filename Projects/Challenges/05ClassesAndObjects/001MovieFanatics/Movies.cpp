@@ -1,5 +1,4 @@
 /******************************************************************
- * Section 13 Challenge
  * Movies.h
  * 
  * Models a collection of Movies as a std::vector

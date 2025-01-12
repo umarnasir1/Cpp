@@ -1,5 +1,4 @@
 /******************************************************************
- * Section 13 Challenge
  * main.cpp
  * 
  * Test the Movies project
@@ -53,11 +52,11 @@ int main() {
     
     Movies my_movies; // movies object (collection)
     
-    // my_movies.display(); // Sorry, no movies to display 
+    my_movies.display(); // Sorry, no movies to display 
     
-    // add_movie(my_movies, "Big", "PG-13",2);              // OK
-    // add_movie(my_movies,"Star Wars", "PG",5);            // OK
-    // add_movie(my_movies,"Cinderella", "PG",7);           // OK
+    add_movie(my_movies, "Big", "PG-13",2);              // OK
+    add_movie(my_movies,"Star Wars", "PG",5);            // OK
+    add_movie(my_movies,"Cinderella", "PG",7);           // OK
      
     // my_movies.display();   // Big, Star Wars, Cinderella
     
