@@ -6,16 +6,13 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 int main (){
 
-  short value1 {300000};
+  short value1 {30000};
   short value2 {1000};
   short product = value1 * value2;
 
-  cout << "The product of " << value1 << " and " << value2 << " is " << product << endl;
+  std::cout << "The product of " << value1 << " and " << value2 << " is " << product << std::endl; // -15488 as the product dont fit and it overflows
 
   return 0;
 }

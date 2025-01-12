@@ -10,13 +10,10 @@
 */
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 int age {18}; // Global Variable
 
 int main (){
   int age = {16}; // Local Variable
-  cout << "Age is : " << age << endl;
+  std::cout << "Age is : " << age << std::endl;
   return 0;
 }

@@ -12,11 +12,8 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 int main(){
   int age; // variable is not initialize - Good practice int age {21}
-  cout << "Age is : " << age << endl;
+  std::cout << "Age is : " << age << std::endl;
   return 0;
 }
