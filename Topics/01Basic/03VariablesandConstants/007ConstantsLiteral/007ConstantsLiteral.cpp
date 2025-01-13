@@ -31,26 +31,22 @@ Pseudocode:
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main() {
-    cout << "Hello, welcome to Frank's Carpet Cleaning Service" << endl;
-    cout << "\nHow many rooms would you like cleaned? ";
+    std::cout << "Hello, welcome to Frank's Carpet Cleaning Service" << std::endl;
+    std::cout << "\nHow many rooms would you like cleaned? ";
 
     int number_of_rooms {0};
-    cin >> number_of_rooms;
+    std::cin >> number_of_rooms;
 
-    cout << "\nEstimate for carpet cleaning service" << endl;
-    cout << "Number of rooms: " << number_of_rooms << endl;
-    cout << "Price per room: $" << 30 << endl;
-    cout << "Cost : $" << 30 * number_of_rooms << endl;
-    cout << "Tax: $" << 30 * number_of_rooms * 0.06 << endl;
-    cout << "===============================" << endl;
-    cout << "Total estimate: $" << ( 30 * number_of_rooms) + (30 * number_of_rooms * 0.06) << endl;
-    cout << "This estimate is valid for " << 30 << " days" << endl;
+    std::cout << "\nEstimate for carpet cleaning service" << std::endl;
+    std::cout << "Number of rooms: " << number_of_rooms << std::endl;
+    std::cout << "Price per room: $" << 30 << std::endl;
+    std::cout << "Cost : $" << 30 * number_of_rooms << std::endl;
+    std::cout << "Tax: $" << 30 * number_of_rooms * 0.06 << std::endl;
+    std::cout << "===============================" << std::endl;
+    std::cout << "Total estimate: $" << ( 30 * number_of_rooms) + (30 * number_of_rooms * 0.06) << std::endl;
+    std::cout << "This estimate is valid for " << 30 << " days" << std::endl;
 
-    cout << endl;
+    std::cout << std::endl;
     return 0;
 }

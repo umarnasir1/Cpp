@@ -26,20 +26,16 @@ This estimate is valid for 30 days
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main() {
-    cout << "Hello, welcome to Frank's Carpet Cleaning Service" << endl;
+    std::cout << "Hello, welcome to Frank's Carpet Cleaning Service" << std::endl;
 
     int number_of_small_rooms {0};
-    cout << "\nHow many small rooms would you like cleaned? ";
-    cin >> number_of_small_rooms;
+    std::cout << "\nHow many small rooms would you like cleaned? ";
+    std::cin >> number_of_small_rooms;
 
     int number_of_large_rooms {0};
-    cout <<"\nHow many large rooms would you like cleaned? ";
-    cin >> number_of_large_rooms;
+    std::cout <<"\nHow many large rooms would you like cleaned? ";
+    std::cin >> number_of_large_rooms;
 
     // Declared Constants
     const double price_per_small_room {25.0};
@@ -52,21 +48,22 @@ int main() {
                   (price_per_large_room * number_of_large_rooms);
     double tax = cost * sales_tax;
 
-    cout << "\nEstimate for carpet cleaning service" << endl;
-    cout << "Number of small rooms: " << number_of_small_rooms << endl;
-    cout << "Number of large rooms: " << number_of_large_rooms << endl;
-    cout << "Price per small room: $" << price_per_small_room << endl;
-    cout << "Price per large room: $" << price_per_large_room << endl;
+    std::cout << "\nEstimate for carpet cleaning service" << std::endl;
+    std::cout << "Number of small rooms: " << number_of_small_rooms << std::endl;
+    std::cout << "Number of large rooms: " << number_of_large_rooms << std::endl;
+    std::cout << "Price per small room: $" << price_per_small_room << std::endl;
+    std::cout << "Price per large room: $" << price_per_large_room << std::endl;
 
-    cout << "Cost : $" << cost << endl;
+    std::cout << "Cost : $" << cost << std::endl;
 
-    cout << "Tax: $" << tax << endl;
+    std::cout << "Tax: $" << tax << std::endl;
 
-    cout << "===============================" << endl;
-    cout << "Total estimate: $" << cost + tax << endl;
+    std::cout << "===============================" << std::endl;
+    std::cout << "Total estimate: $" << cost + tax << std::endl;
 
-    cout << "This estimate is valid for " << estimate_expiry << " days" << endl;
+    std::cout << "This estimate is valid for " << estimate_expiry << " days" << std::endl;
 
-    cout << endl;
+    std::cout << std::endl;
+    
     return 0;
 }

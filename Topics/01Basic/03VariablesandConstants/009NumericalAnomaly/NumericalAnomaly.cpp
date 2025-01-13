@@ -6,7 +6,7 @@
 #include <iostream>
 
 int main(){
-    // double a {0.1}, b{0.2}, c{0.3}; // numerical anomaly
+    //double a {0.1}, b{0.2}, c{0.3}; // numerical anomaly - Your computer is out of order.
     float a {0.1}, b{0.2}, c{0.3}; // but works with floats
 
     if (a+b != c)
