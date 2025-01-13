@@ -5,10 +5,6 @@
 #include <iostream>
 #include <string>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
   // Array Declaration & Initialization
@@ -50,24 +46,24 @@ int main(){
   // Fifth score at index 0: -402196424
 
   // after initialization
-  cout << "First score at index 0: " << test_scores[0] << endl;
-  cout << "Second score at index 1: " << test_scores[1] << endl;
-  cout << "Third score at index 2: " << test_scores[2] << endl;
-  cout << "Fourth score at index 3: " << test_scores[3] << endl;
-  cout << "Fifth score at index 4: " << test_scores[4] << endl;
+  std::cout << "First score at index 0: " << test_scores[0] << std::endl;
+  std::cout << "Second score at index 1: " << test_scores[1] << std::endl;
+  std::cout << "Third score at index 2: " << test_scores[2] << std::endl;
+  std::cout << "Fourth score at index 3: " << test_scores[3] << std::endl;
+  std::cout << "Fifth score at index 4: " << test_scores[4] << std::endl;
 
-  cout << "\nEnter 5 test scores: ";
-  cin >> test_scores[0];
-  cin >> test_scores[1];
-  cin >> test_scores[2];
-  cin >> test_scores[3];
-  cin >> test_scores[4];
+  std::cout << "\nEnter 5 test scores: ";
+  std::cin >> test_scores[0];
+  std::cin >> test_scores[1];
+  std::cin >> test_scores[2];
+  std::cin >> test_scores[3];
+  std::cin >> test_scores[4];
 
-  cout << "First score at index 1: " << test_scores[0] << endl;
-  cout << "Second score at index 2: " << test_scores[1] << endl;
-  cout << "Third score at index 3: " << test_scores[2] << endl;
-  cout << "Fourth score at index 4: " << test_scores[3] << endl;
-  cout << "Fifth score at index 5: " << test_scores[4] << endl;  // test_scores[-1] will give warning.
+  std::cout << "First score at index 1: " << test_scores[0] << std::endl;
+  std::cout << "Second score at index 2: " << test_scores[1] << std::endl;
+  std::cout << "Third score at index 3: " << test_scores[2] << std::endl;
+  std::cout << "Fourth score at index 4: " << test_scores[3] << std::endl;
+  std::cout << "Fifth score at index 5: " << test_scores[4] << std::endl;  // test_scores[-1] will give warning.
 
 
   /************************************************************
@@ -77,13 +73,13 @@ int main(){
   // Example:2
   double hi_temps [] {90.1, 89.8, 77.5, 81.6};
 
-  cout << "The first high temprature is now : " << hi_temps[0] << endl;
+  std::cout << "The first high temprature is now : " << hi_temps[0] << std::endl;
 
   hi_temps[0] = 100.7; // set the first element in hi_temps to 100.7
 
-  cout << "The first high temprature is now : " <<hi_temps[0] << endl;
+  std::cout << "The first high temprature is now : " <<hi_temps[0] << std::endl;
 
-  cout << hi_temps[5] << endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is one of the advantages of vectors. There will be warning but no error.
+  std::cout << hi_temps[5] << std::endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is one of the advantages of vectors. There will be warning but no error.
 
   // Example: 3
   // char
