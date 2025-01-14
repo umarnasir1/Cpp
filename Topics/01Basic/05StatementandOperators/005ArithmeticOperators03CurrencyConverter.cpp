@@ -5,24 +5,20 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main (){
 
   const double conversion_factor {1.135};
 
-  cout << "Welcome to € to $ Converter " << endl;
-  cout << "Enter the value in €: ";
+  std::cout << "Welcome to € to $ Converter " << std::endl;
+  std::cout << "Enter the value in €: ";
 
   double euros {0.0};
   double usd {0.0};
 
-  cin >> euros;
+  std::cin >> euros;
   usd = euros * conversion_factor;
 
-  cout << euros << "€ is equivalalent to " << usd << "$." << endl;
+  std::cout << euros << "€ is equivalalent to " << usd << "$." << std::endl;
 
   return 0;
 }

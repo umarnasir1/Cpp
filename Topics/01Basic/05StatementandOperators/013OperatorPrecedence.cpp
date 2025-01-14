@@ -4,9 +4,6 @@
 
 #include <iostream>
 
-using std:: cout;
-using std:: endl;
-
 int main(){
 
   /*
@@ -30,7 +27,7 @@ int main(){
   int y {-2};
   int z {2};
 
-  cout << (x + y * z <= x + z * z - x) << endl; // 1 - This evaluates to (1 <= 4) which is true, so 1 is displayed since 1 is true.
+  std::cout << (x + y * z <= x + z * z - x) << std::endl; // 1 - This evaluates to (1 <= 4) which is true, so 1 is displayed since 1 is true.
 
   return 0;
 }

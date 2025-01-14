@@ -16,10 +16,6 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
   const int dollar_value {100}; // 100 cents
@@ -29,8 +25,8 @@ int main(){
 
   int cents {};
 
-  cout << "Enter an amount in cents : ";
-  cin >> cents;
+  std::cout << "Enter an amount in cents : ";
+  std::cin >> cents;
 
   int dollar {}, quarter {}, dime {}, nickel {}, penny {};
 
@@ -40,7 +36,7 @@ int main(){
   nickel = cents % 100 % 25 % 10 / nickel_value;
   penny = cents % 100 % 25 % 10 % 5;
 
-  cout << "\nYou can provide this change as follows : \n"
+  std::cout << "\nYou can provide this change as follows : \n"
       << "dollars : " << dollar << endl
       << "quarters : " << quarter << endl
       << "dimes : " << dime << endl

@@ -8,27 +8,24 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 int main(){
 
   int a {5};
 
   a += 1; // a = a + 1;
-  cout << "a += 1: " << a << endl;
+  std::cout << "a += 1: " << a << std::endl;
   a -= 2; // a = a - 2;
-  cout << "a -= 2: " << a << endl;
+  std::cout << "a -= 2: " << a << std::endl;
   a *= 3; // a = a * 5;
-  cout << "a *= 3: " << a << endl;
+  std::cout << "a *= 3: " << a << std::endl;
   a /= 5; // a = a / 5;
-  cout << "a /= 5: " << a << endl; // a is not a float so it will be integer division
+  std::cout << "a /= 5: " << a << std::endl; // a is not a float so it will be integer division
   a %= 3; // a = a % 3;
-  cout << "a %= 3: " << a << endl;
+  std::cout << "a %= 3: " << a << std::endl;
 
   int amount {100};
   amount += amount * 2;
-  cout << amount << endl;
+  std::cout << amount << std::endl;
 
   return 0;
 }

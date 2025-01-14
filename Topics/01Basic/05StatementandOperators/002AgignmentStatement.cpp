@@ -6,9 +6,6 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 int main(){
 
   int num1 {10};
@@ -18,8 +15,8 @@ int main(){
   num1 = num2 = 1000; // chaining
   // First, the compiler will process num2 = 1000; and this will return 1000; Then compiler will process num1 = 1000
 
-  cout << "num1 is " << num1 << endl;
-  cout << "num2 is " << num2 << endl;
+  std::cout << "num1 is " << num1 << std::endl;
+  std::cout << "num2 is " << num2 << std::endl;
 
   return 0;
 }

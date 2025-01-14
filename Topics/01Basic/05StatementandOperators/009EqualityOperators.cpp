@@ -4,10 +4,6 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
 /*
@@ -36,32 +32,32 @@ int main(){
   // comparing integers
   int num1 {}, num2 {};
 
-  cout << std::boolalpha; // bool alpha stream operator - to display true or false instead of 1 and 0.
+  std::cout << std::boolalpha; // bool alpha stream operator - to display true or false instead of 1 and 0.
 
-  cout << "Enter two integers separated by a space: ";
-  cin >> num1 >> num2;
+  std::cout << "Enter two integers separated by a space: ";
+  std::cin >> num1 >> num2;
   equal_result = (num1 == num2);
   not_equal_result = (num1 != num2);
-  cout << "Comparision result (equals): " << equal_result << endl;
-  cout << "Comparision result (not equals): " << not_equal_result << endl;
+  std::cout << "Comparision result (equals): " << equal_result << std::endl;
+  std::cout << "Comparision result (not equals): " << not_equal_result << std::endl;
 
   // Comparing characters
   char char1 {}, char2 {};
-  cout << "\nEnter two characters separated by a space: ";
-  cin >> char1 >> char2;
+  std::cout << "\nEnter two characters separated by a space: ";
+  std::cin >> char1 >> char2;
   equal_result = (char1 == char2);
   not_equal_result = (char1 != char2);
-  cout << "Comparision result (equals): " << equal_result << endl;
-  cout << "Comparision result (not equals): " << not_equal_result << endl;
+  std::cout << "Comparision result (equals): " << equal_result << std::endl;
+  std::cout << "Comparision result (not equals): " << not_equal_result << std::endl;
 
   // Comparing doubles
   double double1 {}, double2 {};
-  cout << "\nEnter two doubles separated by a space: ";
-  cin >> double1 >> double2;
+  std::cout << "\nEnter two doubles separated by a space: ";
+  std::cin >> double1 >> double2;
   equal_result = (double1 == double2);
   not_equal_result = (double1 != double2);
-  cout << "Comparision result (equals): " << equal_result << endl;
-  cout << "Comparision result (not equals): " << not_equal_result << endl;
+  std::cout << "Comparision result (equals): " << equal_result << std::endl;
+  std::cout << "Comparision result (not equals): " << not_equal_result << std::endl;
 
   /*
     Enter two doubles separated by a space: 12.0 11.999999999999999999999999
@@ -82,12 +78,12 @@ int main(){
     If we compare 10 and 9.999999999999999999999999, what's going to happen again is the 10 will be promoted to 10.0. 10.0 and 9.999999999999999999999999 as far as the internal representation is concerned are equal.
   */
 
-  cout << "\nEnter an integer and a double separated by a space: ";
-  cin >> num1 >> double1;
+  std::cout << "\nEnter an integer and a double separated by a space: ";
+  std::cin >> num1 >> double1;
   equal_result = ( num1 == double1);
   not_equal_result = ( num1 != double1);
-  cout << "Comparision result (equals): " << equal_result << endl;
-  cout << "Comparision result (not equals): " << not_equal_result << endl;
+  std::cout << "Comparision result (equals): " << equal_result << std::endl;
+  std::cout << "Comparision result (not equals): " << not_equal_result << std::endl;
 
   return 0;
 }

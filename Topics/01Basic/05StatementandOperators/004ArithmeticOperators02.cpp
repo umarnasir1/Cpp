@@ -4,17 +4,13 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
   int number {5};
   int original_number {number};
 
-  cout << "original_number: " << original_number << endl;
-  cout << "number: " << number << endl;
+  std::cout << "original_number: " << original_number << std::endl;
+  std::cout << "number: " << number <<std::endl;
 
   // Method 1:
   //-- Multiply number by 2 and assign the result back to number
@@ -35,7 +31,7 @@ int main(){
   //-- Take the modulus 3 (%) of number and assign it back to number
   number = number % 3;
 
-  cout << "Value of number: " << number << endl;
+  std::cout << "Value of number: " << number << std::endl;
 
   // Method 2:
   //The following is also a valid solution
