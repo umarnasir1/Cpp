@@ -12,19 +12,15 @@
 #include<iostream>
 #include<vector>
 
-using std::vector;
-using std::cout;
-using std::endl;
-
-void PrintBoard (vector <vector<int>> board);  // Function Prototype
+void PrintBoard (std::vector <std::vector<int>> board);  // Function Prototype
 
 int main(){
 
-  vector <vector<int>> board{
+  std::vector <std::vector<int>> board{
     {0, 1, 0, 0, 0, 0},
+    {0, 0, 1, 0, 0, 0},
     {0, 1, 0, 0, 0, 0},
-    {0, 1, 0, 0, 0, 0},
-    {0, 1, 0, 0, 0, 0},
+    {1, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 1, 0}
   };
 
@@ -33,10 +29,10 @@ int main(){
   return 0;
 }
 
-void PrintBoard (vector <vector<int>> board) { // nested for loops to print the contents of a 2D vector
+void PrintBoard (std::vector <std::vector<int>> board) { // nested for loops to print the contents of a 2D vector
   for (auto row: board){ // for row in matrix
     for (auto i: row) // for col in row
-      cout << i;
-    cout << endl;
+      std::cout << i;
+    std::cout << std::endl;
   }
 }
