@@ -19,7 +19,7 @@ int main(){
   int test_scores1 [5] {}; // initilize all to zero
 
   int another_arry [] {1,2,3,4,5}; // size automatically calculated by compiler based on the # of elements in the initializer list.
-
+  
   // objects
   // std::string accounts []{frank_account, jim_account}; //in case of objects
 
