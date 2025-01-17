@@ -7,7 +7,7 @@
     else
       statement2;
 
-    In above example, if expr1 is falase, everything is skipped.
+    In above example, if expr1 is false, everything is skipped.
     if expr1 is true, then we test expr2. if it's true, we execute statement1. else, we execute statement2.
     We can continue by including if or if else statements as we need.
     ------
@@ -44,17 +44,13 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
     int score {};
     char letter_grade {};
 
-    cout << "Enter your score in exam (between 0 - 100): ";
-    cin >> score;
+    std::cout << "Enter your score in exam (between 0 - 100): ";
+    std::cin >> score;
 
     if (score >= 0 && score <= 100){
       // grades ABCDEF
@@ -69,16 +65,15 @@ int main(){
       else
         letter_grade = 'F';
 
-      cout << "Your grade is: " << letter_grade << endl;
+      std::cout << "Your grade is: " << letter_grade << std::endl;
       if (letter_grade == 'F')
-        cout << "Sorry, you must repeat the class" << endl;
+        std::cout << "Sorry, you must repeat the class" << std::endl;
       else
-        cout << "Congrats !!! " << endl;
+        std::cout << "Congrats !!! " << std::endl;
 
     }
-    else {
-      cout << "Sorry, " << score << " is not in range." << endl;
-    }
+    else 
+      std::cout << "Sorry, " << score << " is not in range." <<std::endl;
 
   return 0;
 }

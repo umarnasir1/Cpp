@@ -11,7 +11,9 @@
   -------------
   The ; at the end of the if statement means that there is an empty statement in the body of the if. E.g.,
   if (condition) ;
+  
   is the same as
+  
   if (condition)
       ;
   Which means that if the condition is true, do nothing.
@@ -20,8 +22,8 @@
 
   // Block statement - if more than one statement - block statement (A block statement is a sequence of statements inside a block which is made up of opening and closing curly brackets.). E.g.,
   if (num > 10) {
-  ++num;
-  cout << "this too";
+    ++num;
+    cout << "this too";
 
   Block statments introduce a new level of scope.
   we can declare variables in any block, even in a block that's inside an if statement. (score - block)
@@ -35,10 +37,6 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
   int num {};
@@ -48,38 +46,38 @@ int main(){
   const int min {10};
   const int max {100};
 
-  cout << "Enter a number between 10 and 100: ";
-  cin >> num;
+  std::cout << "Enter a number between 10 and 100: ";
+  std::cin >> num;
 
   // to check if the number is greater than or equal to min
   if (num >= min) {
-    cout << "\n================= if statement 1 ==============" << endl;
-    cout << num << " is greater than or equal to " << min << endl;
+    std::cout << "\n================= if statement 1 ==============" << std::endl;
+    std::cout << num << " is greater than or equal to " << min << std::endl;
 
     // displaying how far away that is the num from min.
     int diff {num-min}; // declared inside if block so scope will be in this block.
-    cout << num << " is " << diff << " greater than " << min << endl;
+    std::cout << num << " is " << diff << " greater than " << min << std::endl;
   }
 
   // to check if the number is less than or equal to max
   if (num <= max) {
-    cout << "\n================== if statement 2 ==================" << endl;
-    cout << num << " is less than or equal to " << max << endl;
+    std::cout << "\n================== if statement 2 ==================" << std::endl;
+    std::cout << num << " is less than or equal to " << max << std::endl;
 
     int diff {max - num}; // creates a new copy of diff that is only visible to this block.
-    cout << num << " is " << diff << " less than " << max << endl;
+    std::cout << num << " is " << diff << " less than " << max << std::endl;
   }
 
   // to check if the number is within the bounds - this statement will only execute if statement 1 and 2 executes as we are in range.
   if (num >= min && num <= max) {
-    cout << "\n================== if statement 3 ==================" << endl;
-    cout << num << " is between " << min << " and " << max << endl;
+    std::cout << "\n================== if statement 3 ==================" << std::endl;
+    std::cout << num << " is between " << min << " and " << max << std::endl;
   }
 
   // to check wether they are on boundries - we want to know weather its actually equal to 10 or equal to 100. This statement will only execute if all three statements will execute.
   if (num == min || num == max) {
-    cout << "\n================== if statement 4 ==================" << endl;
-    cout << num << " is right on the boundry " << endl;
+    std::cout << "\n================== if statement 4 ==================" << std::endl;
+    std::cout << num << " is right on the boundry " << std::endl;
   }
 
   // Eg. 02 - if (condition);
@@ -90,14 +88,14 @@ int main(){
   as   if (temperature < 50); so cout will execute and then next if condition will execute. more explanition up.
   */
   int temperature;
-  cout << "Enter a temperature: ";
-  cin >> temperature;
+  std::cout << "\nEnter a temperature: ";
+  std::cin >> temperature;
   if (temperature < 50);
-     cout << "It's cold!" << endl;
+  
   if (temperature > 50)
-     cout << "It's hot!" << endl;
+     std::cout << "It's hot!" << std::endl;
   else
-     cout << "Maybe it's raining?";
+     std::cout << "Maybe it's raining?" << std::endl;
 
   // Eg. 03 - if more than one statement then always use {} block otherwise we will see unexpected results. Just first statement will be considered part of if and other two will print if the condition is not meet
   /*
@@ -105,13 +103,14 @@ int main(){
   That's amazing!
   Great minds think alike!
   */
-  int favorite;
-  cout << "Enter your favorite number: ";
-  cin >> favorite;
-  if (favorite == 13)
-     cout << "That my favorite number too!" << endl;
-     cout << "That's amazing!" << endl;
-     cout << "Great minds think alike!" << endl;
+  int favorite{};
+  std::cout << "Enter your favorite number: ";
+  std::cin >> favorite;
+  if (favorite == 13){
+     std::cout << "That my favorite number too!" << std::endl;
+     std::cout << "That's amazing!" << std::endl;
+     std::cout << "Great minds think alike!" << std::endl;
+  }
 
   return 0;
 }

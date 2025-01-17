@@ -13,15 +13,12 @@
   If package volume is greater than 500 cubic inches there is a 25% surcharge.
 
 */
+
 #include <iostream>
 #include <iomanip> // input out manipulators
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
-
+/*
   int length {}, width {}, height {};
   double base_cost {2.5};
 
@@ -33,29 +30,29 @@ int main(){
   double tier1_surcharge {0.10};
   double tier2_surcharge {0.25};
 
-  cout << "Welcome to the package cost calculator" << endl;
-  cout << "Enter the package dimensions (length x width, height) in inches: ";
-  cin >> length >> width  >> height;
+  std::cout << "Welcome to the package cost calculator" << std::endl;
+  std::cout << "Enter the package dimensions (length x width, height) in inches: ";
+  std::cin >> length >> width  >> height;
 
   if (length > max_dimension || width > max_dimension || height > max_dimension)
-    cout << "Sorry, The package cannot be shipped as the package's dimension exceeded." << endl;
+    std::cout << "Sorry, The package cannot be shipped as the package's dimension exceeded." << std::endl;
   else {
     double package_cost {base_cost};
     int package_volume {length * width * height};
     if (package_volume > tier2_threshold){
       package_cost += package_cost * tier2_surcharge;
-      cout << "adding tier2 surcharge" << endl;
+      std::cout << "adding tier2 surcharge" << std::endl;
     }
     else if (package_volume > tier1_threshold){
       package_cost += package_cost * tier1_surcharge;
-      cout << "adding tier1 surcharge" << endl;
+      std::cout << "adding tier1 surcharge" << std::endl;
     }
     else
-      cout << "No Surcharge will be charged" << endl;
+      std::cout << "No Surcharge will be charged" << std::endl;
 
-    cout << std::fixed << std::setprecision(2); // precison 2 decimal
-    cout << "The volume of your package is: " << package_volume << endl;
-    cout << "Your package will cost $" << package_cost << " to ship." << endl;
-  }
+    std::cout << std::fixed << std::setprecision(2); // precison 2 decimal
+    std::cout << "The volume of your package is: " << package_volume << std::endl;
+    std::cout << "Your package will cost $" << package_cost << " to ship." << std::endl;
+  }*/
   return 0;
 }

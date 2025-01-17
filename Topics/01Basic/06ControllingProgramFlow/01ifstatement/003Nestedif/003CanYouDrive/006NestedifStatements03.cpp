@@ -11,26 +11,22 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
-  int age;
+  int age {};
   const int driving_age {16};
   bool has_car {1}; // has a car
 
-  cout << "Enter age : ";
-  cin >> age;
+  std::cout << "Enter age : ";
+  std::cin >> age;
 
   if (age >= driving_age)
       if (has_car)
-          cout << "Yes - you can drive!" << endl;
+          std::cout << "Yes - you can drive!" << std::endl;
       else
-          cout << "Sorry, you need to buy a car before you can drive!" << endl;
+          std::cout << "Sorry, you need to buy a car before you can drive!" << std::endl;
   else
-      cout << "Sorry, come back in " << driving_age - age << " years and be sure you own a car when you come back." << endl;
+      std::cout << "Sorry, come back in " << driving_age - age << " years and be sure you own a car when you come back." << std::endl;
 
   return 0;
 }

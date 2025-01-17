@@ -33,29 +33,25 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
   int num {};
   const int target {10};
 
-  cout << "Enter a number to be compared to " << target << ": ";
-  cin >> num;
+  std::cout << "Enter a number to be compared to " << target << ": ";
+  std::cin >> num;
 
   if (num >= target ) {
-    cout << "==========================================================" << endl;
-    cout << num << " is greater than or equal to " << target << endl;
+    std::cout << "==========================================================" << std::endl;
+    std::cout << num << " is greater than or equal to " << target << std::endl;
     int diff {num - target};
-    cout << "The difference between " << num << " and " << target << " is " << diff << endl;
+    std::cout << "The difference between " << num << " and " << target << " is " << diff << std::endl;
   }
   else {
-    cout << "==========================================================" << endl;
-    cout << num << " is less than " << target << endl;
+    std::cout << "==========================================================" << std::endl;
+    std::cout << num << " is less than " << target << std::endl;
     int diff {target - num};
-    cout << "The difference between " << num << " and " << target << " is " << diff << endl;
+    std::cout << "The difference between " << num << " and " << target << " is " << diff << std::endl;
   }
 
   return 0;
