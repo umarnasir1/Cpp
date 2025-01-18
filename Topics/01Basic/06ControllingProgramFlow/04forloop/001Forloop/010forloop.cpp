@@ -20,7 +20,7 @@ int main() {
   for (int i {1} ; i <= 5; i++)   // very common and have some advantages; scope of i just in for loop ; compiler error if try to use i outside loop
     std::cout << i << std::endl;
 
-  // increment by 2
+  // increment by 2 - display odd numbers
   std::cout << "\nExample 2\n";
   for (int i {1} ; i <= 10; i+=2)
     std::cout << i << std::endl;
@@ -53,7 +53,7 @@ int main() {
   for (int i{1}; i<=100; i++){
     std::cout << i;
     if ( i%10 == 0)
-      std::cout << endl;
+      std::cout << std::endl;
     else
       std::cout << " ";
   }

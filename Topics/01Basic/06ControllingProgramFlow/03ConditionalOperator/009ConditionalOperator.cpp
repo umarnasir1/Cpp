@@ -26,7 +26,7 @@ int main (){
 
   std::cout << ((score > 90) ? "Excellent" : "Good") << std::endl;
 
-  std::cout << a << " is " << (( a > b) ? "Greater than " : "Lesser than ") << b << std::endl;
+  std::cout << a << " is " << (( a > b) ? "Greater than " : "Less than ") << b << std::endl;
 
   //-----
   // to know if the entered number is even or odd
