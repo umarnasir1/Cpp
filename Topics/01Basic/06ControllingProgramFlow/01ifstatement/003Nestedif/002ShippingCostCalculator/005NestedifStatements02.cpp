@@ -18,7 +18,7 @@
 #include <iomanip> // input out manipulators
 
 int main(){
-/*
+
   int length {}, width {}, height {};
   double base_cost {2.5};
 
@@ -53,6 +53,6 @@ int main(){
     std::cout << std::fixed << std::setprecision(2); // precison 2 decimal
     std::cout << "The volume of your package is: " << package_volume << std::endl;
     std::cout << "Your package will cost $" << package_cost << " to ship." << std::endl;
-  }*/
+  }
   return 0;
 }
