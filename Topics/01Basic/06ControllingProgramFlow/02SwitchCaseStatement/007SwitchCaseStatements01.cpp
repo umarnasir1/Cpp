@@ -56,51 +56,47 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main (){
 
   char grade {};
 
-  cout << "Enter the grade that you expect on the exam: ";
-  cin >> grade;
+  std::cout << "Enter the grade that you expect on the exam: ";
+  std::cin >> grade;
 
   switch (grade){
     // same behavior on both upper case and lower case characters.
     case 'a':
     case 'A':
-      cout << "You need 90 or above, study hard! " << endl;
+      std::cout << "You need 90 or above, study hard! " << std::endl;
       break;
     case 'b':
     case 'B':
-      cout << "You need 80-89 for a B, go study!" << endl;
+      std::cout << "You need 80-89 for a B, go study!" << std::endl;
       break;
     case 'c':
     case 'C':
-      cout << "You need 70-79 for an average grade." << endl;
+      std::cout << "You need 70-79 for an average grade." << std::endl;
       break;
     case 'd':
     case 'D':
-      cout << "Hmm, you should strive for a better grade. All you need is 60-69." << endl;
+      std::cout << "Hmm, you should strive for a better grade. All you need is 60-69." << std::endl;
       break;
     case 'f':
     case 'F':
       {  // declaring a variable so we need a block {} as we would confirm if a student is really entering F, f
         char confirm {};
-        cout << "Are you sure (Y/N)?";
-        cin >> confirm;
+        std::cout << "Are you sure (Y/N)?";
+        std::cin >> confirm;
         if (confirm == 'Y' || confirm == 'y')
-          cout << "OK, I guess you dont want to study.." << endl;
+          std::cout << "OK, I guess you dont want to study.." << std::endl;
         else if (confirm == 'N' || confirm == 'n')
-          cout << "Good!, go study!" << endl;
+          std::cout << "Good!, go study!" << std::endl;
         else
-          cout << "Illegal choice." << endl;
+          std::cout << "Illegal choice." << std::endl;
         break;
       }
     default:
-      cout << "Sorry, not a valid grade." << endl;
+      std::cout << "Sorry, not a valid grade." << std::endl;
   }
 
   return 0;

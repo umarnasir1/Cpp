@@ -10,18 +10,13 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
-using std::cin;
-using std::vector;
-
 int main (){
 
   // ---- Eg. 01
   // pring numbers from 1-5
   int i {1};
   while (i <= 5){
-    cout << i << endl;
+    std::cout << i << std::endl;
     ++i;
   }
 
@@ -30,7 +25,7 @@ int main (){
   int i {1};
   while (i <= 10){
     if (i % 2 == 0)
-      cout << i << endl;
+      std::cout << i << std::endl;
     ++i;
   }
 
@@ -40,7 +35,7 @@ int main (){
   int i {0};
 
   while (i < 3){
-    cout << scores[i] << endl;
+    std::cout << scores[i] << std::endl;
     ++i;
   }
 
@@ -49,29 +44,29 @@ int main (){
   // In this example, we want the user to enter an integer less than 100, If the dont, we want to ask them again and again  and again until they enter a valid integer.
   int number {};
 
-  cout << "Enter an integer less than 100: ";
-  cin >> number;
+  std::cout << "Enter an integer less than 100: ";
+  std::cin >> number;
 
   while (number >= 100){ // !(number < 100)
-    cout << "Enter an integer less than 100: "; // repeated statments, this can be done in a better way also
-    cin >> number;
+    std::cout << "Enter an integer less than 100: "; // repeated statments, this can be done in a better way also
+    std::cin >> number;
   }
 
-  cout << "Thanks" << endl;
+  std::cout << "Thanks" << std::endl;
 
   // ---- Eg. 05
   // Input - validation: ask the user to enter a number between 1 and 5
   int number {};
 
-  cout << "Enter a number between 1 and 5: ";
-  cin >> number;
+  std::cout << "Enter a number between 1 and 5: ";
+  std::cin >> number;
 
   while (number <= 1 || number >=5){
-    cout << "Enter a number between 1 and 5: ";
-    cin >> number;
+    std::cout << "Enter a number between 1 and 5: ";
+    std::cin >> number;
   }
 
-  cout << "Thanks" << endl;
+  std::cout << "Thanks" << std::endl;
 
   // ---- Eg. 06
   // input validation - use boolean flag to control while loop
@@ -80,12 +75,12 @@ int main (){
   int number {0};
 
   while (!done){
-    cout << "Enter an integer between 1 and 5: ";
-    cin >> number;
+    std::cout << "Enter an integer between 1 and 5: ";
+    std::cin >> number;
     if (number <= 1 || number >= 5)
-      cout << "Out of range, try again" << endl;
+      std::cout << "Out of range, try again" << std::endl;
     else {
-      cout << "Thanks! " << endl;
+      std::cout << "Thanks! " << std::endl;
       done = true;  // loop condition will fail and we will exit the loop - important so to get out of while
     }
   }
@@ -94,32 +89,32 @@ int main (){
   // count down
   int num {};
 
-  cout << "Enter a positive integer to start the countdown : ";
-  cin >> num;
+  std::cout << "Enter a positive integer to start the countdown : ";
+  std::cin >> num;
 
   while (num > 0){
-    cout << num << endl;
+    std::cout << num << std::endl;
     --num;
   }
-  cout << "Blastoff!" << endl;
+  std::cout << "Blastoff!" << std::endl;
 
   // ---- Eg. 08
   // while loop that counts up
   int num {};
 
-  cout << "Enter a positive integer to count up to: ";
-  cin >> num;
+  std::cout << "Enter a positive integer to count up to: ";
+  std::cin >> num;
 
   int i {1}; // count up starting from 1
   while (num >= i){
-    cout << i << endl;
+    std::cout << i << std::endl;
     ++i;
   }
 
   // ---- Eg. 09
   // Determine how many integers are present before you see the value -99. Its possible -99 is not in the vector. If -99 is not in the vector then the result will be equal to the number of elements in the vector. The final result should be stored in an integer variable named count.
 
-  const vector <int> vec {1, 2, 3, 4, 5, 6, 7, -99, 8};
+  const std::vector <int> vec {1, 2, 3, 4, 5, 6, 7, -99, 8};
   int count {};
   size_t index {}; // size_t is the type returned by the size() function of the vector, so we want to be consistent with our index variable.
   // size_t is normally an unsigned int.
@@ -129,14 +124,14 @@ int main (){
     ++index;
   }
 
-  cout << "Number of elements : " << count << endl;
+  std::cout << "Number of elements : " << count << std::endl;
 
   // ---- Eg. 10
   // while loop with using {}
   // this will be infite loop and the decement will be considered outside the loop and the loop will get stick in infinite loop. 
   int num = 10;
   while (num >= 1)
-     cout << num << " ";
+     std::cout << num << " ";
      num--;
 
   return 0;

@@ -9,10 +9,6 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-using std::cin;
-
 int main (){
 
   int a {10}, b {20};
@@ -20,38 +16,38 @@ int main (){
   int result {};
 
   result = (a > b) ? a : b;
-  cout << "1: " << result << endl;
+  std::cout << "1: " << result << std::endl;
 
   result = (a < b) ? (b-a) : (a-b);
-  cout << "2: " << result << endl;
+  std::cout << "2: " << result << std::endl;
 
   result = (b != 0) ? (a / b) : 0;  // using conditional operator to avoid divide by zero error.
-  cout << "3: " << result << endl;
+  std::cout << "3: " << result << std::endl;
 
-  cout << ((score > 90) ? "Excellent" : "Good") << endl;
+  std::cout << ((score > 90) ? "Excellent" : "Good") << std::endl;
 
-  cout << a << " is " << (( a > b) ? "Greater than " : "Lesser than ") << b << endl;
+  std::cout << a << " is " << (( a > b) ? "Greater than " : "Lesser than ") << b << std::endl;
 
   //-----
   // to know if the entered number is even or odd
   int num {};
 
-  cout << "Enter an integer: ";
-  cin >> num;
+  std::cout << "Enter an integer: ";
+  std::cin >> num;
 
-  cout <<  num << " is "  << ((num % 2 == 0) ? "Even" : "Odd" ) << endl;
+  std::cout <<  num << " is "  << ((num % 2 == 0) ? "Even" : "Odd" ) << std::endl;
 
   // Eg - Compare two integers
   int num1 {}, num2 {};
-  cout << "Enter two integers separated by a space: ";
-  cin >> num1 >> num2;
+  std::cout << "Enter two integers separated by a space: ";
+  std::cin >> num1 >> num2;
 
   if (num1 != num2){
-    cout << "Largest: " << ((num1 > num2) ? num1 : num2 ) << endl;
-    cout << "Smallest: " << ((num1 < num2) ? num1 : num2) << endl;
+    std::cout << "Largest: " << ((num1 > num2) ? num1 : num2 ) << std::endl;
+    std::cout << "Smallest: " << ((num1 < num2) ? num1 : num2) << std::endl;
   }
   else
-    cout << "Both the numbers are same." << endl;
+    std::cout << "Both the numbers are same." << std::endl;
 
   return 0;
 }

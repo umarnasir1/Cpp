@@ -13,33 +13,29 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
-using std::vector;
-
 int main (){
 
-  cout << "Example 1: Simple Example of range based for loop \n";
+  std::cout << "Example 1: Simple Example of range based for loop \n";
   int scores [] {100, 90, 97};
 
   for (int score : scores)
-    cout << score << endl;
+    std::cout << score << std::endl;
 
   // Using auto keyword - So in this case, the compiler figures out the type. The compiler sees that collection scores is an array of integers, so it uses an integer for the score variable.
-  cout << "\nExample 2: auto keyword\n";
+  std::cout << "\nExample 2: auto keyword\n";
   int scores1 [] {100, 90, 97, 55, 67};
 
   for (auto score : scores1)
-    cout << score << endl;
+    std::cout << score << std::endl;
 
   //------------
-  cout << "\nExample 3: Iterate over an Array \n";
+  std::cout << "\nExample 3: Iterate over an Array \n";
   for (auto score : {100, 90, 97, 55, 67})   // initilizer list array, ex 5 similar eg
-    cout << score << endl;
+    std::cout << score << std::endl;
 
   // Calculate the average temperature from a vector that contains doubles that represent temperatures.
-  cout << "\nExample 4: Vector containing doubles\n";
-  vector <double> temps {87.2, 77.1, 80.0, 72.5};
+  std::cout << "\nExample 4: Vector containing doubles\n";
+  std::vector <double> temps {87.2, 77.1, 80.0, 72.5};
 
   double average_temp {};
   double running_sum {};
@@ -51,12 +47,12 @@ int main (){
   if (temps.size() != 0)
     average_temp = running_sum/temps.size();
 
-  cout << "Average Temprature : " << average_temp << endl;
+  std::cout << "Average Temprature : " << average_temp << std::endl;
 
 
   // The range-based for loop can also use an initializer list as a collection. This is handy when the elements of collection are known ahead of time and they wont change. Downside: size of vector need to be calculated and we cannot use .size method as no vector definition.
   // This example also calculates the average before temperatures.
-  cout << "\nExample 5: Use as an initializer list as a collection. \n";
+  std::cout << "\nExample 5: Use as an initializer list as a collection. \n";
   double average_temp1 {};
   double running_sum1 {};
   int size {};
@@ -66,40 +62,40 @@ int main (){
     ++size; // size++ will have same results
   }
   average_temp1 = running_sum1/size;
-  cout << "Average Temprature : " << average_temp1 << endl;
+  std::cout << "Average Temprature : " << average_temp1 << std::endl;
 
   // Range based loop to iterate over a string.
-  cout << "\nExample 6: String - Iterating a string.\n";
+  std::cout << "\nExample 6: String - Iterating a string.\n";
   for (auto c : "Programming")
-    cout << c << endl;
+    std::cout << c << std::endl;
 
   //-----
   // skip the spaces in a string - getting rid of the spaces in string.
-  cout << "\nExample 7: Strings - Removing the spaces in a string.\n";
+  std::cout << "\nExample 7: Strings - Removing the spaces in a string.\n";
   for (auto c: "This is a string")
     if (c != ' ')
-      cout << c;
+      std::cout << c;
 
   //-----
   // Replace space with tab in a string.
-  cout << "\nExample 8: Strings - Replace space with a tab.\n";
+  std::cout << "\nExample 8: Strings - Replace space with a tab.\n";
 
   for (auto c: "This is a string"){
     if (c != ' ')
-      cout << c;
+      std::cout << c;
     else
-      cout << "\t";
+      std::cout << "\t";
   }
 
   // loop through a given vector of integers and determine how many elements in the vector are evenly divisible by either 3 or 5.
-  cout << "\nExample 9\n";
+  std::cout << "\nExample 9\n";
   int count {};
 
   for (auto num: {1,3,5,15,16,17,18,19,20,21,25,26,27,30,50,55,56,58,100,200,300,400,500,600,700})
     if (num % 3 == 0 || num % 5 == 0)
       ++count;
 
-  cout << "# of Elements evenly divisible by either 3 or 5: " << count << endl;
+  std::cout << "# of Elements evenly divisible by either 3 or 5: " << count << std::endl;
 
   return 0;
 }

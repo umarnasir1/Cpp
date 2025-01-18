@@ -22,10 +22,6 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main(){
 
   enum Direction {   // we are creating a new type
@@ -36,14 +32,14 @@ int main(){
 
   switch (heading) {
     case left:
-      cout << "Going left." << endl;
+      std::cout << "Going left." << std::endl;
       break;
     case right:
-      cout << "Going right." << endl;
+      std::cout << "Going right." << std::endl;
       break;
     // either create case for up and down OR create a default that will handle everything else
     default:
-      cout << "OK" << endl;
+      std::cout << "OK" << std::endl;
   }
 
   return 0;

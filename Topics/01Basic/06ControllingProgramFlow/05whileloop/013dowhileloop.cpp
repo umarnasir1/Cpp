@@ -10,11 +10,6 @@
 #include <iostream>
 #include <vector>
 
-using std::cout;
-using std::endl;
-using std::cin;
-using std::vector;
-
 int main (){
 
   // ---- Eg.1
@@ -23,11 +18,11 @@ int main (){
   int number {};
 
   do {
-    cout << "Enter an integer between 1 and 5: ";
-    cin >> number;
+    std::cout << "Enter an integer between 1 and 5: ";
+    std::cin >> number;
   } while(number <= 1 || number >= 5);
 
-  cout << "Thanks" << endl;
+  std::cout << "Thanks" << std::endl;
 
   // ---- Eg.2
   // area calculation
@@ -35,18 +30,18 @@ int main (){
 
   do {
     double width {}, height {};
-    cout << "Enter width and height separated by a space: ";
-    cin >> width >> height;
+    std::cout << "Enter width and height separated by a space: ";
+    std::cin >> width >> height;
 
     double area {width * height};
-    cout << "The area is " << area << endl;
+    std::cout << "The area is " << area << std::endl;
 
-    cout << "Calculate another ? (Y/N) : ";
-    cin >> selection;
+    std::cout << "Calculate another ? (Y/N) : ";
+    std::cin >> selection;
 
   } while(selection == 'Y' || selection == 'y'); // if the selection is any other character, the loop terminates.
 
-  cout << "Thanks!" << endl;
+  std::cout << "Thanks!" << std::endl;
 
   // ---- Eg.3
   // Simple Menu
@@ -56,31 +51,31 @@ int main (){
 
   do {
     // Menu
-    cout << "\n------------------------------- \n"
+    std::cout << "\n------------------------------- \n"
          << "1. Task 1\n"
          << "2. Task 2\n"
          << "3. Task 3\n"
-         << "Q. Quit" << endl;
+         << "Q. Quit" << std::endl;
 
-    cout << "\nEnter your selection: ";
-    cin >> selection;
+    std::cout << "\nEnter your selection: ";
+    std::cin >> selection;
 
     switch (selection) {  // can also work with if - else if - else if - else if -else (check do-while video v.86)
       case '1':
-        cout << "Operations for Task 1" << endl;
+        std::cout << "Operations for Task 1" << std::endl;
         break;
       case '2':
-        cout << "Operations for Task 2" << endl;
+        std::cout << "Operations for Task 2" << std::endl;
         break;
       case '3':
-        cout << "Operations for Task 3" << endl;
+        std::cout << "Operations for Task 3" << std::endl;
         break;
       case 'q':
       case 'Q':
-        cout << "Thank you!" << endl;
+        std::cout << "Thank you!" << std::endl;
         break; 
       default:
-        cout << "Invalid Entry. Please try again" << endl;
+        std::cout << "Invalid Entry. Please try again" << std::endl;
     }
 
   } while(selection != 'Q' && selection != 'q');
