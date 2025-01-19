@@ -87,7 +87,7 @@ int main (){
         char confirm {};
         std::cout << "Are you sure (Y/N)?";
         std::cin >> confirm;
-        if (confirm == 'Y' || confirm == 'y')
+        if (confirm == 'Y' ||confirm == 'y')
           std::cout << "OK, I guess you dont want to study.." << std::endl;
         else if (confirm == 'N' || confirm == 'n')
           std::cout << "Good!, go study!" << std::endl;
