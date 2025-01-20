@@ -1,5 +1,5 @@
 /*
-  do-while loop
+  do-while loop - execute the loop atleast one time
 
   do {
     statements;
@@ -20,7 +20,7 @@ int main (){
   do {
     std::cout << "Enter an integer between 1 and 5: ";
     std::cin >> number;
-  } while(number <= 1 || number >= 5);
+  } while(number <= 1 ||number >= 5);
 
   std::cout << "Thanks" << std::endl;
 
@@ -30,7 +30,7 @@ int main (){
 
   do {
     double width {}, height {};
-    std::cout << "Enter width and height separated by a space: ";
+    std::cout << "\nEnter width and height separated by a space: ";
     std::cin >> width >> height;
 
     double area {width * height};
@@ -47,7 +47,7 @@ int main (){
   // Simple Menu
   // do display the Menu
   // while a user doesnt quit
-  char selection {};
+  selection = 0;
 
   do {
     // Menu

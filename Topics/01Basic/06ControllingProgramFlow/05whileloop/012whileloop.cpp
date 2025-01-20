@@ -1,5 +1,5 @@
 /*
-  while loop
+  while loop - executes only if the condition is true
 
   while (expression) // if more than one statement then block {}
     statement;
