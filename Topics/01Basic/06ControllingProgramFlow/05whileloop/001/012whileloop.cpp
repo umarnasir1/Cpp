@@ -22,7 +22,7 @@ int main (){
 
   // ---- Eg. 02
   // print even numbers between 1 and 10
-  int i {1};
+  i = 1;
   while (i <= 10){
     if (i % 2 == 0)
       std::cout << i << std::endl;
@@ -32,7 +32,7 @@ int main (){
   // ---- Eg. 03
   // while loop to iterate over an array
   int scores [] {100, 90, 87};
-  int i {0};
+  i = 0;
 
   while (i < 3){
     std::cout << scores[i] << std::endl;
@@ -57,12 +57,12 @@ int main (){
 
   // ---- Eg. 05
   // Input - validation: ask the user to enter a number between 1 and 5
-  int number {};
+  number = 0;
 
   std::cout << "Enter a number between 1 and 5: ";
   std::cin >> number;
 
-  while (number <= 1 || number >=5){
+  while (number <= 1 ||number >=5){
     std::cout << "Enter a number between 1 and 5: ";
     std::cin >> number;
   }
@@ -73,12 +73,12 @@ int main (){
   // input validation - use boolean flag to control while loop
   // boolean flag logic is better than the logic in prvious examples as the statements are not repeated /duplicated code.
   bool done {false}; // we are not done. if done is false then the program will go in loop. explicitly set to false.
-  int number {0};
+  number = 0;
 
   while (!done){
     std::cout << "Enter an integer between 1 and 5: ";
     std::cin >> number;
-    if (number <= 1 || number >= 5)
+    if (number <= 1 ||number >= 5)
       std::cout << "Out of range, try again" << std::endl;
     else {
       std::cout << "Thanks! " << std::endl;
@@ -101,12 +101,12 @@ int main (){
 
   // ---- Eg. 08
   // while loop that counts up till the number provided by the user.
-  int num {};
+  num = 0;
 
   std::cout << "Enter a positive integer to count up to: ";
   std::cin >> num;
 
-  int i {1}; // count up starting from 1
+  i = 1; // count up starting from 1
   while (num >= i){
     std::cout << i << std::endl;
     ++i;
@@ -130,7 +130,7 @@ int main (){
   // ---- Eg. 10
   // while loop with using {}
   // this will be infite loop and the decement will be considered outside the loop and the loop will get stick in infinite loop. 
-  int num = 10;
+  num = 10;
   while (num >= 1)
      std::cout << num << " ";
      num--;
