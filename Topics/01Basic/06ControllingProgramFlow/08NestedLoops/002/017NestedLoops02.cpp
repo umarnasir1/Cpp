@@ -16,7 +16,7 @@
 int main (){
 
   int result {};
-  // std::vector<int> v {1, 2, 3}; // 11
+  //std::vector<int> v {1, 2, 3}; // 11
   std::vector<int> v {2, 4, 6, 8}; // 140
   // std::vector<int> v {}; // 0
   // std::vector<int> v {2}; // 0

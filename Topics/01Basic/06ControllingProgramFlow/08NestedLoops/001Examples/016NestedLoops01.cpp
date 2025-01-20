@@ -31,7 +31,7 @@ int main (){
   }
 
   // Eg. 4: Nested loop with vectors
-  std::vector <vector <int>> vector_2d {
+  std::vector <std::vector <int>> vector_2d {
     {1, 2, 3},
     {10, 20, 30, 40},
     {100, 200, 300, 400, 500}
@@ -75,7 +75,7 @@ int main (){
       else
         std::cout << "*";
     }
-    std::cout << endl;
+    std::cout << std::endl;
   }
 
   return 0;
