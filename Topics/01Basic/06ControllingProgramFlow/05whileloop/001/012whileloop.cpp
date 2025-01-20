@@ -41,7 +41,8 @@ int main (){
 
   // ---- Eg. 04
   // loops are commonly used in programming to provide input validation.
-  // In this example, we want the user to enter an integer less than 100, If the dont, we want to ask them again and again  and again until they enter a valid integer.
+  // In this example, we want the user to enter an integer less than 100, If the user dont, we want to ask them 
+  // again and again  and again until they enter a valid integer.
   int number {};
 
   std::cout << "Enter an integer less than 100: ";
@@ -70,7 +71,7 @@ int main (){
 
   // ---- Eg. 06
   // input validation - use boolean flag to control while loop
-  // boolean flag logic is better than the logic in prvious example as the statements are not repeated /duplicated code.
+  // boolean flag logic is better than the logic in prvious examples as the statements are not repeated /duplicated code.
   bool done {false}; // we are not done. if done is false then the program will go in loop. explicitly set to false.
   int number {0};
 
@@ -99,7 +100,7 @@ int main (){
   std::cout << "Blastoff!" << std::endl;
 
   // ---- Eg. 08
-  // while loop that counts up
+  // while loop that counts up till the number provided by the user.
   int num {};
 
   std::cout << "Enter a positive integer to count up to: ";
