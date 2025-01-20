@@ -11,10 +11,6 @@
 #include <cstring>
 #include <cctype>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main (){
 
   // Eg. 1
@@ -67,7 +63,7 @@ int main (){
   char str [80];
   strcpy(str, "Hello "); // copy
   strcat (str, "there"); // concatenate
-  cout << strlen (str) << endl;  // 11 (Hello there)
+  std::cout << strlen (str) << std::endl;  // 11 (Hello there)
   strcmp (str, "Another");
 
   // Eg. 5
@@ -105,19 +101,19 @@ int main (){
 */
 
   // so, solution will be using getline fucntion (works with C-style strings.
-  cout << "\nEnter your full name : ";
-  cin.getline(full_name, 50); // full_name is c-style string; 50 is limit -how many characters maximum you are going to read. So it will either stop when we press enter or at 50 characters.
-  cout <<"Your full name is " << full_name << endl;
+  std::cout << "\nEnter your full name : ";
+  std::cin.getline(full_name, 50); // full_name is c-style string; 50 is limit -how many characters maximum you are going to read. So it will either stop when we press enter or at 50 characters.
+  std::cout <<"Your full name is " << full_name << std::endl;
 
   // Comparision Example
-  cout << "-----------------------------------" << endl;
+  std::cout << "-----------------------------------" << std::endl;
   strcpy(temp, full_name);
   if (strcmp(temp, full_name) == 0) // they should be the same
-    cout << temp << " and " << full_name << " are the same." << endl; // if same
+    std::cout << temp << " and " << full_name << " are the same." << std::endl; // if same
   else
-    cout << temp << " and " << full_name << " are different." << endl; // if not same
+    std::cout << temp << " and " << full_name << " are different." << std::endl; // if not same
 
-  cout <<"-------------------------------------" << endl;
+  std::cout <<"-------------------------------------" << std::endl;
 
   // modify the string and compare it again.
   // converting full_name into upper case
@@ -125,18 +121,18 @@ int main (){
     if(isalpha(full_name[i]))
       full_name[i] = toupper(full_name[i]);
 
-  cout << "Your full name is " << full_name << endl;
+  std::cout << "Your full name is " << full_name <<std::endl;
 
   // comparing again (full_name is full upper case name; temp is name as typed by user)
-  cout << "---------------------------------------------------" << endl;
+  std::cout << "---------------------------------------------------" << std::endl;
   if (strcmp(temp, full_name) == 0)
-    cout << temp << " and " << full_name << " are the same" << endl;
+    std::cout << temp << " and " << full_name << " are the same" << std::endl;
   else
-    cout << temp << " and " << full_name << " are different" << endl;
+    std::cout << temp << " and " << full_name << " are different" << std::endl;
 
-  cout << "----------------------------------------------------" << endl;
-  cout << "Result of comparing " << temp << " and " << full_name << ":" << strcmp(temp, full_name) << endl;
-  cout << "Result of comparing " << full_name << " and " << temp << ":" << strcmp(full_name, temp) << endl;
+  std::cout << "----------------------------------------------------" << std::endl;
+  std::cout << "Result of comparing " << temp << " and " << full_name << ":" << strcmp(temp, full_name) << std::endl;
+  std::cout << "Result of comparing " << full_name << " and " << temp << ":" << strcmp(full_name, temp) << std::endl;
 
   return 0;
 }
