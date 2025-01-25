@@ -9,7 +9,7 @@ int main(){
 
   // Array Declaration & Initialization
 
-  int test_scores [5] {100, 95, 99, 87, 88};
+  int test_scores [] {100, 95, 99, 87, 88};
 
   int high_score_per_level [10] {3, 5}; // initialize first two elements to 3,5 and remaining to 0 (if we put less initilizers)
 
