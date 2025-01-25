@@ -38,8 +38,10 @@ int main(){
   std::string s2 {"Bjarne"};    // Bjarne - c-style literal will be converted into C++ stirng.
   std::string s3 {s2};          // Bjarne - a copy of s2 will be created but in different area of memory.
   std::string s4 {"Bjarne", 3}; // Bja - using first three characters
-  std::string s5 {s3, 0, 2};    // Bj - when initializing from another string, the first integer represents starting index, and second integer is length of the substring, i.e., 0 to 1
-  std::string s6 (3, 'X');      // XXX - initialize string to a specific number of a specific character. This used a constructor syntax ().
+  std::string s5 {s3, 0, 2};    // Bj - when initializing from another string, the first integer represents starting index, and 
+  // the second integer is length of the substring, i.e., 0 to 1
+  std::string s6 (3, 'X');      // XXX - initialize string to a specific number of a specific character. This used a constructor 
+  // syntax ().
 
   // std::cout << s1 << std::endl; //automatically initialize to zero (no garbage) like vectors in modern C++ with length 0
   // std::cout << s1.length();
@@ -86,7 +88,8 @@ int main(){
 
   s1 = "C++ Rocks! "; // s1 will grow dynamically as needed.
   std::cout << "s1 is now: " << s1 << std::endl;
-  s2 = s1; // s2 is copy of s1, they are not pointing to the same watermelon, they are two copies that are individual. So if s1 is changed it wont affect s2 and vice versa.
+  s2 = s1; // s2 is copy of s1, they are not pointing to the same value, they are two copies that are individual. So if s1 is changed 
+  // it wont affect s2 and vice versa.
   std::cout << "s2 is now: " << s2 << std::endl;
 
   s3 = "Bjarne";
