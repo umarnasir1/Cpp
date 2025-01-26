@@ -1,6 +1,6 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Volumes/Umar/GoogleDrive/Kurser/C++/Cpp/Topics/test3/test3'
+binary-path:     '/Volumes/Umar/GoogleDrive/Kurser/C++/Cpp/Topics/01Basic/07CharactersAndStrings/003Char/003Characters'
 relocations:
   - { offsetInCU: 0x2F4F, offset: 0x2F4F, size: 0x8, addend: 0x0, symName: __ZNSt3__124__put_character_sequenceB8ue170006IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m, symObjAddr: 0x1D8, symBinAddr: 0x10000324C, symSize: 0x1EC }
   - { offsetInCU: 0x48E6, offset: 0x48E6, size: 0x8, addend: 0x0, symName: __ZNSt3__1lsB8ue170006INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_c, symObjAddr: 0xD8, symBinAddr: 0x10000314C, symSize: 0x34 }

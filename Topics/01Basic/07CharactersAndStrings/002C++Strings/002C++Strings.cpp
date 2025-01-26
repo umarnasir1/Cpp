@@ -15,8 +15,8 @@
     Compound Concatination
     String Methods
       length()
-      substr()
-      erase()
+      substr() - sub string
+      erase() - removing characters from string
       input with C++ strings
         >>
         getline()
@@ -211,7 +211,7 @@ int main(){
   if (position != std::string::npos)
     std::cout << "Found " << word << " at positon: " << position << std::endl;
   else
-    std::cout << "Sorry, " << word << " not found" << std::endl;
+    std::cout << "Sorry, the word - " << word << " - not found" << std::endl;
 
   // clear() method
   // clear() - removing entire string of characters

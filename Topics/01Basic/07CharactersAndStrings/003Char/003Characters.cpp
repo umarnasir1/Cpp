@@ -6,10 +6,10 @@ int main(){
     std::cout << "Character1: " << character1 << std::endl; // a
 
     std::cout << 'A' + ' ' << std::endl; //97
-    std::cout << 65 + ' ' << std::endl; // 
-    std::cout << 97 - ' ' << std::endl; //  
-    std::cout << 'a' - 32 << std::endl; // 
-    std::cout << 'a' - ' ' << std::endl; //
+    std::cout << 65 + ' ' << std::endl; // 97
+    std::cout << 97 - ' ' << std::endl; // 65 
+    std::cout << 'a' - 32 << std::endl; // 65
+    std::cout << 'a' - ' ' << std::endl; // 65
 
     return 0; 
 }
