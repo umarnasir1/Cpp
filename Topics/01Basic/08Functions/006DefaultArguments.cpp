@@ -1,6 +1,8 @@
 /*
   Default Arguments - Single and Multiple default arguments
 
+  In case of default arguments, in case, we don't pass any values during function calling, the default value would be taken.
+
   Eg. No default arguments
 
   // prototype
