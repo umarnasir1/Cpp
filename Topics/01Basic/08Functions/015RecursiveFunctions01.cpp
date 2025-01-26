@@ -1,5 +1,6 @@
 /*
-  Recursive Functions
+  Recursive Functions 
+   A function that call itself
   Eg. Factorial, Fibonacci
 */
 #include<iostream>
