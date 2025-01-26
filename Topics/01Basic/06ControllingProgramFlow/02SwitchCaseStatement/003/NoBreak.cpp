@@ -1,7 +1,7 @@
 /*
     Program without break
     As no break statement, the output will be all cases
-    AbcdefGhijklMnopqrstUvwxyz. 
+    AbcdefGhijklMnopqrstUvwxyz 
 */
 
 #include <iostream>

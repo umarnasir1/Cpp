@@ -1,6 +1,9 @@
 /*
   Switch-Case Statement
 
+  Switch cases in C++ can only be used with integral, not with strings. If we need to work with strings in a conditional manner, 
+  it is recommended to use if-else statements instead of switch cases.
+
   switch (integer_control_expr) {  // This control expression must evaluate to an integral type (e.g. char, int, enumeration type.
     case expr1: statement1; break; // When the value of the control expression matches the case expression, then the code after : is executed till break stateemnt.
     case expr2: statement2; break;
