@@ -88,5 +88,14 @@ int main() {
 
   std::cout << "Sum is: " << sum << std::endl;
 
+  //  sum of first 10 natural numbers.
+  std::cout << "\nExample 12" << std::endl;
+
+  int sum1{};
+  for (size_t i{1}; i<=10; ++i)
+    sum1 += i;
+  
+  std::cout << "The sum of first 10 natural numbers is : " << sum1 << std::endl;
+
   return 0;
 }
