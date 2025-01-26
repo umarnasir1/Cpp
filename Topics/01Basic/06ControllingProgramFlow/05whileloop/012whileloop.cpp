@@ -130,10 +130,23 @@ int main (){
   // ---- Eg. 10
   // while loop with using {}
   // this will be infite loop and the decement will be considered outside the loop and the loop will get stick in infinite loop. 
+  /*
   num = 10;
   while (num >= 1)
      std::cout << num << " ";
      num--;
+  
+  */
+
+  // ---- Eg. 11
+  // Write a program in C++ to find the sum of first 10 natural numbers.    
+  int sum {}, nNum{1};
+  while ( nNum <= 10){
+    sum += nNum;
+    nNum ++;
+  }
+  
+  std::cout << "The sum of first 10 natural numbers is: " << sum << std::endl;
 
   return 0;
 }
