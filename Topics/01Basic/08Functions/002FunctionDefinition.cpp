@@ -15,29 +15,25 @@
 
 #include<iostream>
 
-using std::cout;
-using std::endl;
-using std::cin;
-
 ////////// Functions /////////////
 
 const double pi {3.14159};
 
 void say_hello () {
-  cout << "Hello" << endl;
+  std::cout << "Hello" << std::endl;
   return;
 }
 
 void say_world () {
-    cout << " World" << endl;
-    cout << "Bye from say_world" << endl;
+    std::cout << " World" << std::endl;
+    std::cout << "Bye from say_world" << std::endl;
     return;
 }
 
 void say_hello1 () {
-  cout << "Hello";
+  std::cout << "Hello";
   say_world(); // funcitons can call other functions
-  cout << "Bye from say_hello" <<endl;
+  std::cout << "Bye from say_hello" << std::endl;
   return;
 }
 
@@ -60,8 +56,8 @@ double calc_volume_cylinder (double radius, double height){
 
 void area_circle(){
   double radius {};
-  cout << "Enter the radius of circle: ";
-  cin >> radius;
+  std::cout << "Enter the radius of circle: ";
+  std::cin >> radius;
 
   cout << "The area of a circle with radius " << radius << " is " << calc_area_circle(radius) << endl;
   return;
@@ -71,13 +67,13 @@ void volume_cylinder(){
   double radius {};
   double height {};
 
-  cout << "Enter the radius of cylinder: ";
-  cin >> radius;
+  std::cout << "Enter the radius of cylinder: ";
+  std::cin >> radius;
 
-  cout << "Enter the height of cylinder: ";
-  cin >> height;
+  std::cout << "Enter the height of cylinder: ";
+  std::cin >> height;
 
-  cout << "The volume of a cylinder with radius " << radius << " and height " << height << " is " << calc_volume_cylinder(radius, height) << endl;
+  std::cout << "The volume of a cylinder with radius " << radius << " and height " << height << " is " << calc_volume_cylinder(radius, height) << std::endl;
 
   return;
 }
@@ -89,21 +85,21 @@ int main(){
   say_hello();
 
   // Eg. 02
-  cout << "\n\nCalling the funciton 10 times in a looop\n";
+  std::cout << "\n\nCalling the funciton 10 times in a looop\n";
   for (int i{1}; i <= 10; ++i)
     say_hello();
 
   // Eg. 03 Hello world
-  cout << "\nEg. 03- Testing program Flow \n";
+  std::cout << "\nEg. 03- Testing program Flow \n";
   say_hello1();
-  cout << "Bye from main" << endl;
+  std::cout << "Bye from main" << std::endl;
 
   // Eg. 04 -// add two numbers, if any of the number is -ve then we should return zero
-  cout << "Apping add_numbers on 20 and 5 : " << add_numbers(20,5) << endl; // 25
-  cout << "Apping add_numbers on -2 and 500 : " << add_numbers(-2,500) << endl; //0
+  std::cout << "Apping add_numbers on 20 and 5 : " << add_numbers(20,5) << std::endl; // 25
+  std::cout << "Apping add_numbers on -2 and 500 : " << add_numbers(-2,500) << std::endl; //0
 
   // Eg. 05 - Area of Circle and Volume of Cylinder
-  cout << "\nEg. 04 Area of a Circle\n";
+  std::cout << "\nEg. 04 Area of a Circle\n";
   area_circle();
   volume_cylinder();
 

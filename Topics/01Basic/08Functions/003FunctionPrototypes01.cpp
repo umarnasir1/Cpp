@@ -36,10 +36,6 @@
 
 #include<iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 // Function Prototype
 void say_hello ();
 
@@ -72,11 +68,11 @@ int main (){
 
 // Function Definition
 void say_hello (){
-  cout << "Hello" << endl;
+  std::cout << "Hello" << std::endl;
 }
 
 void say_hello1 (std::string name){
-  cout << "Hello " << name << endl;
+  std::cout << "Hello " << name << std::endl;
 }
 
 double calc_area_circle (double radius){
@@ -90,10 +86,10 @@ double calc_volume_cylinder (double radius, double height){
 
 void area_circle(){
   double radius {};
-  cout << "Enter the radius of circle: ";
-  cin >> radius;
+  std::cout << "Enter the radius of circle: ";
+  std::cin >> radius;
 
-  cout << "The area of a circle with radius " << radius << " is " << calc_area_circle(radius) << endl;
+  std::cout << "The area of a circle with radius " << radius << " is " << calc_area_circle(radius) << std::endl;
   return;
 }
 
@@ -101,13 +97,13 @@ void volume_cylinder(){
   double radius {};
   double height {};
 
-  cout << "Enter the radius of cylinder: ";
-  cin >> radius;
+  std::cout << "Enter the radius of cylinder: ";
+  std::cin >> radius;
 
-  cout << "Enter the height of cylinder: ";
-  cin >> height;
+  std::cout << "Enter the height of cylinder: ";
+  std::cin >> height;
 
-  cout << "The volume of a cylinder with radius " << radius << " and height " << height << " is " << calc_volume_cylinder(radius, height) << endl;
+  std::cout << "The volume of a cylinder with radius " << radius << " and height " << height << " is " << calc_volume_cylinder(radius, height) << std::endl;
 
   return;
 }

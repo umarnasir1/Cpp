@@ -18,7 +18,7 @@ int main (){
   celsius_temperature = fahrenheit_to_celsius(fahrenheit_temperature);
   kelvin_temperature = fahrenheit_to_kelvin(fahrenheit_temperature);
 
-  cout << "The fahrenheit temperature " << fahrenheit_temperature << " degrees is equivalent to " << celsius_temperature << " degrees celsius and " << kelvin_temperature << " degrees kelvin.";
+  std::cout << "The fahrenheit temperature " << fahrenheit_temperature << " degrees is equivalent to " << celsius_temperature << " degrees celsius and " << kelvin_temperature << " degrees kelvin.";
 
   return 0;
 }
