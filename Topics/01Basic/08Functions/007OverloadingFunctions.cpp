@@ -26,32 +26,27 @@
 #include<vector>
 #include<cmath>
 
-using std::cout;
-using std::endl;
-using std::string;
-using std::vector;
-
 // prototype
 int add_numbers (int, int); // add ints
 double add_numbers (double, double); // add doubles
 
 void display (int num);
 void display (double num);
-void display (string s); // expects C++ string object
-void display (string s, string t);
-void display (vector <int> v);
-void display (vector <string> v); // expects vector of string object
+void display (std::string s); // expects C++ string object
+void display (std::string s, std::string t);
+void display (std::vector <int> v);
+void display (std::vector <std::string> v); // expects vector of string object
 
 int find_area(int side_length);
 double find_area(double length, double width);
 
 int main(){
 
-  cout << "------------ Eg. 01 ------------------------------" << endl;
-  cout << add_numbers (10, 20) << endl; // integer
-  cout << add_numbers (10.0, 20.0) << endl; // double
+  std::cout << "------------ Eg. 01 ------------------------------" << std::endl;
+  std::cout << add_numbers (10, 20) << std::endl; // integer
+  std::cout << add_numbers (10.0, 20.0) << std::endl; // double
 
-  cout << "\n------------ Eg. 02 ------------------------------" << endl;
+  std::cout << "\n------------ Eg. 02 ------------------------------" << std::endl;
   display(100); // 100
   display('A'); // character is always promoted to int (As there is no overloaded fucntion that expects a character), so it will display (int num) fucntion and it should print 65 which is ASCII code for 'A'.
   display(123.5); //  double
@@ -59,23 +54,23 @@ int main(){
 
   display("C-Style string"); // C-Style string is converted to C++ String as there is no overloaded fucntion that expects a c style string.
 
-  string s {"C++ String"}; // C++ string object
+  std::string s {"C++ String"}; // C++ string object
   display(s); // C++ String
 
   display("C-Style sting", s); // First argument is converted to a C++ String; the second is already string object
 
-  vector <int> test_scores {78, 87, 97, 100, 89};
+  std::vector <int> test_scores {78, 87, 97, 100, 89};
   display(test_scores);
 
-  vector <string> three_stooges {"Larry", "Moe", "Curly"};
+  std::vector <std::string> three_stooges {"Larry", "Moe", "Curly"};
   display(three_stooges);
 
-  cout << "\n------------ Eg. 03 ------------------------------" << endl;
+  std::cout << "\n------------ Eg. 03 ------------------------------" << std::endl;
   int square_area {find_area(2)};
   double rectangle_area {find_area(4.5, 2.3)};
 
-  cout << "Area of square: " << square_area << endl;
-  cout << "Area of rectangle : " << rectangle_area << endl;
+  std::cout << "Area of square: " << square_area << std::endl;
+  std::cout << "Area of rectangle : " << rectangle_area << std::endl;
 
   return 0;
 }
@@ -90,33 +85,33 @@ double add_numbers (double a, double b){
 }
 
 void display (int num){
-  cout << "Displaying int: " << num << endl;
+  std::cout << "Displaying int: " << num << std::endl;
 }
 
 void display (double num){
-  cout << "Displaying double: "<< num << endl;
+  std::cout << "Displaying double: "<< num << std::endl;
 }
 
-void display (string s){
-  cout << "Displaying string: " << s << endl;
+void display (std::string s){
+  std::cout << "Displaying string: " << s << std::endl;
 }
 
-void display (string s, string t){
-  cout << "Displaying 2 strings: " << s << " and " << t << endl;
+void display (std::string s, std::string t){
+  std::cout << "Displaying 2 strings: " << s << " and " << t << std::endl;
 }
 
 void display (vector <int> v){
-  cout << "Displaying vector of Integers: ";
+  std::cout << "Displaying vector of Integers: ";
   for (auto i: v)
-    cout << i << " ";
-  cout << endl;
+    std::cout << i << " ";
+  std::cout << std::endl;
 }
 
-void display (vector <string> v){
-  cout << "Displaying vector of strings: ";
+void display (std::vector <std::string> v){
+  std::cout << "Displaying vector of strings: ";
   for (auto s: v)
-    cout << s + " ";
-  cout << endl;
+    std::cout << s + " ";
+  std::cout << std::endl;
 }
 
 int find_area (int side_length) {

@@ -4,9 +4,6 @@
 */
 #include <iostream>
 
-using std::cout;
-using std::endl;
-
 // Function Prototype
 int func1(int a, int b);
 void func2(int &x, int y, int z);
@@ -16,7 +13,7 @@ int main() {
     int y{20};
     int z{};
     z = func1(x,y);
-    cout << z << endl;
+    std::cout << z << std::endl;
     return 0;
 }
 
