@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 
 
 int main (){
@@ -11,4 +11,5 @@ int main (){
     std::cout << "The area of the square is: " << side*side << std::endl;
 
     return 0;
-}
+}*/
+
