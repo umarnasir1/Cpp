@@ -133,6 +133,10 @@ int main(){
   s2 += " Stroustrup"; // works same way as that compund assignment operators work with integers/doubles etc.
   std::cout << s2 << std::endl; // Bjarne Stroustrup
 
+  // Alternative Concatination method
+  std::cout << "\nAlternative Concatination" << "\n-----------------------------------------" << std::endl;
+  std::cout << part1.append(part2) << std::endl; // C++is a powerful (without space)
+
   /************************
    Methods
   **************************/
