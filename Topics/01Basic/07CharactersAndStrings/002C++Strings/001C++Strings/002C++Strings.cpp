@@ -11,7 +11,7 @@
     Comparision ( ==, !=, >, >=, <, <=)
     Assigning values - using assignment operator =
     Manipulating C++ String
-    Concatination
+    Concatination (+, append())
     Compound Concatination
     String Methods
       length()
@@ -24,7 +24,9 @@
       find()- returns the index of substring in a std::string.
         find word in a string returns position of string or str::nopos (no position)
       clear()
+      compare()
       insert()
+      size()
       swap()
       erase()
 */
@@ -79,6 +81,20 @@ int main(){
   std::cout << s14 << " < " << s15 << " : " << (s14 < s15) << std::endl;   //False  - A comes before a in ASCII
   std::cout << s11 << " == " << "Apple" << " : " << (s11 == "Apple") << std::endl; //true - "Apple" is a C-style sting literal and C-style literal is convereted to an object and then we do object to object comparision.
   // ASCII table ye
+
+  // Compare two Strings
+  // compare() - returns 0 when strings are same
+  std::string s16, s17;
+  std::cout << "Enter string 1: ";
+  getline(std::cin, s16);
+
+  std::cout << "Enter string 2: ";
+  getline(std::cin, s17);
+
+  if (s16.compare(s17) == 0)
+    std::cout << "Same!!" << std::endl;
+  else 
+    std::cout << "Not the Same!" << std::endl;
 
 
   // Assigning values - using assignment operator =
@@ -146,6 +162,10 @@ int main(){
   std::string tests2 {"Bjarne"};
   std::cout << "Length of " << tests2 << " is :" << tests2.length() <<std::endl; // 6
 
+  // size() - alternative method to find the langth of the string 
+  std::cout << "\nSize" << "\n-----------------------------------------" << std::endl;
+  std::cout << "Length of " << tests2 << " is :" << tests2.size() <<std::endl; // 6
+
   // for loop
   std::cout << "\nLooping" << "\n-----------------------------------------" << std::endl;
 
@@ -177,7 +197,8 @@ int main(){
 
   // input with C++ strings
   // input >> and getline()
-  // C++ string work great with input and output streams e.g with output stream (cout) and extracting c++ string from an input stream (cin). However, there's one issue that's also true for c-style strings.
+  // C++ string work great with input and output streams e.g with output stream (cout) and extracting c++ string from an input stream 
+  // (cin). However,there's one issue that's also true for c-style strings.
 
   std::string stringone;
   //std::cin >> stringone; // only accepts up to the first space. e.g if "Hello there" is entered, only Hello will be displayed. This is because extraction operator stops when it sees white space.
@@ -244,6 +265,11 @@ int main(){
 
   std::string journal_entry_1 {"Isaac Newton"};
   std::string journal_entry_2 {"Leibniz"};
+
+  // swap()
+  journal_entry_1.swap(journal_entry_2);
+  std::cout << "journal_entry_1: " << journal_entry_1 << std::endl;
+  std::cout << "journal_entry_2: " << journal_entry_2 << std::endl;
 
   // erase()
   // removing the first name of Isaac Newton along with white space.
