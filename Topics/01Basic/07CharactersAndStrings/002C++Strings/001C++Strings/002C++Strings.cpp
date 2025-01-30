@@ -225,6 +225,7 @@ int main(){
   std::cout << str1.find('e') << std::endl; // 11 - first occurance at index 11
   std::cout << str1.find("is",4) << std::endl; // 5 - variant of the method that allows the index where we want to start the search from (starting at index 4 in this eg)
   std::cout << str1.find("XX") << std::endl; // string::npos -18446744073709551615 -(no position information available)- what if the string/character  we want to find isnt there. In this case the method returns end position which means no position information available.
+  // string::npos end of the string. 
 
   // we can check for a word in the string using if statement. The user will enter a word/character in the defined string (str1)
   std::string word {};
@@ -233,7 +234,7 @@ int main(){
   std::cin >> word;
 
   size_t position = str1.find(word);
-  if (position != std::string::npos)
+  if (position != std::string::npos) // string::npos end of the string.
     std::cout << "Found " << word << " at positon: " << position << std::endl;
   else
     std::cout << "Sorry, the word - " << word << " - not found" << std::endl;
