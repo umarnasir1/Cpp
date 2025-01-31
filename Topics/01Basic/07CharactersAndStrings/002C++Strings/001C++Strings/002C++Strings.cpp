@@ -29,6 +29,7 @@
       size()
       swap()
       erase()
+      replace() -005 - stringName.replace(stringName.find("whatToFind"), whatToFind.size(), "whatToReplace")
 */
 #include<iostream>
 #include<string>
@@ -234,7 +235,7 @@ int main(){
   std::cin >> word;
 
   size_t position = str1.find(word);
-  if (position != std::string::npos) // string::npos end of the string.
+  if (position != std::string::npos) // string::npos will search till the end of the string.
     std::cout << "Found " << word << " at positon: " << position << std::endl;
   else
     std::cout << "Sorry, the word - " << word << " - not found" << std::endl;
