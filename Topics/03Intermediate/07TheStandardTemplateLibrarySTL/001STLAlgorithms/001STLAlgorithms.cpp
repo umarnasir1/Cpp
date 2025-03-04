@@ -31,7 +31,7 @@
 */
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm> // allows to use STL algorithms
 #include <numeric>
 #include <list> 
 #include <map>
