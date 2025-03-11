@@ -7,7 +7,10 @@
       (In this case, the vector might be overkill, and it could be a little less efficient. In a case like that, we really want to 
       use std::array. E.g., 12 months in a year, that will not change so in this case we will use std::array).
     OBS!! In modern C++, it is recommended to to use std::array instead of raw arrays.
-    supports algorithms, iterators
+    
+    std::array supports algorithms, iterators
+
+    std::array discussed in STL Section
 */
 
 #include <iostream>
