@@ -11,7 +11,7 @@ void main(){
     // If we have fewer than 5, the remaining integers omitted will be set to 0.
 
     std::array<std::string, 3> stooges { 
-        std::string {"Larry"}, // check if round or curley brackets 
+        std::string {"Larry"}, 
         "Moe", // C-style string literals will be convered into std::string
         std::string {"Curly"}
     };
