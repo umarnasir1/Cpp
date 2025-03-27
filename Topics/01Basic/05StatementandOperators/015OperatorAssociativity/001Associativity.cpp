@@ -9,10 +9,17 @@ int main(){
     //total = var2 - var3 + var1; // 0;  - amd + have same presidence. so associativity is left to right 
     
     // Ex2
-    total = ++var2 - --var3 + var1; // 2  
+    // total = ++var2 - --var3 + var1; // 2  
     // Uniary operators have higher presidence so will perform ++ and -- first
     // ++ and -- have same presidence, so associativity is right to left so -- will be performed first and then  ++  ( 21 - 29 + 10)
-    //- amd + have same presidence. so associativity is left to right (-8 + 10 )
+    // - amd + have same presidence. so associativity is left to right (-8 + 10 )
+
+    // Ex3
+    total = var2++ - var3-- + var1; // 0 
+    // Uniary operators have higher presidence so will perform ++ and -- first. 
+    // ++ and -- have same presidence, so associativity is right to left so -- will be performed first and then  ++, but as it is post 
+    //   increment/decrement, the value of var3 and var2 will be decremented/incremented later (after evaluation of the statement).  ( 20 - 30 + 10)
+    // - amd + have same presidence. so associativity is left to right (-10 + 10 )
 
     std::cout << total << std::endl;
 
