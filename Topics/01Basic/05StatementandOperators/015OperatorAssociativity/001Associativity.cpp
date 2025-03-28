@@ -22,10 +22,15 @@ int main(){
     // - amd + have same presidence. so associativity is left to right (-10 + 10 )
 
     // Ex4
-    total = var2++ - (var3+ var1); // -20;
+    // total = var2++ - (var3+ var1); // -20
     // Brackets will have higher precision 
     // After it the post increment operator will be solved but the value will be increment after the expression is completely evaluated
     //   (20++ - 40) -> (20 - 40)
+
+    // Ex5
+    total = var1 + var3 - 2*var2; // 0
+    // First will multiple 
+    // Precedence is same of + and -, but associativity says solve it from L to R
 
     std::cout << total << std::endl;
 
