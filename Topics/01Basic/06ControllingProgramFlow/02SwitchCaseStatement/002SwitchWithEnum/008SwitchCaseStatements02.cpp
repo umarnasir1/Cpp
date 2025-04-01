@@ -19,7 +19,7 @@
     case red: std::cout << "red"; break;
     case green: std::cout << "green"; break;
     case blue: std::cout << "blue"; break;
-    default: std::cout << "shoudl never execute"; //unless add another enumeration constant and forget to include a case for it.
+    default: std::cout << "should never execute"; //unless add another enumeration constant and forget to include a case for it.
   }
 */
 
