@@ -14,6 +14,6 @@ int age {18}; // Global Variable
 
 int main (){
   int age = {16}; // Local Variable
-  std::cout << "Age is : " << age << std::endl;
+  std::cout << "Age is : " << age << std::endl; // 16
   return 0;
 }

@@ -29,11 +29,11 @@ This estimate is valid for 30 days
 int main() {
     std::cout << "Hello, welcome to Frank's Carpet Cleaning Service" << std::endl;
 
-    int number_of_small_rooms {0};
+    int number_of_small_rooms {}; 
     std::cout << "\nHow many small rooms would you like cleaned? ";
     std::cin >> number_of_small_rooms;
 
-    int number_of_large_rooms {0};
+    int number_of_large_rooms {};
     std::cout <<"\nHow many large rooms would you like cleaned? ";
     std::cin >> number_of_large_rooms;
 

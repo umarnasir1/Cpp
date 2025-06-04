@@ -35,12 +35,12 @@ int main() {
     std::cout << "Hello, welcome to Frank's Carpet Cleaning Service" << std::endl;
     std::cout << "\nHow many rooms would you like cleaned? ";
 
-    int number_of_rooms {0};
+    int number_of_rooms {}; 
     std::cin >> number_of_rooms;
 
     std::cout << "\nEstimate for carpet cleaning service" << std::endl;
     std::cout << "Number of rooms: " << number_of_rooms << std::endl;
-    std::cout << "Price per room: $" << 30 << std::endl;
+    std::cout << "Price per room: $" << 30 << std::endl; // constant Literal
     std::cout << "Cost : $" << 30 * number_of_rooms << std::endl;
     std::cout << "Tax: $" << 30 * number_of_rooms * 0.06 << std::endl;
     std::cout << "===============================" << std::endl;

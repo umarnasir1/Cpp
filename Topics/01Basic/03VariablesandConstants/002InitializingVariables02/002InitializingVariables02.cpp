@@ -6,11 +6,11 @@
 int main(){
 
   std::cout << "Enter the width of the room: ";
-  int room_width {0}; // equals to int room_width {};
+  int room_width {}; 
   std::cin >> room_width;
 
   std::cout << "Enter the length of the room: ";
-  int room_length {0};
+  int room_length {}; 
   std::cin >> room_length;
 
   std::cout << "The are of the room is " << room_width * room_length << " square feet" << std::endl;
