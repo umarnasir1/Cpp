@@ -1,11 +1,16 @@
 /*
   Vectors
   Vector declaration and initialization
-  Syntax for accessing individual vector elements. (array syntax and vector syntax)
+    (5) - 5 elements all initialized to zero
+    (5, 2) - 5 elements all initialized to 2
+    {5 ,2} - two elements, 5 and 2. 
+  Syntax for accessing individual vector elements. 
+    Array syntax
+    Vector syntax
+        Method - at()
   Chaning/Modifying vector elements - cin, assignment statement
-  Method - at
-  Method - size()
-  Method - pushback (chaing size of a vector) - adding a new element at the end of vector - dynamic nature of vector
+  Method - size() - size of vector 
+  Method - push_back (chaing size of a vector) - adding a new element at the end of vector - dynamic nature of vector
   Out of bounds - Exception
   2D Vector
 */
