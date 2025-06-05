@@ -19,8 +19,11 @@
 int main(){
 
   // Array Declaration & Initialization
+  // Always initialize arrays - or they will contain unknown values
+  // if not initilized there can be junk values. e.g output
 
   int test_scores [] {100, 95, 99, 87, 88};
+  //test_scores[0]; //100 also called array subscripting.
 
   int high_score_per_level [10] {3, 5}; // initialize first two elements to 3,5 and remaining to 0 (if we put less initilizers)
 
@@ -34,21 +37,15 @@ int main(){
   // objects
   // std::string accounts []{frank_account, jim_account}; //in case of objects
 
-
   // Illegal declaration
   // int numbers [0]; // is not legal since it declares an array with no size
-  // double 5numbers[5]; is not legal since the array name is not a legal identifier (identifiers cannot start with a digit)
-
-  //test_scores[0]; also called array subscripting.
+  // double 5numbers [5]; is not legal since the array name is not a legal identifier (identifiers cannot start with a digit)
 
   /************************************************************
   Accessing arrays elements
   *************************************************************/
 
   // Example:1
-
-  // Always initialize arrays - or they will contain unknown values
-  // if not initilized there can be junk values. e.g output
 
   // First score at index 0: 0
   // Second score at index 0: 0
@@ -84,28 +81,33 @@ int main(){
   // Example:2
   double hi_temps [] {90.1, 89.8, 77.5, 81.6};
 
-  std::cout << "The first high temprature is now : " << hi_temps[0] << std::endl;
+  std::cout << "The first high temprature is: " << hi_temps[0] << std::endl;
 
   hi_temps[0] = 100.7; // set the first element in hi_temps to 100.7
 
   std::cout << "The first high temprature is now : " <<hi_temps[0] << std::endl;
 
-  std::cout << hi_temps[5] << std::endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is one of the advantages of vectors. There will be warning but no error.
+  std::cout << hi_temps[5] << std::endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is 
+  // one of the advantages of vectors. There will be warning but no error.
 
   // Example: 3
   // char
-  // C++ treats arrays of characters and char *  as strings. So when we display an array of characters or a char *  pointer name, C++ will assume it is a string and display every character until it sees the NULL character.
+  // C++ treats arrays of characters and char *  as strings. So when we display an array of characters or a char *  pointer name, C++ will
+  // assume it is a string and display every character until it sees the NULL character.
   // This behavior is because C++ is backward compatible with C and that's how C works.
   char array[4] {'a', 'b', 'c'};
   std::cout << array << std::endl; // abc
   std::cout << *array << std::endl; // a
 
   // address of character array
-  std::cout << &array << std::endl;// 0x7ff7ba6f0988 - address of the 4-character array, which is the same address as the first character of the array.
+  std::cout << &array << std::endl;// 0x7ff7ba6f0988 - address of the 4-character array, which is the same address as the first character of 
+  // the array.
 
   int intarray[3] {1,2,3};
-  std::cout << intarray << std::endl; // 0x7ff7ba6f0994- address of first element
+  std::cout << intarray << std::endl; // 0x7ff7bfefe874- address of first element
   std::cout << *intarray << std::endl; // 1
+
+  std::cout << &intarray << std::endl; // 0x7ff7bfefe874 - address of first element
 
   return 0;
 }
