@@ -15,14 +15,13 @@ int main(){
   a = b // assignment
 
   // E.g of Statements
-  int x; // declaration
+  int x{}; // declaration
   favorite_number = 12; // assignment
   1.5 + 2.8 // expression
   x = 2 * 5 // assignment
   if (a > b) cout << "a is greater than b"; // if
   a = b // assignment
   ; // null statement and performs no action
-
 
   return 0;
 }

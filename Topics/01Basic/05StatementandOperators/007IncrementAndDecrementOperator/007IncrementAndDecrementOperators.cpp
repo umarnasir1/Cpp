@@ -11,7 +11,7 @@
   Postfix num++ -increment counter after we use it
 
   Don't overuse this operator!
-  ALERT!!! Nver use it twice for the same variable in the same statement!!
+  ALERT!!! Never use it twice for the same variable in the same statement!!
 */
 
 #include <iostream>
