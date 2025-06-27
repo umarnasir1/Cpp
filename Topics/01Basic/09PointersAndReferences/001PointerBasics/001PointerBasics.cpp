@@ -21,17 +21,12 @@
 #include <string>
 #include <vector>
 
-using std::string;
-using std::cout;
-using std::endl;
-using std::vector;
-
 int main (){
 
   int *int_ptr {};  // int_ptr is a pointer to integer
   double *double_ptr {nullptr}; // double_ptr is a pointer to a double
   char *char_ptr {nullptr};
-  string *string_ptr {nullptr}; // string_ptr is a pointer to a C++ string object.
+  std::string *string_ptr {nullptr}; // string_ptr is a pointer to a C++ string object.
 
   // Eg. 01
   int num {10}; // actual variable declaration.
@@ -43,16 +38,16 @@ int main (){
   //p = nullptr; // set p to point nowhere - sets p to 0
   //cout << "Value of p is: " << p << endl; // 0
 
-  cout << "Value of num is: " << num << endl; // 10 - displaying contents of num
-  cout << "Address of num is: " << &num << endl; //0x7ff7bf730724 - location in memory of variable num  - displaying address of num.
-  cout << "sizeof of num is: " << sizeof num << endl; // 4 (bytes) - how much storage is allocated by num / how much storage we need to store int
+  std::cout << "Value of num is: " << num << std::endl; // 10 - displaying contents of num
+  std::cout << "Address of num is: " << &num << std::endl; //0x7ff7bf730724 - location in memory of variable num  - displaying address of num.
+  std::cout << "sizeof of num is: " << sizeof num << std::endl; // 4 (bytes) - how much storage is allocated by num / how much storage we need to store int
 
   p = &num;   // store address of num in pointer variable
 
-  cout << "Address stored in p variable: " << p << endl; // 0x7ff7bf730724 - print the address stored in p pointer variable
-  cout << "Value of *ip variable: " << *p << endl; // 10 - access the value at the address available in pointer
-  cout << "Address of p is: " << &p << endl; // 0x7ff7bf730718 - address of variable p
-  cout << "sizeof of p is: " << sizeof p << endl; // 8 bytes - addresses can be stored in 8 bytes
+  std::cout << "Address stored in p variable: " << p << std::endl; // 0x7ff7bf730724 - print the address stored in p pointer variable
+  std::cout << "Value of *ip variable: " << *p << std::endl; // 10 - access the value at the address available in pointer
+  std::cout << "Address of p is: " << &p << std::endl; // 0x7ff7bf730718 - address of variable p
+  std::cout << "sizeof of p is: " << sizeof p << std::endl; // 8 bytes - addresses can be stored in 8 bytes
 
   // Eg. 02- size of
   // Each pointer is pointing to a different type. Each can hold addresses of variables of the type they point to.
@@ -60,8 +55,8 @@ int main (){
   int *p1 {nullptr};
   double *p2 {nullptr};
   unsigned long long *p3 {nullptr};
-  vector<string> *p4 {nullptr};
-  string *p5 {nullptr};
+  std::vector<std::string> *p4 {nullptr};
+  std::string *p5 {nullptr};
 
   /*
   There's a big difference between the size of the pointer variable itself and the size of what it points to i.e.,
@@ -78,26 +73,26 @@ int main (){
 
   // size of pointer
   // how much store is required to store address (address that the pointer is pointing to)
-  cout << "sizeof of p1 is: " << sizeof p1 << endl; // 8 bytes - addresses can be stored in 8 bytes
-  cout << "sizeof of p2 is: " << sizeof p2 << endl; //8
-  cout << "sizeof of p3 is: " << sizeof p3 << endl; //8
-  cout << "sizeof of p4 is: " << sizeof p4 << endl; //8
-  cout << "sizeof of p5 is: " << sizeof p5 << endl; //8
+  std::cout << "sizeof of p1 is: " << sizeof p1 << std::endl; // 8 bytes - addresses can be stored in 8 bytes
+  std::cout << "sizeof of p2 is: " << sizeof p2 << std::endl; //8
+  std::cout << "sizeof of p3 is: " << sizeof p3 << std::endl; //8
+  std::cout << "sizeof of p4 is: " << sizeof p4 << std::endl; //8
+  std::cout << "sizeof of p5 is: " << sizeof p5 << std::endl; //8
 
   //value of *p1-*p5 --- values char, double
   // how much storage is rquired to store value pointer is pointing to (value at address that the pointer is pointing to)
-  cout << "sizeof of *p1 is: " << sizeof *p1 << endl; //4
-  cout << "sizeof of *p2 is: " << sizeof *p2 << endl; //8
-  cout << "sizeof of *p3 is: " << sizeof *p3 << endl; //8
-  cout << "sizeof of *p4 is: " << sizeof *p4 << endl; //24
-  cout << "sizeof of *p5 is: " << sizeof *p5 << endl; //24
+  std::cout << "sizeof of *p1 is: " << sizeof *p1 << std::endl; //4
+  std::cout << "sizeof of *p2 is: " << sizeof *p2 << std::endl; //8
+  std::cout << "sizeof of *p3 is: " << sizeof *p3 << std::endl; //8
+  std::cout << "sizeof of *p4 is: " << sizeof *p4 << std::endl; //24
+  std::cout << "sizeof of *p5 is: " << sizeof *p5 << std::endl; //24
 
   // size of address  of p1-p5
-  cout << "sizeof of &p1 is: " << sizeof &p1 << endl; //8
-  cout << "sizeof of &p2 is: " << sizeof &p2 << endl; //8
-  cout << "sizeof of &p3 is: " << sizeof &p3 << endl; //8
-  cout << "sizeof of &p4 is: " << sizeof &p4 << endl; //8
-  cout << "sizeof of &p5 is: " << sizeof &p5 << endl; //8
+  std::cout << "sizeof of &p1 is: " << sizeof &p1 << std::endl; //8
+  std::cout << "sizeof of &p2 is: " << sizeof &p2 << std::endl; //8
+  std::cout << "sizeof of &p3 is: " << sizeof &p3 << std::endl; //8
+  std::cout << "sizeof of &p4 is: " << sizeof &p4 << std::endl; //8
+  std::cout << "sizeof of &p5 is: " << sizeof &p5 << std::endl; //8
   //-------
 
   // Eg. 03
@@ -119,51 +114,51 @@ int main (){
   temp_ptr = &high_temp; // points to high_temp
   temp_ptr = &low_temp;  // now points to low_temp
 
-  cout << "Value of score is: " << score << endl; // 10
-  cout << "Address of score is: " << &score << endl; // 0x7ff7bf7306ec
-  cout << "Value of score_ptr is: " << score_ptr << endl; // 0x7ff7bf7306ec
-  cout << "Value of *temp_ptr is: " << *temp_ptr << endl; // 37.2 - Access the data we are pointing to
+  std::cout << "Value of score is: " << score << std::endl; // 10
+  std::cout << "Address of score is: " << &score << std::endl; // 0x7ff7bf7306ec
+  std::cout << "Value of score_ptr is: " << score_ptr << std::endl; // 0x7ff7bf7306ec
+  std::cout << "Value of *temp_ptr is: " << *temp_ptr << std::endl; // 37.2 - Access the data we are pointing to
 
   // Eg. 4 - Dereferencing a Pointer - Access the data we are pointing to
   int score1 {100};
   int *score_ptr1 {&score1}; // Declaring a score pointer to be a pointer to an integer and initialize it to the address of score. Now score_ptr1 points to score1
 
-  cout << *score_ptr1 << endl; //100 - As score_ptr1 points to score1 (we are using dereference operator)
+  std::cout << *score_ptr1 << std::endl; //100 - As score_ptr1 points to score1 (we are using dereference operator)
 
   // When we dereference a pointer on the left hand side of an assignment statement, this results in an l value
   // left hand side of an assignment statement is address or location
   *score_ptr1 = 200; // Dereferencing the pointer again. The left-hand side of an assignment statement is an address or a location that's where we want to store things. Assigning 200 to score_ptr1. We just change the value of score indirectly via the pointer.
 
-  cout << *score_ptr1 << endl; // 200
-  cout << score1 << endl; // 200
+  std::cout << *score_ptr1 << std::endl; // 200
+  std::cout << score1 << std::endl; // 200
 
   // string - modified what that pointer is pointing to.
-  string name {"Bjarne"};
-  string *string_ptr1 {&name};
+  std::string name {"Bjarne"};
+  std::string *string_ptr1 {&name};
 
-  cout << *string_ptr1 << endl; // Bjarne
+  std::cout << *string_ptr1 << std::endl; // Bjarne
 
   name = "Straustrup"; // changing name  - not through pointer.. through variable - not modifying the pointer, but modifiing the area the pointer is pointing to.
 
-  cout << *string_ptr1 << endl; // Straustrup - dereferencing the pointer again
+  std::cout << *string_ptr1 << std::endl; // Straustrup - dereferencing the pointer again
 
 
   // another eg. of pointer and what it is poitning to
-  cout << "---------------------------" << endl;
-  vector <string> stooges {"Larry", "Moe", "Curly"};
-  vector <string> *vector_ptr {nullptr};
+  std::cout << "---------------------------" << std::endl;
+  std::vector <std::string> stooges {"Larry", "Moe", "Curly"};
+  std::vector <std::string> *vector_ptr {nullptr};
 
   vector_ptr = &stooges;
 
-  cout << "First stooge: " << (*vector_ptr).at(0) << endl; // Larry - dereferencing prointer and then at(). further we use () as . have higher presidence then ()
-  cout << "Second stooge: " << (*vector_ptr).at(1) << endl; // Moe
-  cout << "Third stooge: " << (*vector_ptr).at(2) << endl; // Curly
+  std::cout << "First stooge: " << (*vector_ptr).at(0) << std::endl; // Larry - dereferencing prointer and then at(). further we use () as . have higher presidence then ()
+  std::cout << "Second stooge: " << (*vector_ptr).at(1) << std::endl; // Moe
+  std::cout << "Third stooge: " << (*vector_ptr).at(2) << std::endl; // Curly
 
   // Printing all the stooges through vector pointer
-  cout << "Stooges: ";
+  std::cout << "Stooges: ";
   for (auto stooge: *vector_ptr) // Range based for loop ; *vector_ptr -we are getting stooges
-    cout << stooge << " "; // Larry Moe Curly
-  cout << endl;
+    std::cout << stooge << " "; // Larry Moe Curly
+  std::cout << std::endl;
 
   return 0;
 }

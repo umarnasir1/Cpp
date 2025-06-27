@@ -4,8 +4,6 @@
 #include<iostream>
 #include<string>
 
-using std::string;
-
 // Function Prototye
 int square (int &n);
 
@@ -16,7 +14,7 @@ int main (){
   x = 1000;
   x = 1000 + 20;
 
-  string name; // name is an l-value
+  std::string name; // name is an l-value
   name = "Frank";
 
   // non l value i.e, R values

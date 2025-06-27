@@ -5,10 +5,6 @@
 */
 #include<iostream>
 
-using std::cout;
-using std::endl;
-//using std::vector;
-
 // Function Prototype
 void swap (int *a, int *b);
 
@@ -16,19 +12,19 @@ int main (){
 
   int i {5};
   while (i>0){
-    cout << i << endl;
+    std::cout << i << std::endl;
     i--;
   }
 
   int x{100}, y{200};
-  cout << "\nx: " << x << endl;
-  cout << "y: " << y << endl;
+  std::cout << "\nx: " << x << std::endl;
+  std::cout << "y: " << y << std::endl;
 
   swap(&x, &y);
 
-  cout << "\nx: " << x << endl;
-  cout << "y: " << y << endl;
-  cout << endl;
+  std::cout << "\nx: " << x << std::endl;
+  std::cout << "y: " << y << std::endl;
+  std::cout << std::endl;
 
   // cout <<"Hello World!" << endl;
   //

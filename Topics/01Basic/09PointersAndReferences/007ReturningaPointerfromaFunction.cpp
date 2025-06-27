@@ -24,10 +24,6 @@
 */
 #include<iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 // Function Declaration
 int *largest_int (int *int_ptr1, int *int_ptr2);
 int *create_array (size_t size, int init_value = 0); // returning dynamically allocated memory 
@@ -35,25 +31,25 @@ void display (const int *const array, size_t size);
 
 int main(){
 
-  cout << "Eg. 01 ------------------------------------------" << endl;
+  std::cout << "Eg. 01 ------------------------------------------" << std::endl;
   int a {100}, b {200};
 
   int *largest_ptr {nullptr};
   largest_ptr = largest_int (&a, &b); // The function expects pointers to integers. the function returns a pointer, which is assigned to largest_ptr (a pointer to integer)
-  cout << "Out of " << a << " and " << b << ", the largest numebr is: " << *largest_ptr << endl; // 200 - deferencing pointer to print the value
+  std::cout << "Out of " << a << " and " << b << ", the largest numebr is: " << *largest_ptr << std::endl; // 200 - deferencing pointer to print the value
 
-  cout << "\nEg. 02 ------------------------------------------" << endl;
+  std::cout << "\nEg. 02 ------------------------------------------" << std::endl;
   int *my_array {nullptr}; // will be allocated by the function;
   size_t size;
   int init_value {};
 
-  cout << "\nHow many integers would you like to allocate? ";
-  cin >> size;
-  cout << "What value would you like them initialized to? ";
-  cin >> init_value;
+  std::cout << "\nHow many integers would you like to allocate? ";
+  std::cin >> size;
+  std::cout << "What value would you like them initialized to? ";
+  std::cin >> init_value;
 
   my_array = create_array(size, init_value); // create the array - size integers allocated dynamically on the heap and all initialized to init_value and returns the address of that first integer in the array.
-  cout << "\n-----------------------------------------------------" << endl;
+  std::cout << "\n-----------------------------------------------------" << std::endl;
 
   display(my_array, size);
   delete [] my_array;  // free the storage as it is on heap
@@ -84,8 +80,8 @@ int *create_array (size_t size, int init_value) { // init_value - initialize all
 
 void display (const int *const array, size_t size){ // as we have got a constant pointer and we are poinitng to a constant arry, we cant mess with array either by accident or intentionally
   for (size_t i{0}; i < size; ++i)
-    cout << array[i] << " ";
-  cout << endl;
+    std::cout << array[i] << " ";
+  std::cout << std::endl;
 }
 
 

@@ -6,11 +6,6 @@
 #include<string>
 #include<vector>
 
-using std::cout;
-using std::endl;
-using std::string;
-using std::vector;
-
 // Function Definition
 void double_data (int *int_ptr); // expects a pointer to an integer as a parameter
 void swap (int *a, int *b);
@@ -21,19 +16,19 @@ int main(){
 
   // pass by reference with pointers
   // Eg1
-  cout << "\nEg. 01-----------------------------------" << endl;
+  std::cout << "\nEg. 01-----------------------------------" << std::endl;
   int value {10};
   int *int_ptr {nullptr}; // int_ptr also parameter to the function. There are two different variables and two different scopes. int_ptr is just created to pass pointer to the function.
 
   // Two ways to pass same information in a function-
-  cout << "Value before double_data: " << value << endl; // 10
+  std::cout << "Value before double_data: " << value << std::endl; // 10
   double_data(&value); // passing address
-  cout << "Value after double_data: " << value << endl; // 20
+  std::cout << "Value after double_data: " << value << std::endl; // 20
 
-  cout << "----------------------------------------" << endl; // another way; passing pointer
+  std::cout << "----------------------------------------" << std::endl; // another way; passing pointer
   int_ptr = &value;
   double_data(int_ptr); // passing pointer
-  cout << "Value: " << value << endl;
+  std::cout << "Value: " << value << std::endl;
 
   /*
                               Memory for a program: (before stack is cleaned - stack gets cleaned after function execution)
@@ -65,13 +60,13 @@ int main(){
 */
 
   // Eg. 2
-  cout << "\nEg. 02-----------------------------------" << endl;
+  std::cout << "\nEg. 02-----------------------------------" << std::endl;
   int x {100}, y {200};
-  cout << "\nx: " << x << endl;
-  cout << "y: " << y << endl;
+  std::cout << "\nx: " << x << std::endl;
+  std::cout << "y: " << y << std::endl;
   swap(&x, &y); // the values will change as references are being passed
-  cout << "\nx: " << x << endl;
-  cout << "y: " << y << endl;
+  std::cout << "\nx: " << x << std::endl;
+  std::cout << "y: " << y << std::endl;
 
   /*
                               Memory for a program: (before stack is cleaned - stack gets cleaned after function execution)
@@ -101,11 +96,11 @@ int main(){
                               |x 100, 200             | (1000)
                               -------------------------
 */
-  cout << "\nEg. 03-----------------------------------" << endl;
-  vector<string> stooges {"Larry", "Moe", "Curly"};
+  std::cout << "\nEg. 03-----------------------------------" << std::endl;
+  std::vector<std::string> stooges {"Larry", "Moe", "Curly"};
   display(&stooges); // address of first element of vector.
 
-  cout << "---------------------------------------" << endl;
+  std::cout << "---------------------------------------" << std::endl;
   int scores [] {100, 98, 97, 79, 85, -1};
   display(scores, -1);
 

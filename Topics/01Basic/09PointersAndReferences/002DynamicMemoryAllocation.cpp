@@ -7,10 +7,6 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cin;
-using std::endl;
-
 int main (){
 
   // Using new to allocate storage
@@ -18,13 +14,13 @@ int main (){
 
   int_ptr = new int;  // allocating int at runtime on the heap and allocating storage for an int on the heap and stores address in int_ptr. We are pointing to storage from int_ptr
 
-  cout << int_ptr << endl; // 0x7fe17f4057e0 -  memory location where that integer is on the heap. address that is stored in int_ptr and int_ptr is pointing to it. address of newly created integer.
+  std::cout << int_ptr << std::endl; // 0x7fe17f4057e0 -  memory location where that integer is on the heap. address that is stored in int_ptr and int_ptr is pointing to it. address of newly created integer.
 
-  cout << *int_ptr << endl; // 41188048 - dereferencing pointer to check value of integer. garbage -  Thats because the integer that was allocated hasent been initialized.
+  std::cout << *int_ptr << std::endl; // 41188048 - dereferencing pointer to check value of integer. garbage -  Thats because the integer that was allocated hasent been initialized.
 
   *int_ptr = 100; // assigning value to that integer on the heap
 
-  cout << *int_ptr << endl; // 100
+  std::cout << *int_ptr << std::endl; // 100
 
   // Using delete to deallocate storage
   delete int_ptr; // frees the allocaated storage
@@ -38,8 +34,8 @@ int main (){
   double *array_ptr {nullptr}; // on stack
   size_t size {0};
 
-  cout << "How big do you want the array? ";
-  cin >> size;
+  std::cout << "How big do you want the array? ";
+  std::cin >> size;
 
   // what happens if our call to allocate the size fails.
   //while (true) // endless loop
@@ -47,7 +43,7 @@ int main (){
 
   array_ptr = new double[size]; // allocate array on the heap contiguously in the memory and stores the address of first one in array_ptr and the address of the first element is stored in array_ptr
 
-  cout << array_ptr << endl; // 0x7f82ac504080- address of first double
+  std::cout << array_ptr << std::endl; // 0x7f82ac504080- address of first double
 
   // Memory Leak e.g.,
   // array_ptr = nullptr; We nulled out array_ptr. We lost our only way to gt to array_ptr storage
