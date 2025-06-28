@@ -1,6 +1,10 @@
 /*
   if statement
 
+  if (control expr) statement1; // good approach
+  
+  OR 
+
   if (control expr) //must evaluate to a boolean value; if the value of expr is true, the statement is executed otherwise skipped
     statement1;
 
@@ -33,16 +37,23 @@
   checking scrop rules - diff variable
 }
 
+Any thing that is non-zero is considered true 
+            only zero is considered false 
+            The empty string is non-zero (In C++ it is actually an address)
+            Ex. 
+              if (1); if ("")
+
+Turnary Conditional Operator - Eg 5
+
 */
 
 #include <iostream>
 
 int main(){
 
-  int num {};
-
   // Eg. 01
   // setting boundries
+  int num {};
   const int min {10};
   const int max {100};
 
@@ -86,16 +97,15 @@ int main(){
   It's cold!
   It's hot!
   as   if (temperature < 50); so cout will execute and then next if condition will execute. more explanition up.
-  */
+  */ 
+ 
   int temperature;
   std::cout << "\nEnter a temperature: ";
   std::cin >> temperature;
-  if (temperature < 50);
+  if (temperature < 50); // no statement
   
-  if (temperature > 50)
-     std::cout << "It's hot!" << std::endl;
-  else
-     std::cout << "Maybe it's raining?" << std::endl;
+  if (temperature > 50) std::cout << "It's hot!" << std::endl;
+  else std::cout << "Maybe it's raining?" << std::endl;
 
   // Eg. 03 - if more than one statement then always use {} block otherwise we will see unexpected results. Just first statement will be considered part of if and other two will print if the condition is not meet
   /*
@@ -111,6 +121,14 @@ int main(){
      std::cout << "That's amazing!" << std::endl;
      std::cout << "Great minds think alike!" << std::endl;
   }
+
+  // Eg. 04 - The empty string is non-zero (In C++ it is actually an address)
+  if ("") std::cout << "Condition is true." << std::endl; // Condition is true 
+
+  // Eg. 05 - Turnary Conditional Operator 
+  auto x {50}, y {40};
+  auto z = x > y ? "true" : "false";
+  std::cout << "Answer: " << z << std::endl; 
 
   return 0;
 }
