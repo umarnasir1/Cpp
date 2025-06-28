@@ -5,6 +5,8 @@
     statement;
 
   if block {} is not added and more than one statments then only first statement will be considered part of loop
+
+  Ex 12 & Ex 13 break & continue
 */
 
 #include <iostream>
@@ -130,14 +132,12 @@ int main (){
   // ---- Eg. 10
   // while loop with using {}
   // this will be infite loop and the decement will be considered outside the loop and the loop will get stick in infinite loop. 
-  /*
+  
   num = 10;
   while (num >= 1)
      std::cout << num << " ";
      num--;
   
-  */
-
   // ---- Eg. 11
   // Write a program in C++ to find the sum of first 10 natural numbers.    
   int sum {}, nNum{1};
@@ -147,6 +147,27 @@ int main (){
   }
   
   std::cout << "The sum of first 10 natural numbers is: " << sum << std::endl;
+
+  // ---- Eg. 12
+  // break
+  int z {0};
+  while (z <= 5){
+    if (z==3) break; 
+    std::cout << z << std::endl; // 0 1 2 
+    ++z;
+  }
+
+  // --- Eg. 13
+  // continue
+  int y {0}; 
+  while (y <= 5){
+    if (y==2){
+      ++y;
+      continue; 
+    }
+    std::cout << y << std::endl; // 0 1 3 4 5
+    ++y;
+  }
 
   return 0;
 }
