@@ -97,5 +97,24 @@ int main() {
   
   std::cout << "The sum of first 10 natural numbers is : " << sum1 << std::endl;
 
+  // Iterating through a string 
+  std::cout << "\nExample 13" << std::endl;
+
+  const char string[] {"Bjarne"}; // seven positions, six characters + 1 null character as C style string always terminate with a null character. 
+
+  for (int i{}; string[i]; ++i) // condition is true only when there is a character in the character string and the condition gets false when there is no character left, i.e., the null character. So the null character is not printed bec its false and the loop ends. 
+    std::cout << "Element " << i << " is " << string[i] << std::endl; 
+
+  // Pointer example 
+  std::cout << "\nExample 14" << std::endl;
+
+  for (auto *p {string}; *p; ++p) 
+    std::cout << "Char is " << *p << std::endl; // dereferencing the pointer to get the value
+
+    // initializing pointer with the value of the string array
+    // As, the value of an array in C and C++ is its address so actually the pointer is initialized by the address of the string which is the address of the first character of the string.
+    // dereferencing the the pointer in loop control - loop will terminate when its a false condition, i.e., null terminator. 
+    // ++p incrementing the pointer, so it will point to next address (of string) in subsequent iteration.  
+
   return 0;
 }
