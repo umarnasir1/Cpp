@@ -1,8 +1,8 @@
 /*
   range-based for Loop
 
-  for (var_type var_name: sequence) //if more than 1 statement then blocks {}
-    statement;
+  for (var_type element: container) // 
+    statement; //if more than 1 statement then blocks {}
 
   var_name will be bound to each element of the collection so it should be of the same type as the collection elements.
   sequence - collection or collection name.
@@ -18,7 +18,7 @@ int main (){
   std::cout << "Example 1: Simple Example of range based for loop \n";
   int scores [] {100, 90, 97};
 
-  for (int score : scores)
+  for (int score : scores) // score is element; scores is container
     std::cout << score << std::endl;
 
   // Using auto keyword - So in this case, the compiler figures out the type. The compiler sees that collection scores is an array of integers, so it uses an integer for the score variable.
@@ -49,7 +49,6 @@ int main (){
 
   std::cout << "Average Temprature : " << average_temp << std::endl;
 
-
   // The range-based for loop can also use an initializer list as a collection. This is handy when the elements of collection are known ahead of time and they wont change. Downside: size of vector need to be calculated and we cannot use .size method as no vector definition.
   // This example also calculates the average before temperatures.
   std::cout << "\nExample 5: Use as an initializer list as a collection. \n";
@@ -64,7 +63,7 @@ int main (){
   average_temp1 = running_sum1/size;
   std::cout << "Average Temprature : " << average_temp1 << std::endl;
 
-  // Range based loop to iterate over a string.
+  // Range based loop to iterate over a string. (C++ Syle String)
   std::cout << "\nExample 6: String - Iterating a string.\n";
   for (auto c : "Programming")
     std::cout << c << std::endl;
@@ -92,10 +91,29 @@ int main (){
   int count {};
 
   for (auto num: {1,3,5,15,16,17,18,19,20,21,25,26,27,30,50,55,56,58,100,200,300,400,500,600,700})
-    if (num % 3 == 0 || num % 5 == 0)
+    if (num % 3 == 0 || num % 5 == 0)
       ++count;
 
   std::cout << "# of Elements evenly divisible by either 3 or 5: " << count << std::endl;
 
+  // Reference example
+  std::cout << "\nExample 10\n";
+  int array[] {1, 2, 3, 4, 5};
+
+  for (const auto &ele : array) // TODO why reference taken here
+    std::cout << "Element is " << ele << std::endl; 
+  
+  // automatically detects the type of the element 
+  // refernce to the actual element in the array
+  // if we dint had the const, we could actually change it
+  // Because we are using reference, thats why we are using const.
+
+  // C String example
+  std::cout << "\nExample 11\n";
+  const char string[] {"Testing"};
+
+ for (const auto &ele : string)
+    std::cout << "Element is " << ele << std::endl; 
+  
   return 0;
 }
