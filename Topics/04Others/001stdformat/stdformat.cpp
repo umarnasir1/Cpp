@@ -30,6 +30,7 @@ int main() {
 
     //
     std::cout << std::format("Element {} is {}\n", i, array[i]); 
+    std::cout << std::format("Element {} is {}\n", i, string[i]);
     std::cout << std::format("The value of x is {}\n", x);
     std::cout << std::format("The value of y is {}\n", y);
     std::cout << std::format("The value of *ip is {}\n", *ip);
