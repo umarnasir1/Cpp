@@ -34,4 +34,5 @@ int main() {
     std::cout << std::format("The value of x is {}\n", x);
     std::cout << std::format("The value of y is {}\n", y);
     std::cout << std::format("The value of *ip is {}\n", *ip);
+    std::cout << std::format("Value of df is {:.20f}\n", df); // displaying precision of double - // 20 decimal places 
 }
