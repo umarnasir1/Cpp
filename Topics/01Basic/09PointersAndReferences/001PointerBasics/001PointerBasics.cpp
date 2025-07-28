@@ -160,5 +160,19 @@ int main (){
     std::cout << stooge << " "; // Larry Moe Curly
   std::cout << std::endl;
 
+  // Eg 5
+  int intarray[3] {1,2,3};
+  std::cout << intarray << std::endl; // 0x7ff7bfefe854- address of first element
+  // array elements can also be accessed as if the array were a pointer. 
+  std::cout << *intarray << std::endl; // 1 - pointing to the first element of array
+
+  // if we want to assign the value to first element of the array
+  int *ip {intarray}; 
+  *ip = 2; // [2, 2, 3]
+  ++ip; // incrementing the pointer so it points to the second element. 
+  *ip = 3; // assigns the value 3 to the second element of the array. [2,3,3]
+  *(++ip) = 4; // increment a pointer and using it in same expression [2,3,4]
+  std::cout << &intarray << std::endl; // 0x7ff7bfefe854 - address of first element
+
   return 0;
 }
