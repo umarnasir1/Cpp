@@ -100,12 +100,13 @@ int main (){
   std::cout << "\nExample 10\n";
   int array[] {1, 2, 3, 4, 5};
 
-  for (const auto &ele : array) // TODO why reference taken here
+  for (const auto &ele : array) 
     std::cout << "Element is " << ele << std::endl; 
   
-  // automatically detects the type of the element 
-  // refernce to the actual element in the array
-  // if we dint had the const, we could actually change it
+  // auto - automatically detects the type of the element
+  // const &ele
+  // refernce to the actual element (ele) i.e we dont make a copy of ele
+  // if we didnt had the const, we could actually change it
   // Because we are using reference, thats why we are using const.
 
   // C String example
