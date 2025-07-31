@@ -21,16 +21,24 @@ int main(){
   // Array Declaration & Initialization
   // Always initialize arrays - or they will contain unknown values
   // if not initilized there can be junk values. e.g output
+  
+  // Initilizing array via initializer list, that declares and assigns the values 1,2,3,4,5 to first five elements of the array
 
-  int test_scores [] {100, 95, 99, 87, 88};
+  // normal declaration & initialization
+  // int test_scores [5] {100, 95, 99, 87, 88};
+
+  // declaration and initialization via initializer list 
+  int int test_scores [] {100, 95, 99, 87, 88};; // size parameter is ommited. The compiler will infer the size of the array from the initialization
+
   //test_scores[0]; //100 also called array subscripting.
 
   int high_score_per_level [10] {3, 5}; // initialize first two elements to 3,5 and remaining to 0 (if we put less initilizers)
 
   const int days_in_year {365};
-  double hi_tempratures [days_in_year] {0}; // initilize all to zero
+  double hi_tempratures [days_in_year] {}; // initilize all to zero
 
-  int test_scores1 [5] {}; // initilize all to zero
+  // int test_scores1 [5]; // size of array is 5, Once defined the size of the array cannot be changed. 
+  int test_scores1 [5] {}; // initilize all to zero - always initilize a newly created array
 
   int another_arry [] {1,2,3,4,5}; // size automatically calculated by compiler based on the # of elements in the initializer list.
   
@@ -100,14 +108,21 @@ int main(){
   std::cout << *array << std::endl; // a
 
   // address of character array
-  std::cout << &array << std::endl;// 0x7ff7ba6f0988 - address of the 4-character array, which is the same address as the first character of 
+  std::cout << &array << std::endl;// 0x7ff7bfefe848 - address of the 4-character array, which is the same address as the first character of 
   // the array.
 
   int intarray[3] {1,2,3};
-  std::cout << intarray << std::endl; // 0x7ff7bfefe874- address of first element
-  std::cout << *intarray << std::endl; // 1
+  std::cout << intarray << std::endl; // 0x7ff7bfefe854- address of first element
+  // array elements can also be accessed as if the array were a pointer. 
+  std::cout << *intarray << std::endl; // 1 - pointing to the first element of array
 
-  std::cout << &intarray << std::endl; // 0x7ff7bfefe874 - address of first element
+  // if we want to assign the value to first element of the array
+  int *ip {intarray}; 
+  *ip = 2; // [2, 2, 3]
+  ++ip; // incrementing the pointer so it points to the second element. 
+  *ip = 3; // assigns the value 3 to the second element of the array. [2,3,3]
+  *(++ip) = 4; // increment a pointer and using it in same expression [2,3,4]
+  std::cout << &intarray << std::endl; // 0x7ff7bfefe854 - address of first element
 
   return 0;
 }
