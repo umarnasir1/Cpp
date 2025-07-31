@@ -116,6 +116,7 @@ int main(){
   // array elements can also be accessed as if the array were a pointer. 
   std::cout << *intarray << std::endl; // 1 - pointing to the first element of array
 
+  // Pointer Access
   // if we want to assign the value to first element of the array
   int *ip {intarray}; 
   *ip = 2; // [2, 2, 3]
