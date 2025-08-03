@@ -1,0 +1,1 @@
+Abc x {23, 34.2, "Test"}; // initializer list to define a variable or object based on that structure. Abc is name of a structure
