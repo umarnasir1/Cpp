@@ -113,8 +113,12 @@ int main (){
   std::cout << "\nExample 11\n";
   const char string[] {"Testing"};
 
- for (const auto &ele : string)
+  for (const auto &ele : string) // prints each of the individual characters plus a blank one, i.e., null terminator \0. 
     std::cout << "Element is " << ele << std::endl; 
-  
+
+  // if want to ommit the printing of null terminator 
+  // for (const auto &ele : string) // prints each of the individual characters plus a blank one, i.e., null terminator. 
+  //  if (ele) std::cout << "Element is " << ele << std::endl; // checking if ele is true or false so in case of null terminator, it will not print it
+
   return 0;
 }
