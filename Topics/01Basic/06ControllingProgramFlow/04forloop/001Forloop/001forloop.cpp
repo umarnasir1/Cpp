@@ -108,12 +108,14 @@ int main() {
   // Pointer example 
   std::cout << "\nExample 14" << std::endl;
 
-  for (auto *p {string}; *p; ++p) 
+  for (const auto *p {string}; *p; ++p) // using const so value doesnt change
     std::cout << "Char is " << *p << std::endl; // dereferencing the pointer to get the value
 
+    // The most declare a string with a pointer is with const, i.e., constant string
+    //   we have a constant string and what we have here is a constant string and we are simply declaring a pointer that points to it. 
     // initializing pointer with the value of the string array
     // As, the value of an array in C and C++ is its address so actually the pointer is initialized by the address of the string which is the address of the first character of the string.
-    // dereferencing the the pointer in loop control - loop will terminate when its a false condition, i.e., null terminator. 
+    // dereferencing the the pointer in loop control - testing for the null terminator. The loop will terminate when its a false condition, i.e., null terminator. 
     // ++p incrementing the pointer, so it will point to next address (of string) in subsequent iteration.  
 
   return 0;
