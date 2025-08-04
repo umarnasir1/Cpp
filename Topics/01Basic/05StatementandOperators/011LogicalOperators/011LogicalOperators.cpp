@@ -28,7 +28,7 @@ int main(){
   std::cout << "Enter an integer - the bounds are " << lower << " and " << upper << " : ";
   std::cin >> num;
 
-  bool within_bounds {false};
+  bool within_bounds {false}; // auto within_bounds {false}; 
 
   within_bounds = (num > lower && num < upper);
   std::cout << num << " is between " << lower << " and " << upper << " : " << within_bounds << std::endl;
