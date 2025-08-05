@@ -28,7 +28,7 @@ int main(){
   // int test_scores [5] {100, 95, 99, 87, 88};
 
   // declaration and initialization via initializer list 
-  int int test_scores [] {100, 95, 99, 87, 88};; // size parameter is ommited. The compiler will infer the size of the array from the initialization
+  int test_scores [] {100, 95, 99, 87, 88};; // size parameter is ommited. The compiler will infer the size of the array from the initialization
 
   //test_scores[0]; //100 also called array subscripting.
 
@@ -111,19 +111,52 @@ int main(){
   std::cout << &array << std::endl;// 0x7ff7bfefe848 - address of the 4-character array, which is the same address as the first character of 
   // the array.
 
-  int intarray[3] {1,2,3};
+  uint64_t intarray[3] {1,2,3};
   std::cout << intarray << std::endl; // 0x7ff7bfefe854- address of first element
+  std::cout << &intarray << std::endl; // 0x7ff7bfefe854 - address of first element
+
   // array elements can also be accessed as if the array were a pointer. 
   std::cout << *intarray << std::endl; // 1 - pointing to the first element of array
 
-  // Pointer Access
+  // Pointer Access - Pointer Increment
   // if we want to assign the value to first element of the array
-  int *ip {intarray}; 
+  uint64_t *ip {intarray}; 
+  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea54, value is 1
   *ip = 2; // [2, 2, 3]
+  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea54, value is 2
   ++ip; // incrementing the pointer so it points to the second element. 
   *ip = 3; // assigns the value 3 to the second element of the array. [2,3,3]
+  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea58, value is 3 (address increment by 32 bits, 4 bytes)
   *(++ip) = 4; // increment a pointer and using it in same expression [2,3,4]
-  std::cout << &intarray << std::endl; // 0x7ff7bfefe854 - address of first element
+  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea5c, value is 4 (address increment by 32 bits, 4 bytes)
+  
+  // OBS! 
+  // Notice that in the above example the address is incremented by 32 bits/ 4 bytes we can change it by replacing uinit8_t, uint16_t, uint32_t, uint64_t in
+  // array declaration and susequent pointer access:
+  //
+  // uint16_t - increment by 16 bits/2 bytes
+  // Pointer is: 0x7ff7bfefea4e, value is 1
+  // Pointer is: 0x7ff7bfefea4e, value is 2
+  // Pointer is: 0x7ff7bfefea50, value is 3
+  // Pointer is: 0x7ff7bfefea52, value is 4
+  //
+  // uint32_t - increment by 32 bits/4 bytes 
+  // Pointer is: 0x7ff7bfefea54, value is 1
+  // Pointer is: 0x7ff7bfefea54, value is 2
+  // Pointer is: 0x7ff7bfefea58, value is 3
+  // Pointer is: 0x7ff7bfefea5c, value is 4 
+  // 
+  // uint64_t - increment by 64 bits/ 8 bytes 
+  // Pointer is: 0x7ff7bfefea40, value is 1
+  // Pointer is: 0x7ff7bfefea40, value is 2
+  // Pointer is: 0x7ff7bfefea48, value is 3
+  // Pointer is: 0x7ff7bfefea50, value is 4
+  // 
+  // Alternatively, by using following general code:
+  // General Code:
+  // using int_type = uint16_t; // above main () and change it to uint32_t, uint64_t
+  // int_type intarray[3] {1,2,3};
+  // int_type *ip {intarray}; 
 
   return 0;
 }
