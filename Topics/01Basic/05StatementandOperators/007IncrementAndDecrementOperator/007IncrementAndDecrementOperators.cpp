@@ -12,6 +12,10 @@
 
   Don't overuse this operator!
   ALERT!!! Never use it twice for the same variable in the same statement!!
+
+  Pointer Increment
+    Its important to note how increment and decrement operators work with pointers (as pointer is strongly typed) 
+    system knows the size of the object that it points at and so the increment and decrement happens by that size
 */
 
 #include <iostream>
@@ -89,6 +93,9 @@ int main(){
 
   std::cout << "Counter: " << counter << std::endl;//11
   std::cout << "Result: " << result << std::endl;//20
+
+  // Pointer Increment
+  // Pointer access example in 04ArraysandVectors/01Arrays
 
   return 0;
 }
