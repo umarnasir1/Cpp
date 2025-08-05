@@ -5,3 +5,25 @@
     Prime Number Definition: A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers, 
     i.e., its only factors are one and itself.
 */
+
+#include<iostream>
+
+int main(){
+
+    int factors {0};
+
+    for (int number {2}; number < 100; ++number){ // Checking numbers from 2-99
+        for (int divisor {1}; divisor <= number; ++divisor) // Counting the divisors of the number
+            if (number % divisor == 0)
+                ++factors;
+
+        if (factors == 2) // Only prime if divisible by 1 and the number itself. 
+            std::cout << number << " ";
+        
+        factors = 0; // Resetting factor counter for the next number
+    }
+
+    std::cout << std::endl;
+
+    return 0; 
+}
