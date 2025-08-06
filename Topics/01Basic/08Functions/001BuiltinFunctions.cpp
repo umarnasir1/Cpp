@@ -63,7 +63,7 @@ int main (){
   ceil(individual * 100)/100: 20.56 //$
   */
 
-  cout << "The individual bill at location 1 will be $" << individual_bill_1 << "\n" << "The individual bill at location 2 will be $" << individual_bill_2 << "\n" << "The individual bill at location 3 will be $" << individual_bill_3 << endl;
+  std::cout << "The individual bill at location 1 will be $" << individual_bill_1 << "\n" << "The individual bill at location 2 will be $" << individual_bill_2 << "\n" << "The individual bill at location 3 will be $" << individual_bill_3 << std::endl;
 
 
   // E.g 3 - Random numbers
