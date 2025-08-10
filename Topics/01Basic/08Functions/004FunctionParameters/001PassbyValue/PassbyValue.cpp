@@ -11,7 +11,7 @@ void param_test (int formal);
 
 void pass_by_value1(int num);
 void pass_by_value2(std::string s); // expects a C++ string object
-void pass_by_value3(std::vector <sstd::tring> v); // expects vector of strings object
+void pass_by_value3(std::vector <std::string> v); // expects vector of strings object
 void print_vector(std::vector <std::string> v);
 
 int main(){
@@ -33,12 +33,12 @@ int main(){
   pass_by_value1(another_num);
   std::cout << "another_num after calling pass_by_value1: " << another_num << std::endl;
 
-  string name {"Bjarne"};   // C++ String object
+  std::string name {"Bjarne"};   // C++ String object
   std::cout << "\nname before calling pass_by_value2: " << name << std::endl;
   pass_by_value2(name);
   std::cout << "name after calling pass_by_value2: " << name << std::endl;
 
-  vector <string> stooges {"Larry", "Moe", "Curly"};  // vector of strings object
+  std::vector <std::string> stooges {"Larry", "Moe", "Curly"};  // vector of strings object
   std::cout << "\nstooges before calling pass_by_value3: ";
   print_vector(stooges);
   pass_by_value3(stooges);
@@ -61,18 +61,18 @@ void pass_by_value1 (int num){
   return;
 }
 
-void pass_by_value2 (string s){
+void pass_by_value2 (std::string s){
   s = "Changed"; // this will not change the name but will change the copy 
   return;
 }
 
-void pass_by_value3(vector <string> v){
+void pass_by_value3(std::vector <std::string> v){
   v.clear(); // delete all vector elements
 }
 
-void print_vector(vector <string> v){ // for integer vector, it would be same void print(vector <int> v)
+void print_vector(std::vector <std::string> v){ // for integer vector, it would be same void print(vector <int> v)
   for (auto s: v)
     std::cout << s << " ";
-  std::cout << endl;
+  std::cout << std::endl;
   return;
 }
