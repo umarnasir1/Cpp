@@ -25,25 +25,25 @@ int main(){
   int num {10};
   int another_num {20};
 
-  std::cout << "num before calling pass_by_value1: " << num << std::endl;
+  std::cout << "num before calling pass_by_value1: " << num << std::endl; // 10
   pass_by_value1(num);
-  std::cout << "num after calling pass_by_value1: " << num << std::endl;
+  std::cout << "num after calling pass_by_value1: " << num << std::endl; // 10
 
-  std::cout << "\nanother_num before calling pass_by_value1: " << another_num << std::endl;
+  std::cout << "\nanother_num before calling pass_by_value1: " << another_num << std::endl; //20
   pass_by_value1(another_num);
-  std::cout << "another_num after calling pass_by_value1: " << another_num << std::endl;
+  std::cout << "another_num after calling pass_by_value1: " << another_num << std::endl; //20 
 
   std::string name {"Bjarne"};   // C++ String object
-  std::cout << "\nname before calling pass_by_value2: " << name << std::endl;
+  std::cout << "\nname before calling pass_by_value2: " << name << std::endl; //Bjarne
   pass_by_value2(name);
-  std::cout << "name after calling pass_by_value2: " << name << std::endl;
+  std::cout << "name after calling pass_by_value2: " << name << std::endl; //Bjarne
 
   std::vector <std::string> stooges {"Larry", "Moe", "Curly"};  // vector of strings object
   std::cout << "\nstooges before calling pass_by_value3: ";
-  print_vector(stooges);
+  print_vector(stooges); // Larry Moe Curly 
   pass_by_value3(stooges);
   std::cout << "stooges after calling pass_by_value3: ";
-  print_vector(stooges);
+  print_vector(stooges); // Larry Moe Curly 
 
   return 0;
 }
