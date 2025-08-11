@@ -56,7 +56,7 @@ int main (){
   //  say_hello(100); // Compiler Error - as we have entered paramenter but in prototype there is no parameter  
   //  cout << say_hello(); // Error - no return value - as function call is within output statement and the function prototype says that the function doesnt return anything
 
-  say_hello1("Bjarne");  // passing C-style String 
+  say_hello1("Bjarne");  // passing C-style String as C-style string is array of characters.
 
   std::string my_dog {"Buster"}; // C++ Style string
   say_hello1(my_dog); // passing a variable as argument
