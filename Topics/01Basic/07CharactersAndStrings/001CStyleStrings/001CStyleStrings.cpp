@@ -4,6 +4,8 @@
   C-Style Strings : should end with NULL Character \0 othervise there will be problems as  all c-style string functions 
   expect to find a null character.
   Always initilize c-style strings so they have NULL Character in the end
+  
+  C-Style String is a special case of an array of characters. 
 
   C++ is fun have 10 characters but compiler have allocated 11 characters for it.
 
@@ -17,6 +19,11 @@
     strlen - display lenght of a c-style string
 
     getline() - input user string 
+
+    void func (const char *s); // C-style string
+    void func(const char *s){
+      std::cout << "The value is: " << s << std::endl; 
+    }
 */
 
 #include <iostream>
