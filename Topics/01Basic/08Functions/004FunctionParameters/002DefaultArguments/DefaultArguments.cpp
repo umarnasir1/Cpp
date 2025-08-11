@@ -66,7 +66,7 @@ int main (){
   cost1 = calc_cost1 (200.0); // will use default tax and shipping
   std::cout << "Cost is: " << cost1 << std::endl; // 215,50
 
-  cost1 = calc_cost1();
+  cost1 = calc_cost1(); // will use default base cost, tax and shipping
   std::cout << "Cost is: " << cost1 << std::endl; // 109,50
 
   // Eg. 03 Multiple default arguments - Strings
