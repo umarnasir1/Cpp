@@ -96,7 +96,7 @@ void area_circle(){
   std::cout << "Enter the radius of circle: ";
   std::cin >> radius;
 
-  cout << "The area of a circle with radius " << radius << " is " << calc_area_circle(radius) << endl;
+  std::cout << "The area of a circle with radius " << radius << " is " << calc_area_circle(radius) << std::endl;
   return;
 }
 
