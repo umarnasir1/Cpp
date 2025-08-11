@@ -2,9 +2,12 @@
   Function Overloading
 
   Eg. 1: add_numbers
-  In this example, We have two functions that are both called add_numbers. The first function expects two integers and the second function expects two doubles.
+  In this example, We have two functions that are both called add_numbers. The first function expects two integers and the second function 
+    expects two doubles.
 
-  Notice that when we want to add two numbers, we dont have to think about different names. We will just use the function. The compiler will check the type of the arguments in the fucntion and match it to one of the available overloaded fucntion. (If it can't match it or if it can't convert the argument to one that matches, then we get a compiler error.)
+  Notice that when we want to add two numbers, we dont have to think about different names. We will just use the function. The compiler will 
+  check the type of the arguments in the fucntion and match it to one of the available overloaded fucntion. (If it can't match it or if it 
+  can't convert the argument to one that matches, then we get a compiler error.)
     If I call add numbers with two integers, then the int int version of the function is called.
     If I call add numbers with two doubles, then the double double version of the function is called.
 
@@ -15,7 +18,8 @@
   void display(double num = 125.5);  //individually ok
   display(); // main
 
-  There is will be problem if we gave default arguments to both display(int) and display(double) as now compiler cant figure out which one to use and will give compiler error
+  There is will be problem if we gave default arguments to both display(int) and display(double) as now compiler cant figure out which one 
+  to use and will give compiler error
 
   Eg. 3 Calculating Area
   a program that computes the area of two shapes, a square and a rectangle.
@@ -100,7 +104,7 @@ void display (std::string s, std::string t){
   std::cout << "Displaying 2 strings: " << s << " and " << t << std::endl;
 }
 
-void display (vector <int> v){
+void display (std::vector <int> v){
   std::cout << "Displaying vector of Integers: ";
   for (auto i: v)
     std::cout << i << " ";
