@@ -10,7 +10,8 @@
   Since we are passing the location of the array, the function can modify the actual array.
 
   // Eg03
-  The scenario in eg 2 (modifying of array values), can be avoided by making the function parameters const (read-only) - within the function body).In this case any attempt to modify the array will result in compiler error.
+  The scenario in eg 2 (modifying of array values), can be avoided by making the function parameters const (read-only) - within the function body).
+  In this case any attempt to modify the array will result in compiler error.
 */
 
 #include <iostream>
@@ -34,11 +35,10 @@ int main (){
   print_array(my_scores, 5); // 0 0 0 0 0
   set_array(my_scores, 5, 100);
   print_array(my_scores, 5); // 100 100 100 100 100
-  print_array(my_scores, 5); // 50000 100 100 100 100 with uncommented line - after adding const, this array will not change.
 
-  // std::cout << "\n------------ Eg. 03 ------------------------------" << std::endl;
-  // int my_numbers1 [] {6,7,8,9,10};
-  // print_array1(my_numbers1, 5); // Compiler error as function parameter is const (read-only)
+//  std::cout << "\n------------ Eg. 03 ------------------------------" << std::endl;
+//  int my_numbers1 [] {6,7,8,9,10};
+//  print_array1(my_numbers1, 5); // Compiler error as function parameter is const (read-only)
 
   std::cout << std::endl;
   return 0;
