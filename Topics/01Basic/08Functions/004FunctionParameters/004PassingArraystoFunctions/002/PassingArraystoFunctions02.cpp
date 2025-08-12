@@ -27,13 +27,13 @@ int main (){
 
 // Function Definition
 void print_guest_list(const std::string guest_list[], size_t guest_list_size){
-    for (size_t i{0}; i < guest_list_size; ++i)
+    for (size_t i{}; i < guest_list_size; ++i)
       std::cout << guest_list[i] << std::endl;
     return;
 }
 
 void clear_guest_list(std::string guest_list[], size_t guest_list_size){
-    for (size_t i{0}; i < guest_list_size; ++i)
+    for (size_t i{}; i < guest_list_size; ++i)
         guest_list[i] = " ";
     return;
 }
