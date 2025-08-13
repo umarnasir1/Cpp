@@ -1,5 +1,9 @@
 /*
   Scope Rules
+    Global Variable - declared outside any class or function
+    The compiler will look for variable in scope of function and if it doesnt find it will look for ouside the main() function. if the variable
+      is in the block it will use that variable. 
+    static - retains it value between calls so if reinitilizes, it will keep the value. 
 */
 
 #include<iostream>
@@ -40,13 +44,13 @@ int main (){
   // Eg. 02
   std::cout <<"\nExample 02 .........." << std::endl;
   int a {10}, b {20}, c {30};
-  func(a, b, c);  // 10 20 30 as the func(a,b,c) is not returning any thing
-  std::cout << a << " " << b << " " << c << std::endl;
+  func(a, b, c);  
+  std::cout << a << " " << b << " " << c << std::endl; // 10 20 30 as the func(a,b,c) is not returning any thing
   
   // Eg. 03
   std::cout <<"\nExample 03 .........." << std::endl;
-  func1(a, b, c); // 20 10 30 as address was passed in func1() thats why values are updated 
-  std::cout << a << " " << b << " " << c <<std::endl;
+  func1(a, b, c); 
+  std::cout << a << " " << b << " " << c <<std::endl; // 20 10 30 as address was passed in func1() thats why values are updated 
   return 0;
 }
 
@@ -54,7 +58,7 @@ int main (){
 void local_example(int x){
   int num {1000}; // local to local Example
   std::cout << "\nLocal num is: " << num << " in local_example - start" << std::endl;
-  num = x;
+  num = x; // scope -num of local block so that is changed.
   std::cout << "Local num is: " << num << " in local_example - end" << std::endl;
   // num1 in main is not within scope - so it cant be used here.
   return;
@@ -62,7 +66,7 @@ void local_example(int x){
 
 void global_example (){ // the compiler will look for num in scope of function and if it doesnt find it will look for ouside the main() function
   std::cout << "\nGlobal num is: " << num << " in global_example - start" << std::endl;
-  num *= 2;
+  num *= 2; // will update the global
   std::cout << "Global num is: " << num << " in global_example - end" << std::endl;
   return;
 }
