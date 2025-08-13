@@ -27,6 +27,7 @@ int func1(int a, int b) {
 
 void func2(int &x, int y, int z) {
     x+= y + z;
+    return;
 }
 
 /*             Memory for a program:
