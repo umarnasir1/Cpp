@@ -7,7 +7,7 @@
 #include<string>
 
 // Function Prototype
-void scale_number (int &num); // passing by reference
+void scale_number (int &num); // passing by reference - reference to a variable then the variable itself
 void swap (int &a, int &b);
 void print (std::vector <int> v); // pass by value
 void print1 (const std::vector <int> &v); // pass by reference version of above print function
@@ -15,6 +15,9 @@ void pass_by_ref1 (int &num);
 void pass_by_ref2 (std::string &s);
 void pass_by_ref3 (std::vector <std::string> &v);
 void print_vector (const std::vector <std::string> &v); // const - pass by reference version of above print function
+
+void func (int *p); //implimentation  of call by reference explicitely with pointers. 
+void func1 (int *p);
 
 int main(){
 
@@ -55,6 +58,16 @@ int main(){
   pass_by_ref3(stooges);
   std::cout << "stooges before calling pass_by_ref3: ";
   print_vector(stooges);
+
+  std::cout << "\n------------ Eg . 05 ------------------------------" << std::endl;
+  int a {7};
+  func(&a); // passing pointer to a through reference operator. its very clear here that we are passing my reference. 
+  std::cout << "Value of a: " << a << std::endl; //8
+
+  std::cout << "\n------------ Eg . 06 ------------------------------" << std::endl;
+  int b {47};
+  func1(&b); 
+  std::cout << "Value of b: " << b << std::endl; 
 
   return 0;
 }
@@ -112,4 +125,15 @@ void print_vector (const std::vector <std::string> &v){ // displays vector eleme
     std::cout << s << " ";
   std::cout << std::endl;
   return;
+}
+
+void func (int *p){ // p carries as its value, a pointer to a (which is passed to it)
+  ++*p; //dereferencing the pointer and incrementing it. 
+  return;   
+}
+
+void func1 (int *p){ 
+  *p=72;
+  std::cout << "Value is p: " << *p << std::endl;
+  return;   
 }
