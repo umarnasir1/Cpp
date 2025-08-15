@@ -11,6 +11,8 @@
     statements(s);
     return; // optional
   }
+
+  OBS! A function must be declared before it is used. So if no prototype, then fuction should be declared above main else there will be error: Use of undeclared identifier func.
 */
 
 #include<iostream>
