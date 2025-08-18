@@ -8,6 +8,8 @@
 
  conclusion: std::format is not supported yet
  We will be using format to format strings in this course. 
+
+ format() returns a string.
  */
 #include <cstdio>
 #include <format> // C++20
