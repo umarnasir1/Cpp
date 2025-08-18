@@ -2,6 +2,8 @@
   Recursive Functions 
    A function that call itself
   Eg. Factorial, Fibonacci
+
+  OBS! An implimentation of factorial without recursion is in Projects/Challenges/03Functions/002NonRecursiveFactorial.cpp
 */
 #include<iostream>
 
