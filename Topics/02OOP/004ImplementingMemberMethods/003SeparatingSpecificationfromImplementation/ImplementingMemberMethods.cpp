@@ -5,13 +5,10 @@
 
   ImplementingMemberMethods.cpp -- the main program driver which includes “Account.h”
   Account.cpp -- the Account implementation which also includes “Account.h”
-  Account.h -- the Account specification
+  Account.h -- the Account specification (Interface)
 */
 #include<iostream>
 #include "Account.h"
-
-using std::cout;
-using std::endl;
 
 int main(){
 
@@ -21,19 +18,19 @@ int main(){
   bjarne_account.set_balance(1000.0); // bjarne_account.balance = 1000.0; // compiler error as balance is private
 
   if (bjarne_account.deposit(200.0)) // if Account1::deposit1 function returns true
-    cout << "Deposit OK" << endl;
+    std::cout << "Deposit OK" << std::endl;
   else
-    cout << "Deposit Not allowed" << endl; // for whatever reason
+    std::cout << "Deposit Not allowed" << std::endl; // for whatever reason
 
   if (bjarne_account.withdraw(500.0)) // checking if greater than thre required withdraw amount is in account.
-    cout << "Withdraw OK" << endl;
+    std::cout << "Withdraw OK" << std::endl;
   else
-    cout << "Not sufficient funds" << endl;
+    std::cout << "Not sufficient funds" << std::endl;
 
   if (bjarne_account.withdraw(1500.0))
-    cout << "Withdraw OK" << endl;
+    std::cout << "Withdraw OK" << std::endl;
   else
-    cout << "Not sufficient funds" << endl;
+    std::cout << "Not sufficient funds" << std::endl;
 
   return 0;
 }
