@@ -20,6 +20,10 @@ struct S{
 int main(){
 
   S s1 {23, 34.2, "Test"}; // initializer list to initilize variable or object based on that structure.
+  // if S would have been a class then we would have got error here as in class the visibility is private by default and as attributes: i, d, s were private
+  //  they could not have been accessed. 
+  // In that case we can add public keywood if S was a class 
+
   // S - structure name; s1 - object name 
   std::cout << "s1: "<< s1.i << ", " << s1.d << ", " << s1.s << std::endl; // s1: 23, 34.2, Test
   s1.d = 73.0; // writing value 
