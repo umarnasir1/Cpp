@@ -38,7 +38,6 @@ int main(){
   for (auto const &str: stooges) // using const - to change of elements
     std::cout << str << std::endl; // Funny, Funny, Funny
 
-
   // -----------------------
   std::cout << "\nEg. 02------------------------------------------" << std::endl;
   int num {100};
