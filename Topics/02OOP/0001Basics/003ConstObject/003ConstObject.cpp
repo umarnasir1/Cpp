@@ -31,7 +31,7 @@ class c1{ // Class definition
 int main (){
   c1 o1; 
   o1.setvalue(92);
-  const c1 o2 = o1;
+  const c1 o2 {o1};
   std::cout<< "o1 value is : " << o1.getvalue() << std::endl; 
   std::cout<< "o2 value is : " << o2.getvalue() << std::endl; // will get error as for const object, const qualified getter is needed.
 }
