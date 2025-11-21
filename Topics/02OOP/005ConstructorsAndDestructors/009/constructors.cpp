@@ -45,7 +45,7 @@ Animal::~Animal() {
 
 Animal& Animal::operator = (const Animal &o) { // Overloading assignment operator
     std::cout << "assignment operator" << std::endl;
-    if(this != &o) { // checking on safe side; condition to check if we are not copying myself into myself. 
+    if(this != &o) { // checking on safe side; condition to check if "this" and rhs object "o" are differnt objects. 
         a_name = clone_prefix + o.a_name;
         a_type = o.a_type;
         a_sound = o.a_sound;
