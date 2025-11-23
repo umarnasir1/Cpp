@@ -20,7 +20,7 @@
 
 class c1{ // Class definition
   private: // even if we dont write private, it will be private by default
-    int value {}; // cannot initialize here; initialize with constructor or constructor initializer list.  
+    int value {};
   public: 
     void setvalue (int number) {value = number; }
     int getvalue () {return value; }

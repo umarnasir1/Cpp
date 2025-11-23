@@ -1,7 +1,7 @@
 #include <iostream>
 
 class C1 { // default data memebers are private 
-        int num1 {}; // cannot initialize here in classes
+        int num1 {}; 
         int num2 {}; 
         int num3 {};    
     public:
