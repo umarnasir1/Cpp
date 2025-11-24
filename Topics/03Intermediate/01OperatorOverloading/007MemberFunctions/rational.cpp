@@ -20,7 +20,7 @@ public:
     // 0 parameter = default (0/1); 1 parameter = x/1; 2 parameters = x/x  
     Rational(const Rational &rhs) : n(rhs.n), d(rhs.d) {} // copy constructor - constructor initializer list
     ~Rational(); // destructor
-    int numerator() const { return n; }; // getter
+    int numerator() const { return n; }; // getter- will be mainly used in non member operators example
     int denominator() const { return d; }; // getter 
     Rational reduce() const; // reduce fraction.
     std::string str() const; // return a formatted STL string
@@ -64,7 +64,7 @@ std::string Rational::raw_str() const {
 // can return a reference as its an assignment and it modifies the value in the object 
 Rational& Rational::operator = (const Rational &rhs) {
     if (this != &rhs) { // a check for if "this" and rhs are different objects
-        n = rhs.numerator(); // rhs.n - no need to use getter here 
+        n = rhs.numerator(); // rhs.n will work - no need to use getter here 
         d = rhs.denominator(); // rhs.d
     }
     return *this;
