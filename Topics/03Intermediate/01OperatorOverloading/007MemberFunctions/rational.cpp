@@ -1,6 +1,10 @@
 /*
-    Performs Four Function Arithmetic on Rational numbers as fractions 
-    temporary objects destroys each time when function ends.
+    Operator Overloading 
+        1. Member Functions as part of a class definition 
+            Performs Four Function Arithmetic on Rational numbers as fractions
+        2. Separate Non-member function (008NonMemberOperators)
+
+    Temporary objects destroys each time when function ends.
 */
 #include <iostream>
 #include <string>
