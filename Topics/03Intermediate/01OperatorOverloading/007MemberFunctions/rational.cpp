@@ -120,5 +120,13 @@ int main() {
     std::cout << "a * b = " << (a * b).str() << std::endl;
     std::cout << "a / b = " << (a / b).str() << std::endl;
 
+    // Rational object + integer literal 
+    std::cout << "b + 14 = " << (b + 14).str() << std::endl; 
+    // order of Operation 
+    // 1. Rational for 14. (14/1)
+    // 2. (b + 14) overloaded + (this=b; rhs=14)
+    // 3. Rational Result of b+14
+    // 4. str()
+
     return 0;
 }
