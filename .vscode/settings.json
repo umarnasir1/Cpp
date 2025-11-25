@@ -87,7 +87,10 @@
         "__bits": "cpp",
         "variant": "cpp",
         "__verbose_abort": "cpp",
-        "execution": "cpp"
+        "execution": "cpp",
+        "format": "cpp",
+        "charconv": "cpp",
+        "print": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
