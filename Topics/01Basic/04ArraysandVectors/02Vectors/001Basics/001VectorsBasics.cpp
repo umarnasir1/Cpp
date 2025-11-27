@@ -4,6 +4,7 @@
     (5) - 5 elements all initialized to zero
     (5, 2) - 5 elements all initialized to 2
     {5 ,2} - two elements, 5 and 2. 
+    OBS! () used when more elements, {} used when fixed elements, i.e., elements that are mentioned. 
   Syntax for accessing individual vector elements. 
     Array syntax
     Vector syntax
