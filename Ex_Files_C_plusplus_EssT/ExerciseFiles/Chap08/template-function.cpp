@@ -1,20 +1,19 @@
-// template-function.cpp by Bill Weinman [bw.org]
-// updated 2022-06-04
-#include <format>
+/*
+    Template Function that returns the maximum value of two parameters
+*/
 #include <iostream>
 
-using std::format;
-using std::cout;
-
-template<typename T>
+template<typename T>  // templateKeyWord<TemplateArgumentList>
 T maxof(T a, T b) {
     return a > b ? a : b;
 }
 
 int main() {
+
     int x {47};
     int y {73};
     auto z = maxof<int>(x, y);
-    cout << format("max is {}\n", z);
+    std::cout << "max is " << z << std::endl;
+
     return 0;
 }
