@@ -14,7 +14,7 @@
     Concatination (+, append())
     Compound Concatination
     String Methods
-      length()
+      length() - (length and size both do the same thing; Generally string has length and container has size)
       substr() - sub string
       erase() - removing characters from string
       input with C++ strings
@@ -23,13 +23,15 @@
           getline with delimiter
       find()- returns the index of substring in a std::string.
         find word in a string returns position of string or str::nopos (no position)
+      rfind() - find from right hand side  
       clear()
       compare()
       insert()
-      size()
+      size() - (length and size both do the same thing; Generally string has length and container has size)
       swap()
       erase()
       replace() -005 - stringName.replace(stringName.find("whatToFind"), whatToFind.size(), "whatToReplace")
+                        stringName.replace(starting_position, charactersToReplace, "whatToReplace")
 */
 #include<iostream>
 #include<string>
@@ -167,7 +169,7 @@ int main(){
   std::cout << "\nSize" << "\n-----------------------------------------" << std::endl;
   std::cout << "Length of " << tests2 << " is :" << tests2.size() <<std::endl; // 6
 
-  // for loop
+  // for loop / iteration
   std::cout << "\nLooping" << "\n-----------------------------------------" << std::endl;
 
   std::cout << s2 << std::endl;
@@ -175,10 +177,9 @@ int main(){
     std::cout << s2.at(i) << std::endl;  // or s2[i];
 
   // using range based for loop to display the string characters. (The null character will not be displayed for C++ string objects.)
-  std::cout << "\nusing range based for loop \n";
-  for (char c: s2)  // if we change char to int - it will display the integer values (ASCII codes) that represents those characters.
+  std::cout << "\nUsing range based for loop \n";
+  for (const auto &c: s2)  // if we change char to int - it will display the integer values (ASCII codes) that represents those characters.
     std::cout << c << std::endl;
-
 
   // Substrings - substr() - extracts a substring from a std::string.
   std::cout << "\nSubstring" << "\n-----------------------------------------" << std::endl;
@@ -240,6 +241,11 @@ int main(){
   else
     std::cout << "Sorry, the word - " << word << " - not found" << std::endl;
 
+  // rfind - find from right hand side  
+  std::string rfindstr {"This is a string"};
+  int pos = rfindstr.rfind("s"); //10
+  std::cout << "find last \"s\" in s1 (pos): " << pos << std::endl;  
+
   // clear() method
   // clear() - removing entire string of characters
   std::cout << "\nclear" << "\n-----------------------------------------" << std::endl;
@@ -258,7 +264,11 @@ int main(){
 
   formatted_full_name.insert(6, " "); //inset space at index 6
 
-  std::cout << "Formatted string :" << formatted_full_name << std::endl;
+  std::cout << "Formatted string :" << formatted_full_name << std::endl; //Bjarne Stroustrup
+
+  //insert using iterator 
+  s1.insert(s1.begin() + 3, 'X');
+  std::cout << "s1 after insert: " << s1 << std::endl; //C++X Rocks!
 
   // swap ()
   std::cout << "\nswap()" << "\n-----------------------------------------" << std::endl;
@@ -270,12 +280,23 @@ int main(){
 
   // swap()
   journal_entry_1.swap(journal_entry_2);
-  std::cout << "journal_entry_1: " << journal_entry_1 << std::endl;
-  std::cout << "journal_entry_2: " << journal_entry_2 << std::endl;
+  std::cout << "journal_entry_1: " << journal_entry_1 << std::endl; // Leibniz
+  std::cout << "journal_entry_2: " << journal_entry_2 << std::endl; // Isaac Newton
 
   // erase()
   // removing the first name of Isaac Newton along with white space.
-  journal_entry_1.erase(0,6); // Newton
+  journal_entry_1 = "Isaac Newton";
+  std::cout << "After Erase : " << journal_entry_1.erase(0,6) << std::endl; // Newton
+
+  // erase() using iterator 
+  journal_entry_2.erase(journal_entry_2.begin() + 6);
+  std::cout << "Erase Using Iterator: " << journal_entry_2 << std::endl; // Isaac ewton 
+
+  // replace
+  // stringName.replace(starting_position, charactersToReplace, "whatToReplace")
+  std::string st1 {"This is a string"};
+  st1.replace(5, 2, "ain't");
+  std::cout << "st1 after replace: " << st1 << std::endl; //This ain't a string
 
   // Alphabetically sorting
   if (journal_entry_2 < journal_entry_1) // 1 - as L is smaller than N in ASCII table lexically.
