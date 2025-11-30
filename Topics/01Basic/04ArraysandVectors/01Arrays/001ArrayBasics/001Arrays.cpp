@@ -28,7 +28,7 @@ int main(){
   // int test_scores [5] {100, 95, 99, 87, 88};
 
   // declaration and initialization via initializer list 
-  int test_scores [] {100, 95, 99, 87, 88};; // size parameter is ommited. The compiler will infer the size of the array from the initialization
+  int test_scores [] {100, 95, 99, 87, 88}; // size parameter is ommited. The compiler will infer the size of the array from the initialization
 
   //test_scores[0]; //100 also called array subscripting.
 
