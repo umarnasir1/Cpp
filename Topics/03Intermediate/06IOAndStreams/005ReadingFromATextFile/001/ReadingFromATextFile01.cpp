@@ -18,7 +18,7 @@ int main() {
     static char buf[128]; // for getline
     std::cout << "read the file:\n";
     std::ifstream infile(filename); // std::ifstream works like std::cin; infile - name
-    while (infile) { //good() ??
+    while (infile.good()) { // The good() function returns true if none of the stream's error flags are set. 
         infile.getline(buf, sizeof(buf)); // reading from a file
         std::cout << buf << '\n'; // printing out 
     }
