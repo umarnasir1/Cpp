@@ -108,17 +108,17 @@ int main(){
   };
   // array Syntax
   std::cout << "\nHere are the movie rating for reviewer #1 using array syntax :" << std::endl;
-  std::cout << movie_ratings[0][0] << std::endl;
-  std::cout << movie_ratings[0][1] << std::endl;
-  std::cout << movie_ratings[0][2] << std::endl;
-  std::cout << movie_ratings[0][3] << std::endl;
+  std::cout << movie_ratings[0][0] << std::endl; // 1
+  std::cout << movie_ratings[0][1] << std::endl; // 2
+  std::cout << movie_ratings[0][2] << std::endl; // 3
+  std::cout << movie_ratings[0][3] << std::endl; // 4
   
   // Vector Syntax
   std::cout << "\nHere are the movie rating for reviewer #1 using vector syntax :" << std::endl;
-  std::cout << movie_ratings.at(0).at(0) << std::endl;
-  std::cout << movie_ratings.at(0).at(1) << std::endl;
-  std::cout << movie_ratings.at(0).at(2) << std::endl;
-  std::cout << movie_ratings.at(0).at(3) << std::endl;
+  std::cout << movie_ratings.at(0).at(0) << std::endl; // 1
+  std::cout << movie_ratings.at(0).at(1) << std::endl; // 2
+  std::cout << movie_ratings.at(0).at(2) << std::endl; // 3
+  std::cout << movie_ratings.at(0).at(3) << std::endl; // 4
 
   return 0;
 }
