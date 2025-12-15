@@ -36,21 +36,21 @@ int main(){
   // Method 1 - Array Syntax
   // When we use the subscript operator in a vector, no bounds checking will be done. We have to do it ourself as with arrays.
   std::cout << "\nAccessing vector elements - array syntax" << std::endl;
-  std::cout << "Test score at index 0: " << test_scores[0] << std::endl;
-  std::cout << "Test score at index 1: " << test_scores[1] << std::endl;
-  std::cout << "Test score at index 2: " << test_scores[2] << std::endl;
-  std::cout << "Test score at index 3: " << test_scores[3] << std::endl;
-  std::cout << "Test score at index 4: " << test_scores[4] << std::endl;
+  std::cout << "Test score at index 0: " << test_scores[0] << std::endl; // 100
+  std::cout << "Test score at index 1: " << test_scores[1] << std::endl; // 98
+  std::cout << "Test score at index 2: " << test_scores[2] << std::endl; // 89
+  std::cout << "Test score at index 3: " << test_scores[3] << std::endl; // 85
+  std::cout << "Test score at index 4: " << test_scores[4] << std::endl; // 93
 
   // Method 2 -  Vector Syntax
   // object name  - name of vector - test_scores - at is the name of operation (method name)
   // 'at' method - we are asking the vector to give an element at a specific position - the value inside paranthesis.
   std::cout << "\nAccessing vector elements - vector syntax" << std::endl;
-  std::cout << "Test score at index 0: " << test_scores.at(0) << std::endl;
-  std::cout << "Test score at index 1: " << test_scores.at(1) << std::endl;
-  std::cout << "Test score at index 2: " << test_scores.at(2) << std::endl;
-  std::cout << "Test score at index 3: " << test_scores.at(3) << std::endl;
-  std::cout << "Test score at index 4: " << test_scores.at(4) << std::endl;
+  std::cout << "Test score at index 0: " << test_scores.at(0) << std::endl; // 100
+  std::cout << "Test score at index 1: " << test_scores.at(1) << std::endl; // 98
+  std::cout << "Test score at index 2: " << test_scores.at(2) << std::endl; // 89
+  std::cout << "Test score at index 3: " << test_scores.at(3) << std::endl; // 85
+  std::cout << "Test score at index 4: " << test_scores.at(4) << std::endl; // 93
 
   // Chaning/Modifying vector elements
   // using cin
@@ -71,15 +71,15 @@ int main(){
   // using assignment statement
   test_scores.at(0) = 90;
   test_scores.at(4) = 100;
-  std::cout << "\nUpdated value after assignment statement at index 0: " << test_scores.at(0) << std::endl;
-  std::cout << "\nUpdated value after assignment statement at index 4: " << test_scores.at(4) << std::endl;
+  std::cout << "\nUpdated value after assignment statement at index 0: " << test_scores.at(0) << std::endl; // 90
+  std::cout << "\nUpdated value after assignment statement at index 4: " << test_scores.at(4) << std::endl; // 100
 
   // Method - pushback, size (chaing size of a vector) - adding a new element at the end of vector
   // checking size
-  std::cout << "\nThere are " << test_scores.size() << " scores in the vector before push_back" << std::endl;
+  std::cout << "\nThere are " << test_scores.size() << " scores in the vector before push_back" << std::endl; // 5
   test_scores.push_back (80); // 80 added in the end of vector
   test_scores.push_back (90); // 90 added in the end of vector
-  std::cout << "\nThere are " << test_scores.size() << " scores in the vector after push_back" << std::endl;
+  std::cout << "\nThere are " << test_scores.size() << " scores in the vector after push_back" << std::endl; // 7
 
   // Alternative way for push_back
   std::cout << "\nEnter a test score to add to the vector: ";
@@ -89,7 +89,7 @@ int main(){
   std::cout << "\nEnter one more test score to add to the vector: ";
   std::cin >> score_to_add;
   test_scores.push_back (score_to_add);
-  std::cout << "\nThere are " << test_scores.size() << " scores in the vector after push_back (alternative method)" << std::endl;
+  std::cout << "\nThere are " << test_scores.size() << " scores in the vector after push_back (alternative method)" << std::endl; // 9
 
   // Exception1
   // What happens if we are using 'at' and we go out of bounds
