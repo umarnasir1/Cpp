@@ -11,6 +11,9 @@
     std::array supports algorithms, iterators
 
     std::array discussed in STL Section
+
+    Array initializer list 
+      int test_scores [] {100, 95, 99, 87, 88} // initializer list:{100, 95, 99, 87, 88}
 */
 
 #include <iostream>
@@ -22,20 +25,21 @@ int main(){
   // Always initialize arrays - or they will contain unknown values
   // if not initilized there can be junk values. e.g output
   
-  // Initilizing array via initializer list, that declares and assigns the values 1,2,3,4,5 to first five elements of the array
+  // Initilizing array via initializer list
 
   // normal declaration & initialization
-  // int test_scores [5] {100, 95, 99, 87, 88};
+  // int test_scores [5] {100, 95, 99, 87, 88};  
 
   // declaration and initialization via initializer list 
-  int test_scores [] {100, 95, 99, 87, 88}; // size parameter is ommited. The compiler will infer the size of the array from the initialization
+  int test_scores [] {100, 95, 99, 87, 88}; // size parameter is ommited. The compiler will infer the size of the array from the initialization & 
+  // and assigns the values 100, 95, 99, 87, 88 to first five elements of the array
 
   //test_scores[0]; //100 also called array subscripting.
 
   int high_score_per_level [10] {3, 5}; // initialize first two elements to 3,5 and remaining to 0 (if we put less initilizers)
 
   const int days_in_year {365};
-  double hi_tempratures [days_in_year] {}; // initilize all to zero
+  double hi_tempratures [days_in_year] {}; // initilize all 365 to zero
 
   // int test_scores1 [5]; // size of array is 5, Once defined the size of the array cannot be changed. 
   int test_scores1 [5] {}; // initilize all to zero - always initilize a newly created array
@@ -62,24 +66,24 @@ int main(){
   // Fifth score at index 0: -402196424
 
   // after initialization
-  std::cout << "First score at index 0: " << test_scores[0] << std::endl;
-  std::cout << "Second score at index 1: " << test_scores[1] << std::endl;
-  std::cout << "Third score at index 2: " << test_scores[2] << std::endl;
-  std::cout << "Fourth score at index 3: " << test_scores[3] << std::endl;
-  std::cout << "Fifth score at index 4: " << test_scores[4] << std::endl;
+  std::cout << "First score at index 0: " << test_scores[0] << std::endl; // 100
+  std::cout << "Second score at index 1: " << test_scores[1] << std::endl; // 95
+  std::cout << "Third score at index 2: " << test_scores[2] << std::endl; // 99
+  std::cout << "Fourth score at index 3: " << test_scores[3] << std::endl; // 87
+  std::cout << "Fifth score at index 4: " << test_scores[4] << std::endl; // 88
 
-  std::cout << "\nEnter 5 test scores: ";
-  std::cin >> test_scores[0];
-  std::cin >> test_scores[1];
-  std::cin >> test_scores[2];
-  std::cin >> test_scores[3];
-  std::cin >> test_scores[4];
+  // std::cout << "\nEnter 5 test scores: ";
+  // std::cin >> test_scores[0];
+  // std::cin >> test_scores[1];
+  // std::cin >> test_scores[2];
+  // std::cin >> test_scores[3];
+  // std::cin >> test_scores[4];
 
-  std::cout << "First score at index 1: " << test_scores[0] << std::endl;
-  std::cout << "Second score at index 2: " << test_scores[1] << std::endl;
-  std::cout << "Third score at index 3: " << test_scores[2] << std::endl;
-  std::cout << "Fourth score at index 4: " << test_scores[3] << std::endl;
-  std::cout << "Fifth score at index 5: " << test_scores[4] << std::endl;  // test_scores[-1] will give warning.
+  // std::cout << "First score at index 1: " << test_scores[0] << std::endl;
+  // std::cout << "Second score at index 2: " << test_scores[1] << std::endl;
+  // std::cout << "Third score at index 3: " << test_scores[2] << std::endl;
+  // std::cout << "Fourth score at index 4: " << test_scores[3] << std::endl;
+  // std::cout << "Fifth score at index 5: " << test_scores[4] << std::endl;  // test_scores[-1] will give warning.
 
 
   /************************************************************
@@ -89,11 +93,11 @@ int main(){
   // Example:2
   double hi_temps [] {90.1, 89.8, 77.5, 81.6};
 
-  std::cout << "The first high temprature is: " << hi_temps[0] << std::endl;
+  std::cout << "The first high temprature is: " << hi_temps[0] << std::endl; // 90.1
 
   hi_temps[0] = 100.7; // set the first element in hi_temps to 100.7
 
-  std::cout << "The first high temprature is now : " <<hi_temps[0] << std::endl;
+  std::cout << "The first high temprature is now : " <<hi_temps[0] << std::endl; // 100.7
 
   std::cout << hi_temps[5] << std::endl; // Garbage value - when using array [] indexing the compiler does not do bounds checking, that is 
   // one of the advantages of vectors. There will be warning but no error.
@@ -108,25 +112,24 @@ int main(){
   std::cout << *array << std::endl; // a
 
   // address of character array
-  std::cout << &array << std::endl;// 0x7ff7bfefe848 - address of the 4-character array, which is the same address as the first character of 
-  // the array.
+  std::cout << &array << std::endl;// 0x16fdfe084- address of the 4-character array, which is the same address as the first character of the array.
 
   uint64_t intarray[3] {1,2,3};
-  std::cout << intarray << std::endl; // 0x7ff7bfefe854- address of first element
-  std::cout << &intarray << std::endl; // 0x7ff7bfefe854 - address of first element
+  std::cout << intarray << std::endl; // 0x16fdfe090- address of first element
+  std::cout << &intarray << std::endl; // 0x16fdfe090 - address of first element
 
   // array elements can also be accessed as if the array were a pointer. 
   std::cout << *intarray << std::endl; // 1 - pointing to the first element of array
 
   // Pointer Access - Pointer Increment
   // if we want to assign the value to first element of the array
-  uint64_t *ip {intarray}; 
-  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea54, value is 1
-  *ip = 2; // [2, 2, 3]
-  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea54, value is 2
+  uint64_t *ip {intarray}; // pointer stores an address 
+  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x16fdfe090, value is 1
+  *ip = 2; // [2, 2, 3]; *ip - dereference
+  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x16fdfe090, value is 2
   ++ip; // incrementing the pointer so it points to the second element. 
   *ip = 3; // assigns the value 3 to the second element of the array. [2,3,3]
-  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea58, value is 3 (address increment by 32 bits, 4 bytes)
+  std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x16fdfe098, value is 3 (address increment by 32 bits, 4 bytes)
   *(++ip) = 4; // increment a pointer and using it in same expression [2,3,4]
   std::cout << "Pointer is: " << ip << ", value is " << *ip << std::endl; // Pointer is: 0x7ff7bfefea5c, value is 4 (address increment by 32 bits, 4 bytes)
   
